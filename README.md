@@ -1,2 +1,2 @@
 # Wall-et
-Proyecto final, billetera virtual
+Proyecto Final: Billetera virtual
