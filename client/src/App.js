@@ -6,7 +6,7 @@ import Home from "./Componets/Home/index";
 function App() {
   return (
     <div className="App">
-      <Route exact path="/t" componet={Home} />     
+      <Route exact path="/t"><Home/></Route> 
     </div>
   );
 }
