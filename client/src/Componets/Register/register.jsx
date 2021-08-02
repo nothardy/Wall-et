@@ -5,7 +5,7 @@ import './register.module.css';
 function register() {
     return (
         <div class="formulario">
-             <h2> Create your Account </h2>
+            <h2> Create your Account </h2>
         <form >
         <p>FullName</p>
             <input type="text" placeholder="FullName"  id="FullName" required value='' onChange= ''/>
@@ -23,11 +23,19 @@ function register() {
         <input class="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true"  value='' onChange= ''/>
         </div>
 
+        <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
 
-
-
+        <Link to='/LandingPage'> 
             <button onclick="">Create User</button>
+            </Link>
         </form>
+
+        <Link to='/forgotpassword'>
+            <p className='descriptionDetails'>Forgot Password</p>
+        </Link>
+        <Link to='/FAQ'>
+            <p className='descriptionDetails'>Frecuently Asked Questions</p>
+        </Link>
         </div>
     )
 }
