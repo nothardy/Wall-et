@@ -2,5 +2,5 @@ import axios from 'axios';
 
 export const getPrincipal = () =>{ 
     /* Holiisss */
-    /* Busho */
+    /* Bushooo */
 }
