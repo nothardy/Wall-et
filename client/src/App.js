@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route } from "react-router";
-import { Balance } from "./Components/Balance/Balance";
+import Balance from "./Components/Balance/Balance";
 import { Home } from "./Components/Home/Home";
 function App() {
   return (

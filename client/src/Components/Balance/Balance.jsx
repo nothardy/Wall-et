@@ -1,12 +1,27 @@
-import style from './Balance.module.css';
-import { Bar } from 'react-chartjs-2'
+import style from "./Balance.module.css";
+import { Bar } from "react-chartjs-2";
 
-export const Balance = () => {
-    return(
-        <div >
-           <h1>Balance</h1>
-        </div>
-    )
+function Balance() {
+  return (
+    <>
+      <Bar
+        data={{
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of votes",
+              data: [12, 9, 3, 5, 2, 3],
+            },
+          ],
+        }}
+        height={400}
+        width={600}
+        options={{
+          maintainAspectRatio: false,
+        }}
+      />
+    </>
+  );
 }
 
-export default Balance
+export default Balance;
