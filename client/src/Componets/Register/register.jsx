@@ -25,13 +25,13 @@ function Register() {
         e.preventDefault();
         
         try{
-                await fetch('http://localhost:3001/register',// poner ruta back
+                await fetch('http://localhost:3001/register',
             {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(input),
             })
-            alert('Account create succesfully!');
+            alert('Account created succesfully!');
         } catch(err){
             console.log(err.message)
             alert('We could not create account. Please try again.');
@@ -49,7 +49,7 @@ function Register() {
 
 
     return (
-        <div class="formulario">
+        <div className="formulario">
             <h2> Create your Account </h2>
         <form onSubmit={(e)=> handleSubmit(e)}>
         <p>FullName</p>
@@ -63,12 +63,12 @@ function Register() {
         <p>Repeat Password</p>
             <input type="password" placeholder="Repeat Password" id="password" required name='password' value={input.password} onChange= {handleChange}/>
             
-            <div class="form-row hide-inputbtns">
+            <div className="form-row hide-inputbtns">
         <label for="birthdate">Date of Birth</label>
-        <input class="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_data'  value={input.birth_data} onChange= {handleChange}/>
+        <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_data'  value={input.birth_data} onChange= {handleChange}/>
         </div>
 
-        <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+        <div className="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
 
         <Link to='/home'> 
             <button onclick="">Create User</button>
