@@ -1,39 +1,83 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './register.module.css';
+import { Link } from "react-router-dom";
 
 
 function register() {
+    const [input, setInput] = useState({
+		fullname:'',
+		dni:'',
+        mail:'',
+		password:'',
+		birth_data:''
+	});
+    const history = useHistory();
+
+    function handleChange(e){
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    async function handleSubmit  (e){
+        e.preventDefault();
+        
+        try{
+                await fetch('http://localhost:3001/',// poner ruta back
+            {
+                method: 'POST',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(input),
+            })
+            alert('Account create succesfully!');
+        } catch(err){
+            console.log(err.message)
+            alert('We could not create account. Please try again.');
+        }
+
+        setInput({
+            fullname:'',
+		dni:'',
+        mail:'',
+		password:'',
+		birth_data:''
+        })
+        history.push('/home');
+    }
+
+
     return (
         <div class="formulario">
             <h2> Create your Account </h2>
-        <form >
+        <form onSubmit={(e)=> handleSubmit(e)}>
         <p>FullName</p>
-            <input type="text" placeholder="FullName"  id="FullName" required value='' onChange= ''/>
+            <input type="text" placeholder="FullName"  id="FullName" required name='fullname' value={input.fullname} onChange={handleChange}/>
         <p>Identification Number</p>
-            <input type="text" placeholder="Identification Number" id="IdentificationNumber" required value='' onChange= ''/>
+            <input type="text" placeholder="Identification Number" id="IdentificationNumber" name='dni' required value={input.dni} onChange= {handleChange}/>
         <p>E-mail</p>
-            <input type="text" placeholder="E-mail"  id="E-mail" required value='' onChange= ''/>
+            <input type="text" placeholder="E-mail"  id="E-mail" required name='mail' value={input.mail} onChange= {handleChange}/>
         <p>Password</p>
-            <input type="password" placeholder="Password" id="password" required  value='' onChange= ''/>
+            <input type="password" placeholder="Password" id="password" required  name='password' value={input.password} onChange= {handleChange}/>
         <p>Repeat Password</p>
-            <input type="password" placeholder="Repeat Password" id="password" required value='' onChange= ''/>
+            <input type="password" placeholder="Repeat Password" id="password" required name='password' value={input.password} onChange= {handleChange}/>
             
             <div class="form-row hide-inputbtns">
         <label for="birthdate">Date of Birth</label>
-        <input class="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true"  value='' onChange= ''/>
+        <input class="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_data'  value={input.birth_data} onChange= {handleChange}/>
         </div>
 
         <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
 
-        <Link to='/LandingPage'> 
+        <Link to='/home'> 
             <button onclick="">Create User</button>
             </Link>
         </form>
 
-        <Link to='/forgotpassword'>
+        <Link to='/recoverpassword'>
             <p className='descriptionDetails'>Forgot Password</p>
         </Link>
-        <Link to='/FAQ'>
+        <Link to='/faq'>
             <p className='descriptionDetails'>Frecuently Asked Questions</p>
         </Link>
         </div>
