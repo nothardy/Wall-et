@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './register.module.css';
 import { Link } from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 
 
-function register() {
+function Register() {
     const [input, setInput] = useState({
 		fullname:'',
 		dni:'',
@@ -24,7 +25,7 @@ function register() {
         e.preventDefault();
         
         try{
-                await fetch('http://localhost:3001/',// poner ruta back
+                await fetch('http://localhost:3001/register',// poner ruta back
             {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
@@ -84,4 +85,4 @@ function register() {
     )
 }
 
-export default register
+export default Register
