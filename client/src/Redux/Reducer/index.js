@@ -1,14 +1,7 @@
-const initialState = {
-    count: [],
-    cokiees: {}
-}
+const initialState = [];
 
-function rootReducers(state = initialState, action){
+export const rootReducer = (state = initialState, { type, payload }) => {
+  return <div>pepe</div>;
+};
 
-    switch (action.type) {
-
-        default:
-            return state
-    }
-}
-export default rootReducers;
+export default rootReducer;

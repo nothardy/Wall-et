@@ -1,13 +1,17 @@
-/* import logo from "./logo.svg"; */
 import "./App.css";
-import { Route } from "react-router-dom";
-import Home from "./Componets/Home/index";
-
+import { Route } from "react-router";
+import { Balance } from "./Components/Balance/Balance";
+import { Home } from "./Components/Home/Home";
 function App() {
   return (
-    <div className="App">
-      <Route exact path="/t"><Home/></Route> 
-    </div>
+    <>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/balance">
+        <Balance />
+      </Route>
+    </>
   );
 }
 
