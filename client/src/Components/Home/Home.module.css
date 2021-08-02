@@ -1,0 +1,15 @@
+body{
+    background-color: #FA7C9D;
+}
+.base{
+   display: flex;
+   height: 50px;
+   background-color:  #64D5FA;
+}
+.parrafo{
+    margin-left: 20px; 
+    margin-top: 14px;
+}
+.home{
+    margin-top: 20px;
+}
