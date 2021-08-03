@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
           },
           
           mail: {
-              type: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
 
@@ -32,7 +32,6 @@ module.exports = (sequelize) => {
       
         ubication: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
       
         birth_date: {
@@ -44,17 +43,15 @@ module.exports = (sequelize) => {
         balance: {
             type: DataTypes.INTEGER,
             defaultValue: 0,
-            allowNull: false,
         },
 
         cvu: {
             type: DataTypes.STRING,
-            allowNull: false,
+
         },
 
         photo: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
 
         admin: {

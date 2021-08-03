@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L",
-    "test": "jest --verbose"
+    "start": "cross-env NODE_ENV=production nodemon -L",
+    "test": "cross-env NODE_ENV=test jest --verbose "
   },
   "author": "Henry",
   "license": "ISC",
@@ -31,5 +31,9 @@
     "nodemon": "^2.0.12",
     "supertest": "^6.0.1",
     "supertest-session": "^4.1.0"
+  },
+
+  "jest": {
+    "testEnvironment": "node"
   }
 }

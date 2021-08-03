@@ -12,22 +12,22 @@ module.exports = (sequelize) => {
 
         card_num: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true,
         },
 
         card_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
 
         card_expiration_data: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
 
         card_security_num: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
     })
 }
