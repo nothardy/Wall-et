@@ -1,0 +1,19 @@
+.grafico{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.balance{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.bar{
+    padding: 20px;
+}
+.line{
+    width: 100%;
+    height: 100%;
+}

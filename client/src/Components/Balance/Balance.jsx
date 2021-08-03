@@ -1,26 +1,16 @@
 import style from "./Balance.module.css";
-import { Bar } from "react-chartjs-2";
-
+import {Grafico} from './DataBalance'
+import {LineBalance} from './LineBalance'
+import {PieBalance} from './Pie'
 function Balance() {
+
   return (
-    <>
-      <Bar
-        data={{
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [
-            {
-              label: "# of votes",
-              data: [12, 9, 3, 5, 2, 3],
-            },
-          ],
-        }}
-        height={400}
-        width={600}
-        options={{
-          maintainAspectRatio: false,
-        }}
-      />
-    </>
+    <div className={style.grafico}>
+        <div className={style.balance}>
+            <LineBalance />
+            <PieBalance />
+        </div>
+    </div>
   );
 }
 
