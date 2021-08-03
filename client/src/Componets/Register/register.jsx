@@ -33,6 +33,7 @@ function Register() {
     const [captchaValido, cambiarCaptchaValido] = useState(null);
 	const [usuarioValido, cambiarUsuarioValido] = useState(false);
     const captcha= useRef(null);
+    const [loading, setLoading] = useState(false)
 
     function handleChange(e) {
         setUser({
@@ -47,7 +48,16 @@ function Register() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-                
+        setLoading(true)
+        if(captcha.current.getValue()){
+			console.log('El usuario no es un robot');
+			cambiarUsuarioValido(true);
+			cambiarCaptchaValido(true);
+		} else {
+			console.log('Por favor acepta el captcha');
+			cambiarUsuarioValido(false);
+			cambiarCaptchaValido(false);
+		}
         try {
             await fetch('http://localhost:3001/register',
                 {
@@ -56,40 +66,29 @@ function Register() {
                     body: JSON.stringify(user),
                 })
             alert('Account created succesfully!');
-            setUser({
-                fullname: '',
-                dni: '',
-                mail: '',
-                password: '',
-                birth_date: ''
-            })
-            history.push('/home');
+                
         } catch (err) {
             console.log(err.message)
             alert('We could not create account. Please try again.');
         }
-		
+        history.push('/home');
     }
 
+    
 
 function onChange() {
     if(captcha.current.getValue()){
         console.log('The user is not a robot');
-        cambiarUsuarioValido(true);
         cambiarCaptchaValido(true);
-    } else {
-        console.log('Por favor acepta el captcha');
-        cambiarUsuarioValido(false);
-        cambiarCaptchaValido(false);
-    
-    }
+        }
 }
 
 
     return (
         
         <div className="formulario">
-            
+            {!usuarioValido &&
+            <div>
             <h2> Create your Account </h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <p>FullName</p>
@@ -99,18 +98,18 @@ function onChange() {
                 <p>E-mail</p>
                 <input type="text" placeholder="E-mail"  required="required" name='mail' value={user.mail} onChange={handleChange} />
                 {errors.mail && (
-                  <p className=''>{errors.mail}</p>
-                  )} 
+                    <p className=''>{errors.mail}</p>
+                    )} 
                 <p>Password</p>
                 <input type="password" placeholder="Password" required="required" name='password' value={user.password} onChange={handleChange} />
                 {errors.password && (
-                   <p className=''>{errors.password}</p>
-                   )} 
+                    <p className=''>{errors.password}</p>
+                    )} 
                 <p>Repeat Password</p>
                 <input type="password" placeholder="Repeat Password"  required="required" name="password2" id="password2" value={user.password} onChange={handleChange} />
                 {errors.password && (
-                   <p className=''>{errors.password}</p>
-                   )}
+                    <p className=''>{errors.password}</p>
+                    )}
                 <div className="form-row hide-inputbtns">
                     <label for="birthdate">Date of Birth</label>
                     <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={user.birth_date} onChange={handleChange} />
@@ -123,10 +122,19 @@ function onChange() {
                     onChange={onChange}
                         />
                 </div>
-                {captchaValido === false && <div className="error-captcha">Por favor acepta el captcha</div>}
-                    <button type="submit">Create User</button>
-            </form>
 
+            
+                
+                    <button type="submit">Create User</button>
+                    {captchaValido === false && <div className="error-captcha">Por favor acepta el captcha</div>}
+                
+                </form>
+                </div>
+}{usuarioValido && 
+				<div>
+					<h1>Welcome!</h1>
+				</div>
+			}
             <Link to='/recoverpassword'>
                 <p className='descriptionDetails'>Forgot Password</p>
             </Link>
@@ -134,6 +142,7 @@ function onChange() {
                 <p className='descriptionDetails'>Frecuently Asked Questions</p>
             </Link>
         </div>
+                
     )
 }
 
