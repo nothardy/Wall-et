@@ -1,6 +1,9 @@
-import axios from 'axios';
-
+//import ruta_balance
 export const getPrincipal = () =>{ 
     /* Holiisss */
-    /* Busho */
+
+    /* Bushooo */
 }
+
+export const get_balance = () => {};
+

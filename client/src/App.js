@@ -1,15 +1,22 @@
-/* import logo from "./logo.svg"; */
 import "./App.css";
 import { Route } from "react-router-dom";
 import Home from "./Componets/Home/index";
 import Login from '../../client/src/Componets/Login/login';
+import Balance from "./Components/Balance/Balance";
+import { Home } from "./Components/Home/Home";
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <Route exact path="/" exact component={Login} />
-    </div>
-  );
+    <>
+      <Route exact path="/" >
+        <Home />
+      </Route>
+      <Route exact path="/mywallet"><Home/></Route> 
+      <Route path="/balance">
+        <Balance />
+      </Route>
+      <Route exact path='/login' exact component={Login} /> 
+    </>
+  )
 }
-
-export default App;
