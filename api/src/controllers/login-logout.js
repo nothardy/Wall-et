@@ -1,6 +1,14 @@
 require('dotenv').config();
+const cookieparser = require('cookie-parser');
 const session = require('express-session');
-const { User } = require('../db');
+const morgan = require('morgan');
+const { Account } = require('../db');
+
+
+morgan('dev');
+// El orden es importante, el cookieparser debe estar antes de la utilización del session
+cookieparser();
+
 
 session({
     name: 'sid',
@@ -14,14 +22,14 @@ async function login (req, res) {
     const { mail, password } = req.body;
     try {
         if (mail && password) {
-            const user = await User.findOne({ where: { mail: mail } });
+            const user = await Account.findOne({ where: { mail: mail } });
             if (user && user.password === password) {
                 req.session.userId = user.id;
                 return res.redirect('/home');
             }
-            return res.json({ error: "The username or password is incorrect" });
+            return res.redirect('/login');
         }
-        return res.json({ error: "The username or password is incorrect" });
+        return res.redirect('/login');
     } catch (error) {
         return res.json({ error: error })
     }
@@ -32,9 +40,10 @@ function logout (req, res) {
       if(err) {
         return res.redirect('/home');
       }
+      res.clearCookie('sid');
       res.redirect('/');
     })
-}
+  }
 
 module.exports = {
     login: login,
