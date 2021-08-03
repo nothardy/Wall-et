@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
             unique: true,
           },
 
-        card_num: {
+        card_num: { 
             type: DataTypes.STRING,
             allowNull: true,
         },
