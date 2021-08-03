@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './register.module.css';
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 function Register() {
@@ -13,6 +14,7 @@ function Register() {
         birth_data: ''
     });
     const history = useHistory();
+    const captcha= useRef(null);
 
     function handleChange(e) {
         setInput({
@@ -47,6 +49,13 @@ function Register() {
     }
 
 
+function onChange() {
+    if(captcha.current.getValue()){
+        console.log('The user is not a robot');
+    }
+}
+
+
     return (
         <div className="formulario">
             <h2> Create your Account </h2>
@@ -60,18 +69,21 @@ function Register() {
                 <p>Password</p>
                 <input type="password" placeholder="Password" required="required" name='password' value={input.password} onChange={handleChange} />
                 <p>Repeat Password</p>
-                <input type="password" placeholder="Repeat Password"  required="required" name='password' value={input.password} onChange={handleChange} />
+                <input type="password" placeholder="Repeat Password"  required="required" name="password2" id="password2" value={input.password} onChange={handleChange} />
 
                 <div className="form-row hide-inputbtns">
                     <label for="birthdate">Date of Birth</label>
                     <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_data' value={input.birth_data} onChange={handleChange} />
                 </div>
 
-                {/* <div className="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div> */}
-
-                
+                <div className="recaptcha">
+                <ReCAPTCHA
+                    ref={captcha}
+                    sitekey="6LfmRtcbAAAAAFHflEfIwe6cWeS89VI91LKYQ6sH"
+                    onChange={onChange}
+                        />
+                </div>
                     <button type="submit">Create User</button>
-               
             </form>
 
             <Link to='/recoverpassword'>
