@@ -22,44 +22,44 @@ module.exports = (sequelize) => {
 
         fullname: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
       
         dni: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
       
         ubication: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
       
         birth_date: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         
         
         balance: {
             type: DataTypes.INTEGER,
             defaultValue: 0,
-            allowNull: false,
+            allowNull: true,
         },
 
         cvu: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
 
         photo: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
 
         admin: {
             type: DataTypes.BOOLEAN,
-            defaultValue: false,
+            defaultValue: true,
         },
     })
 }
