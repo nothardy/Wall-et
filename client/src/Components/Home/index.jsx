@@ -26,10 +26,10 @@ const Home = () =>{
        
         <div className={s.container}>
             <Bar/>
-            <Admin/>
-            {/* <NavBar/>
+            {/* <Admin/> */}
+            <NavBar/>
             <TransactionHistory id={s.TransactionHistory} />
-            <Balance/> */}
+            <Balance/>
         </div>
       
     )
