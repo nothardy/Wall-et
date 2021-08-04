@@ -53,25 +53,30 @@ function Register() {
 			console.log('The user is not a robot');
 			cambiarUsuarioValido(true);
 			cambiarCaptchaValido(true);
-		} else {
+            try {
+                await fetch('http://localhost:3001/register',
+                    {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(input),
+                    })
+                alert('Account created succesfully!');
+                
+                
+            } catch (err) {
+                console.log(err.message)
+                alert('We could not create account. Please try again.');
+            }
+            history.push('/home');
+		} else{
 			console.log('Please accept the captcha');
 			cambiarUsuarioValido(false);
 			cambiarCaptchaValido(false);
-		
-        try {
-            await fetch('http://localhost:3001/register',
-                {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(input),
-                })
-            alert('Account created succesfully!');
-            history.push('/home');
-        } catch (err) {
-            console.log(err.message)
-            alert('We could not create account. Please try again.');
         }
-    }
+        
+    
+
+        
         
     }
 
