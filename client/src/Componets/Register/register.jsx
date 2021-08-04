@@ -26,7 +26,7 @@ function Register() {
         dni: '',
         mail: '',
         password: '',
-        birth_data: ''
+        birth_date: ''
     });
     const [errors, setErrors] = useState({});
     const history = useHistory();
@@ -118,8 +118,8 @@ function captchaChange() {
                     )}
                     </div> */}
                 <div className="form-row hide-inputbtns">
-                    <label for="birthdata">Date of Birth*</label>
-                    <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_data' value={input.birth_data} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31"/>
+                    <label for="birthdate">Date of Birth*</label>
+                    <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31"/>
                 </div>
 
                 <div className="recaptcha">
