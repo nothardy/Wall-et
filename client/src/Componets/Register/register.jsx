@@ -57,7 +57,7 @@ function Register() {
 			console.log('Please accept the captcha');
 			cambiarUsuarioValido(false);
 			cambiarCaptchaValido(false);
-		
+        }
         try {
             await fetch('http://localhost:3001/register',
                 {
@@ -73,7 +73,7 @@ function Register() {
         }
     }
         
-    }
+    
 
     
 
