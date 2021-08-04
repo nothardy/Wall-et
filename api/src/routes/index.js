@@ -1,6 +1,10 @@
 const { Router } = require('express');
 
-const logRoutes = require("./login-logout")
+
+
+
+
+const logRoutes = require("./login-logout");
 
 
 // Importar todos los routers;
@@ -12,6 +16,11 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use('/', logRoutes);
+
+
+
+//router.use('/home', home);
+//router.use("/register", register)
 
 
 
