@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.form{
+    position: absolute;
+    width: 12rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+#input{
+    position: absolute;
+    right: 11px;
+    width: 8rem;
+    outline: none;
+    border: none;
+    background: none;
+}
+
+#btn__lupa{
+    position: absolute;
+    left: 7px;
+    cursor: pointer;
+    width: 1.7rem;
+}
+/* #btn__lupa img{
+    width: 1.4rem;
+} */
