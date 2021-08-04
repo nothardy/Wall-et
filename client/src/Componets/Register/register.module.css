@@ -1,0 +1,15 @@
+form {
+    margin: 20px auto;
+    width: 420px;
+}
+.form-row {
+    padding: 5px 10px;
+}
+label {
+    display: block;
+    margin: 3px 0;
+}
+.form-row input {
+    padding: 3px 1px;
+    width: 220px;
+}
