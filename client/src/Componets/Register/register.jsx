@@ -13,7 +13,7 @@ export function validate(input) {
     }
     if (!input.password) {
         errors.password = 'Required password';
-      } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/gm.test(input.password)) {
+      } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
         errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
       }
   
@@ -72,8 +72,10 @@ function Register() {
 			console.log('Please accept the captcha');
 			cambiarUsuarioValido(false);
 			cambiarCaptchaValido(false);
-        }             
-    }   
+        }
+    }
+
+    
 
 function captchaChange() {
     if(captcha.current.getValue()){
