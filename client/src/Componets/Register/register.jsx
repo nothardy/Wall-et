@@ -57,7 +57,7 @@ function Register() {
 			console.log('Please accept the captcha');
 			cambiarUsuarioValido(false);
 			cambiarCaptchaValido(false);
-		}
+		
         try {
             await fetch('http://localhost:3001/register',
                 {
@@ -66,12 +66,13 @@ function Register() {
                     body: JSON.stringify(input),
                 })
             alert('Account created succesfully!');
-                
+            history.push('/home');
         } catch (err) {
             console.log(err.message)
             alert('We could not create account. Please try again.');
         }
-        history.push('/home');
+    }
+        
     }
 
     
