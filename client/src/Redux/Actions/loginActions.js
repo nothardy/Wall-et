@@ -5,26 +5,17 @@ const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
 const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR';
 
-export const login =
-  ({ email, password }) =>
-  async (dispatch) => {
-    try {
-      dispatch({
-        type: USER_LOGIN_REQUEST,
-      });
-
-      const data = await axios.post('http://localhost:3001/login', {
-        email,
-        password,
-
-      });
+export const login = (mail, password) => async (dispatch) => {
+    dispatch({ type: USER_LOGIN_REQUEST, payload: { mail, password }});
+      try {
+const data = await axios.post('http://localhost:3001/login', {mail, password});
       switch (data.request.status) {
         case 200:
           dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: data.data,
           });
-          localStorage.setItem("userInfo", JSON.stringify(data));
+          localStorage.setItem("user", JSON.stringify(data));
           window.location.href = "/home";
           break;
         case 401:
@@ -45,7 +36,7 @@ export const login =
           break;
       }
     } catch (error) {
-      swal("Credenciales Incorrectas", { icon: "warning" });
+      swal("Wrong Credentials", { icon: "warning" });
       dispatch({
         type: USER_LOGIN_ERROR,
         payload: error,
