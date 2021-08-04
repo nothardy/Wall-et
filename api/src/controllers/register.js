@@ -6,7 +6,8 @@ const bcrypt = require('bcrypt');
 async function register(req, res, next) {
     const { fullname , password, dni, mail, birth_date } = req.body;
     try {
-      if (!fullname || !password || !dni ||!mail || !birth_date) {throw new Error ("All fields are required ")};
+      if (password.length === 0 || !password ) {throw new Error ("Invalid Password")}
+      if (!fullname || !dni ||!mail || !birth_date) {throw new Error ("All fields are required ")};
     if (password.length<8) {throw new Error ("Password it too short, should have 8 characters")};
     const hashedPassword = await bcrypt.hash(password, 12);
     await Account.create({
