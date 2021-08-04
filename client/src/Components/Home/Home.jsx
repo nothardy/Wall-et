@@ -19,6 +19,7 @@ const dispatch =  useDispatch();
                     Balance
                 </button>
                 </Link>
+                
                 </div>
             </div>
 

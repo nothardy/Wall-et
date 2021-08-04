@@ -1,13 +1,14 @@
-import {Line} from 'react-chartjs-2'
-import {style} from './Balance.module.css'
-export function  LineBalance () {
+import {Line} from 'react-chartjs-2';
+import {style} from './Balance.module.css';
+
+
+export function  LineBalance (props) {
     const state = {
-        labels:[ "Enero" , "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-          "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        labels :[ "Enero" , "Febrero", "Marzo", "Abril", "Mayo", ],
           datasets: [
             {
               label: "Gastos",
-              data: [12, 9, 3, 5, 2, 3, 6 , 7, 6.50, 9, 11, 9 ],
+              data : [12, 9, 3, 5, 2], //eje y
               backgroundColor : "#D62793"
             },
           ],
@@ -21,7 +22,7 @@ export function  LineBalance () {
         maintainAspectRatio: false,
     }
     return (
-        <div className={styleMedia.line}>
+        <div className={style.line}>
         <Line 
             data={state}
             options={options}
