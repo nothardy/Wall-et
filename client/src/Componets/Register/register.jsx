@@ -72,15 +72,8 @@ function Register() {
 			console.log('Please accept the captcha');
 			cambiarUsuarioValido(false);
 			cambiarCaptchaValido(false);
-        }
-        
-    
-
-        
-        
-    
-
-    
+        }             
+    }   
 
 function captchaChange() {
     if(captcha.current.getValue()){
