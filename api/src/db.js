@@ -44,8 +44,8 @@ const { Account, Transaction, Card } = sequelize.models;
 Account.belongsToMany(Transaction, { through: 'transaction_acount' });
 Transaction.belongsToMany(Account, { through: 'transaction_acount' });
 
-Card.hasMany(Account);
-Account.belongsTo(Card);
+Account.hasMany(Card);
+Card.belongsTo(Account);
 
 
 /* Account.belongsToMany(Account, {through: 'user_contact'}) */
