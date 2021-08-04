@@ -6,7 +6,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST, NODE_ENV,
 } = process.env;
 
-const sequelize = NODE_ENV === 'production' ? new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`, {
+const sequelize = NODE_ENV === 'production' ? new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_PRODUCTION}`, {
   logging: false,
   native: false, 
 }) : 
