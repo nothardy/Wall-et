@@ -6,7 +6,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_PRODUCTION}`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`, {
   logging: false,
   native: false, 
 });
@@ -38,8 +38,8 @@ const { Account, Transaction, Card } = sequelize.models;
 Account.belongsToMany(Transaction, { through: 'transaction_acount' });
 Transaction.belongsToMany(Account, { through: 'transaction_acount' });
 
-Card.hasMany(Account);
-Account.belongsTo(Card);
+Account.hasMany(Card);
+Card.belongsTo(Account);
 
 
 /* Account.belongsToMany(Account, {through: 'user_contact'}) */
