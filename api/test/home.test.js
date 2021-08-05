@@ -14,6 +14,7 @@ const users = [{
     ubication: 'Hurlingham',
     birth_date: '03/11/99', 
     cvu: 'ffas5f',
+    balance: 88,
     photo: 'fdsfsdaf',
 }, {
     mail: 'Waleeeet@gmail.com',
@@ -59,10 +60,10 @@ describe('test routes', () => {
             .then(() => Account.create(admin))
             .then(() => Account.bulkCreate(users))
             ); 
-       /*  beforeEach(() => Transaction.sync({ force: true })
+        beforeEach(() => Transaction.sync({ force: true })
             .then(() => api
             .get('/create')
-            )); */
+            ));
 
         test('info', async () => {
             await api 

@@ -6,10 +6,11 @@ const { infoAdmin, infoUser } = require('../controllers/infoHome')
 
 route.use('/', async (req, res) => {
     try {
-        const loger = req.query.admin;
+        const { admin, mail } = req.query;
 
-        loger === 'true' ? res.status(200).json(await infoAdmin()) : 
-        res.status(200).json(await infoUser())
+        const correo = 'Waleeeet@gmail.com'
+        admin === 'true' ? res.status(200).json(await infoAdmin(mail)) : 
+        res.status(200).json(await infoUser(correo))
     }
     catch(err){
         res.status(400).json({err: err})
