@@ -3,6 +3,7 @@ import './register.module.css';
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
+import {r } from './register.module.css';
 
 export function validate(input) {
     let errors = {};
@@ -89,39 +90,39 @@ function Register() {
 
     return (
 
-        <div className="formulario">
+        <div className={r.formulario}>
             {!usuarioValido &&
                 <div>
-                    <h2> Create your Account </h2>
+                    <h2 className={r.create}> Create your Account </h2>
                     <form onSubmit={(e) => handleSubmit(e)}>
-                        <p>FullName*</p>
+                        <p className={r.titles}>FullName*</p>
                         <input type="text" placeholder="FullName" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} />
-                        <p>Identification Number*</p>
+                        <p className={r.titles}>Identification Number*</p>
                         <input type="text" placeholder="Identification Number" name='dni' required="required" value={input.dni} onChange={handleChange} />
 
                         <div>
-                            <p>E-mail*</p>
+                            <p className={r.titles}>E-mail*</p>
                             <input type="text" placeholder="E-mail" required="required" name='mail' value={input.mail} onChange={handleChange} />
                             {errors.mail && (
                                 <p className=''>{errors.mail}</p>
                             )}
                         </div>
                         <div>
-                            <p>Password*</p>
+                            <p className={r.titles}>Password*</p>
                             <input type="password" placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} />
                             {errors.password && (
                                 <p className=''>{errors.password}</p>
                             )}
                         </div>
-                        {/* <div>
-                <p>Repeat Password*</p>
+                        <div>
+                <p className={r.titles}>Confirm Password*</p>
                 <input type="password" placeholder="Repeat Password"  required="required" name="password2" id="password2" value={user.password} onChange={handleChange} />
                 {errors.password && (
                     <p className=''>{errors.password}</p>
                     )}
-                    </div> */}
+                    </div>
                         <div className="form-row hide-inputbtns">
-                            <label for="birthdate">Date of Birth*</label>
+                            <label for="birthdate" className={r.titles}>Date of Birth*</label>
                             <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" />
                         </div>
 
@@ -136,21 +137,21 @@ function Register() {
 
 
                         {captchaValido === false && <div className="error-captcha">Please accept the captcha</div>}
-                        <button type="submit">Create User</button>
+                        <button type="submit" className={r.buttoncreate}>Create User</button>
 
 
                     </form>
                 </div>
             }
             <Link to='/recoverpassword'>
-                <p className='descriptionDetails'>Forgot Password</p>
+                <p className={r.descriptionDetails}>Forgot Password</p>
             </Link>
             <Link to='/faq'>
-                <p className='descriptionDetails'>Frecuently Asked Questions</p>
+                <p className={r.descriptionDetails}>Frecuently Asked Questions</p>
             </Link>
-            <p>You already have an account?</p>
+            <p className={r.descriptionDetails}>You already have an account?</p>
             <Link to='/loging'>
-                <p className=''>Log in</p>
+                <p className={r.descriptionDetails}>Log in</p>
             </Link>
         </div>
 
