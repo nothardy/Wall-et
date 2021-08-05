@@ -10,6 +10,7 @@ const users = [{
     password: 'ddfqe4332',
     fullname: 'Walter Rodriguez',  
     dni: '4458795',
+    balance: 898,
     ubication: 'Hurlingham',
     birth_date: '03/11/99', 
     cvu: 'ffas5f',
@@ -54,7 +55,7 @@ describe('test routes', () => {
     }));
 
     describe('Route home-user', () => {
-        beforeEach(() => Account.sync({ })
+        beforeEach(() => Account.sync({ force: true })
             .then(() => Account.create(admin))
             .then(() => Account.bulkCreate(users))
             ); 
