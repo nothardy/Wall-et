@@ -3,7 +3,7 @@ import './register.module.css';
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
-import {r } from './register.module.css';
+import r from './register.module.css';
 
 export function validate(input) {
     let errors = {};
@@ -54,9 +54,9 @@ function Register() {
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
             return alert('Invalid Email');
         };
-        if (input.password !== input.confirmPassword) {return alert("Passwords don't match");}
         if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) { return alert("Password must contain eight characters, an uppercase letter, and a number.") };
-        if (captcha.current.getValue()) {
+        if (input.password !== input.confirmpassword) { return alert("Passwords don't match")}
+        if (captcha.current.getValue() ) {
             console.log('The user is not a robot');
             cambiarUsuarioValido(true);
             cambiarCaptchaValido(true);
