@@ -1,15 +1,3 @@
-const getMaxExpense = (transactions) => {
-  let expenses = transactions.map((transaction) => transaction.amount);
-  let maxExpense = Math.max(...expenses);
-  return maxExpense;
-};
-
-function linspace(start, stop, num, endpoint = true) {
-  const div = endpoint ? num - 1 : num;
-  const step = (stop - start) / div;
-  return Array.from({ length: num }, (_, i) => start + step * i);
-}
-
 export const setAxis = (transactions) => {
   // set x Axis
   let xAxis = [];
@@ -27,8 +15,6 @@ export const setAxis = (transactions) => {
     (month) => month.amount
   );
 
-  //let maxExpense = getMaxExpense(transactions);
-  //let yAxis = linspace(0, maxExpense, 5);
   return [xAxis.reverse(), yAxis];
 };
 
@@ -78,10 +64,6 @@ const orderTransactions = (transactions, xAxis) => {
       uniqueTransactions.splice(i, 1);
   }
 
-  //uniqueTransactions.filter(transaction=>{
-  // let date= new Date(2021, transaction.month, 1)
-  //   return xAxis.includes(date.getMonth())
-  // })
   let months = xAxis
     .map((month) => new Date(Date.parse(month + " 1, 2012")).getMonth() + 1)
     .toString();

@@ -7,7 +7,6 @@ import style from "./Balance.module.css";
 // ["Enero", "Febrero", "Marzo", "Abril", "Mayo"]
 export function LineBalance(props) {
   const [xAxis, yAxis] = setAxis(props.userInfo.transactions);
-  console.log(xAxis);
   const state = {
     labels: xAxis,
     datasets: [
