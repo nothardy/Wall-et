@@ -8,7 +8,7 @@ const api = supertest(app);
 const users = [{
     mail: 'Wal@gmail.com',
     password: 'ddfqe4332',
-    fullname: 'Walter Rodriguez',  
+    fullname: 'Walter Rodriguez',
     dni: '4458795',
     balance: 898,
     ubication: 'Hurlingham',
@@ -19,7 +19,7 @@ const users = [{
 }, {
     mail: 'Waleeeet@gmail.com',
     password: '4445DDS9Awwa',
-    fullname: 'Franquiño',  
+    fullname: 'Franquiño',
     dni: '445778796',
     balance: 879,
     ubication: 'Hurlingham',
@@ -29,7 +29,11 @@ const users = [{
 } , {
     mail: 'Frans@gmail.com',
     password: '4332',
+<<<<<<< HEAD
     fullname: 'Agüero',  
+=======
+    fullname: 'Agüero',
+>>>>>>> 0fc4607e7ca63618903623cb10359692006529b1
     balance: 1000,
     dni: '565jjggr5',
     ubication: 'Ham',

@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const route = require('./home.routes');
 const home = require('./home.routes')
+const adminSearch = require('./searchUser.routes')
 const { Transaction, Account, transaction_acount } = require('../db');
 
 
@@ -10,6 +10,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use('/home', home)
+router.use('/adminSearch', adminSearch)
 
 const creaate = async ( { from, to, amount, type_transaction, state, user } ) => {
 
