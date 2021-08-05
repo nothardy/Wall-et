@@ -116,7 +116,7 @@ function Register() {
                     <h2 className={r.create}> Create your Account </h2>
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <p className={r.titles}>FullName*</p>
-                        <input type="text" placeholder="FullName" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} />
+                        <input type="text" placeholder="Full Name" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} />
                         <p className={r.titles}>Identification Number*</p>
                         <input type="text" placeholder="Identification Number" name='dni' required="required" value={input.dni} onChange={handleChange} />
 
