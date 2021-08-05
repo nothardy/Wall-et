@@ -5,7 +5,7 @@ const { Account, Card, Transaction, conn } = require('../src/db.js')
 
 const api = supertest(app);
 
-const user = {
+const users = [{
     mail: 'Wal@gmail.com',
     password: 'ddfqe4332',
     fullname: 'Walter Rodriguez',  
@@ -14,7 +14,25 @@ const user = {
     birth_date: '03/11/99', 
     cvu: 'ffas5f',
     photo: 'fdsfsdaf',
-}
+}, {
+    mail: 'Waleeeet@gmail.com',
+    password: '4445DDS9Awwa',
+    fullname: 'Franquiño',  
+    dni: '445778796',
+    ubication: 'Hurlingham',
+    birth_date: '04/01/97', 
+    cvu: 'ffas5sdsdsdwd',
+    photo: 'fds',
+} , {
+    mail: 'Frans@gmail.com',
+    password: '4332',
+    fullname: 'Agüero',  
+    dni: '565jjggr5',
+    ubication: 'Ham',
+    birth_date: '7/9/98', 
+    cvu: 'ffayfyfdyjhvjvs5f',
+    photo: 'ojoh8977f',
+}]
 
 const admin = {
          mail: 'Weeel@gmail.com',
@@ -28,6 +46,7 @@ const admin = {
         admin: true
 }
 
+
 describe('test routes', () => {
     beforeEach(() => conn.authenticate()
     .catch((err) => {
@@ -35,15 +54,26 @@ describe('test routes', () => {
     }));
 
     describe('Route home-user', () => {
-        beforeEach(() => Account.sync()
-            .then(() => Account.create(admin)));
+        beforeEach(() => Account.sync({ })
+            .then(() => Account.create(admin))
+            .then(() => Account.bulkCreate(users))
+            ); 
+       /*  beforeEach(() => Transaction.sync({ force: true })
+            .then(() => api
+            .get('/create')
+            )); */
 
         test('info', async () => {
             await api 
-                    .get('/home')
-                    .send({mail: 'Weeel@gmail.com'})
+                    .get('/home?admin=true')
+                    //.send({mail: 'Weeel@gmail.com'})
                     .expect(200)
+                    .expect(res => {
+                        expect(res.body.length).toEqual(3);
+                        expect(res.body[1].account_data.mail).toEqual("Wal@gmail.com")
+                    })
                    
         })
+    
     })
 })
