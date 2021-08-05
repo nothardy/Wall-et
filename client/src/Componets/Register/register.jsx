@@ -43,7 +43,7 @@ function Register() {
     
     const handleShowHide = () => {
         setShow(!show);
-        setShowpass2(!showpass2);
+        
         }
         const handleShowHide2 = () => {
             
