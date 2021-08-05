@@ -4,11 +4,10 @@ const { verifyToken } =require('../middlewares/verifyToken') // esto es para cua
 //requieran la info del usuario. Necesita la autorizacion
 const {Account} = require('../db')
 
-//----------------------
-
 router.post('/login', login);
 router.post('/logout', logout);
 
+//---------ESTO HAY QUE ELIMINARLO AL UNIR TODAS LAS BRANCH
 router.post('/register', async (req, res) => {
     try {const { mail, password } = req.body;
     const user = {
@@ -19,5 +18,7 @@ router.post('/register', async (req, res) => {
     return res.send(newUser);
 } catch {}
 });
+//------------------------------------------------------
+
 
 module.exports = router;
