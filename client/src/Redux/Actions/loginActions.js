@@ -14,7 +14,7 @@ export const login = ({ mail, password }) => async (dispatch) => {
    return axios.post('/auth/login', { mail, password })
    .then(response => {
      dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data });
-     window.location.href = "/home";
+     window.location.href = "/mywallet";
     })
    
    .catch(error => swal('Wrong Credentials', { icon: 'warning'}));

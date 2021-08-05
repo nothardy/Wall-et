@@ -12,7 +12,7 @@ const login = async (req, res) => {
     };
     //reemplazar esto cuando se unan todas las ramas
     //if the password is wrong
-    if(bcrypt.compareSync(password, user.password)) {
+    if(!bcrypt.compareSync(password, user.password)) {
       return res.status(401).send({ auth: false, token: null });
     };
     //if the data is correct

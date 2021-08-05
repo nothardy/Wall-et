@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { login } from '../../../src/Redux/Actions/loginActions';
-import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import s from'./login.module.css';
 
-export function validate(input) {
+export function validate(user) {
     let errors = {};
-    if (!input.mail) {
-      errors.mail = 'Required mail';
-    } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
-      errors.mail = 'Invalid  ';
+
+    if (!user.mail) {
+      errors.mail = ('Required Email')
+    } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(user.mail)) {
+      errors.mail = 'Invalid Email ';
     }
-    if (!input.password) {
+    if (!user.password) {
         errors.password = 'Required password';
-      } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
-        errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
+      } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(user.password)) {
+        errors.password = 'The password must contain 8 Characters, an Uppercase Letter, and a Number.';
       }
     return errors;
   };
@@ -28,7 +28,9 @@ const Login = () => {
         mail:'',
         password:''
     });
+
 const [ show, setShow ] = useState(false);
+
 const [errors, setErrors] = useState({});
 
 const dispatch = useDispatch(); 
@@ -68,7 +70,7 @@ function handleChange(e) {
                             placeholder="example@mail.com"
                             onChange={handleChange}/>
                             {errors.mail && (
-                        <p>{errors.mail}</p>
+                        <p className={s.errors}>{errors.mail}</p>
                     )}
                     </div>
                     <div> 
@@ -79,25 +81,25 @@ function handleChange(e) {
                                 required='required'
                                 name='password'
                                 value={user.password}
-                                placeholder = "Password..."
+                                placeholder = "Enter your Password..."
                                 onChange={handleChange}/>
+                                    {show ? (
+                                        <FontAwesomeIcon 
+                                        onClick={handleShowHide} 
+                                        icon={faEye} 
+                                        className={s.icon} 
+                                        id='show_hide' /> 
+                                        ) : (
+                                        <FontAwesomeIcon 
+                                        onClick={handleShowHide} 
+                                        icon={faEyeSlash} 
+                                        className={s.icon} 
+                                        id='show_hide' /> 
+                                        )
+                                    }
                                 {errors.password && (
-                        <p>{errors.password}</p>
-                    )}
-                            {show ? (
-                                <FontAwesomeIcon 
-                                onClick={handleShowHide} 
-                                icon={faEye} 
-                                className={s.icon} 
-                                id='show_hide' /> 
-                                ) : (
-                                <FontAwesomeIcon 
-                                onClick={handleShowHide} 
-                                icon={faEyeSlash} 
-                                className={s.icon} 
-                                id='show_hide' /> 
-                                )
-                            }
+                        <p className={s.errors}>{errors.password}</p>
+                                )}
                             
                         </div>
                             <Link to='/recoverpassword'>
