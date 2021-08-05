@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { login } from '../../../src/Redux/Actions/loginActions';
-import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import s from'./login.module.css';
@@ -28,7 +27,9 @@ const Login = () => {
         mail:'',
         password:''
     });
+
 const [ show, setShow ] = useState(false);
+
 const [errors, setErrors] = useState({});
 
 const dispatch = useDispatch(); 
