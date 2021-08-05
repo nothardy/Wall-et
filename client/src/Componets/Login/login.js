@@ -10,16 +10,15 @@ import s from'./login.module.css';
 export function validate(input) {
     let errors = {};
     if (!input.mail) {
-      swal('Required Email', { icon: 'warning'});
+      errors.mail = 'Required Email';
     } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
-      swal('Invalid Email', { icon: 'warning' });
+      errors.mail = 'Invalid Email ';
     }
     if (!input.password) {
-        swal('Required password', { icon: 'warning'});
+        errors.password = 'Required password';
       } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
-        swal('The password must contain eight characters, an uppercase letter, and a number', { icon: 'warning'});
+        errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
       }
-  
     return errors;
   };
 

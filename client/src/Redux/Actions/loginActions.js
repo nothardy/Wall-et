@@ -19,41 +19,4 @@ export const login = ({ mail, password }) => async (dispatch) => {
     })
    
    .catch(error => swal('Wrong Credentials', { icon: 'warning'}));
-
-//       try {
-// const { data } = await axios.post('http://localhost:3001/auth/login', user);
-// console.log(data)
-//       switch (data.request.status) {
-//         case 200:
-//           dispatch({
-//             type: USER_LOGIN_SUCCESS,
-//             payload: data.data,
-//           });
-//           localStorage.setItem("user", JSON.stringify(data));
-//           
-//           break;
-//         case 401:
-//           dispatch({
-//             type: USER_LOGIN_ERROR,
-//             payload: data.error,
-//           });
-//           swal("Not allow", { icon: "warning" });
-//           break;
-//         case 500:
-//           dispatch({
-//             type: USER_LOGIN_ERROR,
-//             payload: data.error,
-//           });
-//           swal("Internal server error", { icon: "warning" });
-//           break;
-//         default:
-//           break;
-//       }
-//     } catch (error) {
-//       swal("Wrong Credentials", { icon: "warning" });
-//       dispatch({
-//         type: USER_LOGIN_ERROR,
-//         payload: error,
-//       });
-//     }
    };
