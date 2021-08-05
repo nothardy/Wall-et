@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import r from './register.module.css';
 import swal from 'sweetalert';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export function validate(input) {
     let errors = {};
@@ -35,6 +37,18 @@ function Register() {
     const [captchaValido, cambiarCaptchaValido] = useState(null);
     const [usuarioValido, cambiarUsuarioValido] = useState(false);
     const captcha = useRef(null);
+    const [ show, setShow ] = useState(false);
+    const [ showpass2, setShowpass2 ] = useState(false);
+    
+    
+    const handleShowHide = () => {
+        setShow(!show);
+        setShowpass2(!showpass2);
+        }
+        const handleShowHide2 = () => {
+            
+            setShowpass2(!showpass2);
+            }
 
 
     function handleChange(e) {
@@ -115,15 +129,45 @@ function Register() {
                         </div>
                         <div>
                             <p className={r.titles}>Password*</p>
-                            <input type="password" placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} />
-                            {errors.password && (
+                            <input  type={show ? 'text' : 'password'} placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} />
+                           
+                             {show ? (
+                                <FontAwesomeIcon 
+                                onClick={handleShowHide} 
+                                icon={faEye} 
+                                className={r.icon} 
+                                id='show_hide' /> 
+                                ) : (
+                                <FontAwesomeIcon 
+                                onClick={handleShowHide} 
+                                icon={faEyeSlash} 
+                                className={r.icon} 
+                                id='show_hide' /> 
+                                )
+                            }
+                             {errors.password && (
                                 <p className=''>{errors.password}</p>
                             )}
                         </div>
                         <div>
                 <p className={r.titles}>Confirm Password*</p>
-                <input type="password" placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} />
-                {errors.password && (
+                <input  type={showpass2 ? 'text' : 'password'} placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} />
+                
+                     {showpass2 ? (
+                                <FontAwesomeIcon 
+                                onClick={handleShowHide2} 
+                                icon={faEye} 
+                                className={r.icon} 
+                                id='show_hide2' /> 
+                                ) : (
+                                <FontAwesomeIcon 
+                                onClick={handleShowHide2} 
+                                icon={faEyeSlash} 
+                                className={r.icon} 
+                                id='show_hide2' /> 
+                                )
+                            }
+                            {errors.password && (
                     <p className=''>{errors.password}</p>
                     )}
                     </div>
