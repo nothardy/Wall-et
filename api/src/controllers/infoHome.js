@@ -1,7 +1,7 @@
 const { Account, Card, Transaction, transaction_acount } = require('../db');
 
-const infoUser = async () => {
-    const mail = 'Wal@gmail.com'
+const infoUser = async (mail) => {
+    
     try {
         const user = await Account.findAll({ where: { mail: mail }, include: [{model: Transaction}, {model: Card}] })
 
@@ -28,15 +28,15 @@ const infoUser = async () => {
     }
 
     catch (err) {
-        return {err: err}
+        return {err: 'User not found'}
     }
 }
 
-const infoAdmin = async () => {
+const infoAdmin = async (mail) => {
 
     try {
-        const fullAccounts = await Account.findAll({ where: { admin: false }, include: [{model: Transaction}, {model: Card}] })
-        console.log(fullAccounts)
+/*         const fullAccounts = await Account.findAll({ where: { admin: false }, include: [{model: Transaction}, {model: Card}] })
+        
         const squemaAccounts = fullAccounts.map(user => {
             return {
                 id: user.id,
@@ -59,15 +59,32 @@ const infoAdmin = async () => {
             }
         })
 
-        return squemaAccounts
+        return squemaAccounts */
+
+        const info = await Account.findAll({ where: [{admin: true}, { mail: mail }] })
+        return {
+            name: info[0].dataValues.fullname
+        }
     }
 
     catch (err) {
-        return {err : err}
+        return {err: 'Admin not found'}
+    }
+}
+
+const transac = async (name) => {
+    try { 
+        const datos = await Account.find({ where: { fullname: name }, include: [ { model: Transaction } ]})
+
+        datos.length >= 0 && {transactions: datos[0].dataValues.transactions}    
+    }
+    catch (err){
+        return {err: `error: ${err}`}
     }
 }
 
 module.exports = {
     infoUser,
-    infoAdmin
+    infoAdmin,
+    transac
 }
