@@ -17,7 +17,8 @@ async function register(req, res, next) {
       password: hashedPassword,
       dni,
       mail: mail.toLowerCase(),
-      birth_date
+      birth_date,
+      cvu: generatorCVU()
     })
       //   .then((recipeCreated) => {
       //     return recipeCreated.addDiets(diets);
@@ -28,6 +29,27 @@ async function register(req, res, next) {
         });
       })
   } catch (error) { next(error) }
+}
+
+function generatorCVU() {
+  var cuenta = () => "111" + ("00000000" + (Math.random() * 9999999 | 0)).slice(-10);
+  var C = cuenta()
+  var verificador2 =
+    C[0] * 3 +
+    C[1] * 9 +
+    C[2] * 7 +
+    C[3] * 1 +
+    C[4] * 3 +
+    C[5] * 9 +
+    C[6] * 7 +
+    C[7] * 1 +
+    C[8] * 3 +
+    C[9] * 9 +
+    C[10] * 7 +
+    C[11] * 1 +
+    C[12] * 3;
+  verificador2 = (10 - verificador2 % 10) % 10;
+  return "000" + "0047" + "4" + C + verificador2;
 }
 
 module.exports = {
