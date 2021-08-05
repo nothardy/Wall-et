@@ -7,6 +7,8 @@ import r from './register.module.css';
 import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 export function validate(input) {
     let errors = {};
@@ -66,7 +68,7 @@ function Register() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        if (/^(\d{2}\.{1}\d{3}\.\d{3})|(\d{2}\s{1}\d{3}\s\d{3})$/.test(input.dni)) { return alert("ID number must not contain points") };
+        if (/^(\d{2}\.{1}\d{3}\.\d{3})|(\d{2}\s{1}\d{3}\s\d{3})$/.test(input.dni)) { return swal("ID number must not contain points", "You clicked the button!", "error") };
         if (!/^[0-9]*$/.test(input.dni)) {return swal("ID must be a number", "You clicked the button!", "error")};
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
             return swal('Invalid Email', "You clicked the button!", "error");
@@ -116,7 +118,7 @@ function Register() {
                     <h2 className={r.create}> Create your Account </h2>
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <p className={r.titles}>FullName*</p>
-                        <input type="text" placeholder="FullName" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} />
+                        <input type="text" placeholder="Full Name" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} />
                         <p className={r.titles}>Identification Number*</p>
                         <input type="text" placeholder="Identification Number" name='dni' required="required" value={input.dni} onChange={handleChange} />
 
@@ -187,7 +189,7 @@ function Register() {
 
 
                         {captchaValido === false && <div className="error-captcha">Please accept the captcha</div>}
-                        <button type="submit" className={r.buttoncreate}>Create User</button>
+                        <Button type="submit" >Create User</Button>
 
 
                     </form>

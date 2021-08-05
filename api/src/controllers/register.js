@@ -18,7 +18,8 @@ async function register(req, res, next) {
       dni,
       mail: mail.toLowerCase(),
       birth_date,
-      cvu: generatorCVU()
+      cvu: generatorCVU(),
+      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
     })
       //   .then((recipeCreated) => {
       //     return recipeCreated.addDiets(diets);
@@ -32,7 +33,7 @@ async function register(req, res, next) {
 }
 
 function generatorCVU() {
-  var cuenta = () => "111" + ("00000000" + (Math.random() * 9999999 | 0)).slice(-10);
+  var cuenta = () => "111" + ("00000000" + (Math.random() * 99999999 | 0)).slice(-10);
   var C = cuenta()
   var verificador2 =
     C[0] * 3 +
