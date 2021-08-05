@@ -117,21 +117,26 @@ function Register() {
                 <div>
                     <h2 className={r.create}> Create your Account </h2>
                     <form onSubmit={(e) => handleSubmit(e)}>
-                        <p className={r.titles}>FullName*</p>
-                        <input type="text" placeholder="Full Name" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} />
+                        <p className={r.titles}>Full Name*</p>
+                        <input type="text" placeholder="Full Name" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
                         <p className={r.titles}>Identification Number*</p>
-                        <input type="text" placeholder="Identification Number" name='dni' required="required" value={input.dni} onChange={handleChange} />
+                        <input type="text" placeholder="Identification Number" name='dni' required="required" value={input.dni} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
 
-                        <div>
+                        <div >
                             <p className={r.titles}>E-mail*</p>
-                            <input type="text" placeholder="E-mail" required="required" name='mail' value={input.mail} onChange={handleChange} />
+                            <input type="text" placeholder="E-mail" required="required" name='mail' value={input.mail} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
                             {errors.mail && (
                                 <p className=''>{errors.mail}</p>
                             )}
                         </div>
+                        
+
+
+
+
                         <div>
                             <p className={r.titles}>Password*</p>
-                            <input  type={show ? 'text' : 'password'} placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} />
+                            <input  type={show ? 'text' : 'password'} placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
                            
                              {show ? (
                                 <FontAwesomeIcon 
@@ -153,7 +158,7 @@ function Register() {
                         </div>
                         <div>
                 <p className={r.titles}>Confirm Password*</p>
-                <input  type={showpass2 ? 'text' : 'password'} placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} />
+                <input  type={showpass2 ? 'text' : 'password'} placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
                 
                      {showpass2 ? (
                                 <FontAwesomeIcon 
@@ -175,7 +180,7 @@ function Register() {
                     </div>
                         <div className="form-row hide-inputbtns">
                             <label for="birthdate" className={r.titles}>Date of Birth*</label>
-                            <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" />
+                            <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" class="form-control bg-white border-left-0 border-md"/>
                         </div>
 
                         <div className="recaptcha">
@@ -201,7 +206,7 @@ function Register() {
             <Link to='/faq'>
                 <p className={r.descriptionDetails}>Frecuently Asked Questions</p>
             </Link>
-            <p className={r.descriptionDetails}>You already have an account?</p>
+            <p className={r.descriptionDetails}>You already have an account? </p>
             <Link to='/loging'>
                 <p className={r.descriptionDetails}>Log in</p>
             </Link>
