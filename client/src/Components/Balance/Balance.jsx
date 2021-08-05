@@ -1,23 +1,23 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Balance.module.css";
 import { LineBalance } from "./LineBalance";
-import { DoughnutBalance } from "./Pie";
-import {useSelector, useDispatch} from 'react-redux'
+import { DoughnutBalance } from "./Doughnut";
+import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../../Redux/Actions/Balance_Action";
 
 function Balance() {
   const dispatch = useDispatch();
-  const userInfo = useSelector(state => state.userInfo);
-  const [firstRender, setFirstRender ] = useState(true)
+  const userInfo = useSelector((state) => state.userInfo);
+  const [firstRender, setFirstRender] = useState(true);
 
-  useEffect( () => {
-    if(firstRender === true) {
-      dispatch(getUserInfo())
-      setFirstRender(false)
+  useEffect(() => {
+    if (firstRender === true) {
+      dispatch(getUserInfo());
+      setFirstRender(false);
     }
-  }, [dispatch])
+  }, [dispatch]);
 
-  //Deberiamos procesar la informacion para mostrarlo en los graficos. 
+  //Deberiamos procesar la informacion para mostrarlo en los graficos.
   //Preguntarle a los chicos si estan haciendo esa ruta.
 
   //
