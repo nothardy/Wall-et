@@ -1,7 +1,9 @@
+import moment from 'moment'
+
 export const setAxis = (transactions) => {
   // set x Axis
   let xAxis = [];
-  let today = new Date().toLocaleDateString();
+  let today = moment().format('l');
   for (let i = 0; i <= 4; i++) {
     let month = parseInt(today.charAt(0)) - i - 1;
     let xValue = new Date(2021, month, 1).toLocaleString("en-us", {
