@@ -74,3 +74,33 @@ const orderTransactions = (transactions, xAxis) => {
 
   return uniqueTransactions;
 };
+
+export const getTransactionTypesPercentage = (transactions) => {
+  let transactionsInfo = {};
+
+  let totalTransactions = transactions.length;
+
+  let servicesTransactions = 0,
+    paymentTransactions = 0,
+    transferTransactions = 0;
+  for (let transaction of transactions) {
+    if (transaction.type_transaction === "Payment") paymentTransactions++;
+    else if (transaction.type_transaction === "Services")
+      servicesTransactions++;
+    else if (transaction.type_transaction === "Transfer")
+      transferTransactions++;
+  }
+
+  transactionsInfo.servicesTransactions = Math.floor(
+    (servicesTransactions * 100) / totalTransactions
+  );
+  transactionsInfo.paymentTransactions = Math.floor(
+    (paymentTransactions * 100) / totalTransactions
+  );
+  transactionsInfo.transferTransactions = Math.floor(
+    (transferTransactions * 100) / totalTransactions
+  );
+
+  let transactionsPercentages = Object.values(transactionsInfo);
+  return transactionsPercentages;
+};

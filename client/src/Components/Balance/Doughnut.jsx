@@ -1,20 +1,19 @@
 import { Doughnut } from "react-chartjs-2";
+import { getTransactionTypesPercentage } from "../../utils/Methods";
 import style from "./Balance.module.css";
 
-
 export function DoughnutBalance(props) {
+  const transactionsTypePercentages = getTransactionTypesPercentage(
+    props.userInfo.transactions
+  );
   const state = {
-    labels: ["Servicios", "Transferencias", "Pagos"],
+    labels: ["Services", "Payments", "Transfers"],
     datasets: [
       {
         label: "Balance",
-        data: [20, 60, 20], // esto deberia ser porcentaje de transacciones
+        data: transactionsTypePercentages, // esto deberia ser porcentaje de transacciones
         rotation: 45,
-        backgroundColor: [
-          "#D62793",
-          "#F7612C",
-          "#ADD9CE",
-        ],
+        backgroundColor: ["#D62793", "#F7612C", "#ADD9CE"],
       },
     ],
   };
