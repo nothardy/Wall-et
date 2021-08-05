@@ -26,6 +26,7 @@ function Register() {
         dni: '',
         mail: '',
         password: '',
+        confirmpassword:'',
         birth_date: ''
     });
     const [errors, setErrors] = useState({});
@@ -116,7 +117,7 @@ function Register() {
                         </div>
                         <div>
                 <p className={r.titles}>Confirm Password*</p>
-                <input type="password" placeholder="Repeat Password"  required="required" name="password2" id="password2" value={user.password} onChange={handleChange} />
+                <input type="password" placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} />
                 {errors.password && (
                     <p className=''>{errors.password}</p>
                     )}
