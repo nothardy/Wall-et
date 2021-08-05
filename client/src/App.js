@@ -9,7 +9,7 @@ export default function App() {
     <>
 
        
-      <Route exact path='/login' exact component={Login} /> 
+      <Route exact path='/home' exact component={Login} /> 
 
       
     </>
