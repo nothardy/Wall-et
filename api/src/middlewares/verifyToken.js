@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const verifyToken = async (req, res, next)=> {
-    //get the token from the headers:
+    try {//get the token from the headers:
     const token = req.headers['x-access-token'];
     // if doesn't exists a token
     if(!token) return res.status(401).send({auth: false, message: "no Token aws Provided"});
@@ -11,6 +11,7 @@ const verifyToken = async (req, res, next)=> {
     req.userId = decoded.id
     // continue with the next function
     next()
+} catch {}
 }
 
 module.exports = {

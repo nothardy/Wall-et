@@ -5,7 +5,8 @@ const bcrypt = require("bcrypt");
 // https://programmerclick.com/article/89671544092/
 
 const login = async (req, res) => {
-    const {mail , password} = req.body
+    try{
+      const {mail , password} = req.body
     const user = await Account.findOne({where: { mail: mail }});
     //if the user doesn't exists
     if (!user) {
@@ -26,9 +27,10 @@ const login = async (req, res) => {
       isAdmin: user.admin,
       token: token,
     });
-  };
+  }catch{}
+};
 
-const logout = async (req, res) => {
+const logout = (req, res) => {
     res.status(200).send({auth: false, token: null});
 };
 

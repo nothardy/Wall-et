@@ -8,7 +8,7 @@ const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR';
 export const login = (mail, password) => async (dispatch) => {
     dispatch({ type: USER_LOGIN_REQUEST, payload: { mail, password }});
       try {
-const data = await axios.post('http://localhost:3001/login', {mail, password});
+        const data = await axios.post('http://localhost:3001/auth/login', {mail, password});
       switch (data.request.status) {
         case 200:
           dispatch({
