@@ -66,7 +66,7 @@ function Register() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        if (/^(\d{2}\.{1}\d{3}\.\d{3})|(\d{2}\s{1}\d{3}\s\d{3})$/.test(input.dni)) { return alert("ID number must not contain points") };
+        if (/^(\d{2}\.{1}\d{3}\.\d{3})|(\d{2}\s{1}\d{3}\s\d{3})$/.test(input.dni)) { return swal("ID number must not contain points", "You clicked the button!", "error") };
         if (!/^[0-9]*$/.test(input.dni)) {return swal("ID must be a number", "You clicked the button!", "error")};
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
             return swal('Invalid Email', "You clicked the button!", "error");
