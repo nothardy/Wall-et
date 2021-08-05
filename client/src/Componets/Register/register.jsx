@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import r from './register.module.css';
+import swal from 'sweetalert';
 
 export function validate(input) {
     let errors = {};
@@ -47,15 +48,17 @@ function Register() {
         }));
     }
 
+    // swal("Good job!", "You clicked the button!", "success");
+
     async function handleSubmit(e) {
         e.preventDefault();
         if (/^(\d{2}\.{1}\d{3}\.\d{3})|(\d{2}\s{1}\d{3}\s\d{3})$/.test(input.dni)) { return alert("ID number must not contain points") };
-        if (!/^[0-9]*$/.test(input.dni)) {return alert("ID must be a number")};
+        if (!/^[0-9]*$/.test(input.dni)) {return swal("ID must be a number", "You clicked the button!", "error")};
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
-            return alert('Invalid Email');
+            return swal('Invalid Email', "You clicked the button!", "error");
         };
-        if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) { return alert("Password must contain eight characters, an uppercase letter, and a number.") };
-        if (input.password !== input.confirmpassword) { return alert("Passwords don't match")}
+        if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) { return swal("Password must contain eight characters, an uppercase letter, and a number.", "You clicked the button!", "error") };
+        if (input.password !== input.confirmpassword) { return swal("Passwords don't match", "You clicked the button!", "error")}
         if (captcha.current.getValue() ) {
             console.log('The user is not a robot');
             cambiarUsuarioValido(true);
@@ -67,14 +70,15 @@ function Register() {
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(input),
                     })
-                alert('Account created succesfully!');
+                swal('Account created succesfully!', "You clicked the button!", "success");
             } catch (err) {
                 console.log(err.message)
-                alert('We could not create account. Please try again.');
+                swal('We could not create account. Please try again.', "You clicked the button!", "error");
             }
             history.push('/home');
         } else {
-            console.log('Please accept the captcha');
+            swal('Please accept the captcha', "You clicked the button!", "warning")
+            // console.log('Please accept the captcha');
             cambiarUsuarioValido(false);
             cambiarCaptchaValido(false);
         }
