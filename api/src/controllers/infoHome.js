@@ -63,7 +63,23 @@ const infoAdmin = async (mail) => {
 
         const info = await Account.findAll({ where: [{admin: true}, { mail: mail }] })
         return {
-            name: info[0].dataValues.fullname
+            id: info[0].dataValues.id,
+                user_data: {
+                    fullname: info[0].dataValues.fullname,
+                    dni: info[0].dataValues.dni,
+                    ubicacion: info[0].dataValues.ubicacion,
+                    birth: info[0].dataValues.birth,
+                },
+                account_data: {
+                    mail: info[0].dataValues.mail,
+                    pass: info[0].dataValues.password,
+                    balance: info[0].dataValues.balance,
+                    cvu: info[0].dataValues.cvu,
+                    photo: info[0].dataValues.photo,
+                    cards: info[0].dataValues.cards,
+                    transactions: info[0].dataValues.transactions,
+                    create: info[0].createdAt,
+            }
         }
     }
 
