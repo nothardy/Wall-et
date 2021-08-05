@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@progress/kendo-react-charts": "^4.8.0",
     "@progress/kendo-theme-material": "^4.40.1",
     "@testing-library/jest-dom": "^5.11.4",
