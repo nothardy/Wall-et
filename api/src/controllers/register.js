@@ -32,7 +32,7 @@ async function register(req, res, next) {
 }
 
 function generatorCVU() {
-  var cuenta = () => "111" + ("00000000" + (Math.random() * 9999999 | 0)).slice(-10);
+  var cuenta = () => "111" + ("00000000" + (Math.random() * 99999999 | 0)).slice(-10);
   var C = cuenta()
   var verificador2 =
     C[0] * 3 +
