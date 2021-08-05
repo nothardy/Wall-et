@@ -7,6 +7,8 @@ import r from './register.module.css';
 import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 export function validate(input) {
     let errors = {};
@@ -187,7 +189,7 @@ function Register() {
 
 
                         {captchaValido === false && <div className="error-captcha">Please accept the captcha</div>}
-                        <button type="submit" className={r.buttoncreate}>Create User</button>
+                        <Button type="submit" >Create User</Button>
 
 
                     </form>
