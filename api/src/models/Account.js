@@ -2,15 +2,15 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('account', {
-
+        
         id: {
             type: DataTypes.UUID,
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
             unique: true,
-        },
-
-        mail: {
+          },
+          
+          mail: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -22,43 +22,41 @@ module.exports = (sequelize) => {
 
         fullname: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
-
+      
         dni: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
-
+      
         ubication: {
             type: DataTypes.STRING,
-            allowNull: true,
         },
-
+      
         birth_date: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
-
+        
+        
         balance: {
             type: DataTypes.INTEGER,
             defaultValue: 0,
-            allowNull: true,
         },
 
         cvu: {
             type: DataTypes.STRING,
-            allowNull: true,
+
         },
 
         photo: {
             type: DataTypes.STRING,
-            allowNull: true,
         },
 
         admin: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true,
+            defaultValue: false,
         },
     })
 }
