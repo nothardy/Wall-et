@@ -4,7 +4,7 @@ import {  useSelector } from 'react-redux';
 import { Button } from 'react-bootstrap'*/
 import ba from './balance.module.css';
 const Balance = () =>{
-    const store = useSelector(state => state.User);
+    const store = useSelector(state => state.homeReducer.User);
     
     return(
         store ?

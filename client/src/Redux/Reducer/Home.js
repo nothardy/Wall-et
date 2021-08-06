@@ -7,7 +7,7 @@ const initialState = {
     
 }
 
-function rootReducers(state = initialState, action){
+function homeReducer(state = initialState, action){
     switch (action.type) {
         case GET_DATE_USER:
             return {...state, User: action.payload}
@@ -21,4 +21,4 @@ function rootReducers(state = initialState, action){
             return state
     }
 }
-export default rootReducers;
+export default homeReducer;

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import u from './user.module.css'
 const User = () => {
-    const store = useSelector(state => state.User)
+    const store = useSelector(state => state.homeReducer.User)
     return(
         <div className={u.containerUser}>
             { store ? <h3>Hellou {store.user_data.fullname}!</h3> : <h3>Cargando...Name</h3> }

@@ -3,6 +3,7 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 const {register} = require("../controllers/register.js")
 
+const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -10,9 +11,8 @@ router.use("/register", register)
 const home = require('./home.routes')
 const adminSearch = require('./searchUser.routes')
 const { Transaction, Account, transaction_acount } = require('../db');
+const Payment="Payment",Services="Services",Transfer="Transfer";
 
-
-const router = Router();
 
 router.use('/home', home);
 router.use('/adminSearch', adminSearch);
@@ -40,21 +40,21 @@ router.get('/create', async (req, res) => {
             from: accounts[1].id,
             to: accounts[0].fullname,
             amount: 700,
-            type_transaction: 'fsdfafa',
+            type_transaction: Payment,
             state: 'done',
             user: accounts[1].id
         }, {
             from: accounts[1].id,
             to: accounts[0].fullname,
             amount: 28,
-            type_transaction: 'fsdfafa',
+            type_transaction: Services,
             state: 'done',
             user: accounts[1]
         }, {
             from: accounts[1].id,
             to: accounts[2].fullname,
             amount: 8000,
-            type_transaction: 'fsdfafa',
+            type_transaction: Transfer,
             state: 'pending',
             user: accounts[1].id
         }, 
@@ -62,7 +62,7 @@ router.get('/create', async (req, res) => {
             from: accounts[1].id,
             to: accounts[2].fullname,
             amount: 8000,
-            type_transaction: 'fsdfafa',
+            type_transaction: Payment,
             state: 'pending',
             user: accounts[1].id
         }, 
@@ -70,21 +70,21 @@ router.get('/create', async (req, res) => {
             from: accounts[1].id,
             to: accounts[0].fullname,
             amount: 8000,
-            type_transaction: 'fsdfafa',
+            type_transaction: Payment,
             state: 'pending',
             user: accounts[1].id
         }, {
             from: accounts[1].id,
             to: accounts[2].fullname,
             amount: 750,
-            type_transaction: 'fsdfafa',
+            type_transaction: Services,
             state: 'done',
             user: accounts[1].id
         }, {
             from: accounts[1].id,
             to: accounts[0].fullname,
             amount: 95,
-            type_transaction: 'fsdfafa',
+            type_transaction: Services,
             state: 'done',
             user: accounts[1].id
         }]

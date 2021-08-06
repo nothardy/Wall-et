@@ -4,7 +4,7 @@ import ViewTransaction from './Views/view';
 import t from './transaction.module.css'
 
 const TransactionHistory = () =>{
-    const store = useSelector(state => state.User);
+    const store = useSelector(state => state.homeReducer.User);
    
     return(
         <div className={t.containerTransaction}>

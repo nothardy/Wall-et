@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import a from './admin.module.css'
 
 const Admin = () => {
-    const store = useSelector( state => state);/* USAR store.User y store.AdminDateUser */
+    const store = useSelector( state => state.homeReducer);/* USAR store.User y store.AdminDateUser */
     let [filter, setFilter] = useState(false);
     const toggleFilter = () =>{ setFilter(filter = !filter) };
     

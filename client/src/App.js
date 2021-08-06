@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route } from "react-router-dom";
-import Home from "./Components/Home/index";
+import Home from "./Components/Home/home";
 /* import Loging from './Components/loging/index'; */
 import Register from './Components/Register/register';
 import RecoverPassword from './Components/RecoverPassword/recoverpassword';
