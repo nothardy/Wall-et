@@ -1,12 +1,11 @@
 import { Line } from "react-chartjs-2";
 import { setAxis } from "../../utils/Methods";
 
-
 //toLocaleString('default', { month: 'long' })
 
 // ["Enero", "Febrero", "Marzo", "Abril", "Mayo"]
 export function LineBalance(props) {
-  const [xAxis, yAxis] = setAxis(props.userInfo.transactions);
+  const [xAxis, yAxis] = setAxis(props.userInfo.transactions); // para no hardcodear usar esto props.userInfo.accountData.transactions ||
   const state = {
     labels: xAxis,
     datasets: [

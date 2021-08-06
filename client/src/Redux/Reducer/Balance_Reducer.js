@@ -1,6 +1,6 @@
 import { USER_INFO } from "../Actions/Balance_Action";
 
-/* const testInfo = {
+export const testInfo = {
   balance: 50000,
   transactions: [
     {
@@ -68,7 +68,7 @@ import { USER_INFO } from "../Actions/Balance_Action";
     },
   ],
 };
- */
+
 const initialState = {
   userInfo: testInfo,
 };

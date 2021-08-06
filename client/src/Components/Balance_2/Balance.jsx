@@ -5,10 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../../Redux/Actions/Balance_Action";
 import Transactions from "./Transactions";
 import Money from "./Money";
+import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 
 function Balance() {
   const dispatch = useDispatch();
-  const userInfo = useSelector((state) => state.userInfo);
+  const userInfo = testInfo; //useSelector((state) => state.homeReducer.User);
   const [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
@@ -22,25 +23,25 @@ function Balance() {
   //Preguntarle a los chicos si estan haciendo esa ruta.
 
   //
-return (
-  <>
-    <div>
-      <Money />
-    </div>
-    <div>
-      <Transactions />
-    </div>
-    <div>
+  return (
+    <>
+      <div>
+        <Money />
+      </div>
+      <div>
+        <Transactions />
+      </div>
+      <div>
         <div>
           <div>
             <LineBalance userInfo={userInfo} />
-        </div>
-        <div>
+          </div>
+          <div>
             <DoughnutBalance userInfo={userInfo} />
+          </div>
         </div>
       </div>
-    </div>
-  </>
+    </>
   );
 }
 //linea 37, lista de las transacciones
