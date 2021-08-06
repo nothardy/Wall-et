@@ -1,4 +1,4 @@
-.container{
+/* .containerFilter{
     width: 11rem;
     position: absolute;
     display: flex;
@@ -10,9 +10,9 @@
     bottom: -99px;
     right: 0;
 }
-.container label{
+.containerFilter label{
     width: 86%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-}
+} */

@@ -7,116 +7,97 @@ export const ADMIN_GET_DATE_USERS = 'ADMIN_GET_DATE_USERS';
 
 const testInfo =  [
     {
-      id: 100,
-      from: "Julian",
-      to: "user1",
-      amount: 2000,
-      type_transaction: "Payment",
-      state: "done",
-      transaction_date: "4/5/2021",
+      email:'TonyElTucu@gmail.com',
+      id:1
     } ,
     {
-      id: 101,
-      from: "Celeste",
-      to: "user7",
-      amount: 7000,
-      type_transaction: "Services",
-      state: "done",
-      transaction_date: "4/7/2021",
+      email:'LaMartu@gmail.com',
+      id:2
     },
     {
-      id: 105,
-      from: "Milagros",
-      to: "user2",
-      amount: 100,
-      type_transaction: "Transfer",
-      state: "done",
-      transaction_date: "4/6/2021",
+      email:'GonzaloEmanuel@gmail.com',
+      id:3
     },
     {
-      id: 108,
-      from: "Georgi",
-      to: "myuser",
-      amount: 7000,
-      type_transaction: "Payment",
-      state: "done",
-      transaction_date: "4/7/2021",
+      email:'Georgina@gmail.com',
+      id:4
     },
     {
-      id: 104,
-      from: "Camila",
-      to: "user3",
-      amount: 1000,
-      type_transaction: "Transfer",
-      state: "done",
-      transaction_date: "4/5/2021",
+      email:'Milagros@gmail.com',
+      id:5
     },
     {
-      id: 100,
-      from: "Gonzalo",
-      to: "user6",
-      amount: 3000,
-      type_transaction: "Payment",
-      state: "done",
-      transaction_date: "4/4/2021",
+      email:'Celeste@gmail.com',
+      id:6
     },
     {
-      id: 100,
-      from: "Walter",
-      to: "user6",
-      amount: 10000,
-      type_transaction: "Services",
-      state: "done",
-      transaction_date: "4/3/2021",
+      email:'Camila@gmail.com',
+      id:7
+    },
+    {
+      email:'JulianWey@gmail.com',
+      id:8
+    },
+    {
+      email:'Walter@gmail.com',
+      id:9
     }
   ]
 
-export const getDateUser = (name) =>{ 
+export const getDateUser = (state, mail) =>{ 
+    /* Trae la date de la cuenta del usuario logeado. */
     return async function dispatch(dispatch){
         try{
-            const {data} = await axios.get(`http://localhost:3001/home/${name}`)
+            const {data} = await axios.get(`http://localhost:3001/home?admin=${state}&mail=${mail}`)
             return dispatch({type:GET_DATE_USER, payload:data})
         }
         catch(err){
             alert("primer error",err)
-            return dispatch({type:GET_DATE_USER, payload:{name:"Frank Smile", amount:"785"}})/* Quitar esto cuando tenga rutas de back */
+           /*  return dispatch({type:GET_DATE_USER, payload:{name:"Frank Smile", amount:"785"}}) *//* Quitar esto cuando tenga rutas de back */
         }
     }  
 }
 
-export const getTransactions = (name) =>{ 
+/* export const getTransactions = (name) =>{ 
+Pide al back la data de transacciones que se hicieron. (esta harcodeado. hacer ruta del back que cargue dichas )
     return async function dispatch(dispatch){
         try{
-            const {data} = await axios.get(`http://localhost:3001/home/${name}`)
+            const {data} = await axios.get(`http://localhost:3001/homte/${name}`)
             return dispatch({type:GET_TRANSACTIONS, payload:data})
         }
         catch(err){
-            alert("segundo error",err)
-            return dispatch({type:GET_TRANSACTIONS, payload:testInfo})/* Quitar esto cuando tenga rutas de back */
+            console.log("segundo action getTransactions",err)
+            return dispatch({type:GET_TRANSACTIONS, payload:testInfo})Quitar esto cuando tenga rutas de back
         }
     }  
-}
+} 
+*/
 
 export const adminGetUser = (email) =>{
     return async function dispatch(dispatch){
+      /* Te machea por correo unico */
         try{
-            const {data} = await axios.post(`http://localhost:3001/admin`,email)
-            return dispatch({type:ADMIN_GET_USER, payload:data})
+            const {data} = await axios.get(`http://localhost:3001/adminSearch?mail=${email}`)
+            console.log(data)
+            return dispatch({type:ADMIN_GET_USER, payload:[data]})/* ACA tendria que devolverme un array */
         }
         catch(err){
-            alert("error admin",err)
+          alert('err, route admin', err)
+          return dispatch({type:ADMIN_GET_USER, payload:[{email:'franco@gmail.com', id:10}]})
         }
     }
 }
 
 export const adminGetDateUsers = (status) => {
+    /* Action la cual, filtra por status(aprobado, adeudor o congelador) */
     return async function dispatch(dispatch){
         try{
             const {data} = await axios.get(`http://localhost:3001/admin/${status}`)
-            return dispatch({type:ADMIN_GET_DATE_USERS, payload:data})
+            return dispatch({type:ADMIN_GET_DATE_USERS, payload: data})
         }
         catch(err){
-            alert('err, route admin', err)
+          alert("chipiendo admin",err)
+          return dispatch({type:ADMIN_GET_DATE_USERS, payload:testInfo})
         }
     }
 }

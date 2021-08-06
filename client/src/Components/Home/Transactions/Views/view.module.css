@@ -1,4 +1,4 @@
-.container{
+/* .containerView{
     position: relative;
     width: 100%;
     height: 3rem;
@@ -10,9 +10,9 @@
     justify-content: space-between;
 }
 
-#title{
+#titleView{
     margin: 0;
 }
-#amount{
+#amountView{
     margin: 0;
-}
+} */

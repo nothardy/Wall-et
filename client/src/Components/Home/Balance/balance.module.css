@@ -1,4 +1,4 @@
-.container{
+/* .containerBalance{
     width: 16rem;
     height: 8rem;
     position: absolute;
@@ -12,23 +12,30 @@
     align-items: center;
 }
 
-#title{
+#titleBalance{
     position: absolute;
     top: 0;
     left: 12px;
     margin-top: 12px;
 }
 
-.footer{
+.footerBalance{
     width: 70%;
     position: absolute;
     display: flex;
     justify-content: space-evenly;
-    bottom: 20px;
+    bottom: 7px;
     left: 15%;
 }
-.btn{
-    background-color: rgba(221, 187, 34, 0.637);
-    border: none;
+.btnBalance{
+    background-color: white;
+    border: 1px solid rgba(221, 187, 34, 0.637);
     border-radius: 5px;
+    color: rgb(194, 162, 21);
+    cursor: pointer;
+    transition: 0.4s;
 }
+.btnBalance:hover{
+    color: black;
+    background-color: rgb(221, 197, 92);
+} */

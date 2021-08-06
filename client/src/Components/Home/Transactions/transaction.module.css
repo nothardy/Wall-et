@@ -1,4 +1,4 @@
-.container{
+/* .containerTransaction{
     width: 16rem;
     height: 14rem;
     border: 1px solid black;
@@ -8,36 +8,48 @@
     right: 11px;
     display: flex;
     flex-direction: column;
-}
+} */
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
-.header{
-    /* background-color: blanchedalmond; */
+/* .headerTransaction{
     position: relative;
     height: 28%;
 }
-#title{
+#titleTransaction{
     position: absolute;
     font-size: 1.4rem;
     top: 5px;
     left: 12px;
 }
-#recents{
+#recentsTransaction{
     position: absolute;
     bottom: 0;
     left: 12px;
 }
-#history{
+#historyTransaction{
     position: absolute;
     bottom: 0;
     right: 12px;  
     cursor: pointer;
-}
+} */
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
-.body{
-    background-color: #7575ab;
+/* .bodyTransaction{
     height: calc(100% - 28%);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     align-items: center;
 }
+.bodyTransaction::-webkit-scrollbar{
+    width: 0.4rem;    
+    height: 0.5rem;   
+  }
+.bodyTransaction::-webkit-scrollbar-thumb {
+    background: rgb(20, 20, 20);
+    border-radius: 25px;
+    width: 0.4rem;
+  }
+.bodyTransaction::-webkit-scrollbar-track {
+    background: #97a5bb70;
+    border-radius: 4px;
+    height: 1rem;
+} */

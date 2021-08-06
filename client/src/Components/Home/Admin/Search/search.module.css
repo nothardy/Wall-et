@@ -1,9 +1,9 @@
-.container{
+.containerSearch{
     display: flex;
     align-items: center;
 }
 
-.form{
+.formSearch{
     position: absolute;
     width: 12rem;
     height: 1.8rem;
@@ -14,7 +14,7 @@
     border-radius: 16px;
 }
 
-#input{
+#inputSearch{
     position: absolute;
     right: 11px;
     width: 8rem;
@@ -23,7 +23,7 @@
     background: none;
 }
 
-#btn__lupa{
+#btn__lupaSearch{
     position: absolute;
     left: 7px;
     cursor: pointer;
