@@ -1,0 +1,41 @@
+/* .containerBalance{
+    width: 16rem;
+    height: 8rem;
+    position: absolute;
+    top: 6rem;
+    right: 12px;
+    border: 1px solid black;
+    background-color: #d0bac0b8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#titleBalance{
+    position: absolute;
+    top: 0;
+    left: 12px;
+    margin-top: 12px;
+}
+
+.footerBalance{
+    width: 70%;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 7px;
+    left: 15%;
+}
+.btnBalance{
+    background-color: white;
+    border: 1px solid rgba(221, 187, 34, 0.637);
+    border-radius: 5px;
+    color: rgb(194, 162, 21);
+    cursor: pointer;
+    transition: 0.4s;
+}
+.btnBalance:hover{
+    color: black;
+    background-color: rgb(221, 197, 92);
+} */

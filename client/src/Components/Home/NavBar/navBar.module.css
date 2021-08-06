@@ -1,0 +1,39 @@
+/* .containerNavBar{
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+#img__menuNavBar{
+    cursor: pointer;
+    width: 1.5rem;
+}
+
+#btn__menuNavBar{
+    width: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#btn__menuNavBar:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.452);
+}
+
+.containerNavBar > a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 0.65rem;
+    transition: 0.5s;
+}
+.containerNavBar a:hover{
+    border-bottom: 1.5px solid black;
+    color: white;
+    background: rgba(0, 0, 0, 0.534);
+} */

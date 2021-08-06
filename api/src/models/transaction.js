@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
         },
 
         type_transaction: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('Payment', 'Services', 'Transfer'),
         },
 
         state: {

@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
           },
           
           mail: {
-            type: DataTypes.STRING,
+              type: DataTypes.STRING,
             allowNull: false,
         },
 
@@ -47,7 +47,6 @@ module.exports = (sequelize) => {
 
         cvu: {
             type: DataTypes.STRING,
-
         },
 
         photo: {
