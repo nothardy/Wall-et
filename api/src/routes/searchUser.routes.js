@@ -5,9 +5,9 @@ const  search  = require('../controllers/searchUser')
 
 route.get('/', async (req, res) => {
     try {
-        const userMail = req.body;
+        const {mail} = req.query;
         
-        res.status(200).json(await search(userMail))
+        res.status(200).json(await search(mail))
     }
 
     catch (err) {

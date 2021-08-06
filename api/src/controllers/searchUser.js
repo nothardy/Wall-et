@@ -30,7 +30,7 @@ const search = async (mail) => {
         //!user ? { err: `User ${mail} not found` } : userData
     }
     catch(err) {
-        return {err: err}
+        throw new Error(err)
     }
 }
 

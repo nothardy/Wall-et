@@ -28,58 +28,30 @@ const infoUser = async (mail) => {
     }
 
     catch (err) {
-        return {err: 'User not found'}
+        throw new Error(err)
     }
 }
 
 const infoAdmin = async (mail) => {
 
     try {
-/*         const fullAccounts = await Account.findAll({ where: { admin: false }, include: [{model: Transaction}, {model: Card}] })
-        
-        const squemaAccounts = fullAccounts.map(user => {
-            return {
-                id: user.id,
-                user_data: {
-                    fullname: user.dataValues.fullname,
-                    dni: user.dataValues.dni,
-                    ubicacion: user.dataValues.ubicacion,
-                    birth: user.dataValues.birth,
-                },
-                account_data: {
-                    mail: user.dataValues.mail,
-                    pass: user.dataValues.password,
-                    balance: user.dataValues.balance,
-                    cvu: user.dataValues.cvu,
-                    photo: user.dataValues.photo,
-                    cards: user.dataValues.cards,
-                    transactions: user.dataValues.transactions,
-                    create: user.createdAt,
-                },
-            }
-        })
-
-        return squemaAccounts */
-
-        const info = await Account.findAll({ where: [{admin: true}, { mail: mail }] })
+        const info = await Account.findAll({ where: [{admin: true}, { mail: mail }] });
         return {
-            name: info[0].dataValues.fullname
-        }
-    }
-
+            name: info[0].dataValues.fullname,
+        }}
     catch (err) {
-        return {err: 'Admin not found'}
+        throw new Error(err);
     }
 }
 
 const transac = async (name) => {
     try { 
-        const datos = await Account.find({ where: { fullname: name }, include: [ { model: Transaction } ]})
+        const datos = await Account.find({ where: { fullname: name }, include: [ { model: Transaction } ]});
 
-        datos.length >= 0 && {transactions: datos[0].dataValues.transactions}    
+        datos.length >= 0 && {transactions: datos[0].dataValues.transactions};   
     }
     catch (err){
-        return {err: `error: ${err}`}
+        throw new Error(err);
     }
 }
 

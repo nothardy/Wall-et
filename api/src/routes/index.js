@@ -6,16 +6,13 @@ const { Transaction, Account, transaction_acount } = require('../db');
 
 const router = Router();
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
+router.use('/home', home);
+router.use('/adminSearch', adminSearch);
 
-router.use('/home', home)
-router.use('/adminSearch', adminSearch)
-
-const creaate = async ( { from, to, amount, type_transaction, state, user } ) => {
+const creaate = async ({ from, to, amount, type_transaction, state, user }) => {
 
     try{
-        let [ transac, s ] = await Transaction.findOrCreate({where: {from, to, amount, type_transaction, state}})
+        let [ transac, s ] = await Transaction.findOrCreate({ where: {from, to, amount, type_transaction, state }})
 
         await transac.addAccounts(user)
 
@@ -83,11 +80,12 @@ router.get('/create', async (req, res) => {
             state: 'done',
             user: accounts[1].id
         }]
+
         const s = await transactions.map(transac => creaate(transac))
         res.status(200).json(s)
     }
     catch(err){
-        res.status(400).json({err: `Error: ${err}`})
+        res.status(400).json(err)
     }
 })
 
