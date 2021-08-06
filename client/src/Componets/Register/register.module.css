@@ -1,4 +1,4 @@
-/* aca empieza lo de date */
+/* aca empieza lo de date
 form {
     margin: 20px auto;
     width: 420px;
@@ -17,7 +17,7 @@ label {
 
 /* aca termina lo de date */
 
-.formulario{
+/* .formulario{
     background-color: #4062BB;
     max-width: 600px;
     margin: auto;
@@ -25,8 +25,8 @@ label {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
-}
-
+} */
+/*
 .create{
     margin: 20px
 }
@@ -47,7 +47,7 @@ label {
     font-size: 15px;
     transform: translateX(-55px);
     cursor: pointer
-}
+}  */
 
 
 /* .formulario{
@@ -94,4 +94,4 @@ position: absolute;
     left: 0;
     z-index: -1;
 width: 100%;
-} */
+}  */

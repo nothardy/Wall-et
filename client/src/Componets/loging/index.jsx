@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Loging() {
+function index() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Loging() {
     )
 }
 
-export default Loging
+export default index

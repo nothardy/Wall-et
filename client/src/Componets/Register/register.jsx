@@ -7,8 +7,9 @@ import r from './register.module.css';
 import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+//import Button from 'react-bootstrap/Button';
+//import Form from 'react-bootstrap/Form';
 
 export function validate(input) {
     let errors = {};
@@ -64,8 +65,6 @@ function Register() {
         }));
     }
 
-    // swal("Good job!", "You clicked the button!", "success");
-
     async function handleSubmit(e) {
         e.preventDefault();
         if (/^(\d{2}\.{1}\d{3}\.\d{3})|(\d{2}\s{1}\d{3}\s\d{3})$/.test(input.dni)) { return swal("ID number must not contain points", "You clicked the button!", "error") };
@@ -112,18 +111,18 @@ function Register() {
 
     return (
 
-        <div className={r.formulario}>
+        <div className='{r.formulario}'>
             {!usuarioValido &&
                 <div>
-                    <h2 className={r.create}> Create your Account </h2>
+                    <h2 className='{r.create}'> Create your Account </h2>
                     <form onSubmit={(e) => handleSubmit(e)}>
-                        <p className={r.titles}>Full Name*</p>
+                        <p className='{r.titles}'>Full Name*</p>
                         <input type="text" placeholder="Full Name" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
-                        <p className={r.titles}>Identification Number*</p>
+                        <p className='{r.titles}'>Identification Number*</p>
                         <input type="text" placeholder="Identification Number" name='dni' required="required" value={input.dni} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
 
                         <div >
-                            <p className={r.titles}>E-mail*</p>
+                            <p className='{r.titles}'>E-mail*</p>
                             <input type="text" placeholder="E-mail" required="required" name='mail' value={input.mail} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
                             {errors.mail && (
                                 <p className=''>{errors.mail}</p>
@@ -135,20 +134,20 @@ function Register() {
 
 
                         <div>
-                            <p className={r.titles}>Password*</p>
+                            <p className='{r.titles}'>Password*</p>
                             <input  type={show ? 'text' : 'password'} placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
                            
                              {show ? (
                                 <FontAwesomeIcon 
                                 onClick={handleShowHide} 
                                 icon={faEye} 
-                                className={r.icon} 
+                                className='{r.icon} '
                                 id='show_hide' /> 
                                 ) : (
                                 <FontAwesomeIcon 
                                 onClick={handleShowHide} 
                                 icon={faEyeSlash} 
-                                className={r.icon} 
+                                className='{r.icon}' 
                                 id='show_hide' /> 
                                 )
                             }
@@ -157,20 +156,20 @@ function Register() {
                             )}
                         </div>
                         <div>
-                <p className={r.titles}>Confirm Password*</p>
+                <p className='{r.titles}'>Confirm Password*</p>
                 <input  type={showpass2 ? 'text' : 'password'} placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
                 
                      {showpass2 ? (
                                 <FontAwesomeIcon 
                                 onClick={handleShowHide2} 
                                 icon={faEye} 
-                                className={r.icon} 
+                                className='{r.icon}' 
                                 id='show_hide2' /> 
                                 ) : (
                                 <FontAwesomeIcon 
                                 onClick={handleShowHide2} 
                                 icon={faEyeSlash} 
-                                className={r.icon} 
+                                className='{r.icon}'
                                 id='show_hide2' /> 
                                 )
                             }
@@ -179,7 +178,7 @@ function Register() {
                     )}
                     </div>
                         <div className="form-row hide-inputbtns">
-                            <label for="birthdate" className={r.titles}>Date of Birth*</label>
+                            <label for="birthdate" className='{r.titles}'>Date of Birth*</label>
                             <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" class="form-control bg-white border-left-0 border-md"/>
                         </div>
 
@@ -194,21 +193,21 @@ function Register() {
 
 
                         {captchaValido === false && <div className="error-captcha">Please accept the captcha</div>}
-                        <Button type="submit" >Create User</Button>
+                        <button type="submit" >Create User</button>
 
 
-                    </form>
+                        </form>
                 </div>
             }
             <Link to='/recoverpassword'>
-                <p className={r.descriptionDetails}>Forgot Password</p>
+                <p className='{r.descriptionDetails}'>Forgot Password</p>
             </Link>
             <Link to='/faq'>
-                <p className={r.descriptionDetails}>Frecuently Asked Questions</p>
+                <p className='{r.descriptionDetails}'>Frecuently Asked Questions</p>
             </Link>
-            <p className={r.descriptionDetails}>You already have an account? </p>
-            <Link to='/loging'>
-                <p className={r.descriptionDetails}>Log in</p>
+            <p className='{r.descriptionDetails}'>You already have an account? </p>
+            <Link to='/home'>
+                <p className='{r.descriptionDetails}'>Log in</p>
             </Link>
         </div>
 
