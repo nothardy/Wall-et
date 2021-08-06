@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import './register.module.css';
+//import './register.module.css';
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
-import r from './register.module.css';
+//import r from './register.module.css';
 import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';

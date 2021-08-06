@@ -1,4 +1,4 @@
-.containerSearch{
+/*.containerSearch{
     display: flex;
     align-items: center;
 }
@@ -29,6 +29,6 @@
     cursor: pointer;
     width: 1.7rem;
 }
-/* #btn__lupa img{
+ #btn__lupa img{
     width: 1.4rem;
 } */

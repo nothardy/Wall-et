@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { login } from '../../Redux/Actions/loginActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import s from'./login.module.css';
+//import s from'./login.module.css';
 
 export function validate(user) {
     let errors = {};
@@ -60,7 +60,7 @@ function handleChange(e) {
                 <img />
                     <div>
                         <input
-                            className={s.container}
+                            className='{s.container}'
                             autocomplete='off'
                             id='mail'
                             type='text'
@@ -70,12 +70,12 @@ function handleChange(e) {
                             placeholder="example@mail.com"
                             onChange={handleChange}/>
                             {errors.mail && (
-                        <p className={s.errors}>{errors.mail}</p>
+                        <p className='{s.errors}'>{errors.mail}</p>
                     )}
                     </div>
                     <div> 
                         <input
-                                className={s.container}
+                                className='{s.container}'
                                 id='password'
                                 type={show ? 'text' : 'password'}
                                 required='required'
@@ -87,18 +87,18 @@ function handleChange(e) {
                                         <FontAwesomeIcon 
                                         onClick={handleShowHide} 
                                         icon={faEye} 
-                                        className={s.icon} 
+                                        className='{s.icon} '
                                         id='show_hide' /> 
                                         ) : (
                                         <FontAwesomeIcon 
                                         onClick={handleShowHide} 
                                         icon={faEyeSlash} 
-                                        className={s.icon} 
+                                        className='{s.icon} '
                                         id='show_hide' /> 
                                         )
                                     }
                                 {errors.password && (
-                        <p className={s.errors}>{errors.password}</p>
+                        <p className='{s.errors}'>{errors.password}</p>
                                 )}
                             
                         </div>
