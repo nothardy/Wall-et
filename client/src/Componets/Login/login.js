@@ -8,6 +8,7 @@ import s from'./login.module.css';
 
 export function validate(user) {
     let errors = {};
+
     if (!user.mail) {
       errors.mail = ('Required Email')
     } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(user.mail)) {
