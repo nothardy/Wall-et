@@ -14,6 +14,7 @@ const infoUser = async (mail) => {
                 birth: user[0].dataValues.birth,
             },
             account_data: {
+                admin: user[0].dataValues.admin,
                 mail: user[0].dataValues.mail,
                 pass: user[0].dataValues.password,
                 balance: user[0].dataValues.balance,
@@ -71,6 +72,7 @@ const infoAdmin = async (mail) => {
                     birth: info[0].dataValues.birth,
                 },
                 account_data: {
+                    admin: info[0].dataValues.admin,
                     mail: info[0].dataValues.mail,
                     pass: info[0].dataValues.password,
                     balance: info[0].dataValues.balance,

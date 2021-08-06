@@ -29,11 +29,7 @@ const users = [{
 } , {
     mail: 'Frans@gmail.com',
     password: '4332',
-<<<<<<< HEAD
     fullname: 'Agüero',  
-=======
-    fullname: 'Agüero',
->>>>>>> 0fc4607e7ca63618903623cb10359692006529b1
     balance: 1000,
     dni: '565jjggr5',
     ubication: 'Ham',
