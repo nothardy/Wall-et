@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import Login from '../../client/src/Componets/Login/login';
+import Login from '../../client/src/Components/Login/login';
 
 
 

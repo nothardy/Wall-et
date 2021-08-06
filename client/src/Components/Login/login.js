@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import { login } from '../../../src/Redux/Actions/loginActions';
+import { login } from '../../Redux/Actions/loginActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import s from'./login.module.css';
