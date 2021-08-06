@@ -11,7 +11,7 @@ async function register(req, res, next) {
     if (password.length < 8) { throw new Error("Password is too short, should have 8 characters") };
     if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/gm.test(password)) { throw new Error("Password must contain an uppercase letter, a lowercase and a number.") }
     const hashedPassword = await bcrypt.hash(password, 12);
-    await Account.create({
+    const newUser = await Account.create({
       id: uuidv4(),
       fullname,
       password: hashedPassword,
@@ -21,14 +21,10 @@ async function register(req, res, next) {
       cvu: generatorCVU(),
       photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
     })
-      //   .then((recipeCreated) => {
-      //     return recipeCreated.addDiets(diets);
-      //   })
-      .then(newUser => {
+    const response = await newUser;
         return res.json({
           message: "Created an Account succesfully",
         });
-      })
   } catch (error) { next(error) }
 }
 

@@ -1,11 +1,11 @@
 /* import logo from "./logo.svg"; */
 import "./App.css";
 import { Route } from "react-router-dom";
-import Home from "./Componets/Home/index";
-import Loging from './Componets/loging/index';
-import Register from './Componets/Register/register';
-import RecoverPassword from './Componets/RecoverPassword/recoverpassword';
-import FrecuentlyQuestions from './Componets/FrecuentlyQuestions/frecuentlyquestions';
+import Home from "./Components/Home/index";
+import Loging from './Components/loging/index';
+import Register from './Components/Register/register';
+import RecoverPassword from './Components/RecoverPassword/recoverpassword';
+import FrecuentlyQuestions from './Components/FrecuentlyQuestions/frecuentlyquestions';
 
 function App() {
   return (
