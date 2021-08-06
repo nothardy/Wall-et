@@ -75,7 +75,6 @@ function Register() {
         if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) { return swal("Password must contain eight characters, an uppercase letter, and a number.", "You clicked the button!", "error") };
         if (input.password !== input.confirmpassword) { return swal("Passwords don't match", "You clicked the button!", "error")}
         if (captcha.current.getValue() ) {
-            console.log('The user is not a robot');
             cambiarUsuarioValido(true);
             cambiarCaptchaValido(true);
             try {
@@ -87,13 +86,11 @@ function Register() {
                     })
                 swal('Account created succesfully!', "You clicked the button!", "success");
             } catch (err) {
-                console.log(err.message)
                 swal('We could not create account. Please try again.', "You clicked the button!", "error");
             }
             history.push('/home');
         } else {
             swal('Please accept the captcha', "You clicked the button!", "warning")
-            // console.log('Please accept the captcha');
             cambiarUsuarioValido(false);
             cambiarCaptchaValido(false);
         }
@@ -103,7 +100,6 @@ function Register() {
 
     function captchaChange() {
         if (captcha.current.getValue()) {
-            console.log('The user is not a robot');
             cambiarCaptchaValido(true);
         }
     }
@@ -135,7 +131,7 @@ function Register() {
 
                         <div>
                             <p className='{r.titles}'>Password*</p>
-                            <input  type={show ? 'text' : 'password'} placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
+                            <input  type={show ? 'text' : 'password'} placeholder="Password" required="required" name='password' id="password" value={input.password} onChange={handleChange} class="form-control bg-white border-left-0 border-md" autoComplete="off"/>
                            
                              {show ? (
                                 <FontAwesomeIcon 
@@ -157,7 +153,7 @@ function Register() {
                         </div>
                         <div>
                 <p className='{r.titles}'>Confirm Password*</p>
-                <input  type={showpass2 ? 'text' : 'password'} placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} class="form-control bg-white border-left-0 border-md"/>
+                <input  type={showpass2 ? 'text' : 'password'} placeholder="Confirm Password"  required="required" name="confirmpassword" id="confirmpassword" value={input.confirmpassword} onChange={handleChange} class="form-control bg-white border-left-0 border-md" autoComplete="off"/>
                 
                      {showpass2 ? (
                                 <FontAwesomeIcon 
@@ -178,7 +174,7 @@ function Register() {
                     )}
                     </div>
                         <div className="form-row hide-inputbtns">
-                            <label for="birthdate" className='{r.titles}'>Date of Birth*</label>
+                            <label htmlFor="birthdate" className='{r.titles}'>Date of Birth*</label>
                             <input className="birthdate" type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" class="form-control bg-white border-left-0 border-md"/>
                         </div>
 
