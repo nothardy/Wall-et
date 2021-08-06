@@ -19,7 +19,15 @@ const search = async (mail) => {
                 cvu: user[0].dataValues.cvu,
                 photo: user[0].dataValues.photo,
                 cards: user[0].dataValues.cards,
-                transactions: user[0].dataValues.transactions,
+                transactions: user[0].dataValues.transactions.map(el => {return {
+                    id: el.id,
+                    from: el.from,
+                    to: el.to,
+                    type_transaction: el.type_transaction,
+                    state: el.state,
+                    transaction_date: el.createdAt,
+                }
+            }),
                 create: user[0].dataValues.createdAt,
             },
         }
