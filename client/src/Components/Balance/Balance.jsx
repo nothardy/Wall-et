@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import style from "./Balance.module.css";
 import { LineBalance } from "./LineBalance";
 import { DoughnutBalance } from "./Doughnut";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../../Redux/Actions/Balance_Action";
+import Transactions from "./Transactions";
+import Money from "./Money";
 
 function Balance() {
   const dispatch = useDispatch();
@@ -21,18 +22,26 @@ function Balance() {
   //Preguntarle a los chicos si estan haciendo esa ruta.
 
   //
-  return (
-    <div className={style.graficos}>
-      <div className={style.balance}>
-        <div className={style.grafico}>
-          <LineBalance userInfo={userInfo} />
+return (
+  <>
+    <div>
+      <Money />
+    </div>
+    <div>
+      <Transactions />
+    </div>
+    <div>
+        <div>
+          <div>
+            <LineBalance userInfo={userInfo} />
         </div>
-        <div className={style.grafico}>
-          <DoughnutBalance userInfo={userInfo} />
+        <div>
+            <DoughnutBalance userInfo={userInfo} />
         </div>
       </div>
     </div>
+  </>
   );
 }
-
+//linea 37, lista de las transacciones
 export default Balance;

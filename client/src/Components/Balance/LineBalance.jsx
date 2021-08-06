@@ -1,6 +1,6 @@
 import { Line } from "react-chartjs-2";
 import { setAxis } from "../../utils/Methods";
-import style from "./Balance.module.css";
+
 
 //toLocaleString('default', { month: 'long' })
 
@@ -26,7 +26,7 @@ export function LineBalance(props) {
     maintainAspectRatio: false,
   };
   return (
-    <div className={style.line}>
+    <div>
       <Line data={state} options={options} />
     </div>
   );
