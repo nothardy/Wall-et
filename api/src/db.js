@@ -10,6 +10,7 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   logging: false,
   native: false, 
 });
+
 const basename = path.basename(__filename);
 //json w token
 //passport

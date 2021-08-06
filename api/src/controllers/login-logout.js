@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const login = async (req, res) => {
     try{
     const {mail , password} = req.body
-    const user = await Account.findOne({where: { mail: mail }});
+    const user = await Account.findOne({ where: { mail: mail } });
     //if the user doesn't exists
     if (!user) {
       return res.status(404).send("The mail doesn't exists");
