@@ -1,5 +1,5 @@
 const { Router } = require('express');
-
+const resetPasswordRoutes= require('./resetPassword')
 const logRoutes = require("./auth");
 
 
@@ -11,11 +11,10 @@ const router = Router();
 
 
 
-
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-
+router.use('/reset', resetPasswordRoutes);
 router.use('/auth', logRoutes);
 
 
