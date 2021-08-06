@@ -7,6 +7,7 @@ import Register from './Components/Register/register';
 import RecoverPassword from './Components/RecoverPassword/recoverpassword';
 import FrecuentlyQuestions from './Components/FrecuentlyQuestions/frecuentlyquestions';
 
+
 function App() {
   return (
     <div className="App">
