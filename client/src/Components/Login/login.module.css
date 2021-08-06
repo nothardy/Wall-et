@@ -1,0 +1,25 @@
+/* .container{ 
+    width: 20%;
+    height: 50px;
+    padding: 0 50px 0 20px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    font-size: large;
+    border: 1px solid rgb(20, 223, 223); 
+    transition: 0.4s;
+    margin: 20px;
+}
+input:focus{
+    box-shadow: 0 0 30px aqua;
+}
+.icon{
+    color: rgb(26, 43, 68);
+    font-size: 15px;
+    transform: translateX(-55px);
+    cursor: pointer
+}
+.errors{
+    color: red;
+}
+*/
+

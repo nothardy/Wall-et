@@ -17,7 +17,8 @@ new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`, {
 });
 
 const basename = path.basename(__filename);
-
+//json w token
+//passport
 const modelDefiners = [];
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
