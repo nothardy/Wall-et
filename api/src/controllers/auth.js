@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { Account } = require("../db");
+const { Account, Transaction, Card } = require("../db");
 const bcrypt = require("bcrypt");
 
 const login = async (req, res) => {
