@@ -8,7 +8,8 @@
     right: 11px;
     display: flex;
     flex-direction: column; */
-    width: 16rem;
+    min-width: 16rem;
+    width: 24vw;
     height: 14rem;
     border-radius: 8px;
     padding: 7px;

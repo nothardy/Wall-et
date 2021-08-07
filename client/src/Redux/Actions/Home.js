@@ -52,26 +52,11 @@ export const getDateUser = (state, mail) =>{
             return dispatch({type:GET_DATE_USER, payload:data})
         }
         catch(err){
-            alert("primer error",err)
-           /*  return dispatch({type:GET_DATE_USER, payload:{name:"Frank Smile", amount:"785"}}) *//* Quitar esto cuando tenga rutas de back */
+            alert("error en getDateUser",err)
+            /* Quitar esto cuando tenga rutas de back */ 
         }
     }  
 }
-
-/* export const getTransactions = (name) =>{ 
-Pide al back la data de transacciones que se hicieron. (esta harcodeado. hacer ruta del back que cargue dichas )
-    return async function dispatch(dispatch){
-        try{
-            const {data} = await axios.get(`http://localhost:3001/homte/${name}`)
-            return dispatch({type:GET_TRANSACTIONS, payload:data})
-        }
-        catch(err){
-            console.log("segundo action getTransactions",err)
-            return dispatch({type:GET_TRANSACTIONS, payload:testInfo})Quitar esto cuando tenga rutas de back
-        }
-    }  
-} 
-*/
 
 export const adminGetUser = (email) =>{
     return async function dispatch(dispatch){

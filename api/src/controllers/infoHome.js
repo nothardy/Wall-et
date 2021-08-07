@@ -24,6 +24,7 @@ const infoUser = async (mail) => {
                 transactions: user[0].dataValues.transactions.map(el => {return {
                         id: el.id,
                         from: el.from,
+                        amount: el.amount,
                         to: el.to,
                         type_transaction: el.type_transaction,
                         state: el.state,

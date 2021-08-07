@@ -15,6 +15,7 @@ export const login = ({ mail, password }) => async (dispatch) => {
    .then(response => {
      dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data });
      window.location.href = "/mywallet";
+    /* console.log(response) */
     })
    
    .catch(error => swal('Wrong Credentials', { icon: 'warning'}));

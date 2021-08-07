@@ -1,7 +1,20 @@
+.containerUser{
+    width: 96%;
+    position: relative;
+}
+
 .graphic{
-    width: 26rem;
-    width: 26rem;
+    width: 30rem;
     background: #D7DAF4;
     padding: 6px;
     border-radius: 8px;
+    margin-left: 2.5rem;
+    margin-top: 3.5rem;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+.graphic > h2{
+    margin-top: 8px;
 }

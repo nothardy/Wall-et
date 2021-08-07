@@ -11,11 +11,11 @@ import NavBar from './NavBar/navBar';
 import h from './home.module.css';
 
 const Home = () =>{
-    const store = useSelector(state => state.homeReducer.User);
+    const store = useSelector(state => state.loginState);
     const dispatch = useDispatch();
     let [admin, setAdmin] = useState({
         status:false,
-        mail:"walter@hotmail.com"
+        mail:"fran@gmail.com"
     });
     let [firstRender, setFirstRender] = useState(true);
     useEffect(() => {

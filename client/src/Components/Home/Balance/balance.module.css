@@ -1,5 +1,6 @@
 .containerBalance{
-    width: 16rem;
+    min-width: 16rem;
+    width: 24vw;/* Si se ve muy grande, SACARLO */
     height: 8rem;
     position: absolute;
     top: 6rem;

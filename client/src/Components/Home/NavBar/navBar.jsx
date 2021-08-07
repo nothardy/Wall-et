@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Home from './home.png';
+import Account from './account.png';
+import Balance from './balance.png';
+import Payments from './payments.png';
+import Contacts from './contact.png';
+import Trasnfers from './transfer1.png';
+import LogOut from './logout.png';
+import Help from './support1.png';
+
 import n from './navBar.module.css'
-//import "/navBar.css"
-//arranquemos , vamos ahre
 export const NavBar = () => {
     
     return(
         <div className={n.containerNavBar}>
-            <Link to='/mywallet'>Home</Link>
-            <Link to='/account'>Account</Link>
-            <Link to='/balance'>Balance</Link>
-            <Link to='/payments'>Payments</Link>
-            <Link to='/contacts'>Contacts</Link>
-            <Link to='/transfers'>Transfers</Link>
-            <Link to='/faq'>Help</Link>
-            <Link to='/falta'>Log out</Link>
+            <Link to='/mywallet'><img src={Home} alt="home" /> Home</Link>
+            <Link to='/account'><img src={Account} alt="account" /> Account</Link>
+            <Link to='/balance'><img src={Balance} alt="balance" /> Balance</Link>
+            <Link to='/payments'><img src={Payments} alt="payments" /> Payments</Link>
+            <Link to='/contacts'><img src={Contacts} alt="contacts" /> Contacts</Link>
+            <Link to='/transfers'><img src={Trasnfers} alt="transfers" /> Transfers</Link>
+            <Link to='/faq'><img src={Help} alt="help" /> Help</Link>
+            <Link to='/falta'><img src={LogOut} alt="log out" /> Log out</Link>
          </div>
     )
 }

@@ -3,15 +3,22 @@
     flex-direction: column;
     height: 80%;
 }
+.containerNavBar a > img{
+    width: 1.5rem;
+    margin-right: 15px;
+}
 
 .containerNavBar > a{
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    padding: 0.65rem;
-    transition: 0.5s;
+    padding: 0.9rem;
+    padding-left: 1.4rem;
+    transition: 0.3s;
 }
 .containerNavBar a:hover{
-    border-right: 1px solid black;
+    border-right: 4px solid black;
     color: white;
     background: rgba(0, 0, 0, 0.534);
 }

@@ -18,7 +18,7 @@ const TransactionHistory = () =>{
                     store?(store.account_data.transactions.splice(0,5).map(el => <ViewTransaction 
                         key={el.id} from={el.to} amount={el.amount} 
                         state={el.state} transactionDate={el.transaction_date} />))
-                    :<h3>Cargando... Transations</h3>
+                    :<h3> --- </h3>
                 }  
             </div>
         </div>
