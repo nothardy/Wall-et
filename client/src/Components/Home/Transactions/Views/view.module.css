@@ -1,4 +1,4 @@
-/* .containerView{
+.containerView{
     position: relative;
     width: 100%;
     height: 3rem;
@@ -15,4 +15,4 @@
 }
 #amountView{
     margin: 0;
-} */
+}

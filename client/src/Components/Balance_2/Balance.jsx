@@ -36,13 +36,23 @@ function Balance() {
         <div className={style.left}>
         <NavBar/>
        </div>
-
+       <div>
+        <Money />
+       </div>
+       <div>
+        <Transactions />
+       </div>
+          <div className={style.graficos}>
          <div className={style.right} >
-        {
-            firstRender.status === true? 
-            <LineBalance userInfo={userInfo} />
-            : <DoughnutBalance userInfo={userInfo} />
-        }
+         <div className={style.balance}>
+            <div className={style.grafico}>
+             <LineBalance userInfo={userInfo} />
+            </div>
+             <div className={style.grafico}>
+                <DoughnutBalance userInfo={userInfo} />
+              </div>
+        </div>
+        </div>
          </div>
       </div>
     </div>

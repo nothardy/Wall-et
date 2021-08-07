@@ -4,12 +4,10 @@
     flex-direction: column;
     align-items: center;
     margin-top: -20rem; */
-    display :flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:center;
-    border: 1px solid black;
-    height: 0px;
+     display :flex;
+     flex-direction: column;
+     align-items: center;
+
   }
   
   .grafico {
@@ -17,7 +15,7 @@
     height: 20rem; 
   }
   .balance {
-    background-color: #ffffff;
+   /*   background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 0 0 3px #656673;
     display: flex;
@@ -26,15 +24,23 @@
     height: 30rem;
     right: 60px;
     position: relative;
-    margin-left: -8rem; 
-    top: -45rem;
-    margin-top: 30px;
+    margin-left: -8rem;  
+     */
     /* display: flex; 
     /* display: flex;
     
     height: 15rem;
     box-shadow:0 0 0 3px #656673;
     right: 60px; */
+    margin: 5px 4rem ;
+     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 30rem;
+    right: 60px;
+    margin-top:10px;
+    border-radius: 5px;
+    box-shadow:0 0 0 3px #656673; 
   }
   .bar {
     /* padding: 20px;
@@ -46,19 +52,14 @@
   }
   
   .transactions{
-    justify-content: center;
-    background-color: #ffffff;
-    color: rgb(3, 5, 7);
-    height: 40rem;
-    width: 20rem;
     display: flex;
-    box-shadow:  0 0 0 3px #656673;
-    flex-direction: row;
-    border-radius: 10px;
-    position: relative;
-    left: 60rem;
-    top: -40rem;
-    margin-top: 2rem; 
+    justify-content: center;
+    height: 20rem;
+    width: 20rem;
+    margin-top:10px;
+    margin-left: 4rem;
+    border-radius: 5px;
+    box-shadow:0 0 0 3px #656673; 
   }
   
   .money{
@@ -71,13 +72,13 @@
     box-shadow: 0 0 0 3px #656673;
     flex-direction: row;
     border-radius: 10px;
-    position: relative;
-    left: 30%;
-    top: -18rem;
+    position: relative; 
+    margin-left: 10px;
+    margin-top: 8px;
   }
   .number{
-    /* display: flex;
-    align-items: center; */
+     display: flex;
+    align-items: center; 
   }
   .nombre{
     /* display: flex;
@@ -95,7 +96,7 @@
 }
 
 .right{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-left: none;
     width: 100%;
 }

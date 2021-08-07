@@ -1,15 +1,18 @@
-/* .containerBalance{
+.containerBalance{
     width: 16rem;
     height: 8rem;
     position: absolute;
     top: 6rem;
     right: 12px;
-    border: 1px solid black;
-    background-color: #d0bac0b8;
+    border: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 8px;
+    padding: 7px;
+    box-shadow: 1px 1px 2px 0px white;
+    background-color: #D7DAF4;
 }
 
 #titleBalance{
@@ -38,4 +41,4 @@
 .btnBalance:hover{
     color: black;
     background-color: rgb(221, 197, 92);
-} */
+}

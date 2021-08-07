@@ -9,7 +9,7 @@ export const Money = () => {
         <div className={style.money}>
             <h1>Balance</h1>
         <div className={style.number}>
-            <h3>
+            <h3 >
                 200$
             </h3>
         </div>

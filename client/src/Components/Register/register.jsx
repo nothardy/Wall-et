@@ -145,7 +145,7 @@ function Register() {
                                     icon={faEyeSlash}
                                     className={r.icon}
                                     id='show_hide' />
-                            )}<p>The password must contain eight characters, an uppercase letter, and a number</p>
+                            )}<p className={r.passwordWarning}>The password must contain eight characters, an uppercase letter, and a number</p>
                             {errors.password && (
                                 <p className=''>{errors.password}</p>
                             )}
@@ -176,7 +176,7 @@ function Register() {
                         {/* <label htmlFor="birthdate" className={r.titles}></label> */}
                         <input htmlFor="birthdate" className={r.inputregister} type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" />
 
-
+<div className={r.centerCaptchaRegister}>
                         <div className="recaptcha">
                             <ReCAPTCHA
                                 required
@@ -185,7 +185,7 @@ function Register() {
                                 onChange={captchaChange}
                             />
                         </div>
-
+</div>
 
                         {/* {captchaValido === false && <div className="error-captcha">Please accept the captcha</div>} */}
                         <button type="submit" className={r.buttoncreate}>Create Account</button>

@@ -1,5 +1,5 @@
-/* .containerTransaction{
-    width: 16rem;
+.containerTransaction{
+    /* width: 16rem;
     height: 14rem;
     border: 1px solid black;
     background-color: #d0bac0b8;
@@ -7,12 +7,24 @@
     bottom: 6rem;
     right: 11px;
     display: flex;
+    flex-direction: column; */
+    width: 16rem;
+    height: 14rem;
+    border-radius: 8px;
+    padding: 7px;
+    box-shadow: 1px 1px 2px 0px white;
+    background-color: #D7DAF4;
+    position: absolute;
+    bottom: 6rem;
+    right: 11px;
+    display: flex;
     flex-direction: column;
-} */
+}
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
-/* .headerTransaction{
+.headerTransaction{
     position: relative;
     height: 28%;
+    margin-bottom: 15px;
 }
 #titleTransaction{
     position: absolute;
@@ -30,9 +42,9 @@
     bottom: 0;
     right: 12px;  
     cursor: pointer;
-} */
+}
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
-/* .bodyTransaction{
+.bodyTransaction{
     height: calc(100% - 28%);
     display: flex;
     flex-direction: column;
@@ -52,4 +64,4 @@
     background: #97a5bb70;
     border-radius: 4px;
     height: 1rem;
-} */
+}
