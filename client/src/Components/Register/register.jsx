@@ -11,20 +11,20 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 //import Button from 'react-bootstrap/Button';
 //import Form from 'react-bootstrap/Form';
 
-export function validate(input) {
-    let errors = {};
-    if (!input.mail) {
-        errors.mail = 'Required Email';
-    } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
-        errors.mail = 'Invalid Email ';
-    }
-    if (!input.password) {
-        errors.password = 'Required password';
-    } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
-        errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
-    }
-    return errors;
-};
+// export function validate(input) {
+//     let errors = {};
+//     if (!input.mail) {
+//       errors.mail = 'Required Email';
+//     } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
+//       errors.mail = 'Invalid Email ';
+//     }
+//     if (!input.password) {
+//         errors.password = 'Required password';
+//       } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
+//         errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
+//       }
+//     return errors;
+//   };
 
 function Register() {
     const [input, setInput] = useState({
@@ -59,10 +59,10 @@ function Register() {
             ...input,
             [e.target.name]: e.target.value
         });
-        setErrors(validate({
-            ...input,
-            [e.target.value]: e.target.value
-        }));
+        // setErrors(validate({
+        //     ...input,
+        //     [e.target.value]: e.target.value
+        // }));
     }
 
     async function handleSubmit(e) {
@@ -132,7 +132,7 @@ function Register() {
                         <div>
                             {/* <p className={r.titles}>Password*</p> */}
                             <input className={r.inputregister} type={show ? 'text' : 'password'} placeholder="Password*" required="required" name='password' id="password" value={input.password} onChange={handleChange} autoComplete="off" />
-
+                                
                             {show ? (
                                 <FontAwesomeIcon
                                     onClick={handleShowHide}
@@ -145,8 +145,7 @@ function Register() {
                                     icon={faEyeSlash}
                                     className={r.icon}
                                     id='show_hide' />
-                            )
-                            }
+                            )}<p>The password must contain eight characters, an uppercase letter, and a number</p>
                             {errors.password && (
                                 <p className=''>{errors.password}</p>
                             )}

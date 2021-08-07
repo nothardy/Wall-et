@@ -21,7 +21,7 @@ export default function App() {
         <Home />
       </Route>
       <Route exact path="/balance">
-        <NavBar />
+        
         <Balance />
       </Route>
       <Route exact path="/register">

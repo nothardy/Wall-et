@@ -4,7 +4,7 @@ import Balance from '../Balance/balance';
 import { useSelector } from 'react-redux';
 
 //import u from './user.module.css'
-const User = () => {
+export const User = () => {
     const store = useSelector(state => state.homeReducer.User)
     return(
         <div className='{u.containerUser}'>

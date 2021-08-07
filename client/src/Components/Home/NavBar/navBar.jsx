@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import n from './navBar.module.css'
 //import "/navBar.css"
 //arranquemos , vamos ahre
-const NavBar = () => {
+export const NavBar = () => {
     
     return(
         <div className={n.containerNavBar}>

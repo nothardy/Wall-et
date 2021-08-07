@@ -1,8 +1,3 @@
-.container{
-    width: 100%;
-    height: 100%;
-}
-
 
 .graficos {
     /* display: flex;
@@ -88,3 +83,22 @@
     /* display: flex;
     right: 20%; */
   }
+  .container{
+    height: calc(100vh - 2.5rem);
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    border: 1px solid black;    
+    width: 14rem;
+}
+
+.right{
+    border: 1px solid black;
+    border-left: none;
+    width: 100%;
+}
+body{
+    margin: 0;
+}
