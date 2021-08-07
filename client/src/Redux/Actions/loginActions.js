@@ -9,15 +9,13 @@ axios.defaults.baseURL = 'http://localhost:3001/';
 
 
 export const login = ({ mail, password }) => async (dispatch) => {
-    
    dispatch({ type: USER_LOGIN_REQUEST, payload: { mail, password }});
    return axios.post('/auth/login', { mail, password })
    .then(response => {
-     dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data });
+     dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data.user });
      window.location.href = "/mywallet";
-    /* console.log(response) */
+     localStorage.setItem('token', response.data.token); // CONSULTAR A GEORGI
     })
-   
    .catch(error => swal('Wrong Credentials', { icon: 'warning'}));
-   };
+};
 

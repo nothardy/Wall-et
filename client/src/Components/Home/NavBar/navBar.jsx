@@ -21,7 +21,7 @@ export const NavBar = () => {
             <Link to='/contacts'><img src={Contacts} alt="contacts" /> Contacts</Link>
             <Link to='/transfers'><img src={Trasnfers} alt="transfers" /> Transfers</Link>
             <Link to='/faq'><img src={Help} alt="help" /> Help</Link>
-            <Link to='/falta'><img src={LogOut} alt="log out" /> Log out</Link>
+            <Link to='/logout'><img src={LogOut} alt="log out" /> Log out</Link>
          </div>
     )
 }
