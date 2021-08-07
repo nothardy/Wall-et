@@ -1,14 +1,14 @@
 import React from 'react';
-
+import style from './Balance.module.css'
 
 
 export const Money = () => {
 
     return (
         <>
-        <div>
+        <div className={style.money}>
             <h1>Balance</h1>
-        <div>
+        <div className={style.number}>
             <h3>
                 200$
             </h3>

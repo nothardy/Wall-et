@@ -7,8 +7,8 @@ import User from './User/user';
 import Balance from './Balance'; */
 import { getDateUser } from '../../Redux/Actions/Home';
 
-
-//import h from './home.module.css';
+import NavBar from './NavBar/navBar';
+import h from './home.module.css';
 
 const Home = () =>{
     const store = useSelector(state => state.homeReducer.User);
@@ -28,11 +28,20 @@ const Home = () =>{
     return(
         <div>
             <Bar/>
-            
-            {
-                admin.status === true? <Admin/>
-                : <User/>
-            }
+
+            <div className={h.container}>
+                <div className={h.left}>
+                    <NavBar/>
+                </div>
+
+                <div className={h.right}>
+                    {
+                        admin.status === true? 
+                        <Admin/>
+                        : <User/>
+                    }
+                </div>
+            </div>
         </div>
     )
 }

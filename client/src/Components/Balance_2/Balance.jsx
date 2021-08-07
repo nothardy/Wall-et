@@ -6,7 +6,7 @@ import { getUserInfo } from "../../Redux/Actions/Balance_Action";
 import Transactions from "./Transactions";
 import Money from "./Money";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
-
+import style from './Balance.module.css'
 function Balance() {
   const dispatch = useDispatch();
   const userInfo = testInfo; //useSelector((state) => state.homeReducer.User);
@@ -24,25 +24,42 @@ function Balance() {
 
   //
   return (
-    <>
+    <div className={style.container}>
+      
       <div>
         <Money />
       </div>
       <div>
         <Transactions />
       </div>
-      <div>
-        <div>
-          <div>
+      <div className={style.graficos}>
+        <div className={style.balance}>
+          <div className={style.grafico}>
             <LineBalance userInfo={userInfo} />
           </div>
-          <div>
+          <div className={style.grafico}>
             <DoughnutBalance userInfo={userInfo} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 //linea 37, lista de las transacciones
 export default Balance;
+
+{/* <Bar/>
+
+<div className={h.container}>
+    <div className={h.left}>
+        <NavBar/>
+    </div>
+
+    <div className={h.right}>
+        {
+            admin.status === true? 
+            <Admin/>
+            : <User/>
+        }
+    </div>
+</div> */}

@@ -16,7 +16,7 @@ import NavBar from "./Components/Home/NavBar/navBar";
 
 export default function App() {
   return (
-    <div className="App">
+    <div>
       <Route exact path="/mywallet">
         <Home />
       </Route>

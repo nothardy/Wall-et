@@ -1,11 +1,19 @@
-/* 
 .container{
-    background-color: #FA7C9D;
-    height: 100vh;
-    
+    height: calc(100vh - 2.5rem);
+    display: flex;
+    flex-direction: row;
 }
-#TransactionHistory{
-    position: absolute;
-    top: 46px;
-} 
- */
+
+.left{
+    border: 1px solid black;    
+    width: 14rem;
+}
+
+.right{
+    border: 1px solid black;
+    border-left: none;
+    width: 100%;
+}
+body{
+    margin: 0;
+}
