@@ -14,7 +14,7 @@ export const NavBar = () => {
             <Link to='/contacts'>Contacts</Link>
             <Link to='/transfers'>Transfers</Link>
             <Link to='/faq'>Help</Link>
-            <Link to='/falta'>Log out</Link>
+            <Link to='/logout'>Log out</Link> {/* CONSULTAR A WALTER Y FRANCO */}
          </div>
     )
 }
