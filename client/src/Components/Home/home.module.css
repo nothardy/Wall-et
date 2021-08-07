@@ -1,12 +1,24 @@
-/* 
 .container{
-    background-color: #FA7C9D;
-    height: 100vh;
-    
+    height: calc(100vh - 2.5rem);
+    display: flex;
+    flex-direction: row;
 }
-#TransactionHistory{
-    position: absolute;
-    top: 46px;
-} 
 
-*/
+.left{
+    border: 2px solid rgb(164 178 179);    
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    width: 14rem;
+}
+
+.right{
+    /* border: 1px solid black;
+    border-left: none; */
+    border: none;
+    width: 100%;
+}
+body{
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}

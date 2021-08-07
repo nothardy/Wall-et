@@ -1,11 +1,10 @@
-/* .containerBar{
+.containerBar{
     background-color: #64D5FA;
     height: 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-} 
-.containerBar h3{ PROVISORIO, PONERLE UN CLASSNAME o ID 
+}
+.containerBar h3{/* PROVISORIO, PONERLE UN CLASSNAME o ID */
     margin: 0;
 }
-*/

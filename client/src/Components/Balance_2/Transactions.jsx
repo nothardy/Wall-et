@@ -1,5 +1,5 @@
 import React from "react"
-
+import style from './Balance.module.css'
 
 
 export const Transactions = () => {
@@ -7,7 +7,7 @@ export const Transactions = () => {
 
     return(
         <>
-            <div>
+            <div className={style.transactions}>
              <h1>Transactions</h1>
             </div>
 

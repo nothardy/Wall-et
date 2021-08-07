@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import Menu from './menu.png';
-//import n from './navBar.module.css'
-
-const NavBar = () => {
-    let [closed, setClosed] = useState(true);
-    const toggleNavBar = () =>{setClosed(closed = !closed)}
-
+import n from './navBar.module.css'
+//import "/navBar.css"
+//arranquemos , vamos ahre
+export const NavBar = () => {
+    
     return(
-        closed ? 
-        <div> 
-            <img id='{n.img__menuNavBar}' src='{Menu}' alt="Menu" onClick={() => toggleNavBar()}/>
-        </div>
-        :
-        <div className='{n.containerNavBar}'>
-            <button id='{n.btn__menuNavBar}' onClick={() => toggleNavBar()}>X</button>
+        <div className={n.containerNavBar}>
             <Link to='/mywallet'>Home</Link>
             <Link to='/account'>Account</Link>
             <Link to='/balance'>Balance</Link>
@@ -22,8 +14,8 @@ const NavBar = () => {
             <Link to='/contacts'>Contacts</Link>
             <Link to='/transfers'>Transfers</Link>
             <Link to='/faq'>Help</Link>
-            <Link to='/falta'>Log out</Link>
-        </div>
+            <Link to='/logout'>Log out</Link> {/* CONSULTAR A WALTER Y FRANCO */}
+         </div>
     )
 }
 export default NavBar;
