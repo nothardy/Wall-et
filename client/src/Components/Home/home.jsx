@@ -7,14 +7,15 @@ import User from './User/user';
 import Balance from './Balance'; */
 import { getDateUser } from '../../Redux/Actions/Home';
 
-/* import h from './home.module.css' */
+
+//import h from './home.module.css';
 
 const Home = () =>{
     const store = useSelector(state => state.homeReducer.User);
     const dispatch = useDispatch();
     let [admin, setAdmin] = useState({
         status:false,
-        mail:"Weeel@gmail.com"
+        mail:"walter@hotmail.com"
     });
     let [firstRender, setFirstRender] = useState(true);
     useEffect(() => {
@@ -27,6 +28,7 @@ const Home = () =>{
     return(
         <div>
             <Bar/>
+            
             {
                 admin.status === true? <Admin/>
                 : <User/>

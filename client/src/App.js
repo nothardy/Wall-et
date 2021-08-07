@@ -8,6 +8,12 @@ import Login from "../../client/src/Components/Login/login";
 import Balance from "./Components/Balance_2/Balance";
 import NavBar from "./Components/Home/NavBar/navBar";
 
+// CSS hecho por:
+// Cami y Celes: /register y /home
+// Gonza: NavBar
+// Franco: mywallet
+
+
 export default function App() {
   return (
     <div className="App">
