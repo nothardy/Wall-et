@@ -11,16 +11,16 @@ import NavBar from './NavBar/navBar';
 import h from './home.module.css';
 
 const Home = () =>{
-    const store = useSelector(state => state.loginState);
+    const store = useSelector(state => state.homeReducer.User);
     const dispatch = useDispatch();
-    let [admin, setAdmin] = useState({
+    /* let [admin, setAdmin] = useState({
         status:false,
         mail:"fran@gmail.com"
-    });
+    }); */
     let [firstRender, setFirstRender] = useState(true);
     useEffect(() => {
-        if(firstRender=== true){
-            dispatch(getDateUser(admin.status, admin.mail));/* Aca tendria que ir true|| false dependiendo si es admi o user */
+        if(firstRender === true){
+            dispatch(getDateUser());
             setFirstRender(firstRender = !firstRender)
         }
     }, [firstRender, dispatch]);
@@ -36,9 +36,12 @@ const Home = () =>{
 
                 <div className={h.right}>
                     {
-                        admin.status === true? 
-                        <Admin/>
-                        : <User/>
+                        store?(
+                            store.account_data.admin === true? 
+                            <Admin/>
+                            : <User/>
+                        )
+                        : <h3>Cargando..</h3>
                     }
                 </div>
             </div>

@@ -1,27 +1,26 @@
 const { Account, Card, Transaction, transaction_acount } = require('../db');
 
-const infoUser = async (mail) => {
+const infoUser = async (id) => {
     
     try {
-        const user = await Account.findAll({ where: { mail: mail }, include: [{model: Transaction}, {model: Card}] })
-        console.log(user)
+        const user = await Account.findByPk( id , {include: [{model: Transaction}, {model: Card}]} )
         return {
-            id: user[0].dataValues.id,
+            id: user.dataValues.id,
             user_data: {
-                fullname: user[0].dataValues.fullname,
-                dni: user[0].dataValues.dni,
-                ubicacion: user[0].dataValues.ubicacion,
-                birth: user[0].dataValues.birth,
+                fullname: user.dataValues.fullname,
+                dni: user.dataValues.dni,
+                ubicacion: user.dataValues.ubicacion,
+                birth: user.dataValues.birth,
             },
             account_data: {
-                admin: user[0].dataValues.admin,
-                mail: user[0].dataValues.mail,
-                pass: user[0].dataValues.password,
-                balance: user[0].dataValues.balance,
-                cvu: user[0].dataValues.cvu,
-                photo: user[0].dataValues.photo,
-                cards: user[0].dataValues.cards,
-                transactions: user[0].dataValues.transactions.map(el => {return {
+                admin: user.dataValues.admin,
+                mail: user.dataValues.mail,
+                pass: user.dataValues.password,
+                balance: user.dataValues.balance,
+                cvu: user.dataValues.cvu,
+                photo: user.dataValues.photo,
+                cards: user.dataValues.cards,
+                transactions: user.dataValues.transactions.map(el => {return {
                         id: el.id,
                         from: el.from,
                         amount: el.amount,
@@ -32,7 +31,7 @@ const infoUser = async (mail) => {
                     }
                 }),
                 
-                create: user[0].dataValues.createdAt,
+                create: user.dataValues.createdAt,
             },
         }
 
@@ -43,7 +42,7 @@ const infoUser = async (mail) => {
     }
 }
 
-const infoAdmin = async (mail) => {
+/* const infoAdmin = async (id) => {
 
     try {
         const info = await Account.findAll({ where: [{admin: true}, { mail: mail }] });
@@ -72,7 +71,7 @@ const infoAdmin = async (mail) => {
     catch (err) {
         throw new Error(err);
     }
-}
+} */
 
 const transac = async (name) => {
     try { 
@@ -87,6 +86,6 @@ const transac = async (name) => {
 
 module.exports = {
     infoUser,
-    infoAdmin,
+    /* infoAdmin, */
     transac
 }

@@ -16,10 +16,12 @@ export const User = () => {
             <div className={u.graphic}>
                 <h2>Graphic of spend</h2> 
                 <LineBalance userInfo={testInfo}/>
+
+                <TransactionHistory id='{u.TransactionHistory}' />
+                <Balance/> 
             </div>
            
-            <TransactionHistory id='{u.TransactionHistory}' />
-            <Balance/> 
+            
         </div>
     )
 }
