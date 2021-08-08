@@ -106,11 +106,11 @@ const Login = () => {
                 </div>
 
                 <div>
-                    <button className={s.buttonlogin} type='submit'>LOGIN</button>
+                    <button className={s.buttonlogin} type='submit'>Login</button>
                 </div>
                 <div>
                     <Link to='/register'>
-                        <button className={s.buttonlogin} type='submit'>CREATE ACCOUNT</button>
+                        <button className={s.buttonlogin} type='submit'>Create Account</button>
                     </Link>
                 </div>
                 <div className={s.linkslogin}>
