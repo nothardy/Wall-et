@@ -12,7 +12,6 @@ const login = async (req, res) => {
     };
     //if the password is wrong
     if (bcrypt.compareSync(password, user.password )) {
-
       const token = jwt.sign({ id: user.id }, "mysecretkey", {
         expiresIn: 60 * 60 * 24, // 60*60*24s = 1day 
       });
