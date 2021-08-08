@@ -1,0 +1,46 @@
+.money{
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    color: rgb(3, 5, 7);
+    height: 10rem;
+    width: 320px; 
+    /* box-shadow: 0 0 0 3px #656673; */
+     flex-direction: row;
+    border-radius: 10px;
+    position: relative; 
+    margin-left: 10px;
+    margin-top: 4rem;
+    background: radial-gradient(#76b2fe, #b69efe); 
+  }
+
+.name{
+    position: absolute;
+    top: 0;
+    left: 12px;
+    margin-top: 12px;
+    color: white;
+}
+.btnBalance{
+    background-color: white;
+    border: 1px solid rgba(221, 187, 34, 0.637);
+    border-radius: 5px;
+    color: rgb(3, 3, 0);
+    cursor: pointer;
+    transition: 0.4s;
+}
+.footerBalance{
+    width: 70%;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 7px;
+    left: 15%;
+}
+
+.saldo{
+display: flex;
+align-items: center; 
+font-size: 1.5rem;
+color: white;
+}

@@ -12,7 +12,10 @@ export function LineBalance(props) {
       {
         label: "Total Expenses",
         data: yAxis, //eje y
-        backgroundColor: "#D62793",
+        backgroundColor: "white",
+        color : "black",
+        borderColor : "black",
+        strokeColor: "black",
       },
     ],
   };
