@@ -1,7 +1,6 @@
 import axios from 'axios';
-
+import swal from 'sweetalert';
 export const GET_DATE_USER = 'GET_DATE_USER';
-export const GET_TRANSACTIONS = 'GET_TRANSACTIONS';
 export const ADMIN_GET_USER = 'ADMIN_GET_USER';
 export const ADMIN_GET_DATE_USERS = 'ADMIN_GET_DATE_USERS';
 
@@ -44,7 +43,7 @@ const testInfo =  [
     }
   ]
 
-export const getDateUser = (state, mail) =>{ 
+export const getDateUser = () =>{ 
     /* Trae la date de la cuenta del usuario logeado. */
     return async function dispatch(dispatch){
         try{
@@ -64,12 +63,10 @@ export const adminGetUser = (email) =>{
       /* Te machea por correo unico */
         try{
             const {data} = await axios.get(`http://localhost:3001/adminSearch?mail=${email}`)
-            console.log(data)
-            return dispatch({type:ADMIN_GET_USER, payload:[data]})/* ACA tendria que devolverme un array */
+            return dispatch({type:ADMIN_GET_USER, payload:data})/* ACA tendria que devolverme un array */
         }
         catch(err){
-          alert('err, route admin', err)
-          return dispatch({type:ADMIN_GET_USER, payload:[{email:'franco@gmail.com', id:10}]})
+          swal(`User not Found`);
         }
     }
 }
@@ -82,8 +79,7 @@ export const adminGetDateUsers = (status) => {
             return dispatch({type:ADMIN_GET_DATE_USERS, payload: data})
         }
         catch(err){
-          alert("chipiendo admin",err)
-          return dispatch({type:ADMIN_GET_DATE_USERS, payload:testInfo})
+          swal(`Incomming View`);    
         }
     }
 }

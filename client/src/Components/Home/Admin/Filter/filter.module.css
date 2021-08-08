@@ -1,4 +1,4 @@
-/* .containerFilter{
+.containerFilter{
     width: 11rem;
     position: absolute;
     display: flex;
@@ -15,4 +15,4 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-} */
+}

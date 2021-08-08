@@ -41,7 +41,7 @@ const Home = () =>{
                             <Admin/>
                             : <User/>
                         )
-                        : <h3>Cargando..</h3>
+                        : <h3>Loading home...</h3>
                     }
                 </div>
             </div>

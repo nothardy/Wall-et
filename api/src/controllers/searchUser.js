@@ -4,7 +4,7 @@ const search = async (mail) => {
     try {
         const user = await Account.findAll({ where: {mail,mail}, include: [{ model: Transaction }, { model: Card }] })
         
-        const userData = {
+        const userData = [{
             id: user[0].dataValues.id,
             user_data: {
                 fullname: user[0].dataValues.fullname,
@@ -30,7 +30,7 @@ const search = async (mail) => {
             }),
                 create: user[0].dataValues.createdAt,
             },
-        }
+        }]
     
         if(user) {
             return userData

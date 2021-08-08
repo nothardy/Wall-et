@@ -1,12 +1,10 @@
- /* .containerAdmin{
-   position: relative;
-    display: flex;
-    height: calc(100vh - 2.5rem);
-    justify-content: center;
+ .containerAdmin{
+    position: relative;
+    /* height: calc(100vh - 2.5rem); */
+    width: 96%;
 }
 
 .titleAdmin{
-    margin: 0;
     padding: 1rem;
     padding-left: 2rem;
     position: absolute;
@@ -18,7 +16,7 @@
     width: calc(50vw + 6rem);
     height: 3rem;
     position: absolute;
-    top: 12vh;
+    top: 22vh;
     right: 0;
     display: flex;
     justify-content: space-between;
@@ -45,8 +43,9 @@
     background-color: burlywood;
     width: 25rem;
     margin-top: 40vh;
+    margin-left: calc(50vw - 25rem);
     height: max-content;
-    border-radius: 16px 16px 0 0;
+    border-radius: 16px 16px 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,4 +64,4 @@
 a:hover{
     background-color: rgba(0, 0, 0, 0.459);
     color: white;
-} */
+}

@@ -1,4 +1,4 @@
-/*.containerSearch{
+.containerSearch{
     display: flex;
     align-items: center;
 }
@@ -6,7 +6,7 @@
 .formSearch{
     position: absolute;
     width: 12rem;
-    height: 1.8rem;
+    height: 1rem;
     display: flex;
     align-items: center;
     background: none;
@@ -16,9 +16,10 @@
 
 #inputSearch{
     position: absolute;
-    right: 11px;
-    width: 8rem;
+    right: 22px;
+    width: 10rem;
     outline: none;
+    font-size: 1rem;
     border: none;
     background: none;
 }
@@ -31,4 +32,4 @@
 }
  #btn__lupa img{
     width: 1.4rem;
-} */
+}

@@ -4,7 +4,7 @@ import Filter from './Filter/filter';
 import ArrowDown from './arrowDown.png';
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-//import a from './admin.module.css'
+import a from './admin.module.css'
 
 export const Admin = () => {
     const store = useSelector( state => state.homeReducer);/* USAR store.User y store.AdminDateUser */
@@ -13,18 +13,18 @@ export const Admin = () => {
     
     return(
         store?
-            <div className='{a.containerAdmin}'>
-                { store.User ? <h2 className='{a.titleAdmin}'>Welcome to admin mode {store.User.user_data.fullname} !</h2>: <h3>Cargando...Name</h3> }
-                <div className='{a.filtersAdmin}'>
+            <div className={a.containerAdmin}>
+                { store.User ? <h1 className={a.titleAdmin}>Welcome {store.User.user_data.fullname} !</h1>: <h3>Cargando...Name</h3> }
+                <div className={a.filtersAdmin}>
                     <Search/>
-                    <button id={'a.btn__filterAdmin'} onClick={ () => toggleFilter() }>Filter <img src={ArrowDown} alt="Arrow Down" /></button>
+                    <button id={a.btn__filterAdmin} onClick={ () => toggleFilter() }>Filter <img src={ArrowDown} alt="Arrow Down" /></button>
                     { filter && <Filter/>} 
                 </div>
 
-                <div className='{a.resultAdmin}'>
+                <div className={a.resultAdmin}>
                    {
-                       store.AdminDateUser? store.AdminDateUser.map(el => <Link key={el.id}>{el.account_data.mail}</Link> )
-                       : null
+                        store.AdminDateUser && Array.isArray(store.AdminDateUser) ?store.AdminDateUser.map(el => <Link to="/mywallet/hola" key={el.id}>{el.account_data.mail}</Link>) : null
+                        
                    } 
                 </div>
             </div>

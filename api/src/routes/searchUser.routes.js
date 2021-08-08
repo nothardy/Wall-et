@@ -11,7 +11,7 @@ route.get('/', async (req, res) => {
     }
 
     catch (err) {
-        res.json(404).json({err: `Error ${err}`})
+        res.status(404).json({err: `Error ${err}`})
     }
 })
 
