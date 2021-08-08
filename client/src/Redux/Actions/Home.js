@@ -48,16 +48,9 @@ export const getDateUser = (state, mail) =>{
     /* Trae la date de la cuenta del usuario logeado. */
     return async function dispatch(dispatch){
         try{
-<<<<<<< HEAD
           const token = localStorage.getItem('token')
             const {data} = await axios.get(`http://localhost:3001/home`, { headers: { 'x-access-token': token }})
             return dispatch({type:GET_DATE_USER, payload:data})
-=======
-          const token = localStorage.getItem('token') 
-          console.log(token)
-          const {data} = await axios.get(`http://localhost:3001/home`, {headers: {'x-access-token':token}})
-          return dispatch({type:GET_DATE_USER, payload:data})
->>>>>>> 383262ec84ee6a14d380e5d1547573b6e466bf82
         }
         catch(err){
             alert("error en getDateUser",err)
