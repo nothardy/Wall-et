@@ -1,11 +1,13 @@
 .containerBar{
-    background-color: #64D5FA;
+    background-color: #50548A;
     height: 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 0px 10px 0px black;
+    color: white;
 }
 .containerBar h3{/* PROVISORIO, PONERLE UN CLASSNAME o ID */
     margin: 0;
+    margin-left: 20px;
 }

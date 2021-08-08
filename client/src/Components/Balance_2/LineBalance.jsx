@@ -10,7 +10,7 @@ export function LineBalance(props) {
     labels: xAxis,
     datasets: [
       {
-        label: "Gastos",
+        label: "Total Expenses",
         data: yAxis, //eje y
         backgroundColor: "#D62793",
       },
@@ -26,7 +26,7 @@ export function LineBalance(props) {
   };
   return (
     <div>
-      <Line data={state} options={options} />
+      <Line data={state} options={options} height={"200px"} width={"500px"} />
     </div>
   );
 }

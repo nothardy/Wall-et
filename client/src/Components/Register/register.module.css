@@ -29,20 +29,24 @@ label {
     align-items: center;
 }
 .formulario{
-    
+    margin-top: 80px;
     height: 85vh;
     display: block;
     justify-content: center;
     align-items: center;
-    background-color: #D7DAF4;
+    background-color: transparent;
     max-width: 450px;
-    margin: auto;
+    margin-left:180px;
     padding: 20px 50px;
     border-radius: 30px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
     font-family: 'Source Sans Pro', sans-serif;
-    
 } 
+.centrarformulario{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .create{
     align-items: center;
@@ -51,12 +55,12 @@ label {
     font-weight: bold;
     margin: 20px;
     margin-left:20px;
-    color: #6F77BF;
+    color:black;
 }
 .inputregister{    
     border:none;
     border-radius: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding: 10px 20px;
     width: 350px;
     font-size:17px;
@@ -80,7 +84,7 @@ label {
     color: white;
     margin-top: 20px;
     cursor:pointer;
-    width: 450px;
+    width: 400px;
     font-family: 'Source Sans Pro', sans-serif;
      }
      .buttoncreate:hover{
@@ -90,14 +94,14 @@ label {
 .descriptionDetails{
     
     max-width: 450px;
-    background-color: #fff;
+    background-color: transparent;
     margin: auto;
     padding: 20px 50px;
     text-align: center;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     color: #9fadca;
-    border-top: 1px solid #dee9ff;
+    
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
 }
 .icon{
@@ -127,15 +131,25 @@ label {
 .recaptcha{
     display: flex;
     justify-content: space-around;
+    background-color:transparent ;
 }
 .passwordWarning{
     font-size: small;
+    color: #9fadca;
+    margin-top: 0px;
 }
 
 .centerCaptchaRegister{
     display: flex;
     justify-content: center;
 }
+
+.fondoregister{
+    background: url("https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80") no-repeat center fixed;
+
+    height: 100vh;
+}
+
 /* .formulario{
     font-family: font-family;
     border-radius: 0.5em;

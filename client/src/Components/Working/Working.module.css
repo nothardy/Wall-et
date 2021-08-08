@@ -1,0 +1,12 @@
+.workingContainer{
+    margin-top: 80px;
+}
+.workingTitle{
+    display: flex;
+    justify-content: center
+}
+
+.centerWorkingImages{
+    display: flex;
+    justify-content: center
+}

@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .containerUser{
     width: 96%;
     position: relative;
 }
 
 .graphic{
+    /* font-family: sans-serif;  */
     width: 30rem;
-    background: #D7DAF4;
+    /* background: #D7DAF4; */
     padding: 6px;
     border-radius: 8px;
     margin-left: 2.5rem;
@@ -14,7 +17,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; */
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+    background: radial-gradient(#adacee, #d7c8fb);
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
-.graphic > h2{
+
+/* .graphic > h2{
     margin-top: 8px;
-}
+} */
+
+/* .graphic:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+   transform: scale(1.01); 
+  } */

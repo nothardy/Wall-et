@@ -4,7 +4,7 @@
     height: 80%;
 }
 .containerNavBar a > img{
-    width: 1.5rem;
+    max-width: 1.5rem;
     margin-right: 15px;
 }
 
@@ -13,12 +13,17 @@
     align-items: center;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    padding: 0.9rem;
+    padding: 1.5rem;
     padding-left: 1.4rem;
     transition: 0.3s;
 }
-.containerNavBar a:hover{
-    border-right: 4px solid black;
+.containerNavBar a:hover {
+    /* border-right: 4px solid black; */
     color: white;
     background: rgba(0, 0, 0, 0.534);
+}
+
+.containerNavBar a:active{
+    color: white;
+    background: rgba(0, 0, 0, 0.534);  
 }
