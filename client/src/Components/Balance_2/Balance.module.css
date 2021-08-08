@@ -1,19 +1,14 @@
 
 .graficos {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -20rem; */
-     display :flex;
-     flex-direction: row;
-     align-items: center;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20rem; */
+   display :flex;
+   flex-direction: row;
+   align-items: center;
 
-  }
-  
-  .boxes{
-    display:flex;
-    flex-direction: column;
-  }
+}
 
   .moneyAndTransactions{
     display:flex;
@@ -93,18 +88,18 @@
   margin-top: -5.5rem;
 }
 .left{
-  border: 2px solid rgb(164 178 179);    
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
-  width: 15rem;
+border: 2px solid rgb(164 178 179);    
+border-top: none;
+border-bottom: none;
+border-left: none;
+width: 15rem;
 }
 
 .right{
-    /* border: 1px solid black; */
-    border-left: none;
-    width: 100%;
+  /* border: 1px solid black; */
+  border-left: none;
+  width: 100%;
 }
 body{
-    margin: 0;
+  margin: 0;
 }

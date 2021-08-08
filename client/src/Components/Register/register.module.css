@@ -58,6 +58,7 @@ label {
     color:black;
 }
 .inputregister{    
+    outline: none;
     border:none;
     border-radius: 20px;
     margin-bottom: 15px;
@@ -112,6 +113,7 @@ label {
 } 
 
 .linksRegister{
+    
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -119,6 +121,7 @@ label {
 }
 
 .loginFromRegister{
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -129,6 +132,7 @@ label {
 }
 
 .recaptcha{
+    
     display: flex;
     justify-content: space-around;
     background-color:transparent ;
@@ -150,6 +154,12 @@ label {
     height: 100vh;
 }
 
+.contactus{
+    font-size: 15px;
+    color: #9fadca;
+    margin-top: -110px;
+    margin-left: 1500px;
+}
 /* .formulario{
     font-family: font-family;
     border-radius: 0.5em;

@@ -57,6 +57,11 @@ const Login = () => {
     return (
         <div className={s.centrarlogin}>
             <h1 className={s.wallet}>Wall-et</h1>
+            <div className={s.descriptionlanding}>
+            <h2 >We are your virtual Wall-et </h2>
+<h3 >Here you can see your balance</h3>
+<h3 >Make transfers and much more</h3>
+</div>
             <form className={s.formulariologin} onSubmit={(e) => handleSubmit(e)}>
 
 
@@ -119,6 +124,15 @@ const Login = () => {
                     </Link>
                 </div>
             </form>
+            <div className={s.contactus}>
+                    
+            <Link to='/faq'>
+                        <p >FAQ</p>
+                    </Link>
+                        <p >Contact Us</p>
+                        <p> +54 411154545444</p>
+                        <p> wall-et@wmail.com</p>
+                </div>
         </div>
     )
 
