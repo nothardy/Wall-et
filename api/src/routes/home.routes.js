@@ -1,16 +1,16 @@
 const { Router } = require('express');
 const route = Router();
+const { verifyToken } = require('../middlewares/verifyToken')
 
 const redirectLogin = require('../middlewares/redirectLogin')
 const { infoAdmin, infoUser } = require('../controllers/infoHome')
 
-route.use('/', async (req, res) => {
+route.get('/', verifyToken, async (req, res) => {
     try {
-        const { admin, mail } = req.query;
-        const correo = 'walter@hotmail.com';
+        const id = req.userId
         
-        admin === 'true' ? res.status(200).json(await infoAdmin(mail)) : 
-        res.status(200).json(await infoUser(correo))
+        //res.status(200).json(await infoAdmin(mail)) 
+        res.status(200).json(await infoUser(id))
     }
     catch(err){
         res.status(400).json({err: err})

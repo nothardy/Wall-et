@@ -12,14 +12,16 @@ export const User = () => {
 
     return(
         <div className={u.containerUser}>
-            { store ? <h3>Hellou {store.user_data.fullname}!</h3> : <h3>Cargando...Name</h3> }
+            { store ? <h1>Welcome {store.user_data.fullname} !</h1> : <h3>Cargando...Name</h3> }
             <div className={u.graphic}>
-                <h3>Graphic of spend</h3> 
+                <h2>Graphic of spend</h2> 
                 <LineBalance userInfo={testInfo}/>
+
+                <TransactionHistory id='{u.TransactionHistory}' />
+                <Balance/> 
             </div>
            
-            <TransactionHistory id='{u.TransactionHistory}' />
-            <Balance/> 
+            
         </div>
     )
 }
