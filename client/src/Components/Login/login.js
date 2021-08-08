@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { login } from '../../Redux/Actions/loginActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-//import s from'./login.module.css';
+import s from'./login.module.css';
 
 export function validate(user) {
     let errors = {};
@@ -55,12 +55,12 @@ function handleChange(e) {
        dispatch(login(user));
   } 
         return(
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form className={s.formulariologin} onSubmit={(e) => handleSubmit(e)}>
                 <h2>WELCOME</h2>
-                <img />
+                
                     <div>
                         <input
-                            className='{s.container}'
+                            className={s.inputs}
                             autocomplete='off'
                             id='mail'
                             type='text'
@@ -70,12 +70,12 @@ function handleChange(e) {
                             placeholder="example@mail.com"
                             onChange={handleChange}/>
                             {errors.mail && (
-                        <p className='{s.errors}'>{errors.mail}</p>
+                        <p className={s.errors}>{errors.mail}</p>
                     )}
                     </div>
                     <div> 
                         <input
-                                className='{s.container}'
+                                className={s.inputs}
                                 id='password'
                                 type={show ? 'text' : 'password'}
                                 required='required'
@@ -87,27 +87,30 @@ function handleChange(e) {
                                         <FontAwesomeIcon 
                                         onClick={handleShowHide} 
                                         icon={faEye} 
-                                        className='{s.icon} '
+                                        className={s.icon} 
                                         id='show_hide' /> 
                                         ) : (
                                         <FontAwesomeIcon 
                                         onClick={handleShowHide} 
                                         icon={faEyeSlash} 
-                                        className='{s.icon} '
+                                        className={s.icon} 
                                         id='show_hide' /> 
                                         )
                                     }
                                 {errors.password && (
-                        <p className='{s.errors}'>{errors.password}</p>
+                        <p className={s.errors}>{errors.password}</p>
                                 )}
                             
                         </div>
+                       
+                                <div>
+                                    <button className={s.buttonlogin} type='submit'>LOGIN</button>
+                                </div>
+                                <div className={s.linkslogin}>
                             <Link to='/recoverpassword'>
                                 <p>Forgot Password?</p>
                             </Link>
-                                <div>
-                                    <button type='submit'>LOGIN</button>
-                                </div>
+                            </div>
             </form>  
         )
     

@@ -1,4 +1,9 @@
-/* .container{ 
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+.body{
+    background-image: 'https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80';
+}
+.container{ 
     width: 20%;
     height: 50px;
     padding: 0 50px 0 20px;
@@ -21,5 +26,51 @@ input:focus{
 .errors{
     color: red;
 }
-*/
 
+.formulariologin{
+    height: 35vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #D7DAF4;
+    max-width: 450px;
+    margin-top: 310px;
+    margin-left: 1050px;;
+    padding: 20px 50px;
+    border-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.inputs{
+    border:none;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    width: 350px;
+    font-size:17px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.buttonlogin{
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    cursor:pointer;
+    width: 450px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.buttonlogin:hover{
+    background-color: #6F77BF;
+ }
+
+ .linkslogin{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
