@@ -2,7 +2,7 @@ import React from 'react';
 import {  useSelector } from 'react-redux';  
 
 import ba from './balance.module.css';
-const Balance = () =>{
+export const Balance = () =>{
     const store = useSelector(state => state.homeReducer.User);
     
     return(

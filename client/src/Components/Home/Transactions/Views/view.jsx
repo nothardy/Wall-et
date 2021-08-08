@@ -1,7 +1,7 @@
 import React from 'react';
 import v from './view.module.css';
 
-const viewTransaction = ({ from, amount, state, transactionDate}) => {
+export const viewTransaction = ({ from, amount, state, transactionDate}) => {
     return (
         <div className={v.containerView}>
             <div className={v.left}>

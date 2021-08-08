@@ -48,7 +48,7 @@ export const getDateUser = () =>{
     return async function dispatch(dispatch){
         try{
           const token = localStorage.getItem('token')
-            const {data} = await axios.get(`http://localhost:3001/home`, { headers: { 'x-access-token': token }})
+          const {data} = await axios.get(`http://localhost:3001/home`, { headers: { 'x-access-token': token }})
             return dispatch({type:GET_DATE_USER, payload:data})
         }
         catch(err){

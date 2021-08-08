@@ -1,0 +1,58 @@
+.transactions{
+    display: flex;
+    justify-content: center;
+    height: 20rem;
+    width: 400px;
+    margin-top:10px;
+    margin-left: 22.5rem;
+    border-radius: 5px;
+    position: relative;
+    /* box-shadow:0 0 0 3px #656673;  */
+    background:radial-gradient(#76b2fe, #b69efe);
+  }
+  .title{
+    position: relative;
+    height: 28%;
+    margin-bottom: 15px;
+    color: white;
+  }
+  #titleTransaction{
+    position: absolute;
+    font-size: 1.4rem;
+    top: 5px;
+    left: -4.0rem;
+  }
+
+  #recentsTransaction{
+    position: absolute;
+    bottom: 0;
+    left: 6rem;
+}
+#historyTransaction{
+    position: absolute;
+    bottom: 0;
+    right: 6rem;  
+    cursor: pointer;
+}
+.bodyTransaction{
+    height: calc(100% - 28%);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    align-items: center;
+    margin-top: 7rem;
+}
+.bodyTransaction::-webkit-scrollbar{
+    width: 0.4rem;    
+    height: 0.5rem;   
+  }
+.bodyTransaction::-webkit-scrollbar-thumb {
+    background: rgb(20, 20, 20);
+    border-radius: 25px;
+    width: 0.4rem;
+  }
+.bodyTransaction::-webkit-scrollbar-track {
+    background: #97a5bb70;
+    border-radius: 4px;
+    height: 1rem;
+}

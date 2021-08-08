@@ -48,13 +48,13 @@ function Balance() {
          <div className={style.balance}>
             <div className={style.grafico}>
               <div className={style.titleAndGraph}>
-            <h2>Your last activity</h2>
+            <h2 className={style.title}>Your last activity</h2>
              <LineBalance userInfo={userInfo} />
              </div>
             </div>
              <div className={style.grafico}>
              <div className={style.titleAndGraph}>
-            <h2>Your transactions</h2>
+            <h2 className={style.title2}>Your transactions</h2>
                 <DoughnutBalance userInfo={userInfo} />
               </div>
               </div>

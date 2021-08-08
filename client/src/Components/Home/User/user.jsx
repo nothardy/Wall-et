@@ -18,7 +18,7 @@ export const User = () => {
                 <LineBalance userInfo={testInfo} />
 
                 <TransactionHistory id='{u.TransactionHistory}' />
-                <Balance />
+            <Balance />
             </div>
 
 
