@@ -117,8 +117,6 @@ function Register() {
                         {/* <p className={r.titles}>Full Name*</p> */}
                         <input type="text" placeholder="Full Name*" id="title" required="required" name='fullname' value={input.fullname} onChange={handleChange} className={r.inputregister} />
                         {/* <p className={r.titles}>Identification Number*</p> */}
-                        <input type="text" placeholder="Identification Number*" name='dni' required="required" value={input.dni} onChange={handleChange} className={r.inputregister} />
-
                         <div >
                             {/* <p className={r.titles}>E-mail*</p> */}
                             <input className={r.inputregister} type="text" placeholder="E-mail*" required="required" name='mail' value={input.mail} onChange={handleChange} className={r.inputregister} />
@@ -126,11 +124,8 @@ function Register() {
                                 <p className=''>{errors.mail}</p>
                             )}
                         </div>
-
-
-
-
-
+                        
+                 
                         <div>
                             {/* <p className={r.titles}>Password*</p> */}
                             <input className={r.inputregister} type={show ? 'text' : 'password'} placeholder="Password*" required="required" name='password' id="password" value={input.password} onChange={handleChange} autoComplete="off" />
@@ -176,7 +171,8 @@ function Register() {
                         </div>
 
                         {/* <label htmlFor="birthdate" className={r.titles}></label> */}
-                        <input htmlFor="birthdate" className={r.inputregister} type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" />
+                        <input type="text" placeholder="Identification Number*" name='dni' required="required" value={input.dni} onChange={handleChange} className={r.inputregister} />
+                        <input htmlFor="birthdate"  className={r.inputregister} type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" />
 
 <div className={r.centerCaptchaRegister}>
                         <div className={r.recaptcha}>
@@ -215,7 +211,17 @@ function Register() {
             </div>
             </div>
         </div>
+        <div className={r.contactus}>
+                    
+        <Link to='/faq'>
+                        <p >FAQ</p>
+                    </Link>
+                        <p >Contact Us</p>
+                        <p> +54 411154545444</p>
+                        <p> wall-et@wmail.com</p>
+                </div>
         </div>
+        
 
     )
 }

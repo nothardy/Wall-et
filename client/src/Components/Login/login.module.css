@@ -16,9 +16,11 @@
     box-shadow: 0 0 30px aqua;
 } */
 .icon{
+   
     color: rgb(26, 43, 68);
     font-size: 15px;
-    transform: translateX(-55px);
+    transform: translateX(390px) translateY(-58px);
+    
     cursor: pointer
 }
 .errors{
@@ -42,7 +44,7 @@
 }
 
 .inputs{
-   
+   outline: none;
     border:none;
     border-radius: 20px;
     margin-bottom: 25px;
@@ -89,4 +91,19 @@
     font-size:200px;
     margin-top:60px;
      margin-left:-1000px; 
+}
+
+.descriptionlanding{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:20px;
+    margin-top:-120px;
+     margin-left:-1200px; 
+     color:white;
+}
+
+.contactus{
+    font-size: 15px;
+    color: #9fadca;
+    margin-top: -110px;
+    margin-left: 1500px;
 }

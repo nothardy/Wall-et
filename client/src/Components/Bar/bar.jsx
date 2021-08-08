@@ -5,6 +5,7 @@ import b from './bar.module.css'
 export const Bar = () =>{
     return(
         <div className={b.containerBar}>
+            
             <h3>Wall-et</h3>
              
         </div>
