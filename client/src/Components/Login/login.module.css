@@ -33,7 +33,7 @@
     align-items: center;
     background-color:transparent;
     max-width: 450px;
-    margin-top: 110px;
+    margin-top: 0px;
     margin-left: -1050px;;
     padding: 20px 50px;
     border-radius: 30px;
@@ -87,6 +87,6 @@
 .wallet{
     font-family: 'Source Sans Pro', sans-serif;
     font-size:200px;
-    margin-top:20px;
+    margin-top:60px;
      margin-left:-1000px; 
 }
