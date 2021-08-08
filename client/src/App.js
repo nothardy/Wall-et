@@ -8,8 +8,13 @@ import Login from "../../client/src/Components/Login/login";
 import Balance from "./Components/Balance_2/Balance";
 import NavBar from "./Components/Home/NavBar/navBar";
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
-import Logout from './Middleware/Logout'
-
+import Logout from './Middleware/Logout';
+import Landingpage from './Components/LandingPage/landingpage';
+import Account from './Components/Account/Account';
+import Contacts from "./Components/Contacts/Contacts";
+import Payments from "./Components/Payments/Payments";
+import Transfer from "./Components/Transfer/Transfer";
+import Help from "./Components/Help/Help";
 // CSS hecho por:
 // Cami y Celes: /register y /home
 // Gonza: NavBar
@@ -19,11 +24,16 @@ import Logout from './Middleware/Logout'
 export default function App() {
   return (
     <div>
-      <Route exact path="/register" exact component= {Register}/>
-      <Route exact path="/recoverpassword" exact component= {RecoverPassword}/>
-      <Route exact path="/faq" exact component= {FrecuentlyQuestions}/>
-      <Route exact path="/home" exact component= {Login} />
-      <Route exact path="/logout" exact component= {Logout} />
+      <Route exact path="/"  component= {Landingpage} />
+      <Route exact path="/register"  component= {Register}/>
+      <Route exact path="/recoverpassword"  component= {RecoverPassword}/>
+      <Route exact path="/faq" component= {FrecuentlyQuestions}/>
+      <Route exact path="/logout"  component= {Logout} />
+      <Route exact path="/account"  component={Account} />
+      <Route exact path="/contacts" component={Contacts}/>
+      <Route exact path="/payments"  component={Payments}/>
+      <Route exact path="/transfers"  component={Transfer} />
+      <Route exact path="/help"  component={Help}/>
       <PrivateRoute path="/mywallet" component= {Home} exact/>
       <PrivateRoute path="/balance" component= {Balance} exact/>
     </div>

@@ -20,7 +20,7 @@ export const NavBar = () => {
             <Link to='/payments'><img src={Payments} alt="payments" /> Payments</Link>
             <Link to='/contacts'><img src={Contacts} alt="contacts" /> Contacts</Link>
             <Link to='/transfers'><img src={Trasnfers} alt="transfers" /> Transfers</Link>
-            <Link to='/faq'><img src={Help} alt="help" /> Help</Link>
+            <Link to='/help'><img src={Help} alt="help" /> Help</Link>
             <Link to='/logout'><img src={LogOut} alt="log out" /> Log out</Link>
          </div>
     )

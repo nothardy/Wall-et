@@ -106,8 +106,10 @@ function Register() {
 
 
     return (
-
+<div className={r.fondoregister}>
+    <div className={r.centrarformulario}>
         <div className={r.formulario}>
+            
             {!usuarioValido &&
                 <div className={r.centrar}>
                     <h2 className={r.create}> Create your Account </h2>
@@ -177,7 +179,7 @@ function Register() {
                         <input htmlFor="birthdate" className={r.inputregister} type="date" placeholder="YYYY-MM-DD" data-date-split-input="true" name='birth_date' value={input.birth_date} onChange={handleChange} required='required' min="1900-01-01" max="2003-12-31" />
 
 <div className={r.centerCaptchaRegister}>
-                        <div className="recaptcha">
+                        <div className={r.recaptcha}>
                             <ReCAPTCHA
                                 required
                                 ref={captcha}
@@ -206,11 +208,13 @@ function Register() {
                 </div>
                 <div className={r.loginFromRegister}>
                     <p className={r.doYouHave}>You already have an account?</p>
-                    <Link to='/home'>
+                    <Link to='/'>
                         <p >Log in</p>
                     </Link>
                 </div>
             </div>
+            </div>
+        </div>
         </div>
 
     )

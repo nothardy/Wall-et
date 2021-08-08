@@ -5,14 +5,32 @@
     align-items: center;
     margin-top: -20rem; */
      display :flex;
-     flex-direction: column;
+     flex-direction: row;
      align-items: center;
 
   }
   
+  .boxes{
+    display:flex;
+    flex-direction: column;
+  }
+
+  .moneyAndTransactions{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   .grafico {
-    width: 20rem;
     height: 20rem; 
+    width: 35rem;
+    background: #D7DAF4;
+    padding: 6px;
+    border-radius: 8px;
+    margin-left: 2.5rem;
+    margin-top: 3.5rem;
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   .balance {
    /*   background-color: #ffffff;
@@ -34,13 +52,15 @@
     right: 60px; */
     margin: 5px 4rem ;
      display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     height: 30rem;
     right: 60px;
     margin-top:10px;
     border-radius: 5px;
-    box-shadow:0 0 0 3px #656673; 
+    /* box-shadow:0 0 0 3px #656673;  */
+    width:70rem;
+
   }
   .bar {
     /* padding: 20px;
@@ -55,11 +75,12 @@
     display: flex;
     justify-content: center;
     height: 20rem;
-    width: 20rem;
+    width: 500px;
     margin-top:10px;
     margin-left: 4rem;
     border-radius: 5px;
-    box-shadow:0 0 0 3px #656673; 
+    /* box-shadow:0 0 0 3px #656673;  */
+    background: #D7DAF4;
   }
   
   .money{
@@ -68,13 +89,14 @@
     background-color: #ffffff;
     color: rgb(3, 5, 7);
     height: 20rem;
-    width: 20rem;
-    box-shadow: 0 0 0 3px #656673;
+    width: 520px;
+    /* box-shadow: 0 0 0 3px #656673; */
     flex-direction: row;
     border-radius: 10px;
     position: relative; 
     margin-left: 10px;
     margin-top: 8px;
+    background: #D7DAF4;
   }
   .number{
      display: flex;
@@ -90,9 +112,17 @@
     flex-direction: row;
 }
 
+.titleAndGraph{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 .left{
-    border: 1px solid black;    
-    width: 14rem;
+  border: 2px solid rgb(164 178 179);    
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  width: 15rem;
 }
 
 .right{
