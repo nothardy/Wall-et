@@ -10,7 +10,7 @@ export const testInfo = {
       amount: 2000,
       type_transaction: "Payment",
       state: "done",
-      transaction_date: "4/5/2021",
+      transaction_date: "2021-05-05T15:19:28.986",
     },
     {
       id: 101,
@@ -19,7 +19,7 @@ export const testInfo = {
       amount: 7000,
       type_transaction: "Services",
       state: "done",
-      transaction_date: "4/7/2021",
+      transaction_date: "2021-07-05T15:19:28.986",
     },
     {
       id: 105,
@@ -28,7 +28,7 @@ export const testInfo = {
       amount: 100,
       type_transaction: "Transfer",
       state: "done",
-      transaction_date: "4/6/2021",
+      transaction_date: "2021-06-05T15:19:28.986",
     },
     {
       id: 108,
@@ -37,7 +37,7 @@ export const testInfo = {
       amount: 7000,
       type_transaction: "Payment",
       state: "done",
-      transaction_date: "4/7/2021",
+      transaction_date: "2021-07-05T15:19:28.986",
     },
     {
       id: 104,
@@ -46,7 +46,7 @@ export const testInfo = {
       amount: 1000,
       type_transaction: "Transfer",
       state: "done",
-      transaction_date: "4/5/2021",
+      transaction_date: "2021-05-05T15:19:28.986",
     },
     {
       id: 100,
@@ -55,7 +55,7 @@ export const testInfo = {
       amount: 3000,
       type_transaction: "Payment",
       state: "done",
-      transaction_date: "4/4/2021",
+      transaction_date: "2021-04-05T15:19:28.986",
     },
     {
       id: 100,
@@ -64,7 +64,25 @@ export const testInfo = {
       amount: 10000,
       type_transaction: "Services",
       state: "done",
-      transaction_date: "4/3/2021",
+      transaction_date: "2021-03-05T15:19:28.986",
+    },
+    {
+      id: 100,
+      from: "myuser",
+      to: "user6",
+      amount: 1000,
+      type_transaction: "Services",
+      state: "done",
+      transaction_date: "2021-05-05T15:19:28.986",
+    },
+    {
+      id: 100,
+      from: "myuser",
+      to: "user6",
+      amount: 8000,
+      type_transaction: "Services",
+      state: "done",
+      transaction_date: "2021-08-05T15:19:28.986",
     },
   ],
 };

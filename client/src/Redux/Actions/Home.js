@@ -48,31 +48,23 @@ export const getDateUser = (state, mail) =>{
     /* Trae la date de la cuenta del usuario logeado. */
     return async function dispatch(dispatch){
         try{
+<<<<<<< HEAD
           const token = localStorage.getItem('token')
             const {data} = await axios.get(`http://localhost:3001/home`, { headers: { 'x-access-token': token }})
             return dispatch({type:GET_DATE_USER, payload:data})
+=======
+          const token = localStorage.getItem('token') 
+          console.log(token)
+          const {data} = await axios.get(`http://localhost:3001/home`, {headers: {'x-access-token':token}})
+          return dispatch({type:GET_DATE_USER, payload:data})
+>>>>>>> 383262ec84ee6a14d380e5d1547573b6e466bf82
         }
         catch(err){
-            alert("primer error",err)
-           /*  return dispatch({type:GET_DATE_USER, payload:{name:"Frank Smile", amount:"785"}}) *//* Quitar esto cuando tenga rutas de back */
+            alert("error en getDateUser",err)
+            /* Quitar esto cuando tenga rutas de back */ 
         }
     }  
 }
-
-/* export const getTransactions = (name) =>{ 
-Pide al back la data de transacciones que se hicieron. (esta harcodeado. hacer ruta del back que cargue dichas )
-    return async function dispatch(dispatch){
-        try{
-            const {data} = await axios.get(`http://localhost:3001/homte/${name}`)
-            return dispatch({type:GET_TRANSACTIONS, payload:data})
-        }
-        catch(err){
-            console.log("segundo action getTransactions",err)
-            return dispatch({type:GET_TRANSACTIONS, payload:testInfo})Quitar esto cuando tenga rutas de back
-        }
-    }  
-} 
-*/
 
 export const adminGetUser = (email) =>{
     return async function dispatch(dispatch){
