@@ -17,10 +17,9 @@ export const User = () => {
                 <h2>Your last activity</h2>
                 <LineBalance userInfo={testInfo} />
 
-                <TransactionHistory id='{u.TransactionHistory}' />
-            <Balance />
             </div>
-
+            <Balance />
+            <TransactionHistory />
 
         </div>
     )

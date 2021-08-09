@@ -17,7 +17,7 @@ const store = useSelector(state => state.homeReducer.User);
          { 
         <div className={transf.bodyTransaction}>
             {
-                store.account_data.transactions.length > 0
+                store && store.account_data.transactions.length > 0
                 ?(store.account_data.transactions.splice(0,5).map(el => <ViewTransaction 
                     key={el.id} from={el.to} amount={el.amount} 
                     state={el.state} transactionDate={el.transaction_date} />))

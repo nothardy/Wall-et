@@ -61,7 +61,7 @@
     background-color: #5791ff;
     border: none;
     color: white;
-    margin-top: 20px;
+    margin-top: 15px;
     cursor:pointer;
     width: 450px;
     font-family: 'Source Sans Pro', sans-serif;
@@ -69,7 +69,9 @@
 .buttonlogin:hover{
     background-color: #6F77BF;
  }
-
+.cajaboton{
+    margin-top: -27px;
+}
  .linkslogin{
     display: flex;
     justify-content: space-around;
@@ -97,13 +99,19 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-size:20px;
     margin-top:-120px;
-     margin-left:-1200px; 
-     color:white;
+     margin-left:-1000px; 
+     color:white;    
+     text-align: center;
 }
 
 .contactus{
     font-size: 15px;
     color: #9fadca;
-    margin-top: -110px;
+    margin-top: -140px;
     margin-left: 1500px;
+}
+
+.footer{
+    margin-top: -50px;
+    color: rgba(83, 83, 83, 0.781);
 }

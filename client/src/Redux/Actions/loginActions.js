@@ -16,6 +16,6 @@ export const login = ({ mail, password }) => async (dispatch) => {
      window.location.href = "/mywallet";
      localStorage.setItem('token', response.data.token); // CONSULTAR A GEORGI
     })
-   .catch(error => swal('Wrong Credentials', { icon: 'warning'}));
+   .catch(error => swal('Invalid Email or Password', { icon: 'error'}));
 };
 

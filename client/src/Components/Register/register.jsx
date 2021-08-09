@@ -88,7 +88,7 @@ function Register() {
             } catch (err) {
                 swal('We could not create account. Please try again.', "You clicked the button!", "error");
             }
-            history.push('/home');
+            history.push('/');
         } else {
             swal('Please accept the captcha', "You clicked the button!", "warning")
             cambiarUsuarioValido(false);

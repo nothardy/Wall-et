@@ -11,7 +11,7 @@ export const Balance = () =>{
             store ? 
             <>
                 <h2 id={ba.titleBalance}>Balance</h2> 
-                    <h3>{`$ ${store.account_data.balance}`}</h3>
+                    <h2 id={ba.cashBalance}>{`$ ${store.account_data.balance}`}</h2>
                     <div className={ba.footerBalance}>
                         
                         <button className={ba.btnBalance}>Send</button>

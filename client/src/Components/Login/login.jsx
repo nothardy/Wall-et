@@ -52,16 +52,18 @@ const Login = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
+      
         dispatch(login(user));
+        
     }
     return (
         <div className={s.centrarlogin}>
             <h1 className={s.wallet}>Wall-et</h1>
             <div className={s.descriptionlanding}>
-            <h2 >We are your virtual Wall-et </h2>
-<h3 >Here you can see your balance</h3>
-<h3 >Make transfers and much more</h3>
-</div>
+                <h2>We are your virtual Wall-et</h2>
+                <h3>Here you can see your balance</h3>
+                <h3>Make transfers and much more</h3>
+            </div>
             <form className={s.formulariologin} onSubmit={(e) => handleSubmit(e)}>
 
 
@@ -109,7 +111,7 @@ const Login = () => {
                     )}
 
                 </div>
-
+                <div className={s.cajaboton}>
                 <div>
                     <button className={s.buttonlogin} type='submit'>Login</button>
                 </div>
@@ -118,6 +120,7 @@ const Login = () => {
                         <button className={s.buttonlogin} type='submit'>Create Account</button>
                     </Link>
                 </div>
+                </div>
                 <div className={s.linkslogin}>
                     <Link to='/recoverpassword'>
                         <p>Forgot Password?</p>
@@ -125,14 +128,15 @@ const Login = () => {
                 </div>
             </form>
             <div className={s.contactus}>
-                    
-            <Link to='/faq'>
-                        <p >FAQ</p>
-                    </Link>
-                        <p >Contact Us</p>
-                        <p> +54 411154545444</p>
-                        <p> wall-et@wmail.com</p>
-                </div>
+
+                <Link to='/faq'>
+                    <p>FAQ</p>
+                </Link>
+                <p>Contact Us <br></br>+54 411154545444 <br></br>
+                
+                wall-et@wmail.com</p>
+            </div>
+            <footer className={s.footer}> <p> Copyright© 2021 Wall-et</p></footer>
         </div>
     )
 

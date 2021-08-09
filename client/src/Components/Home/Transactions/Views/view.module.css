@@ -9,6 +9,9 @@
     display: flex;
     justify-content: space-between;
 }
+#status{
+    font-size: 1rem;
+}
 
 #titleView{
     margin: 0;

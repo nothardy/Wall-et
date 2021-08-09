@@ -22,10 +22,7 @@ function Frecuentlyquestions() {
                             <p className={f.section1gridtitle}>
                                 Adding a credit card.
                             </p>
-                            <p>When you use your credit cards through Wall-et,
-                                they work just the same, but you don't have to
-                                enter your information everytime. Just link the
-                                credit card to your account.</p>
+                            <p>After linking your credit cards through Wall-et, credentials are encrypted.  Your privacy is important for us. </p>
                             <img src={image1} />
                         </div>
                         <div>

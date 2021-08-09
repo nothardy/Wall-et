@@ -2,12 +2,17 @@
     background-color: #50548A;
     height: 2.5rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 0px 10px 0px black;
-    color: white;
+    box-shadow: 0px 0px 10px 0px;
+    justify-content: space-betwee black;
+    
 }
+
 .containerBar h3{/* PROVISORIO, PONERLE UN CLASSNAME o ID */
     margin: 0;
     margin-left: 20px;
+}
+.containerBar > a {
+    text-decoration: none;
+    color: white;
 }

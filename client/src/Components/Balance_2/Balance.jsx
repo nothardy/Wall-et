@@ -3,25 +3,27 @@ import { LineBalance } from "./LineBalance";
 import { DoughnutBalance } from "./Doughnut";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../../Redux/Actions/Balance_Action";
+import { getDateUser } from "../../Redux/Actions/Home"
 import Transactions from "./Transactions";
 import Money from "./Money";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 import style from './Balance.module.css';
-import {Bar} from '../Bar/bar';
-import {NavBar} from '../Home/NavBar/navBar';
-import {Admin} from '../Home/Admin/admin'
-import {User} from '../Home/User/user'
+import { Bar } from '../Bar/bar';
+import { NavBar } from '../Home/NavBar/navBar';
+import { Admin } from '../Home/Admin/admin'
+import { User } from '../Home/User/user'
+
 function Balance() {
   const dispatch = useDispatch();
   const userInfo = testInfo; //useSelector((state) => state.homeReducer.User);
-  const [firstRender, setFirstRender] = useState(true);
+  let [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
     if (firstRender === true) {
-      dispatch(getUserInfo());
-      setFirstRender(false);
+      dispatch(getDateUser());
+      setFirstRender(firstRender = !firstRender)
     }
-  }, [dispatch]);
+  }, [firstRender, dispatch]);
 
   //Deberiamos procesar la informacion para mostrarlo en los graficos.
   //Preguntarle a los chicos si estan haciendo esa ruta.
@@ -30,40 +32,37 @@ function Balance() {
   return (
     <>
       <div>
-      <Bar/>
-
-      <div className={style.container}>
-        <div className={style.left}>
-        <NavBar/>
-       </div>
-       <div className={style.boxes}>
-         
-       <div className={style.moneyAndTransactions}>
-        <Money />
-        <Transactions />
-       </div>
-       
-          <div className={style.graficos}>
-         <div className={style.right} >
-         <div className={style.balance}>
-            <div className={style.grafico}>
-              <div className={style.titleAndGraph}>
-            <h2 className={style.title}>Your last activity</h2>
-             <LineBalance userInfo={userInfo} />
-             </div>
+        <Bar />
+        <div className={style.container}>
+          <div className={style.left}>
+            <NavBar />
+          </div>
+          <div className={style.boxes}>
+            <div className={style.moneyAndTransactions}>
+              <Money />
+              <Transactions />
             </div>
-             <div className={style.grafico}>
-             <div className={style.titleAndGraph}>
-            <h2 className={style.title2}>Your transactions</h2>
-                <DoughnutBalance userInfo={userInfo} />
+            <div className={style.graficos}>
+              <div className={style.right} >
+                <div className={style.balance}>
+                  <div className={style.grafico}>
+                    <div className={style.titleAndGraph}>
+                      <h2 className={style.title}>Your last activity</h2>
+                      <LineBalance userInfo={userInfo} />
+                    </div>
+                  </div>
+                  <div className={style.grafico}>
+                    <div className={style.titleAndGraph}>
+                      <h2 className={style.title2}>Your transactions</h2>
+                      <DoughnutBalance userInfo={userInfo} />
+                    </div>
+                  </div>
+                </div>
               </div>
-              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-         </div>
       </div>
-    </div>
     </>
   );
 }

@@ -6,7 +6,7 @@ export const viewTransaction = ({ from, amount, state, transactionDate}) => {
         <div className={v.containerView}>
             <div className={v.left}>
                 <h4 id={v.titleView}>{from}</h4>
-                <span>{state}</span>
+                <span id={v.status}>{state}</span>
             </div>
 
             <div className={v.right}>

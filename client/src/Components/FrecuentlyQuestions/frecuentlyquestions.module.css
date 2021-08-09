@@ -54,3 +54,8 @@ img{
     margin-top: 6rem;
     color: rgba(83, 83, 83, 0.781);
 }
+
+.button:hover{
+    cursor:pointer;
+    border:none;
+}

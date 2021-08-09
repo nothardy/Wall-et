@@ -41,7 +41,7 @@ module.exports = (sequelize) => {
         
         
         balance: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             defaultValue: 0,
         },
 

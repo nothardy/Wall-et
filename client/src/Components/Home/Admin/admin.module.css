@@ -40,7 +40,7 @@
 }
 
 .resultAdmin{
-    background-color: burlywood;
+    background: radial-gradient(#76b2fe, #b69efe);
     width: 25rem;
     margin-top: 40vh;
     margin-left: calc(50vw - 25rem);
@@ -61,7 +61,7 @@
     border-radius: 7px;
     padding: 3px;
 }
-a:hover{
+.resultAdmin > a:hover{
     background-color: rgba(0, 0, 0, 0.459);
     color: white;
 }

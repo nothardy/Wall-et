@@ -9,7 +9,7 @@ const TransactionHistory = () =>{
     return(
         <div className={t.containerTransaction}>
             <div className={t.headerTransaction}>
-                <span id={t.titleTransaction}>Transactions</span>
+                <h2 id={t.titleTransaction}>Transactions</h2>
                 <span id={t.recentsTransaction}>Recents</span>
                 <span id={t.historyTransaction}>History</span>
             </div>

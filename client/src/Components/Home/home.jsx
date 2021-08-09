@@ -6,7 +6,7 @@ import User from './User/user';
 /* import TransactionHistory from './Transactions';
 import Balance from './Balance'; */
 import { getDateUser } from '../../Redux/Actions/Home';
-
+import NavBarAdmi from './NavBar/navBarAdmin';
 import NavBar from './NavBar/navBar';
 import h from './home.module.css';
 
@@ -31,7 +31,10 @@ const Home = () =>{
 
             <div className={h.container}>
                 <div className={h.left}>
-                    <NavBar/>
+                    {
+                        store && store.account_data.admin === true? <NavBarAdmi/>
+                        :<NavBar/>
+                    }
                 </div>
 
                 <div className={h.right}>
