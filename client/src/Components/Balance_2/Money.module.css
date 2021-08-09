@@ -3,13 +3,13 @@
     justify-content: center;
     background-color: #ffffff;
     color: rgb(3, 5, 7);
-    height: 10rem;
-    width: 320px; 
+    height: 20rem;
+    width: 390px; 
     /* box-shadow: 0 0 0 3px #656673; */
      flex-direction: row;
     border-radius: 10px;
     position: relative; 
-    margin-left: 10px;
+    margin-left: 60px;
     margin-top: 4rem;
     background: radial-gradient(#76b2fe, #b69efe); 
     box-shadow: 0px 6px 10px rgb(0 0 0 / 25%);
