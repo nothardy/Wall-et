@@ -20,15 +20,22 @@
     top: 0;
     left: 12px;
     margin-top: 12px;
-    color: white;
+    color:midnightblue;
 }
 .btnBalance{
-    background-color: white;
-    border: 1px solid rgba(221, 187, 34, 0.637);
+    background: none;
     border-radius: 5px;
-    color: rgb(3, 3, 0);
+    color: midnightblue;
+    border: 1px solid white;
+    font-size: 1.3rem;
     cursor: pointer;
+    padding: 8px 20px;
     transition: 0.4s;
+}
+.btnBalance:hover{
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.747);
 }
 .footerBalance{
     width: 70%;
@@ -43,5 +50,5 @@
 display: flex;
 align-items: center; 
 font-size: 1.5rem;
-color: white;
+color:midnightblue;
 }

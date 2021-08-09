@@ -71,11 +71,14 @@ const orderTransactions = (transactions, xAxis) => {
     .map((month) => new Date(Date.parse(month + " 1, 2012")).getMonth() + 1)
     .toString();
 
-  totalTransactionAmounts = totalTransactionAmounts.filter((transaction) =>
-    months.includes(
-      totalTransactionAmounts.findIndex((month) => month === transaction) + 1
-    )
-  );
+  // totalTransactionAmounts = totalTransactionAmounts.filter((transaction) =>
+  //   months.includes(
+  //     totalTransactionAmounts.findIndex((month) => month === transaction) + 1
+  //   )
+  // );
+
+  totalTransactionAmounts=totalTransactionAmounts.splice(months[months.length-1]-1,months.length);
+
 
   return totalTransactionAmounts;
 };

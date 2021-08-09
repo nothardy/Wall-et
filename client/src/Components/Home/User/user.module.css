@@ -5,6 +5,12 @@
     position: relative;
    
 }
+#title{
+    margin-top: 7vh;
+    margin-left: 2rem;
+    padding: 3rem;
+
+}
 
 .graphic{
     /* font-family: sans-serif;  */

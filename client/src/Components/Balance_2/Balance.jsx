@@ -15,7 +15,7 @@ import { User } from '../Home/User/user'
 
 function Balance() {
   const dispatch = useDispatch();
-  const userInfo = testInfo; //useSelector((state) => state.homeReducer.User);
+  const  userInfo=useSelector((state) => state.homeReducer.User); //userInfo = testInfo;
   let [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {

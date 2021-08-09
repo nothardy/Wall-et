@@ -78,7 +78,7 @@
 .titleAndGraph{
   display:flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 30rem; 
   width: 30rem;
   
@@ -101,7 +101,4 @@ width: 15rem;
   /* border: 1px solid black; */
   border-left: none;
   width: 100%;
-}
-body{
-  margin: 0;
 }

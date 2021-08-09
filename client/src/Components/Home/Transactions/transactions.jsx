@@ -15,7 +15,7 @@ const TransactionHistory = () =>{
             </div>
             <div className={t.bodyTransaction}>
                 {
-                    store.account_data.transactions.length > 0?(store.account_data.transactions.splice(0,5).map(el => <ViewTransaction 
+                    store && store.account_data.transactions.length > 0?(store.account_data.transactions.map(el => <ViewTransaction 
                         key={el.id} from={el.to} amount={el.amount} 
                         state={el.state} transactionDate={el.transaction_date} />))
                     : <h3> --- </h3>
