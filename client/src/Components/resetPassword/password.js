@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { forgot } from '../../../Redux/Actions/resetActions';
+import { forgot } from '../../Redux/Actions/resetActions';
 import { useDispatch } from "react-redux";
 
 export function validate(user) {
@@ -27,18 +27,11 @@ function handleChange(e) {
         ...user,
         [e.target.name]: e.target.value
         });
-<<<<<<< HEAD:client/src/Components/resetPassword/resetPassword/password.js
- //setErrors(validate({
-  //    ...user,
-   //   [e.target.name]: e.target.value
-     //   }));
-=======
     console.log(user)
     //setErrors(validate({
     //    ...user,
     //    [e.target.value]: e.target.value
     //    }));
->>>>>>> 37bde7c92c3d1d6ee9a30f173c3972989bb9e90c:client/src/Components/resetPassword/password.js
 }
 
 const handleSubmit = (e) => {

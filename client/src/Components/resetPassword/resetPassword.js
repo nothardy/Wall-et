@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { changePassword } from "../../../Redux/Actions/resetActions";
+import { changePassword } from "../../Redux/Actions/resetActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const ResetPassword = () => {
   const [ show, setShow ] = useState(false);
 
+  const dispatch = useDispatch();
   const { userid } = useParams();
 
   const [password, setPassword] = useState({
@@ -40,11 +42,12 @@ const ResetPassword = () => {
     }
   }
 
-  function handleSubmit() {
-    const valid = validateForm()
-    if (valid) {
-      changePassword({userid, password})
-    }
+  function handleSubmit(e) {
+   e.preventDefault()
+    //const valid = validateForm()
+  //if (valid) {
+    dispatch(changePassword({ userid, password: password.password1 }))
+  // }
   }
 
   return (
