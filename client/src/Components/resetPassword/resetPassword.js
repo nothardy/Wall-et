@@ -3,9 +3,12 @@ import { changePassword } from "../../Redux/Actions/resetActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
+import { useParams } from "react-router-dom";
 
 const ResetPassword = () => {
   const [ show, setShow ] = useState(false);
+
+  const { userid } = useParams();
 
   const [password, setPassword] = useState({
     password1: '',
@@ -40,7 +43,7 @@ const ResetPassword = () => {
   function handleSubmit() {
     const valid = validateForm()
     if (valid) {
-      changePassword(password)
+      changePassword({userid, password})
     }
   }
 

@@ -25,15 +25,16 @@ function handleChange(e) {
         ...user,
         [e.target.name]: e.target.value
         });
-    setErrors(validate({
-        ...user,
-        [e.target.value]: e.target.value
-        }));
+    console.log(user)
+    //setErrors(validate({
+    //    ...user,
+    //    [e.target.value]: e.target.value
+    //    }));
 }
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(forgot(user));
+    dispatch(forgot(user.mail));
 }
     return(
         <form onSubmit={(e) => handleSubmit(e)}>
