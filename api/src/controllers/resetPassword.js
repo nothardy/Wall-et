@@ -34,9 +34,9 @@ const passwordReset = async (req, res) => {
             from: MAIL_ACCOUNT, // sender address
             to: mail, // receiver adress
             subject: "Password Reset Request for Wall-et", //Subject mail
-            html: `<b> Hi ${user.fullname}. In order to reset your password, please </b>
-            <a href="localhost:3001/resetPassword/reset_password?userid=${token}"> Click here </a>. 
-            <b>If you did not request a new password, please ignore this mail. </b>`,
+            html: `<p> Hi ${user.fullname}. In order to reset your password, please </p>
+            <a href="https://localhost:3001/resetPassword/reset_password?userid=${token}"> Click here </a>. 
+            <p>If you did not request a new password, please ignore this mail. </p>`,
         });
 
         return res.status(200).json({msg: "mail sent"})
