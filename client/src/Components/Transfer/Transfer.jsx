@@ -1,7 +1,9 @@
-import p from './Transfer.module.css'
 import Bar from '../Bar/bar'
 import NavBar from '../Home/NavBar/navBar'
 import Working from '../Working/Working'
+import Charge from './Charge/charge'
+
+import p from './Transfer.module.css'
 
 function Transfer() {
     return (
@@ -12,7 +14,8 @@ function Transfer() {
                     <NavBar />
                 </div>
                 <div className={p.right}>
-                    <Working />
+{/*                     <Working /> */}
+                    <Charge/>
                 </div>
             </div>
         </div>

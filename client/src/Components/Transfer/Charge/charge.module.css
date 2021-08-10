@@ -1,0 +1,74 @@
+.container{
+    width: 15rem;
+    height: 8rem;
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #btn_charge{
+    width: 10rem;
+    height: 5rem;
+    font-size: 2.1rem;
+    background: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: midnightblue;
+    border: 1px solid white;
+    
+    transition: 0.4s;
+}
+#btn_charge:hover{
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.747);
+}  ESTE ES EL BASICO QUE HICE IO, EL DE ABAJO LO SAQUE DE LA PAGE QUE PASO CAMI*/
+#btn_charge{
+  border: 1px solid white;
+  border-radius: 5px;
+  color: midnightblue;
+  font-family: roboto;
+  font-size: 2.1rem;
+  font-weight: 100;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  text-decoration: none;
+  transition: .2s transform ease-in-out;
+  will-change: transform;
+  background: none;
+  cursor: pointer;
+  z-index: 0;
+}
+#btn_charge::after{
+    background-color: rgba(0, 0, 0, 0.747);
+    border-radius: 5px;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: .2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+}
+#btn_charge:hover::after{
+    transform: translate(0, 0);
+}    
+#btn_charge:hover{
+    border: 2px solid transparent;
+    color: rgb(255, 255, 255);
+    transform: scale(1.05);
+    will-change: transform;
+}
+
+.box_trasferOrCash{
+    position: absolute;
+    z-index: 20;
+}

@@ -1,0 +1,67 @@
+.container{
+    background-color: white;
+    width: 32rem;
+    height: 38rem;
+    position: relative;
+    border: 1px solid rgb(31, 30, 30);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    height: 20%;
+    background: #50548A;
+    border-radius: 4px;
+    display: flex;
+    
+    height: 20%;
+    background: radial-gradient(#52c234, #424242);
+    /* background: radial-gradient(#646bc9, #272222f2); */
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.body{
+    width: 96%;
+    background-color: burlywood;
+    height: calc(100% - 20%); 
+}
+
+.btnTransfer{
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    width: calc(100% / 3);
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+.btnTransfer:focus {
+    color:white;
+    border-bottom: 3px solid white;
+}
+
+
+#btn_close{
+    position: absolute;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    right: 0;
+    background: rgba(0, 0, 0, 0.596);
+    outline: none;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+}
