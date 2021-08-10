@@ -13,7 +13,6 @@ export const forgot = (mail) => async (dispatch) => {
     return axios.post('/resetPassword/reset_password', mail)
     .then(response => {
     dispatch({ USER_FORGOTPASSWORD_SUCCESS, payload: response.data });
-    window.location.href = "/resetpassword"
     })
     .catch(error => swal('User Not Found', 'error'));
 }
