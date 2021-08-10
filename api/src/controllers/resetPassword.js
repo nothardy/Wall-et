@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Account } = require("../db");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const { MAIL_ACCOUNT, MAIL_PASSWORD } = process.env;
@@ -7,37 +8,41 @@ const { MAIL_ACCOUNT, MAIL_PASSWORD } = process.env;
 
 const passwordReset = async (req, res) => {
     const { mail } = req.body;
-    const user = Account.findOne({ where: { mail: mail } })
-    if (!user) return res.status(404).send("The mail is not registered");
+    try {
+        const user = await Account.findOne({ where: { mail: mail } })
+        if (!user) return res.status(404).send("The mail is not registered");
 
-    // To send an mail, we must first define a transporter. We will do it as follows:
-    const transporter = nodemailer.createTransport({
-        auth: {
-            user: MAIL_ACCOUNT,
-            pass: MAIL_PASSWORD,
-        },
-    });
-    // send mail with defined transport object
+        // To send an mail, we must first define a transporter. We will do it as follows:
+        const transporter = nodemailer.createTransport({
+              service: "gmail",
+              host: "smtp.gmail.com",
+              auth: {
+                user: MAIL_ACCOUNT,
+                pass: MAIL_PASSWORD,
+              },
+              tls: {rejectUnauthorized: false},
+            })
+        
+        await transporter.verify().then(()=> console.log("ready to send email"))
+        // send mail with defined transport object
 
-    const token = jwt.sign({ id: user.id }, "mysecretkey", {
-        expiresIn: 60 * 2, // 2min
-    });
+        const token = await jwt.sign({ id: user.id }, "mysecretkey", {
+            expiresIn: 60 * 10, // 10min
+        });
 
-    const info = {
-        from: MAIL_ACCOUNT, // sender address
-        to: mail, // receiver adress
-        subject: "Password Reset Request for Wall-et", //Subject mail
-        html: "<p> Hi, " + user.fullname + "In order to reset your password, please <a href='http://localhost:3000/update_password?userid='" + token + ">Click here </a>. If you did not request a new password, please ignore this mail. </p>",
-    };
+        await transporter.sendMail({
+            from: MAIL_ACCOUNT, // sender address
+            to: mail, // receiver adress
+            subject: "Password Reset Request for Wall-et", //Subject mail
+            html: `<b> Hi ${user.fullname}. In order to reset your password, please </b>
+            <a href="localhost:3001/resetPassword/reset_password?userid=${token}"> Click here </a>. 
+            <b>If you did not request a new password, please ignore this mail. </b>`,
+        });
 
-    await transporter.sendMail(info, function (error, info) {
-        if (error) {
-            res.status(400).json({ message: "Sorry, something went wrong. Please try again later." });
-        } else {
-            res.status(200).json({ message: "Mail sent"});
-        }
-    });
-
+        return res.status(200).json({msg: "mail sent"})
+    }catch(error){
+        res.status(400).json({msg: error})
+    }
 };
 
 const resetVerificaction = async (req, res) => {
