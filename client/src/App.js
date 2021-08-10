@@ -1,7 +1,8 @@
 
 import { Route } from "react-router-dom";
 import Login from '../../client/src/Componets/Login/login';
-import { ResetPassword } from "./Componets/resetPassword/resetPassword";
+import Password from "./Componets/resetPassword/password";
+
 
 
 
@@ -11,7 +12,7 @@ export default function App() {
 
        
       <Route exact path='/home' exact component={Login} /> 
-      
+      <Route exact path='/forgot' exact component={Password} />
       
     </>
   )
