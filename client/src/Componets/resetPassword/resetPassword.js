@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { changePassword } from "../../Redux/Actions/resetActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import swal from 'sweetalert';
 
 const ResetPassword = () => {
   const [ show, setShow ] = useState(false);
