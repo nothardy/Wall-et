@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { forgot } from '../../Redux/Actions/resetActions';
+import { forgot } from '../../../Redux/Actions/resetActions';
 import { useDispatch } from "react-redux";
 
 export function validate(user) {
@@ -16,7 +16,9 @@ const ForgotPassword = () => {
         mail:'',
     });
 
-const [errors, setErrors] = useState({});
+const [errors, setErrors] = useState({
+
+});
 
 const dispatch = useDispatch();
 
@@ -25,10 +27,10 @@ function handleChange(e) {
         ...user,
         [e.target.name]: e.target.value
         });
-    setErrors(validate({
-        ...user,
-        [e.target.value]: e.target.value
-        }));
+ //setErrors(validate({
+  //    ...user,
+   //   [e.target.name]: e.target.value
+     //   }));
 }
 
 const handleSubmit = (e) => {
@@ -38,17 +40,17 @@ const handleSubmit = (e) => {
     return(
         <form onSubmit={(e) => handleSubmit(e)}>
             <h2>Forgot Password?</h2>
-            <img />
                 <div>
                     <input
-                        autocomplete='off'
+                        autoComplete='off'
                         id='mail'
                         type='text'
                         required='required'
                         name='mail'
                         value={user.mail}
                         placeholder="example@mail.com"
-                        onChange={handleChange}/>
+                        onChange={handleChange}
+                        />
                         {errors.mail && (
                     <p>{errors.mail}</p>
                 )}
