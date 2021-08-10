@@ -3,13 +3,19 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
- DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST,
+  DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST, NODE_ENV,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_PRODUCTION}`, {
+const sequelize = NODE_ENV === 'production' ? new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_PRODUCTION}`, {
+  logging: false,
+  native: false, 
+}) : 
+
+new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`, {
   logging: false,
   native: false, 
 });
+
 const basename = path.basename(__filename);
 //json w token
 //passport
@@ -39,8 +45,8 @@ const { Account, Transaction, Card } = sequelize.models;
 Account.belongsToMany(Transaction, { through: 'transaction_acount' });
 Transaction.belongsToMany(Account, { through: 'transaction_acount' });
 
-Card.hasMany(Account);
-Account.belongsTo(Card);
+Account.hasMany(Card);
+Card.belongsTo(Account);
 
 
 /* Account.belongsToMany(Account, {through: 'user_contact'}) */

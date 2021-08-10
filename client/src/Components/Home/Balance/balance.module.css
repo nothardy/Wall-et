@@ -1,0 +1,74 @@
+.containerBalance{
+    
+    /* min-width: 16rem; */
+    width: 30rem;/* Si se ve muy grande, SACARLO */
+    height: 20rem;
+    position: absolute;
+    top: 6rem;
+    right: 3.5rem;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: #D7DAF4;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    transition: all 0.2s;
+    background: radial-gradient(#76b2fe, #b69efe);
+    
+    
+    
+
+  
+}
+
+.containerBalance:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+  }/* Ahi se aplica */
+
+
+  
+#titleBalance{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.9rem;
+    position: absolute;
+    top: 0;
+    left: 45px;
+    margin-top: 25px;
+    color: midnightblue;
+}
+
+#cashBalance{
+    color:midnightblue;
+    font-size: 2.9rem;
+}
+
+.footerBalance{
+    
+    width: 70%;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 20px;
+    left: 15%;
+}
+
+.btnBalance{
+    background: none;
+    border-radius: 5px;
+    color: midnightblue;
+    border: 1px solid white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 8px 20px;
+    transition: 0.4s;
+}
+.btnBalance:hover{
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.747);
+}

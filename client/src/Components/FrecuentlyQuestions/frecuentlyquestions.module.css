@@ -1,0 +1,61 @@
+img{
+    width: 18rem;
+}
+
+.container{
+    text-align: center;
+}
+
+.title{
+    font-size: 3rem ;
+  color: #50548A;  
+}
+
+.section1{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    float:left;
+    margin-bottom: 5rem;
+}
+
+.section1grid{
+    margin-right: 5rem;
+    margin-left: 5rem;
+}
+
+.section1gridtitle, .section2gridtitle{
+    color: #50548A;
+    font-size: 1.8rem;
+}
+
+.section2gridtitle{
+    font-size: 1.5rem;
+
+}
+
+.section1title, .section2title{
+    margin-top: 5rem;
+    margin-bottom: 0rem;
+    width: 100%;
+    font-size: 1.8rem;
+}
+
+
+.button{
+    margin-left: 0.5rem;
+    background-color: #50548A;
+    color: rgb(255, 255, 255);
+    border-radius: 4rem;
+    border-color: rgb(255, 255, 255);
+}
+
+.footer{
+    margin-top: 6rem;
+    color: rgba(83, 83, 83, 0.781);
+}
+
+.button:hover{
+    cursor:pointer;
+    border:none;
+}
