@@ -27,8 +27,8 @@ function DetailAccount(props) {
                             <div ><p>Identification Number:</p><p>{props.user.user_data.dni}</p></div>
                             <div ><p>CVU:</p><p>{props.user.account_data.cvu}</p></div>
                             <div ><p>Birth Date:</p><p>{props.user.user_data.birth}</p></div>
-                            <div ><p>Address:</p><p>{props.user.user_data.ubicacion }</p></div>
-                            <div ><p>Cards:</p><p>{props.user.account_data.cards.length }</p></div>
+                            <div ><p>Address:</p><p>{props.user.user_data.ubicacion}</p></div>
+                            <div ><p>Cards:</p><p>{props.user.account_data.cards.length}</p></div>
                             <div ><p> Change Password:</p><p></p></div>
                         </div>
                     </div>
