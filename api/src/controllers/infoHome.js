@@ -9,8 +9,8 @@ const infoUser = async (id) => {
             user_data: {
                 fullname: user.dataValues.fullname,
                 dni: user.dataValues.dni,
-                ubicacion: user.dataValues.ubicacion,
-                birth: user.dataValues.birth,
+                ubicacion: user.dataValues.ubication,
+                birth: user.dataValues.birth_date,
             },
             account_data: {
                 admin: user.dataValues.admin,
