@@ -1,16 +1,24 @@
 import React, { useState } from "react";
-import { ModificarPassword } from "../../Redux/User";
+import { changePassword } from "../../Redux/Actions/resetActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 const ResetPassword = () => {
   const [ show, setShow ] = useState(false);
 
-  const [password1, setPassword1] = useState("");
+  const [password, setPassword] = useState({
+    password1: '',
+    password2: ''
+  });
 
-  const [password2, setPassword2] = useState("");
+  const handleChange = (e) => {
+		setPassword({
+			...password,
+			[e.target.name]: e.target.value,
+		});
+	};
+
   const [error, setError] = useState({
-    matchPasswordError: "",
     passwordError: "",
   });
 
@@ -20,24 +28,18 @@ const ResetPassword = () => {
 
   function validateForm() {
     setError({
-      matchPasswordError: "",
       passwordError: "",
     });
 
-    if (password1 !== password2) {
-      matchPasswordError = "Las contraseñas no coinciden";
-    }
-    if (password1.length < 8 || password1.length > 15) {
-      passwordError = "Debe tener entre 8 y 15 caracteres";
-    } else if (password1.search(/[0-9]/) == -1) {
+    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(password)) { 
+      return swal("Password must contain eight characters, an uppercase letter, and a number.", "error") 
     }
   }
 
   function handleSubmit() {
     const valid = validateForm()
     if (valid) {
-      ResetPassword(password2)
-      Alert.alert("contraseña modificada")
+      changePassword(password)
     }
   }
 
@@ -46,11 +48,11 @@ const ResetPassword = () => {
       <div>
         <h2>Reset Password</h2>
             <input
-            id='password'
-            type={show ? 'text' : 'password'}
+            id='password1'
+            type={show ? 'text' : 'password1'}
             required='required'
-            name='password'
-            value={user.password}
+            name='password1'
+            value={password.password1}
             placeholder = "Enter your New Password..."
             onChange={handleChange}
             />
@@ -66,17 +68,17 @@ const ResetPassword = () => {
                 id='show_hide' /> 
                 )
                 }
-                {errors.password && (
-                <p>{errors.password}</p>
+                {error.passwordError && (
+                <p>{error.passwordError}</p>
                 )}
       </div>  
       <div>
             <input
-            id='password'
-            type={show ? 'text' : 'password'}
+            id='password2'
+            type={show ? 'text' : 'password2'}
             required='required'
-            name='password'
-            value={user.password}
+            name='password2'
+            value={password.password2}
             placeholder = "Repeat your New Password..."
             onChange={handleChange}
             />
@@ -92,9 +94,6 @@ const ResetPassword = () => {
                 id='show_hide' /> 
                 )
                 }
-        {error.matchPasswordError ? (
-          <p>{error.matchPasswordError}</p>
-        ) : null}
       </div>
         <div>
           <button type='submit'>Change Password</button>
