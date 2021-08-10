@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Account } = require("../db");
 <<<<<<< HEAD
 const bcrypt = require("bcrypt");
-const nodmailer = require("nodmailer");
+const nodemailer = require("nodemailer");
 const { MAIL_ACCOUNT, MAIL_PASSWORD } = process.env;
 
 
@@ -15,7 +15,7 @@ const passwordReset = async (req, res) => {
     resetCode = Math.random().toString().slice(2, 7);
 
     // To send an mail, we must first define a transporter. We will do it as follows:
-    const transporter = nodmailer.createTransport({
+    const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
             user: MAIL_ACCOUNT,
