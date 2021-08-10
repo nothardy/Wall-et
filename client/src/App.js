@@ -13,7 +13,12 @@ import Contacts from "./Components/Contacts/Contacts";
 import Payments from "./Components/Payments/Payments";
 import Transfer from "./Components/Transfer/Transfer";
 import Help from "./Components/Help/Help";
+<<<<<<< HEAD
 import ForgotPassword from "./Components/resetPassword/resetPassword/password";
+=======
+import ResetPassword from "./Components/resetPassword/resetPassword";
+import ForgotPassword from "./Components/resetPassword/password";
+>>>>>>> 37bde7c92c3d1d6ee9a30f173c3972989bb9e90c
 // CSS hecho por:
 // Cami y Celes: /register y /home
 // Gonza: NavBar
@@ -35,7 +40,12 @@ export default function App() {
       <Route exact path="/help"  component={Help}/>
       <PrivateRoute path="/mywallet" component= {Home} exact/>
       <PrivateRoute path="/balance" component= {Balance} exact/>
+<<<<<<< HEAD
       <Route exact path="/forgot" component={ForgotPassword}/>
+=======
+      <Route exact path='/resetPassword:userid' component={ResetPassword} />
+      <Route exact path='/forgot' component={ForgotPassword} />
+>>>>>>> 37bde7c92c3d1d6ee9a30f173c3972989bb9e90c
     </div>
   );
 }
