@@ -1,9 +1,10 @@
-const { Account, Card, Transaction, transaction_acount } = require('../db');
+const { Account, Card, Transaction, transaction_acount, contacts } = require('../db');
 
 const infoUser = async (id) => {
     
     try {
         const user = await Account.findByPk( id , {include: [{model: Transaction}, {model: Card}]} )
+
         return {
             id: user.dataValues.id,
             user_data: {
@@ -30,7 +31,7 @@ const infoUser = async (id) => {
                         transaction_date: el.createdAt,
                     }
                 }),
-                
+                               
                 create: user.dataValues.createdAt,
             },
         }

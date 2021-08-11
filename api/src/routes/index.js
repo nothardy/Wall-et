@@ -8,10 +8,11 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-router.use("/register", register)
-const home = require('./home.routes')
-const adminSearch = require('./searchUser.routes')
-const transaction = require('./transactions.routes')
+router.use("/register", register);
+const home = require('./home.routes');
+const adminSearch = require('./searchUser.routes');
+const transaction = require('./transactions.routes');
+const transfer = require('./transfer.routes');
 /* const { Transaction, Account, transaction_acount } = require('../db');
 const Payment="Payment",Services="Services",Transfer="Transfer"; */
 
@@ -19,7 +20,8 @@ const Payment="Payment",Services="Services",Transfer="Transfer"; */
 router.use('/home', home);
 router.use('/adminSearch', adminSearch);
 router.use('/auth', logRoutes);
-router.use('/transaction', transaction)
+router.use('/transaction/entry', transaction);
+router.use('/transaction/transfer', transfer);
 
 
 module.exports = router;
