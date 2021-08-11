@@ -16,7 +16,9 @@ const ForgotPassword = () => {
         mail:'',
     });
 
-const [errors, setErrors] = useState({});
+const [errors, setErrors] = useState({
+
+});
 
 const dispatch = useDispatch();
 
@@ -38,17 +40,17 @@ const handleSubmit = (e) => {
     return(
         <form onSubmit={(e) => handleSubmit(e)}>
             <h2>Forgot Password?</h2>
-            <img />
                 <div>
                     <input
-                        autocomplete='off'
+                        autoComplete='off'
                         id='mail'
                         type='text'
                         required='required'
                         name='mail'
                         value={user.mail}
                         placeholder="example@mail.com"
-                        onChange={handleChange}/>
+                        onChange={handleChange}
+                        />
                         {errors.mail && (
                     <p>{errors.mail}</p>
                 )}

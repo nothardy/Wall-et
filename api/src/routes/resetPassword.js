@@ -3,7 +3,7 @@ const {passwordReset, resetVerificaction} = require("../controllers/resetPasswor
 
 
 router.post('/reset_password', passwordReset);
-router.post('/update_password', resetVerificaction);
+router.post('/update_password/:userid', resetVerificaction);
 
 
 module.exports = router;
