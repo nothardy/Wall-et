@@ -25,7 +25,6 @@ function handleChange(e) {
         ...user,
         [e.target.name]: e.target.value
         });
-    console.log(user)
     //setErrors(validate({
     //    ...user,
     //    [e.target.value]: e.target.value
