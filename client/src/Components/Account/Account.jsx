@@ -14,7 +14,7 @@ function Account() {
                     <NavBar />
                 </div>
                 <div className={a.right}>
-                    <DetailAccount />
+                    <DetailAccount/>
                 </div>
             </div>
         </div>
