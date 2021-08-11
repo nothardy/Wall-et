@@ -6,7 +6,7 @@ export const testInfo = {
     {
       id: 100,
       from: "myuser",
-      to: "user1",
+      to: "Walter",
       amount: 2000,
       type_transaction: "Payment",
       state: "done",
@@ -14,8 +14,8 @@ export const testInfo = {
     },
     {
       id: 101,
-      from: "myuser",
-      to: "user7",
+      from: "Cele",
+      to: "myuser",
       amount: 7000,
       type_transaction: "Services",
       state: "done",
@@ -24,7 +24,7 @@ export const testInfo = {
     {
       id: 105,
       from: "myuser",
-      to: "user2",
+      to: "Julian",
       amount: 100,
       type_transaction: "Transfer",
       state: "done",
@@ -32,8 +32,8 @@ export const testInfo = {
     },
     {
       id: 108,
-      from: "user5",
-      to: "myuser",
+      from: "myuser",
+      to: "Georgi",
       amount: 7000,
       type_transaction: "Payment",
       state: "done",
@@ -42,7 +42,7 @@ export const testInfo = {
     {
       id: 104,
       from: "myuser",
-      to: "user3",
+      to: "Mili",
       amount: 1000,
       type_transaction: "Transfer",
       state: "done",
@@ -51,7 +51,7 @@ export const testInfo = {
     {
       id: 100,
       from: "myuser",
-      to: "user6",
+      to: "Franco",
       amount: 3000,
       type_transaction: "Payment",
       state: "done",
@@ -60,7 +60,7 @@ export const testInfo = {
     {
       id: 100,
       from: "myuser",
-      to: "user6",
+      to: "Walter",
       amount: 10000,
       type_transaction: "Services",
       state: "done",
@@ -69,7 +69,7 @@ export const testInfo = {
     {
       id: 100,
       from: "myuser",
-      to: "user6",
+      to: "Cami",
       amount: 1000,
       type_transaction: "Services",
       state: "done",
@@ -78,13 +78,23 @@ export const testInfo = {
     {
       id: 100,
       from: "myuser",
-      to: "user6",
+      to: "Gonzalo",
       amount: 8000,
       type_transaction: "Services",
       state: "done",
       transaction_date: "2021-08-05T15:19:28.986",
     },
   ],
+  /*  contacts: [
+    "Gonzalo",
+    "Cami",
+    "Walter",
+    "Franco",
+    "Georgi",
+    "Mili",
+    "Julian",
+    "Cele",
+  ], */
 };
 
 const initialState = {
