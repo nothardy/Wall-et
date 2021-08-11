@@ -3,6 +3,7 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 const {register} = require("../controllers/register.js");
 const logRoutes = require("./auth");
+const helpRoutes = require("./help");
 
 const router = Router();
 
@@ -14,7 +15,7 @@ const adminSearch = require('./searchUser.routes')
 const { Transaction, Account, transaction_acount } = require('../db');
 const Payment="Payment",Services="Services",Transfer="Transfer";
 
-
+router.use('/help', helpRoutes);
 router.use('/home', home);
 router.use('/adminSearch', adminSearch);
 router.use('/auth', logRoutes);
