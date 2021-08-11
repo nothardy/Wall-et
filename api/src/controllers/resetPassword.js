@@ -3,7 +3,9 @@ const { Account } = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
-const { MAIL_ACCOUNT, MAIL_PASSWORD } = process.env;
+//const { MAIL_ACCOUNT, MAIL_PASSWORD } = process.env;
+const MAIL_ACCOUNT= "wtfpf2021@gmail.com"
+const MAIL_PASSWORD= "mxyaajhenbxglqcx"
 // npm install nodemailer
 
 const passwordReset = async (req, res) => {
@@ -35,7 +37,7 @@ const passwordReset = async (req, res) => {
             to: mail, // receiver adress
             subject: "Password Reset Request for Wall-et", //Subject mail
             html: `<p> Hi ${user.fullname}. In order to reset your password, please </p>
-            <a href="https://localhost:3001/resetPassword/reset_password?userid=${token}"> Click here </a>. 
+            <a href="https://localhost:3000/resetPassword/reset_password:${token}"> Click here </a>. 
             <p>If you did not request a new password, please ignore this mail. </p>`,
         });
 
