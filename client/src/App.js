@@ -27,7 +27,7 @@ export default function App() {
       <Route exact path="/recoverpassword"  component= {RecoverPassword}/>
       <Route exact path="/faq" component= {FrecuentlyQuestions}/>
       <Route exact path="/logout"  component= {Logout} />
-      <Route exact path="/account"  component={Account} />
+      <PrivateRoute path="/account"  component={Account} exact/>
       <Route exact path="/contacts" component={Contacts}/>
       <Route exact path="/payments"  component={Payments}/>
       <Route exact path="/transfers"  component={Transfer} />
