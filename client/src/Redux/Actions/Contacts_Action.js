@@ -4,16 +4,6 @@ export const SEARCH_CONTACT = "SEARCH_CONTACT",
   GET_CONTACTS = "GET_CONTACTS",
   ADD_CONTACT = "ADD_CONTACT";
 
-/* export function searchGameByName(game) {
-  return (dispatch) => {
-    axios.get(`/videogames/?name=${game}`).then((response) => {
-      dispatch({ type: SEARCH_GAME_BY_NAME, payload: response.data });
-    });
-  };
-}
- */
-//setear
-
 export function getContacts() {
   return (dispatch) => {
     axios.get("https://localhost:3001/contacts").then((response) => {
@@ -43,18 +33,6 @@ export function addContact(email) {
       });
   };
 }
-
-// export function postGame(game) {
-//     return (dispatch) => {
-//       axios
-//         .post(`/videogames`, game, {
-//           headers: { "Content-Type": "application/json" },
-//         })
-//         .then((response) => {
-//           dispatch({ type: POST_GAME, payload: response.data.gameCreated });
-//         });
-//     };
-//   }
 
 export function setOrder(order) {
   return (dispatch) => {
