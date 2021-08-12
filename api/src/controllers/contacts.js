@@ -1,20 +1,20 @@
-const { Account, Transaction, Card } = require("../db");
+const { Account, Transaction, Card, Contact } = require("../db");
 const { Op } = require("sequelize");
 
 const getContactsFromDb = async (req, res, next) => {
   if (req.url.includes("?email")) {
     try {
       const searchedContact = req.query.email;
-      const contacs = await Account.findAll({
+      const contacts = await Account.findAll({
         // chequear de donde la traigo
         where: {
-          email: { [Op.iLike]: `%${searchedContact}%` },
+          mail: { [Op.iLike]: `%${searchedContact}%` },
         },
         include: [
           {
             model: Contact,
-            as: "contacs",
-            attributes: ["id", "email", "cvu"],
+            as: "contacts",
+            attributes: ["id", "mail", "cvu"],
             through: {
               attributes: [],
             },
@@ -32,7 +32,7 @@ const getContactsFromDb = async (req, res, next) => {
           {
             model: Contact,
             as: "contacts",
-            attributes: ["id", "email", "cvu"],
+            attributes: ["id", "mail", "cvu"],
             through: {
               attributes: [],
             },
@@ -56,4 +56,4 @@ const addContactToDb = async (req, res, next) => {
   }
 };
 
-module.exports = (getContactsFromDb, addContactToDb);
+module.exports = { getContactsFromDb, addContactToDb };

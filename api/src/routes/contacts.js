@@ -1,10 +1,10 @@
-const { Router } = require("express");
-const route = Router();
+const express = require("express");
+const router = express.Router();
 const {
   getContactsFromDb,
   addContactToDb,
 } = require("../controllers/contacts");
 
-route.get("/", getContactsFromDb).post("/", addContactToDb);
+router.route("/").get(getContactsFromDb).post(addContactToDb);
 
-module.exports = route;
+module.exports = router;
