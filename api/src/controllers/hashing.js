@@ -12,7 +12,7 @@ const HashTable = async (id) => {
         }
     }
 
-    return `WALL-ET-726N${metods.hash(user.dataValues.fullname)}D${user.dataValues.dni[user.dataValues.dni.length-2]}${user.dataValues.dni[user.dataValues.dni.length-1]}`
+    return `726N${metods.hash(user.dataValues.fullname)}D${user.dataValues.dni[user.dataValues.dni.length-2]}${user.dataValues.dni[user.dataValues.dni.length-1]}`
 } 
 
 module.exports = HashTable

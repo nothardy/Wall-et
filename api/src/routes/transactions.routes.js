@@ -5,10 +5,12 @@ const { verifyToken } = require('../middlewares/verifyToken')
 const Hashing = require('../controllers/hashing')
 
 
-route.get('/entry', verifyToken, async (req, res) => {
-    const id = req.userId;
+route.get('/entry',  async (req, res) => {
+    const {id} = req.query;
     const code = await Hashing(id)
+    
     try {
+        
         res.status(200).json(code) 
     }
     catch (err){
