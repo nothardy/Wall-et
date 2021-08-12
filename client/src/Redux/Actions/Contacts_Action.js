@@ -19,9 +19,9 @@ export function searchContact(email) {
       .then((response) => {
         dispatch({ type: SEARCH_CONTACT, payload: response.data });
       });
+      
   };
 }
-
 export function addContact(email) {
   return (dispatch) => {
     axios

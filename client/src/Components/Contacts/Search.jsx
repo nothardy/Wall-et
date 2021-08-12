@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import style from "./Contacts.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import style from "./Search.module.css";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 import { searchContact } from "../../Redux/Actions/Contacts_Action";
 import swal from "sweetalert";
 import {
   contactsReducer,
-  contactsHard,
 } from "../../Redux/Reducer/Contacts_Reducer";
 export const Search = () => {
   const dispatch = useDispatch();
   const [contact, setContact] = useState("");
-
+  const buscar = useSelector(state => state.contactsReducer.contacts)
   const handleChange = (el) => {
     setContact(el.target.value);
   };
 
+  console.log(buscar)
   const handleSubmit = (el) => {
     el.preventDefault();
-    if (!contact) return swal("probando");
+    if (!contact) return swal("you must enter a name or an email");
     dispatch(searchContact(contact));
     setContact("");
   };
@@ -35,6 +35,7 @@ export const Search = () => {
             <i class="fa fa-search"></i>
           </span>
           <input
+            value={contact}
             className={style.inp}
             type="text"
             placeholder="Search..."

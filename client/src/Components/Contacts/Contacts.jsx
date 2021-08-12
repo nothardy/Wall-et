@@ -41,8 +41,11 @@ function Contacts() {
           <NavBar />
         </div>
         <div className={c.right}>
+          <h1 className={c.tittle}>Contacts</h1>
           <Search />
-          <div className={c.contactos}>
+          <Filter />
+          <div className={c.contactos} >
+            <h3 className={c.tittle2}>Contacts</h3>
             {shownContacts &&
               shownContacts.map((contact, i) => {
                 return (
@@ -55,7 +58,6 @@ function Contacts() {
                 );
               })}
           </div>
-          <Filter />
         </div>
       </div>
     </div>

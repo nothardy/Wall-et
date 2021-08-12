@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import style from "./Contacts.module.css";
-import { ASCENDENTE, DESCENDENTE } from "./Filter";
+import style from "./Filter.module.css";
+import { ASCENDENTE, DESCENDENTE, DEFAULT } from "./Filter";
 import { getContacts, setOrder } from "../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector } from "react-redux";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
@@ -26,9 +26,9 @@ export const Filter = () => {
           id="Order"
           onChange={(e) => handleOrder(e)}
         >
-          <option>------</option>
-          <option value={ASCENDENTE}>Mas recientes</option>
-          <option value={DESCENDENTE}>Mas antiguas</option>
+          <option value={DEFAULT}>------</option>
+          <option value={DESCENDENTE}>Mas recientes</option>
+          <option value={ASCENDENTE}>Mas antiguas</option>
         </select>
       </div>
     </>

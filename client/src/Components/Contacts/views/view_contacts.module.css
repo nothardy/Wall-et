@@ -1,0 +1,11 @@
+.todo {
+  display: flex;
+  color: midnightblue;
+  margin: 4px;
+  
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+

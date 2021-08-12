@@ -70,7 +70,7 @@ const initialState = {
       id: 1,
       fullname: "Gonzalo",
       mail: "juarezgonzalo2@gmail.com",
-      date_transaction: "2021-08-05T15:19:28.986",
+      date_transaction: "2021-08-10T15:19:28.986",
     },
     {
       id: 2,
@@ -88,7 +88,7 @@ const initialState = {
       id: 4,
       fullname: "walter",
       mail: "walterrodriguez7@gmail.com",
-      date_transaction: "2021-09-01T15:19:28.986",
+      date_transaction: "2021-07-01T15:19:28.986",
     },
     {
       id: 5,
@@ -112,13 +112,13 @@ const initialState = {
       id: 8,
       fullname: "Milagros",
       mail: "milagros21@gmail.com",
-      date_transaction: "2021-10-05T15:19:28.986",
+      date_transaction: "2021-02-08T15:19:28.986",
     },
     {
       id: 9,
       fullname: "Nicolas",
       mail: "leandronicolau03@gmail.com",
-      date_transaction: "2021-20-10T15:19:28.986",
+      date_transaction: "2021-03-10T15:19:28.986",
     },
   ],
   searchedContact: [],

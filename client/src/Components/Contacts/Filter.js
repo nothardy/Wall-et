@@ -1,6 +1,6 @@
 export const ASCENDENTE = "ascendente";
 export const DESCENDENTE = "descendente";
-
+export const DEFAULT = 'default';
 export const getType = (type, array) => {
   switch (type) {
     case ASCENDENTE:
@@ -19,6 +19,10 @@ export const getType = (type, array) => {
           return -1;
         }
       });
+      case DEFAULT:
+       if(type === DEFAULT){
+         return array
+       }
     default:
       return array;
   }
