@@ -40,7 +40,7 @@ const updateProfile = async (req, res, next) => {
         //             birth_date
         //         });
         //     });
-
+        return res.json({success: true}).status(200);
     } catch (error) {
         next(error);
         return res.json(error);
