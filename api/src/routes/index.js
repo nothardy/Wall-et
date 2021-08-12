@@ -13,12 +13,12 @@ const home = require('./home.routes')
 const adminSearch = require('./searchUser.routes')
 const { Transaction, Account, transaction_acount } = require('../db');
 const Payment="Payment",Services="Services",Transfer="Transfer";
-
+const updateRoutes = require('./updateUser');
 
 router.use('/home', home);
 router.use('/adminSearch', adminSearch);
 router.use('/auth', logRoutes);
-
+router.use('/updateUser', updateRoutes)
 const creaate = async ({ from, to, amount, type_transaction, state, user }) => {
 
     try{
