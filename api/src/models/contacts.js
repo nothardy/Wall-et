@@ -22,5 +22,15 @@ module.exports = (sequelize) => {
     cvu: {
       type: DataTypes.STRING,
     },
+    contacts: {
+      // una manera que encontre en stackoverflow de declarar array de objetos
+      type: DataTypes.STRING,
+      get: function () {
+        return JSON.parse(this.getDataValue("contacts"));
+      },
+      set: function (value) {
+        return this.setDataValue("contacts", JSON.stringify(value));
+      },
+    },
   });
 };

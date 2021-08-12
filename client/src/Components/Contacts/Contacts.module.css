@@ -18,8 +18,19 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border: 3px solid black;
 }
-
+.contactos {
+  display: flex;
+  margin-top: 10rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20vh;
+  margin-left: 3rem;
+  height: 60vh;
+  background-color: gray;
+}
 .form {
   width: 300px;
   vertical-align: middle;
@@ -52,4 +63,10 @@
   margin-top: 17px;
   z-index: 1;
   color: black;
+}
+.base {
+  margin-left: 28rem;
+}
+.bus {
+  margin-left: 5rem;
 }

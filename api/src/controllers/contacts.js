@@ -1,5 +1,6 @@
 const { Account, Transaction, Card, Contact } = require("../db");
 const { Op } = require("sequelize");
+const { v4: uuidv4 } = require("uuid");
 
 const getContactsFromDb = async (req, res, next) => {
   if (req.url.includes("?email")) {
@@ -48,9 +49,20 @@ const getContactsFromDb = async (req, res, next) => {
 
 const addContactToDb = async (req, res, next) => {
   try {
-    const newContact = req.body;
-    await Account.addContact(newContact);
-    res.json({ msg: "Contact successfully added to this account" });
+    const { fullname, mail, cvu, from } = req.body;
+    const contact = await Contact.create({
+      id: uuidv4(),
+      fullname,
+      cvu,
+      mail,
+    });
+
+    const from_account = await Account.findOne({
+      where: { id: from },
+    });
+
+    await from_account.addContact(contact);
+    res.json({ msg: `Contact successfully added to account` });
   } catch (error) {
     next(error);
   }

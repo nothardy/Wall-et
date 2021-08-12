@@ -5,7 +5,7 @@ export const getType = (type, array) => {
   switch (type) {
     case ASCENDENTE:
       return array.sort((a, b) => {
-        if (a.transaction_date > b.transaction_date) {
+        if (a.date_transaction > b.date_transaction) {
           return 1;
         } else {
           return -1;
@@ -13,7 +13,7 @@ export const getType = (type, array) => {
       });
     case DESCENDENTE:
       return array.sort((a, b) => {
-        if (a.transaction_date < b.transaction_date) {
+        if (a.date_transaction < b.date_transaction) {
           return 1;
         } else {
           return -1;

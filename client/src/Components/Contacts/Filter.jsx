@@ -26,12 +26,7 @@ export const Filter = () => {
           id="Order"
           onChange={(e) => handleOrder(e)}
         >
-          {user &&
-            user.map((el, i) => (
-              <option key={i} value={el.name}>
-                {el.name}
-              </option>
-            ))}
+          <option>------</option>
           <option value={ASCENDENTE}>Mas recientes</option>
           <option value={DESCENDENTE}>Mas antiguas</option>
         </select>

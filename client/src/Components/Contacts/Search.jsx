@@ -4,7 +4,10 @@ import style from "./Contacts.module.css";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 import { searchContact } from "../../Redux/Actions/Contacts_Action";
 import swal from "sweetalert";
-
+import {
+  contactsReducer,
+  contactsHard,
+} from "../../Redux/Reducer/Contacts_Reducer";
 export const Search = () => {
   const dispatch = useDispatch();
   const [contact, setContact] = useState("");
