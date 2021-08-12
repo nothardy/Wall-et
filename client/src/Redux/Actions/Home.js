@@ -3,6 +3,7 @@ import swal from 'sweetalert';
 export const GET_DATE_USER = 'GET_DATE_USER';
 export const ADMIN_GET_USER = 'ADMIN_GET_USER';
 export const ADMIN_GET_DATE_USERS = 'ADMIN_GET_DATE_USERS';
+export const UPDATE_USER = 'UPDATE_USER';
 
 const testInfo =  [
     {
@@ -82,4 +83,22 @@ export const adminGetDateUsers = (status) => {
           swal(`Incomming View`);    
         }
     }
+}
+
+
+
+
+export const updateUser = () =>{ 
+  
+  return async function dispatch(dispatch){
+      try{
+          const {data} = await axios.post('http://localhost:3001/updateUser')
+          return dispatch({type:UPDATE_USER, payload:data})
+          window.location.reload()
+      }
+      catch(err){
+          alert("error en getDateUser",err)
+          
+      }
+  }  
 }

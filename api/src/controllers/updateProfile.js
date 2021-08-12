@@ -3,24 +3,30 @@ const {
 } = require('../db');
 
 const updateProfile = async (req, res, next) => {
-    const {
-        id,
-        fullname,
-        dni,
-        mail,
-        ubication,
-        birth_date
-    } = req.body;
-   try {
-       if (fullname) return res.json({msg:"Worked"})
-    //     let userFind = await Account.findByPk({
-    //         where: {
-    //             fullname: fullname
-    //         }
-    //     });
-    //     return res.json({
-    //         "msg": "Worked"
-    //     });
+    // const {
+    //     // id,
+    //     // fullname,
+    //     // dni,
+    //     // mail,
+    //     // ubication,
+    //     // birth_date
+    //     user
+    // } = req.body;
+    const id = req.body.id; 
+    let user = req.body;
+    try {
+        //    if (id) return res.json({msg:"Worked"})
+        // const user = await Account.findByPk(id);
+        // console.log(user);
+        // user.dni = "38054316";
+        // await Account.update(user,
+        //     {where: 
+        //         {id}
+        //     });
+        await Account.update({...user},
+            {where: 
+                {id: id}
+            });
         // if (req.file) {
         //     var profile = req.file.filename;
         // }
