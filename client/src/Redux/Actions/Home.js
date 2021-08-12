@@ -88,17 +88,36 @@ export const adminGetDateUsers = (status) => {
 
 
 
-export const updateUser = () =>{ 
+// export const updateUser = (json) =>{ 
   
-  return async function dispatch(dispatch){
-      try{
-          const {data} = await axios.post('http://localhost:3001/updateUser')
-          return dispatch({type:UPDATE_USER, payload:data})
-          window.location.reload()
-      }
-      catch(err){
-          alert("error en getDateUser",err)
-          
-      }
-  }  
+//   return async function dispatch(dispatch){
+//     console.log('llegue')
+//     console.log(json)
+//     console.log(dispatch)
+//     return (dispatch) =>{
+//       axios.post('http://localhost:3001/updateUser',json , {
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(json),
+//       })
+//       .then((response) => {
+//         dispatch({ type: UPDATE_USER, payload: json });
+//       })
+//       .catch((error) => console.log(error));
+//     }
+//   }
+// }
+
+export function updateUser(json) {
+  return (dispatch) => {
+    axios
+      .post('http://localhost:3001/updateUser', json, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((response) => {
+        dispatch({ type: UPDATE_USER, payload: response.data });
+      });
+  };
 }
+
+    
+  

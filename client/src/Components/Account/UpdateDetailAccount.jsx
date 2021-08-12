@@ -1,5 +1,5 @@
 import { React, useEffect, useState, useRef } from 'react'
-import { getDateUser } from '../../Redux/Actions/Home';
+import { getDateUser, updateUser } from '../../Redux/Actions/Home';
 import { useSelector, useDispatch } from 'react-redux';
 import a from './DetailAccount.module.css';
 import swal from 'sweetalert';
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import UpdatePassword from './UpdatePassword';
+import { useHistory } from "react-router";
 
 function UpdateDetailAccount() {
     const dispatch = useDispatch();
@@ -16,11 +17,12 @@ function UpdateDetailAccount() {
         fullname: '',
         mail: '',
         dni: '',
-        birth: '',
-        ubicacion: '',
+        birth_date: '',
+        ubication: '',
+        photo:''
     });
 
-
+    var history = useHistory();
     const [errors, setErrors] = useState({});
 
 
@@ -38,8 +40,9 @@ function UpdateDetailAccount() {
                 fullname: user?.user_data.fullname || "",
                 mail: user?.account_data.mail || "",
                 dni: user?.user_data.dni || "",
-                birth: user?.user_data.birth || "",
-                ubicacion: user?.user_data.ubicacion || "",
+                birth_date: user?.user_data.birth || "",
+                ubication: user?.user_data.ubicacion || "",
+                photo:user?.account_data.photo || ""
             }
         )
     }, [user])
@@ -57,9 +60,30 @@ function UpdateDetailAccount() {
         if (!/^[0-9]*$/.test(updateinfo.dni)) { return swal("ID must be a number", "You clicked the button!", "error") };
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(updateinfo.mail)) {
             return swal('Invalid Email', "You clicked the button!", "error");
-        };
+        }
+        else{
         
+      
+        dispatch(updateUser(updateinfo));
 
+        setUpdateInfo({...updateinfo,
+            id:  "",
+            fullname:  "",
+            mail:  "",
+            dni:  "",
+            birth_date: "",
+            ubication:  "",
+            photo: ""});
+        swal({
+          title: "Info Edited",
+          icon: "success",
+          button: true,
+        });
+        dispatch(getDateUser())
+        history.push("/account");
+    }
+        
+        
     }
 
     //COPY CVU
@@ -70,8 +94,6 @@ function UpdateDetailAccount() {
         e.preventDefault();
         textAreaRef.current.select();
         document.execCommand('copy');
-        // This is just personal preference.
-        // I prefer to not show the the whole text area selected.
         e.target.focus();
         setCopySuccess('Copied!');
     };
@@ -83,7 +105,7 @@ function UpdateDetailAccount() {
             {user ?
                 <div>
                     <div >
-                        <img className="image" src={user.account_data.photo} width="350" height="150" alt="" />
+                        {/* <img className="image" src={user.account_data.photo} width="350" height="150" alt="" /> */}
                         <form onSubmit={(e) => handleSubmit(e)}>
                             <div ><p>Full Name:</p>
                                 {/* <p>{props.user.user_data.fullname}</p> */}
@@ -109,12 +131,12 @@ function UpdateDetailAccount() {
                             <div ><p>Birth Date:</p>
                                 {/* <p>{props.user.user_data.birth}</p> */}
                             </div>
-                            <input htmlFor="birthdate" className='' type="date" placeholder={user.user_data.birth} data-date-split-input="true" name='birth' value={updateinfo.birth} onChange={handleInputChange} min="1900-01-01" max="2003-12-31" />
+                            <input htmlFor="birthdate" className='' type="date" placeholder={user.user_data.birth} data-date-split-input="true" name='birth_date' value={updateinfo.birth_date} onChange={handleInputChange} min="1900-01-01" max="2003-12-31" />
                             <div ><p>Address:</p>
                                 {/* <p>{props.user.user_data.ubicacion}</p> */}
                             </div>
                             <input className='' type="text" onChange={handleInputChange} placeholder={user.user_data.ubicacion}
-                                value={updateinfo.ubicacion} name="ubicacion" />
+                                value={updateinfo.ubication} name="ubication" />
 
 
                             <div ><p>Cards:</p><p>{user.account_data.cards.length > 0 ? user.account_data.cards.length : "No cards available"}</p></div>

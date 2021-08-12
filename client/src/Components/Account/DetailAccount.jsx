@@ -16,8 +16,8 @@ function DetailAccount() {
         fullname: '',
         mail: '',
         dni: '',
-        birth: '',
-        ubicacion: '',
+        birth_date: '',
+        ubication: '',
     });
 
 
@@ -34,8 +34,8 @@ function DetailAccount() {
                 fullname: user?.user_data.fullname || "",
                 mail: user?.account_data.mail || "",
                 dni: user?.user_data.dni || "",
-                birth: user?.user_data.birth || "",
-                ubicacion: user?.user_data.ubicacion || "",
+                birth_date: user?.user_data.birth || "",
+                ubication: user?.user_data.ubicacion || "",
             }
         )
     }, [user])
@@ -62,7 +62,7 @@ function DetailAccount() {
             {user ?
                 <div>
                     <div >
-                        <img className="image" src={user.account_data.photo} width="350" height="150" alt="" />
+                        {/* <img className="image" src={user.account_data.photo} width="350" height="150" alt="" /> */}
                             <div ><p>Full Name:</p><p>{user.user_data.fullname}</p></div>
                             <div ><p>E-mail:</p><p>{user.account_data.mail}</p></div>
                             <div ><p>Identification Number:</p><p>{user.user_data.dni}</p></div>

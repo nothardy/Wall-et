@@ -2,8 +2,8 @@ import { GET_DATE_USER, ADMIN_GET_USER, ADMIN_GET_DATE_USERS, UPDATE_USER } from
 
 const initialState = {
     User: undefined, /* Date of User */
-    AdminDateUser: undefined /* Date specif of user  */
-    
+    AdminDateUser: undefined, /* Date specif of user  */
+    info: undefined
 }
 
 function homeReducer(state = initialState, action){
@@ -15,7 +15,8 @@ function homeReducer(state = initialState, action){
         case ADMIN_GET_DATE_USERS:
             return {...state, AdminDateUser: action.payload}
         case UPDATE_USER:
-            return{...state, User: action.payload}
+            return{...state,
+            info:action.payload}
         default:
             return state
     }
