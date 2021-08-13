@@ -86,27 +86,6 @@ export const adminGetDateUsers = (status) => {
 }
 
 
-
-
-// export const updateUser = (json) =>{ 
-  
-//   return async function dispatch(dispatch){
-//     console.log('llegue')
-//     console.log(json)
-//     console.log(dispatch)
-//     return (dispatch) =>{
-//       axios.post('http://localhost:3001/updateUser',json , {
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(json),
-//       })
-//       .then((response) => {
-//         dispatch({ type: UPDATE_USER, payload: json });
-//       })
-//       .catch((error) => console.log(error));
-//     }
-//   }
-// }
-
 export function updateUser(json) {
   return (dispatch) => {
     axios
@@ -119,5 +98,4 @@ export function updateUser(json) {
   };
 }
 
-    
-  
+

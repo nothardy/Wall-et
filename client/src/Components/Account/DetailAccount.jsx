@@ -76,10 +76,19 @@ function DetailAccount() {
     //delete account
     function deleteUser() {
         axios
-            .delete('http://localhost:3001/updateUser')
+            .post('http://localhost:3001/updateUser')
             .then((response) => console.log(response.data))
             .catch((error) => console.log(error));
         swal("The Account was deleted", { icon: "success" });
+    }
+    
+    //delete card
+    function deleteCard(id) {
+        axios
+            .delete(`http://localhost:3001/deleteCard/${id}`)
+            .then((response) => console.log(response.data))
+            .catch((error) => console.log(error));
+        swal("The Card was deleted", { icon: "success" });
     }
 
     return (
@@ -96,7 +105,7 @@ function DetailAccount() {
                         <div ><p>Cards: </p>{user.account_data.cards.length > 0 ? user.account_data.cards.map(card =>
                             <div key={card.id}>
                                 <div>{card.card_num}</div>
-                                <button value={card.id}>Delete Card</button>
+                                <button value={card.id} onClick={() => deleteCard()}>Delete Card</button> 
                             </div>)
                             : "No cards available"}
                         </div>

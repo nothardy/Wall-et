@@ -1,5 +1,5 @@
 .container{
-    width: 80% ;
+    width: 110% ;
     height:65%;
     
     position: absolute;
@@ -7,4 +7,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background-color:#dcdbdb;
+      /* display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; */
 }
