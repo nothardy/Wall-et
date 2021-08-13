@@ -13,6 +13,7 @@ import Contacts from "./Components/Contacts/Contacts";
 import Payments from "./Components/Payments/Payments";
 import Transfer from "./Components/Transfer/Transfer";
 import Help from "./Components/Help/Help";
+
 // CSS hecho por:
 // Cami y Celes: /register y /home
 // Gonza: NavBar

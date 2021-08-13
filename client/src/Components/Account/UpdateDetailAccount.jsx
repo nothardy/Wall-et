@@ -1,15 +1,20 @@
 import { React, useEffect, useState, useRef } from 'react'
 import { getDateUser, updateUser } from '../../Redux/Actions/Home';
 import { useSelector, useDispatch } from 'react-redux';
-import a from './DetailAccount.module.css';
 import swal from 'sweetalert';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faCopy } from '@fortawesome/free-solid-svg-icons';
+//import { Link } from "react-router-dom";
 import UpdatePassword from './UpdatePassword';
 import { useHistory } from "react-router";
+import u from './UpdateDetailAccount.module.css';
 
-function UpdateDetailAccount() {
+
+
+
+    
+
+function UpdateDetailAccount({close}) {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.homeReducer.User);
     const [updateinfo, setUpdateInfo] = useState({
@@ -75,35 +80,24 @@ function UpdateDetailAccount() {
             ubication:  "",
             photo: ""});
         swal({
-          title: "Info Edited",
-          icon: "success",
-          button: true,
+        title: "Info Edited",
+        icon: "success",
+        button: true,
         });
         dispatch(getDateUser())
-        history.push("/account");
-    }
-        
-        
+        history.push("/mywallet")
+    }        
     }
 
-    //COPY CVU
-    const [copySuccess, setCopySuccess] = useState('');
-    const textAreaRef = useRef(null);
 
-    function copyToClipboard(e) {
-        e.preventDefault();
-        textAreaRef.current.select();
-        document.execCommand('copy');
-        e.target.focus();
-        setCopySuccess('Copied!');
-    };
-    //botton que abre el edit password
-    let [editPassword, setEditPassword] = useState(false);
-    const toggleEditPassword = () => { setEditPassword(editPassword = !editPassword) }
+    
     return (
-        <div >
+        <div className={u.container}>
+            
             {user ?
+            
                 <div>
+                    
                     <div >
                         {/* <img className="image" src={user.account_data.photo} width="350" height="150" alt="" /> */}
                         <form onSubmit={(e) => handleSubmit(e)}>
@@ -139,40 +133,22 @@ function UpdateDetailAccount() {
                                 value={updateinfo.ubication} name="ubication" />
 
 
-                            <div ><p>Cards:</p><p>{user.account_data.cards.length > 0 ? user.account_data.cards.length : "No cards available"}</p></div>
+                           
                             <button className='' type="submit" value="" name=""> Update Profile </button>
                         </form>
+                        <button onClick={()=>close()}>X</button>
                     </div>
-                    <div><label>CVU:</label>
-                        {/* <p >{props.user.account_data.cvu } </p> */}
-                    </div>
-
-                    <form>
-                        <input
-                            ref={textAreaRef}
-                            value={user.account_data.cvu}
-                        />
-                        {
-                            /* Logical shortcut for only displaying the 
-                               button if the copy command exists */
-                            document.queryCommandSupported('copy') &&
-                            <div>
-                                <FontAwesomeIcon
-                                    onClick={copyToClipboard}
-                                    icon={faCopy}
-                                    // className={a.icon}
-                                    id='show_hide' />
-                                {copySuccess}
-                            </div>
-                        }
-                    </form>
+                    
+                   
+                   
                 </div> : <div> <h1>Loading</h1>
                     <img src="" alt="LoadingGif" className='loadingGif' />
                 </div>
+                
+                
             }
-            <button className='' onClick={() => toggleEditPassword()}> Change Password </button>
-            {editPassword ? <div> <UpdatePassword close={toggleEditPassword} /> </div> : null}
-
+           
+           
         </div>
     )
 }

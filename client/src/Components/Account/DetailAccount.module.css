@@ -9,3 +9,9 @@
     color: #9fadca;
     margin-top: 0px;
 }
+.container{
+    position: absolute;
+    top: 60%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }

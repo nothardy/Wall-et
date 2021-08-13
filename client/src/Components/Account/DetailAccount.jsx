@@ -1,12 +1,18 @@
 import { React, useEffect, useState, useRef } from 'react'
 import { getDateUser } from '../../Redux/Actions/Home';
 import { useSelector, useDispatch } from 'react-redux';
-//import a from './DetailAccount.module.css';
+import a from './DetailAccount.module.css';
 //import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faCopy } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import UpdateDetailAccount from './UpdateDetailAccount';
+import UpdatePassword from './UpdatePassword';
+import axios from 'axios';
+import swal from 'sweetalert';
+import AddCard from './AddCard';
+
+
 
 function DetailAccount() {
     const dispatch = useDispatch();
@@ -56,28 +62,45 @@ function DetailAccount() {
     //botton que abre el edit
     let [editProfile, setEditProfile] = useState(false);
     const toggleEditProfile = () =>{ setEditProfile(editProfile = !editProfile) }
+//botton que abre el edit password
+let [editPassword, setEditPassword] = useState(false);
+const toggleEditPassword = () => { setEditPassword(editPassword = !editPassword) }
+
+//botton que agrega cards
+let [addCard, setAddCard] = useState(false);
+const toggleAddCard = () => { setAddCard(addCard = !addCard) }
+
+
+//delete account
+function deleteUser() {
+    axios
+      .delete('http://localhost:3001/updateUser')
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
+    swal("The Account was deleted", { icon: "success" });
+  }
 
     return (
-        <div >
+        <div className={a.container} >
             {user ?
                 <div>
                     <div >
-                        {/* <img className="image" src={user.account_data.photo} width="350" height="150" alt="" /> */}
+                        <img className="image" src={user.account_data.photo}  alt="" />
                             <div ><p>Full Name:</p><p>{user.user_data.fullname}</p></div>
                             <div ><p>E-mail:</p><p>{user.account_data.mail}</p></div>
                             <div ><p>Identification Number:</p><p>{user.user_data.dni}</p></div>
                             <div ><p>Birth Date:</p><p>{user.user_data.birth}</p></div>
                             <div ><p>Address:</p><p>{user.user_data.ubicacion}</p></div>
-                                                        
                             <div ><p>Cards:</p><p>{user.account_data.cards.length > 0 ? user.account_data.cards.length : "No cards available"}</p></div>
                             
+                            <button className='' onClick={ () => toggleAddCard()}> Add Card </button>
+                            { addCard? <div> <AddCard close={toggleAddCard}/> </div>:null }
                             </div>
                     <div><label>CVU:</label>
                     <form>
                         <input
                             ref={textAreaRef}
-                            value={user.account_data.cvu}
-                        />
+                            value={user.account_data.cvu} />
                         {
                             document.queryCommandSupported('copy') &&
                             <div>
@@ -93,13 +116,22 @@ function DetailAccount() {
                     <button className='' onClick={ () => toggleEditProfile()}> Edit Profile </button>
                             { editProfile? <div> <UpdateDetailAccount close={toggleEditProfile}/> </div>:null }
                     </div>
+                    <button className='' onClick={() => toggleEditPassword()}> Change Password </button>
+            {editPassword ? <div> <UpdatePassword close={toggleEditPassword} /> </div> : null}
+            <div>
+            <Link to='/logout'>
+                    <button onClick={() => deleteUser()}>Delete Account</button>
+                    </Link>
+                    </div>
                 </div> : <div> <h1>Loading</h1>
                     <img src="" alt="LoadingGif" className='loadingGif' />
                 </div>
             }
+            
             <Link to='/recoverpassword'>
                 <p >Forgot Password?</p>
-            </Link>
+                </Link>
+            
         </div>
     )
 }
