@@ -11,11 +11,12 @@ import {
   contactsHard,
 } from "../../Redux/Reducer/Contacts_Reducer";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { eraseContactFilters } from "../../Redux/Actions/Contacts_Action";
 function Contacts() {
   const user = testInfo.transactions;
   const select = contactsHard.contacts;
-
+  const dispatch = useDispatch();
   let contacts = useSelector((store) => store.contactsReducer.contacts),
     searchedContact = useSelector(
       (store) => store.contactsReducer.searchedContact
@@ -24,6 +25,7 @@ function Contacts() {
       (store) => store.contactsReducer.orderedContacts
     );
   const [shownContacts, setShownContacts] = useState(select);
+  const [search, setSearch] = useState(false);
 
   // hacer una logica para que primero busque si existen los orderedContacts, si no existen es por que
   // nadie apreto ordenamientos, entonces por defecto busco los contacts
@@ -33,6 +35,13 @@ function Contacts() {
     else setShownContacts(contacts);
   }, [contacts, searchedContact, orderedContacts]);
 
+  const funSearch = () => {
+    if (search === true) dispatch(eraseContactFilters());
+    setSearch(!search);
+  };
+
+  const renderButton =
+    search === true ? <button onClick={funSearch}>x</button> : null;
   return (
     <div>
       <Bar />
@@ -42,10 +51,9 @@ function Contacts() {
         </div>
         <div className={c.right}>
           <h1 className={c.tittle}>Contacts</h1>
-          <Search />
           <Filter />
-          <div className={c.contactos} >
-            <h3 className={c.tittle2}>Contacts</h3>
+          <div className={c.contactos}>
+            <Search funSearch={funSearch} />
             {shownContacts &&
               shownContacts.map((contact, i) => {
                 return (
@@ -57,6 +65,7 @@ function Contacts() {
                   />
                 );
               })}
+            {renderButton}
           </div>
         </div>
       </div>

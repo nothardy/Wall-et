@@ -1,5 +1,7 @@
 import { getType } from "../../Components/Contacts/Filter";
+import { filterContacts, searchContact } from "../../utils/FilterContacts";
 import {
+  ERASE_CONTACT_FILTERS,
   GET_CONTACTS,
   SEARCH_CONTACT,
   SET_ORDER,
@@ -130,20 +132,23 @@ const contactsReducer = (state = initialState, action) => {
     case GET_CONTACTS:
       return {
         ...state,
-        contacts: action.payload,
+        //contacts: filterContacts(action.payload).slice(),
       };
     case SEARCH_CONTACT:
       return {
         ...state,
-        searchedContact: action.payload,
+        searchedContact: searchContact(state.contacts, action.payload),
       };
-
+    case ERASE_CONTACT_FILTERS:
+      return {
+        ...state,
+        searchedContact: [],
+        orderedContacts: [],
+      };
     case SET_ORDER:
       return {
         ...state,
-        orderedContacts: getType(action.payload, state.contacts).map(
-          (contact) => contact
-        ),
+        orderedContacts: getType(action.payload, state.contacts).slice(),
       };
     default:
       return state;
