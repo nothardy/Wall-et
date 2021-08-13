@@ -1,8 +1,63 @@
 .container{
-    background-color: blueviolet;
+    width: 80%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
     font-size: 1.5rem;
+    position: relative;
+    background-color: yellow;
+}
+
+.header{
+    background-color: rgba(121, 115, 115, 0.678);
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid rgb(75, 74, 74);
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+}
+.header > img {
+    margin-right: 14px;
+    width: 4rem;
+}
+.left > h2{
+    margin: 0;
+}
+
+.container_CVU{
+    /* background-color: #dcdbdb;ESTE PODRIA SE EL BACKGROUN DE TODA LA WWALLEt */
+    background-color: #8f7a7a;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+
+}
+
+#input__codeCVU{
+    font-size: 1.4rem;
+    width: 10rem;
+    height: 2rem;
+}
+#btnSubmit{
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 7px 12px;
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    color: white;
+    border: 1px solid rgb(3, 92, 128);
+    border-radius: 2px;
+    background-color: cornflowerblue;
+
+}
+
+.senes{
+    background-color: yellowgreen;
+    width: 8rem;
+    height: 7rem;
 }
