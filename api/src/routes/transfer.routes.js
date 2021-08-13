@@ -2,7 +2,7 @@ const { Router } = require('express');
 const route = Router();
 
 const { Account } = require('../db')
-const  transferCreator = require('../controllers/transferCreator')
+const transferCreator = require('../controllers/transferCreator')
 const { verifyCVU } = require('../middlewares/verifyCVU')
 const { verifyBalans } = require('../middlewares/balansCheck')
 
@@ -27,17 +27,22 @@ route.post('/verifyCVU', verifyCVU, async (req, res) => {
 })
 
 
-route.put('/', verifyBalans, async (req, res) => {
-    const { from, to, amount} = req.body;
-    const Amount = parseInt(amount)
-    try {
+route.post('/', verifyBalans, async (req, res) => {
+    const { from, to } = req.body;
+    const amount = parseInt(req.body.amount)
 
-        const create = await transferCreator( from, to, Amount )
-        !create ? res.status(404).json({ err: 'Transfer not created' }) : res.status(200).json('transfer created successfully')
+    try {
+        const create = await transferCreator( from, to, amount )
+        if(!create){ 
+            res.status(404)
+            throw new Error('Transfer not created')
+        } 
+        create && res.status(200).json(create)
     }
 
     catch(err) {
-        res.status(404).json({ err: err })
+        console.log(err)
+        res.status(404).json(err)
     }
 })
 

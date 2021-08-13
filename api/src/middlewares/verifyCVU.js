@@ -5,10 +5,16 @@ const verifyCVU = async (req, res, next) => {
         const cvu = req.body.cvu;
         const user = await Account.findOne({ where: { cvu: cvu }})
 
-        !user || user.length < 1 ? res.status(404).json({err: 'cvu not found'}) : next()
+        if(!user || user.length < 1) {
+            res.status(404)
+            throw new Error('cvu not found')  
+        }
+        next()
     }
     catch(err){
         console.log(err)
+        res.status(404).json(err)
+        return
     }
 }
 

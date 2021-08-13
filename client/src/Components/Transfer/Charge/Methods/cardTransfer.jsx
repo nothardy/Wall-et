@@ -34,13 +34,13 @@ const CardTransfer = () => {
     async function handleSubmit (e){
         e.preventDefault()
         try{
-            console.log(dataTransaction)
-            const {data} = await axios.put('http://localhost:3001/transaction/transfer', {dataTransaction})
+            
+            const {data} = await axios.post('http://localhost:3001/transaction/transfer', dataTransaction)
             alert("Se envio con exito su transaccion")
             history.push("./balance") /*REDIRECCIONA */
         }
         catch(err){
-            console.log('SAlio un erro, trasferencia no realizada',err)
+            console.log('No se pudo realizar la transaction', err)
         }
     }
     return (
