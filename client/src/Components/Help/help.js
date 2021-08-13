@@ -7,15 +7,25 @@ const Help = () => {
 
 	const [ user, setUser ] = useState({
 		mail: '',
-		mailSubject: '',
-		mailBody: '',
+		subject: '',
+		message: '',
 	});
 
 	const { register, handleSubmit, formState : { errors } } = useForm();
 
 	const dispatch = useDispatch(); 
 
+	function handleChange(e) {
+		console.log(user)
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        });
+    }
+
+
 	const onSubmit = () => {
+		console.log(user)
 		dispatch(help(user));
 	}
 
@@ -27,7 +37,7 @@ const Help = () => {
                     <br />
                     Please use the Contact Form below to get in touch.
 				</h3>
-				    <form onSubmit={handleSubmit(onSubmit)}> 
+				    <form onSubmit={handleSubmit(onSubmit)} onChange={handleChange}> 
 					    <h5>E-mail </h5>
 					<input
                         autoComplete='off'
