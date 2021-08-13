@@ -12,7 +12,7 @@ import Account from './Components/Account/Account';
 import Contacts from "./Components/Contacts/Contacts";
 import Payments from "./Components/Payments/Payments";
 import Transfer from "./Components/Transfer/Transfer";
-import Help from "./Components/Help/Help";
+import Help from "./Components/Help/help";
 import ResetPassword from "./Components/resetPassword/resetPassword";
 import ForgotPassword from "./Components/resetPassword/password";
 // CSS hecho por:
