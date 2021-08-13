@@ -86,4 +86,6 @@ function Frecuentlyquestions() {
     )
 }
 
+// jejeje
+
 export default Frecuentlyquestions
