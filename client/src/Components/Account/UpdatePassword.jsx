@@ -41,7 +41,7 @@ function UpdatePassword({close}) {
             {
                 ...updateinfo,
                 id: user?.id || "",
-                password:  '' || user?.account_data.pass,
+                password:  '' ,
                 confirmpassword: ''
             }
         )

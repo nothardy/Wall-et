@@ -1,6 +1,7 @@
 const {
     Account
 } = require('../db');
+const bcrypt = require('bcrypt');
 
 const updateProfile = async (req, res, next) => {
     // const {
@@ -23,6 +24,7 @@ const updateProfile = async (req, res, next) => {
         //     {where: 
         //         {id}
         //     });
+        if(user.password) {	user.password = await bcrypt.hash(user.password, 12);}
         await Account.update({...user},
             {where: 
                 {id: id}
