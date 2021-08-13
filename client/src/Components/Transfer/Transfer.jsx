@@ -3,6 +3,8 @@ import NavBar from '../Home/NavBar/navBar'
 import Working from '../Working/Working'
 import Charge from './Charge/charge'
 
+import NavTransaction from './Charge/NavTransaction'
+
 import p from './Transfer.module.css'
 
 function Transfer() {
@@ -15,7 +17,8 @@ function Transfer() {
                 </div>
                 <div className={p.right}>
 {/*                     <Working /> */}
-                    <Charge/>
+                    {/* <Charge/> */}
+                    <NavTransaction/>
                 </div>
             </div>
         </div>
