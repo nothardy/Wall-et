@@ -9,7 +9,7 @@ import Charge from './charge';
 import nt from './NavTransaction.module.css'
 
 const NavTransaction = () => {
-    let [section, setSection] = useState('4')
+    let [section, setSection] = useState('0')
     
     const handleChange = (e) => {
         setSection(section = e.target.value)
@@ -24,7 +24,7 @@ const NavTransaction = () => {
                 <button className={nt.btnTransfer} onClick={ (e) => handleChange(e)} value='3'>History of Trasactions</button>  
             </div>
             <div className={nt.body}>
-                { section === '0'? <DefaultText/> : section === '1'? <Transfer/> : section === '2'? <Charge/>: 'hola'/* <Cash/> */}
+                { section === '0'? <DefaultText/> : section === '1'? <Transfer returnDefault={handleChange}/> : section === '2'? <Charge/>: 'holisss'/* <Cash/> */}
             </div>
         </div>
     )

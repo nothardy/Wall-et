@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import swal from 'sweetalert';
 export const GET_CODE_CASH = 'GET_CODE_CASH';
 export const SEND_INFO_CHARGE = 'SEND_INFO_CHARGE';
 export const GET_USER_FOR_CVU = 'GET_USER_FOR_CVU';
@@ -20,7 +20,7 @@ export const getCodeCash = (id) =>{ /* TERMINADAAAAAA */
     } 
 }
 
-export const sendChargeByCard = ({method, status}) =>{/* from= usuario propietario, to=para quien, amount=plata */
+export const sendChargeByCard = ({method, status}) =>{/* NO ESTA EN USO, SERIA PARA CARGAR POR CARD */
     return async function (dispatch){
        try{
             const {data} = await axios.put(`http://localhost:3001/transaction/entry?method=${method}`, status)
@@ -39,7 +39,7 @@ export const getUserByCVU = ({cvu}) =>{/* Ya ESTA TERMINADA */
             return dispatch({type: GET_USER_FOR_CVU , payload: data})
         }
         catch(err){
-            alert('error en getUserByCVU', err)
+            return swal("error!", "The user has not been found!", "error")
         }
     } 
 }
@@ -51,8 +51,7 @@ export const sendingTransactions = (data) =>{
             return dispatch({type: SENDING_TRANSACTIONS , payload: data})
         }
         catch(err){
-            return dispatch({type: SENDING_TRANSACTIONS , payload: false})
-            alert('error en getUserByCVU', err)
+            alert('error en sendingTransactions', err)
         }
     } 
 }

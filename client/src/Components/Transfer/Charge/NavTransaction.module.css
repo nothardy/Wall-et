@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 2px;
-    
 }
 
 .bar{
@@ -12,8 +11,6 @@
     /* height: 2rem; */
     /* background: radial-gradient(#646bc9, #272222f2); */
     margin-top: 2rem;
-    border-bottom: 4px solid rgb(53, 52, 52);
-    
 
 }
 
@@ -26,17 +23,19 @@
     color: black;
     cursor: pointer;
     margin: 0;
+    border-bottom: 3px solid #9b9696;
 }
 .btnTransfer:focus {
+    /* margin-top: 30px; */
     color:#009ee3;
-    border-bottom: 4px solid #009ee3;
+    border-bottom: 5px solid #009ee3;
 }
 
 .body{
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: burlywood;
+    /* background-color: burlywood;  Father*/
     margin-top: 20px;
     height: 100%;
     align-items: center;

@@ -1,12 +1,15 @@
+:root{/* Aqui deberia poner el color que va a utilizar toda la page. De esta manera es una mala practica */
+    --color-bg: #dcdbdb;/* Este root dberia estar en SRC/index.css , Pero lo borraron. */
+}/* EN EL COMPONENTE Trasfer(index) ahi tambien lo utilizo */
+
 .container{
     width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     font-size: 1.5rem;
     position: relative;
-    background-color: yellow;
+    /* background-color: yellow;  HIJO DE FHATER */
 }
 
 .header{
@@ -27,37 +30,47 @@
     margin: 0;
 }
 
-.container_CVU{
-    /* background-color: #dcdbdb;ESTE PODRIA SE EL BACKGROUN DE TODA LA WWALLEt */
-    background-color: #8f7a7a;
+
+/* PARA ABAJO EMPIEZA EL COMPONENTE SOBRE EXPUESTO */
+.overexposedComponent{
+    background-color: var(--color-bg);/* ESTE BACKGROUNG, HACE QUE NO SE VEA LO DE ABAJO, POR ESO DEBE COINCIDIR CON EL COLOR DE PAGE */
     position: absolute;
     z-index: 10;
     width: 100%;
     height: 100%;
+    /* hacia abajo centra */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.containerCVU{
+    width: 31rem;
+    height: 14rem;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
 }
 
 #input__codeCVU{
-    font-size: 1.4rem;
-    width: 10rem;
-    height: 2rem;
+    font-size: 1.7rem;
+    border: 2.6px solid #a69898;
+    margin-left: 2rem;
+    border-radius: 5px;
+    width: 13rem;
+    height: 2.8rem;
 }
 #btnSubmit{
     cursor: pointer;
-    font-size: 1rem;
-    padding: 7px 12px;
+    font-size: 1.3rem;
+    padding: 11px 16px;
     position: absolute;
-    bottom: 6px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
     color: white;
-    border: 1px solid rgb(3, 92, 128);
-    border-radius: 2px;
+    border: none;
+    border-radius: 4px;
     background-color: cornflowerblue;
 
-}
-
-.senes{
-    background-color: yellowgreen;
-    width: 8rem;
-    height: 7rem;
 }
