@@ -28,11 +28,11 @@ route.post('/verifyCVU', verifyCVU, async (req, res) => {
 
 
 route.put('/', verifyBalans, async (req, res) => {
-    const { from, to, amount } = req.body;
-    
+    const { from, to, amount} = req.body;
+    const Amount = parseInt(amount)
     try {
 
-        const create = await transferCreator( from, to, amount )
+        const create = await transferCreator( from, to, Amount )
         !create ? res.status(404).json({ err: 'Transfer not created' }) : res.status(200).json('transfer created successfully')
     }
 
