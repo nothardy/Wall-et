@@ -20,7 +20,7 @@ const Payment="Payment",Services="Services",Transfer="Transfer"; */
 router.use('/home', home);
 router.use('/adminSearch', adminSearch);
 router.use('/auth', logRoutes);
-router.use('/transaction/entry', transaction);
+router.use('/transaction', transaction);
 router.use('/transaction/transfer', transfer);
 
 

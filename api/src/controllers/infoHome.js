@@ -1,17 +1,16 @@
-const { Account, Card, Transaction, transaction_acount, contacts } = require('../db');
+const { Account, Card, Transaction, Contact, transaction_acount, account_contact } = require('../db');
 
 const infoUser = async (id) => {
     
     try {
-        const user = await Account.findByPk( id , {include: [{model: Transaction}, {model: Card}]} )
-
+        const user = await Account.findByPk( id , {include: [{model: Transaction}, {model: Card}, {model: Contact}]} )
         return {
             id: user.dataValues.id,
             user_data: {
                 fullname: user.dataValues.fullname,
                 dni: user.dataValues.dni,
-                ubicacion: user.dataValues.ubicacion,
-                birth: user.dataValues.birth,
+                ubicacion: user.dataValues.ubication,
+                birth: user.dataValues.birth_date,
             },
             account_data: {
                 admin: user.dataValues.admin,
@@ -31,7 +30,13 @@ const infoUser = async (id) => {
                         transaction_date: el.createdAt,
                     }
                 }),
-                               
+                contacts: user.dataValues.contacts.map(el => {return {
+                    id: el.id,
+                    fullname: el.fullname,
+                    mail: el.mail,
+                    cvu: el.cvu,
+                    contact_date: el.createdAt,
+                }}),
                 create: user.dataValues.createdAt,
             },
         }
