@@ -2,52 +2,66 @@ import React, { useState } from "react";
 import { changePassword } from "../../Redux/Actions/resetActions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import swal from 'sweetalert';
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import swal from 'sweetalert';
+
+export function validate(user) {
+  let errors = {};
+  if (!user.password) {
+      errors.password = 'Required password';
+    } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(user.password)) {
+      errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
+    }
+    if (!user.password2) {
+      errors.password2 = 'Required password';
+    } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(user.password2)) {
+      errors.password2 = 'The password must contain eight characters, an uppercase letter, and a number.';
+    }
+  return errors;
+};
 
 const ResetPassword = () => {
-  const [ show, setShow ] = useState(false);
-
-  const dispatch = useDispatch();
-  const { userid } = useParams();
-
-  const [password, setPassword] = useState({
-    password1: '',
+  
+  const [user, setUser] = useState({
+    password: '',
     password2: ''
   });
 
-  const handleChange = (e) => {
-		setPassword({
-			...password,
-			[e.target.name]: e.target.value,
-		});
-	};
+  const { userid } = useParams();
+  
+  const [error, setError] = useState({});
+  
+  const [ show, setShow ] = useState(false); //password
 
-  const [error, setError] = useState({
-    passwordError: "",
-  });
-
+  const [ showPassword, setShowPassword ] = useState(false); // password2
+  
   const handleShowHide = () => {
     setShow(!show);
     }
 
-  function validateForm() {
-    setError({
-      passwordError: "",
-    });
-
-    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(password)) { 
-      return swal("Password must contain eight characters, an uppercase letter, and a number.", "error") 
-    }
+  const handleShowHide1 = () => {
+    setShowPassword(!showPassword)
   }
+
+  const dispatch = useDispatch();
+  
+  const handleChange = (e) => {
+		setUser({
+			...user,
+			[e.target.name]: e.target.value,
+		});
+    setError(validate({
+      ...user,
+      [e.target.name]: e.target.value,
+    }));
+	}
 
   function handleSubmit(e) {
    e.preventDefault()
-    //const valid = validateForm()
-  //if (valid) {
-    dispatch(changePassword({ userid, password: password.password1 }))
-  // }
+   if (user.password !== user.password2) { 
+     return swal("Passwords don't match", { icon: 'error'})}
+    dispatch(changePassword({ userid, password: user.password }))
   }
 
   return (
@@ -55,11 +69,12 @@ const ResetPassword = () => {
       <div>
         <h2>Reset Password</h2>
             <input
-            id='password1'
-            type={show ? 'text' : 'password1'}
+            autoComplete='off'
+            id='password'
+            type={show ? 'text' : 'password'}
             required='required'
-            name='password1'
-            value={password.password1}
+            name='password'
+            value={user.password}
             placeholder = "Enter your New Password..."
             onChange={handleChange}
             />
@@ -75,32 +90,36 @@ const ResetPassword = () => {
                 id='show_hide' /> 
                 )
                 }
-                {error.passwordError && (
-                <p>{error.passwordError}</p>
+                {error.password && (
+                <p>{error.password}</p>
                 )}
       </div>  
       <div>
             <input
+            autoComplete='off'
             id='password2'
-            type={show ? 'text' : 'password2'}
+            type={showPassword ? 'text' : 'password'}
             required='required'
             name='password2'
-            value={password.password2}
+            value={user.password2}
             placeholder = "Repeat your New Password..."
             onChange={handleChange}
             />
-            {show ? (
+            {showPassword ? (
                 <FontAwesomeIcon 
-                onClick={handleShowHide} 
+                onClick={handleShowHide1} 
                 icon={faEye} 
                 id='show_hide' /> 
                 ) : (
                 <FontAwesomeIcon 
-                onClick={handleShowHide} 
+                onClick={handleShowHide1} 
                 icon={faEyeSlash} 
                 id='show_hide' /> 
                 )
                 }
+                {error.password2 && (
+                <p>{error.password2}</p>
+                )}
       </div>
         <div>
           <button type='submit'>Change Password</button>
