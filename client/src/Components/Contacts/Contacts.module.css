@@ -1,9 +1,18 @@
 .container {
   height: calc(100vh - 2.5rem);
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
 }
 
+.button{
+   width: 3rem;
+  margin: 4px;
+  border: 1px solid black;
+  border-radius: 10px; 
+}
+#id{
+  display: flex;
+}
 .left {
   border: 2px solid rgb(164 178 179);
   border-top: none;
@@ -14,52 +23,39 @@
 .tittle {
   display: flex;
   align-items: flex-start;
-  margin-right: 20rem;
-  margin-right: 20rem;
+  
 }
 
 .right {
   border: none;
-  width: 100%;
+  width: 100rem;
   display: flex;
   flex-direction: row;
-
+  justify-content: center;
   border: 3px solid rgb(0, 130, 190);
+  background-color: #dcdbdb;
 }
 .contactos {
-  /* display: flex;
-  margin-top: 10rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 20vh;
-  overflow-y: auto;
-  margin-left: 3rem;
-  height: 70vh; */
-  font-size: 1.25rem;
   display: flex;
-  height: 30rem;
   flex-direction: column;
-  overflow-y: auto;
-  /* align-items: center; */
+  overflow: auto;
   margin-top: 10rem;
-  margin-right: 2rem;
-  border: 3px solid black;
-  border-radius: 10px;
+  height: 45rem;
+  border: 4px solid rgb(133, 126, 126);
+  border-radius: 20px;
   background: radial-gradient(#76b2fe, #b69efe);
+  width: 30vh;
+  /* margin-left: -15rem; */
 }
 .contactos:hover {
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-  transform: scale(1.04);
-} /* Ahi se aplica */
+   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.04); 
+} 
 .link {
-  margin: 2px;
+  /* margin: 2px;
   width: 100%;
-  height: 100%;
+  height: 100%; */
 }
-.tittle2 {
-  display: flex;
+.tittle{
   align-items: flex-start;
-  margin-right: 7rem;
-  color: midnightblue;
 }

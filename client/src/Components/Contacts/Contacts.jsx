@@ -41,18 +41,24 @@ function Contacts() {
   };
 
   const renderButton =
-    search === true ? <button onClick={funSearch}>x</button> : null;
+    search === true ? 
+    <button onClick={funSearch} className={c.button} type="button" class="w3-button w3-red">X</button> : null;
   return (
     <div>
+      
       <Bar />
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
       <div className={c.container}>
         <div className={c.left}>
           <NavBar />
         </div>
         <div className={c.right}>
-          <h1 className={c.tittle}>Contacts</h1>
+         <div id={c.tittle}>
+            <h1 className={c.tittle}>Contacts</h1> 
+         </div>
           <Filter />
           <div className={c.contactos}>
+            {renderButton}
             <Search funSearch={funSearch} />
             {shownContacts &&
               shownContacts.map((contact, i) => {
@@ -65,7 +71,8 @@ function Contacts() {
                   />
                 );
               })}
-            {renderButton}
+              <div className={c.button}>
+              </div>
           </div>
         </div>
       </div>

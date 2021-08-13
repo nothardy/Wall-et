@@ -88,7 +88,7 @@ const initialState = {
     },
     {
       id: 4,
-      fullname: "walter",
+      fullname: "Walter",
       mail: "walterrodriguez7@gmail.com",
       date_transaction: "2021-07-01T15:19:28.986",
     },
@@ -122,6 +122,36 @@ const initialState = {
       mail: "leandronicolau03@gmail.com",
       date_transaction: "2021-03-10T15:19:28.986",
     },
+    {
+      id: 10,
+      fullname: "Jesica",
+      mail: "jesica2000@gmail.com",
+      date_transaction: "2021-01-20T15:19:28.986",
+    },
+    {
+      id: 11,
+      fullname: "Lucas",
+      mail: "lucas19@gmail.com",
+      date_transaction: "2021-04-12T15:19:28.986",
+    },
+    {
+      id: 12,
+      fullname: "Agustina",
+      mail: "agustinarodri@gmail.com",
+      date_transaction: "2021-06-08T15:19:28.986",
+    },
+    {
+      id: 13,
+      fullname: "Oriana",
+      mail: "orianapepe@gmail.com",
+      date_transaction: "2021-03-20T15:19:28.986",
+    },
+    {
+      id: 14,
+      fullname: "Lionel",
+      mail: "messi@gmail.com",
+      date_transaction: "2021-08-13T15:19:28.986",
+    },
   ],
   searchedContact: [],
   orderedContacts: [],
@@ -148,7 +178,7 @@ const contactsReducer = (state = initialState, action) => {
     case SET_ORDER:
       return {
         ...state,
-        orderedContacts: getType(action.payload, state.contacts)
+        orderedContacts: getType(action.payload, state.contacts).slice()
       };
     default:
       return state;

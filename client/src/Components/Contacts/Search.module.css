@@ -1,14 +1,14 @@
 .form {
-  width: 300px;
+   width: 300px;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
   margin-top: 12px;
   transition: 1s;
-  transition-delay: 2, 4s;
+  transition-delay: 2, 4s; 
 }
 .inp {
-  width: 200px;
+   width: 200px;
   height: 50px;
   background: #aed2ff;
   border: 1px solid white;
@@ -20,7 +20,7 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
   box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.25);
-  margin-left: 2rem;
+  margin-left: 3rem; 
 }
 
 .icon {
@@ -28,9 +28,9 @@
   position: absolute;
   top: 50%;
   margin-top: 17px;
-  margin-left: 3rem;
+  margin-left: 4rem;
   z-index: 1;
-  color: rgb(8, 8, 8);
+  color: rgb(8, 8, 8); 
 }
 .bus {
 }

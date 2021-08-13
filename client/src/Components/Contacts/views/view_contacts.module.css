@@ -1,8 +1,8 @@
 .todo {
   display: flex;
   color: midnightblue;
-  margin: 4px;
-  
+  margin: 19px;
+  text-decoration: none
 }
 .container{
   display: flex;
