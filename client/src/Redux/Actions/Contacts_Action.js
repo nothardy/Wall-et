@@ -2,7 +2,8 @@ import axios from "axios";
 export const SEARCH_CONTACT = "SEARCH_CONTACT",
   SET_ORDER = "SET_ORDER",
   GET_CONTACTS = "GET_CONTACTS",
-  ADD_CONTACT = "ADD_CONTACT";
+  ADD_CONTACT = "ADD_CONTACT",
+  ERASE_CONTACT_FILTERS = "ERASE;CONTACT_FILTERS";
 
 export function getContacts() {
   return (dispatch) => {
@@ -12,16 +13,18 @@ export function getContacts() {
   };
 }
 
-export function searchContact(email) {
+export function searchContact(mail) {
   return (dispatch) => {
-    axios
-      .get(`https://localhost:3001/contacts?email=${email}`)
-      .then((response) => {
-        dispatch({ type: SEARCH_CONTACT, payload: response.data });
-      });
-      
+    dispatch({ type: SEARCH_CONTACT, payload: mail });
   };
 }
+
+export function eraseContactFilters() {
+  return (dispatch) => {
+    dispatch({ type: ERASE_CONTACT_FILTERS });
+  };
+}
+
 export function addContact(email) {
   return (dispatch) => {
     axios

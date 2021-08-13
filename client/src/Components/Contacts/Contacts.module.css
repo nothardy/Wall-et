@@ -11,7 +11,7 @@
   border-left: none;
   width: 15rem;
 }
-.tittle{
+.tittle {
   display: flex;
   align-items: flex-start;
   margin-right: 20rem;
@@ -23,8 +23,8 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  border: 3px solid black;
+
+  border: 3px solid rgb(0, 130, 190);
 }
 .contactos {
   /* display: flex;
@@ -37,12 +37,11 @@
   margin-left: 3rem;
   height: 70vh; */
   font-size: 1.25rem;
-  width: 100%;
   display: flex;
   height: 30rem;
   flex-direction: column;
   overflow-y: auto;
-  align-items: center;
+  /* align-items: center; */
   margin-top: 10rem;
   margin-right: 2rem;
   border: 3px solid black;
@@ -52,13 +51,15 @@
 .contactos:hover {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
   transform: scale(1.04);
-}/* Ahi se aplica */
-.link{margin: 2px;
+} /* Ahi se aplica */
+.link {
+  margin: 2px;
   width: 100%;
-  height: 100%;}
-.tittle2{
-    display: flex;
-    align-items: flex-start;
-    margin-right: 7rem;
-    color: midnightblue;
-  }
+  height: 100%;
+}
+.tittle2 {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 7rem;
+  color: midnightblue;
+}

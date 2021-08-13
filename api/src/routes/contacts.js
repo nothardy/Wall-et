@@ -1,10 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {
-  getContactsFromDb,
-  addContactToDb,
-} = require("../controllers/contacts");
+const { getTransactions, addContactToDb } = require("../controllers/contacts");
 
-router.route("/").get(getContactsFromDb).post(addContactToDb);
+router.route("/").get(getTransactions).post(addContactToDb);
 
 module.exports = router;
