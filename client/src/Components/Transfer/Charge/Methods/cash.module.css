@@ -1,0 +1,16 @@
+.container{
+    font-size: 1.5rem;
+}
+#box_code{
+    background-color: rgba(43, 42, 42, 0.418);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 6rem;
+    width: 12rem;
+    height: 3rem;
+    border: 0.5px solid rgb(63, 60, 60);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}

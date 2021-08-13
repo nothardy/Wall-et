@@ -1,19 +1,25 @@
 import React, { useState } from 'react'
-import TrasferOrCash from './transferOrCash';
+import Card from './Methods/card'
+import Cash from './Methods/cash'
 
 import c from './charge.module.css'
 
+
 const Charge = () => {
-    let [transeferAndCash, setTranseferAndCash] = useState(false);
-
-    const toggleTransferOrCash = () =>{ setTranseferAndCash(transeferAndCash = !transeferAndCash) }
-
+    let [cashOrCard, setCashOrCard] = useState('1')
+    
+    const handleChange = (e) => {
+        setCashOrCard(cashOrCard = e.target.value)
+    }
     return (
         <div className={c.container}>
-
-            <button onClick={ () => toggleTransferOrCash()} id={c.btn_charge} >Charge</button>
-            { transeferAndCash? <div className={c.box_trasferOrCash}> <TrasferOrCash close={toggleTransferOrCash}/> </div>:null }
-
+            <div className={c.left}>
+                <Card/>
+            </div>
+            <div className={c.right}>
+                <h3>Enter cash</h3>
+                <Cash/>
+            </div>
         </div>
     )
 }
