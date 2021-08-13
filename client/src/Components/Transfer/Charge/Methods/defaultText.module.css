@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 92%;
+}
+
+.paragraph{
+    font-size: 1.5rem;
+    width: 60%;
+    margin: 0;
+    text-align: center;
+}
