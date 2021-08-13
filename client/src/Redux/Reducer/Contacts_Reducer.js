@@ -141,9 +141,7 @@ const contactsReducer = (state = initialState, action) => {
     case SET_ORDER:
       return {
         ...state,
-        orderedContacts: getType(action.payload, state.contacts).map(
-          (contact) => contact
-        ),
+        orderedContacts: getType(action.payload, state.contacts)
       };
     default:
       return state;
