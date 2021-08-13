@@ -1,14 +1,8 @@
-const initialState = {
-    count: [],
-    cokiees: {}
-}
+import { combineReducers } from 'redux';
+import homeReducer from './Home';
+import loginReducer  from '../Reducer/loginState';
 
-function rootReducers(state = initialState, action){
-
-    switch (action.type) {
-
-        default:
-            return state
-    }
-}
-export default rootReducers;
+export default combineReducers({
+  homeReducer,
+  loginReducer,
+});

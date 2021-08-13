@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+/* aca empieza lo de date */
+
+form {
+    
+    width: 420px;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 10px 20px;
+}
+.form-row {
+    padding: 5px 10px;
+}
+label {
+    display: block;
+    
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 10px 20px;
+}
+.form-row input {
+    padding: 3px 1px;
+    width: 220px;
+}
+
+/* aca termina lo de date */
+.centrar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulario{
+    margin-top: 80px;
+    height: 85vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    max-width: 450px;
+    margin-left:180px;
+    padding: 20px 50px;
+    border-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+    font-family: 'Source Sans Pro', sans-serif;
+} 
+.centrarformulario{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create{
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    font-weight: bold;
+    margin: 20px;
+    margin-left:20px;
+    color:black;
+}
+.inputregister{    
+    outline: none;
+    border:none;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    width: 350px;
+    font-size:17px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.titles{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px;
+    color: #6F77BF;
+    
+}
+
+.buttoncreate{
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    cursor:pointer;
+    width: 400px;
+    font-family: 'Source Sans Pro', sans-serif;
+     }
+     .buttoncreate:hover{
+        background-color: #6F77BF;
+     }
+
+.descriptionDetails{
+    
+    max-width: 450px;
+    background-color: transparent;
+    margin: auto;
+    padding: 20px 50px;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: #9fadca;
+    
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+.icon{
+    color: rgb(26, 43, 68);
+    font-size: 15px;
+    transform: translateX(-55px);
+    cursor: pointer
+} 
+
+.linksRegister{
+    
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.loginFromRegister{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.doYouHave{
+    margin-right: 10px;
+}
+
+.recaptcha{
+    
+    display: flex;
+    justify-content: space-around;
+    background-color:transparent ;
+}
+.passwordWarning{
+    font-size: small;
+    color: #9fadca;
+    margin-top: 0px;
+}
+
+.centerCaptchaRegister{
+    display: flex;
+    justify-content: center;
+}
+
+.fondoregister{
+    background: url("https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80") no-repeat center fixed;
+
+    height: 100vh;
+}
+
+.contactus{
+    font-size: 15px;
+    color: #9fadca;
+    margin-top: -110px;
+    margin-left: 1500px;
+}
+/* .formulario{
+    font-family: font-family;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
+    display: block;
+    max-width: 700px;
+    overflow: hidden;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 1.5em;
+    position: absolute;
+        top: 50%;
+        left: 20%;
+        z-index: 1;
+    width: 500px;
+    height: 85vh;
+}
+.formulario:before{
+    background-color: #4062BB;
+    background-size: cover;
+    content: '';
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    height: 100vh;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 90vw;
+}
+.formulario:after{
+background: rgba(255,255,255,0.6);
+content: '';
+display: block;
+height: 100%;
+position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+width: 100%;
+}  */

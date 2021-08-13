@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+
+.landingPage{
+    background: url("https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80") no-repeat center fixed;
+
+    height: 100vh;
+
+}
+.wallet{
+    font-family: 'Source Sans Pro', sans-serif;
+    /* margin-left:100px; */
+}
+.descriptionlanding{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:35px;
+    margin-top:-300px;
+     margin-left:1200px; 
+     color:white;
+}
+
+/* @media (max-width: 1366px) {
+    .pictureLanding{
+        width: auto;
+    }
+  } */

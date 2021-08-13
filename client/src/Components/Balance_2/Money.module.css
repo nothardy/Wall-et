@@ -1,0 +1,54 @@
+.money{
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    color: rgb(3, 5, 7);
+    height: 20rem;
+    width: 390px; 
+    /* box-shadow: 0 0 0 3px #656673; */
+     flex-direction: row;
+    border-radius: 10px;
+    position: relative; 
+    margin-left: 60px;
+    margin-top: 4rem;
+    background: radial-gradient(#76b2fe, #b69efe); 
+    box-shadow: 0px 6px 10px rgb(0 0 0 / 25%);
+  }
+
+.name{
+    position: absolute;
+    top: 0;
+    left: 12px;
+    margin-top: 12px;
+    color:midnightblue;
+}
+.btnBalance{
+    background: none;
+    border-radius: 5px;
+    color: midnightblue;
+    border: 1px solid white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 8px 20px;
+    transition: 0.4s;
+}
+.btnBalance:hover{
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.747);
+}
+.footerBalance{
+    width: 70%;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 7px;
+    left: 15%;
+}
+
+.saldo{
+display: flex;
+align-items: center; 
+font-size: 1.5rem;
+color:midnightblue;
+}
