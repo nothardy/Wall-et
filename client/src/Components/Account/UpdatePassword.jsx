@@ -86,7 +86,7 @@ function UpdatePassword({close}) {
         button: true,
         });
         dispatch(getDateUser())
-         close()
+        close()
         history.push("/logout")
     }
     }

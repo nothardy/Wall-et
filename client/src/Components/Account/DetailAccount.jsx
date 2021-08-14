@@ -13,6 +13,7 @@ import axios from 'axios';
 import AddCard from './AddCard';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
+import UploadPhoto from './UploadPhoto';
 
 
 function DetailAccount() {
@@ -74,6 +75,10 @@ function DetailAccount() {
     let [addCard, setAddCard] = useState(false);
     const toggleAddCard = () => { setAddCard(addCard = !addCard) }
 
+     //botton que change photo
+     let [changePhoto, setChangePhoto] = useState(false);
+     const toggleChangePhoto = () => { setChangePhoto(changePhoto = !changePhoto) }
+ 
 
     //delete account
     function deleteUser(id) {
@@ -118,6 +123,8 @@ function DetailAccount() {
                 <div>
                     <div >
                         <img className="image" src={user.account_data.photo} alt="" />
+                        <button className='' onClick={() => toggleChangePhoto()}> Change Photo </button>
+                    {changePhoto ? <div> <UploadPhoto close={toggleChangePhoto} /> </div> : null}
                         <div ><p>Full Name:</p><p>{user.user_data.fullname}</p></div>
                         <div ><p>E-mail:</p><p>{user.account_data.mail}</p></div>
                         <div ><p>Identification Number:</p><p>{user.user_data.dni}</p></div>
