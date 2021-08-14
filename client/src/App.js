@@ -11,7 +11,7 @@ import Landingpage from './Components/LandingPage/landingpage';
 import Account from './Components/Account/Account';
 import Contacts from "./Components/Contacts/Contacts";
 import Payments from "./Components/Payments/Payments";
-import Transfer from "./Components/Transfer/Transfer";
+import Transfer from "./Components/Transfer/index";
 import Help from "./Components/Help/Help";
 // CSS hecho por:
 // Cami y Celes: /register y /home

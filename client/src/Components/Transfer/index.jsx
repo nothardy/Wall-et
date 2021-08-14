@@ -1,11 +1,11 @@
 import Bar from '../Bar/bar'
 import NavBar from '../Home/NavBar/navBar'
-import Working from '../Working/Working'
-import Charge from './Charge/charge'
+/* import Working from '../Working/Working'
+import Charge from './Charge/charge' */
 
-import NavTransaction from './Charge/NavTransaction'
+import NavTransaction from './Utils/NavTransaction'
 
-import p from './Transfer.module.css'
+import p from './index.module.css'
 
 function Transfer() {
     return (

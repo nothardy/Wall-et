@@ -4,7 +4,7 @@ import Add from './add.png';
 import swal from 'sweetalert';
 import { getUserByCVU, resetStore } from '../../../../Redux/Actions/Transactions';
 import CardTransfer from './cardTransfer';
-import t from './transfer.module.css'
+import t from './index.module.css'
 
 
 const Transfer = ({returnDefault}) => {
@@ -34,7 +34,7 @@ const Transfer = ({returnDefault}) => {
             <div className={t.header} onClick={ () => toggleTransaction()}>
                 <img src={Add} alt="add" />
                 <div className={t.left}>
-                    <h2>Trasnferir</h2>
+                    <h2>Transferir</h2>
                     <span>con CBU/CVU</span>
                 </div>
                 
