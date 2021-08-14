@@ -6,20 +6,6 @@ import c from './AddCard.module.css';
 import { getDateUser } from '../../Redux/Actions/Home';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
-// import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
-
-
-//VALIDACIONES
-// const schema = yup.object().shape({
-//     card_num: yup.number(16).positive().integer().required(),
-//     card_name: yup.string().required(),
-//     card_expiration_data: yup.string().date().min().max().required(),//2021-08//2026-12
-//     cvc: yup.number().min(3).max(4).positive().integer().required(),
-//      });
-
-
 
 
 function AddCard({ close }) {
@@ -34,14 +20,7 @@ function AddCard({ close }) {
         cvc: '',
         focus: ''
     })
-    ///VALIDACIONES
-    // const { addC, handleSubmit, errors } = useForm({
-    //     resolver: yupResolver(schema),
-    //   });
-    //   const submitForm = (data) => {
-    //     console.log(data);
-    //   };
-    //VALIDACIONES
+
 
     useEffect(() => {
         setUpdateInfo(
@@ -88,11 +67,6 @@ function AddCard({ close }) {
         } catch (err) {
             swal('We could not add Card. Please try again.', "You clicked the button!", "error");
         }
-        // console.log("name => " , updateinfo.card_name)
-        // console.log("number => " , updateinfo.card_num)
-        // console.log("expiry => " , updateinfo.card_expiration_data)
-        // console.log("cvc => " , updateinfo.card_security_num)
-        // alert(JSON.stringify(updateinfo))
     }
 
     // function formatDate (input) {
@@ -128,26 +102,23 @@ function AddCard({ close }) {
                                 maxlength="22"
                                 required
                             />
-                            {/* <p> {errors.card_num?.message}</p> */}
                         </div>
                         <div >
                             <div ><p htmlFor="Name">Name in the Card:</p></div>
                             <input type="text" onChange={handleInputChange} onFocus={handleFocus} placeholder='Name in the Card'
                                 name="card_name" required />
-                            {/* <p> {errors.card_name?.message} </p> */}
                         </div>
                         <div >
                             <div >
                                 <div ><p htmlFor="expiry">Expiration date:</p></div>
                                 <input type="tel"
-                                    // data-date-split-input="true"
+                                    data-date-split-input="true"
                                     min="2021-08"
                                     max="2026-12" onChange={handleInputChange}
                                     placeholder="Valid Thru"
                                     name="card_expiration_data" onFocus={handleFocus} pattern="\d\d\d\d"
                                     maxlength="4"
                                     required />
-                                {/* <p> {errors.card_expiration_data?.message} </p> */}
                             </div>
                             <div >
                                 <div ><p htmlFor="cvc">Security code:</p></div>
@@ -160,7 +131,6 @@ function AddCard({ close }) {
                                     pattern="\d{3,4}"
                                     maxlength="4"
                                     required />
-                                {/* <p> {errors.cvc?.message} </p> */}
                             </div>
                         </div>
                         <button type="submit" value="" name=""> Add New Card </button>

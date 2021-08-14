@@ -6,18 +6,16 @@ import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
-// import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
-//import { Link } from "react-router-dom";
 
-
-//VALIDACIONES
-// const schema = yup.object().shape({
-//     password: yup.string().min(8).max(16).required(),
-//     confirmPassword: yup.string().oneOf([yup.ref("password"), null]),
-//   });
-
+export function validate(updateinfo) {
+    let errors = {};
+    if (!updateinfo.password) {
+        errors.password = 'Required password';
+      } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(updateinfo.password)) {
+        errors.password = '';
+      }
+    return errors;
+  };
 
 
 function UpdatePassword({close}) {
@@ -64,10 +62,17 @@ function UpdatePassword({close}) {
             ...updateinfo,
             [e.target.name]: e.target.value,
         });
+         setErrors(validate({
+            ...updateinfo,
+            [e.target.value]: e.target.value
+        }));
     }
 
     async function handleSubmit(e) {
         e.preventDefault();
+        if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(updateinfo.password)) { return swal("Password must contain eight characters, an uppercase letter, and a number.", "You clicked the button!", "error") };
+        if (updateinfo.password !== updateinfo.confirmpassword) { return swal("Passwords don't match", "You clicked the button!", "error") }
+        else{
         dispatch(updateUser(updateinfo));
 
         setUpdateInfo({...updateinfo,
@@ -83,6 +88,7 @@ function UpdatePassword({close}) {
         dispatch(getDateUser())
          close()
         history.push("/logout")
+    }
     }
 
     return (
