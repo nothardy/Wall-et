@@ -4,6 +4,7 @@ import Add from './add.png';
 import swal from 'sweetalert';
 import { getUserByCVU, resetStore } from '../../../../Redux/Actions/Transactions';
 import CardTransfer from './cardTransfer';
+import Contact from './contact';
 import t from './index.module.css'
 
 
@@ -39,7 +40,9 @@ const Transfer = ({returnDefault}) => {
                 </div>
                 
             </div>
-            <button value="0" onClick={(e)=> returnDefault(e)}></button>
+            {/* <button value="0" onClick={(e)=> returnDefault(e)}></button> */}
+            <Contact toggleTransaction={toggleTransaction} />
+            
             {
                 trasaction && <div className={t.overexposedComponent}>{/* Este seria el que se va a sobre exponer al de arriba */}
                     {!store.dataByCBU ? 
