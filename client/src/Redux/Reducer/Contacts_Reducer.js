@@ -146,12 +146,6 @@ const initialState = {
       mail: "orianapepe@gmail.com",
       date_transaction: "2021-03-20T15:19:28.986",
     },
-    {
-      id: 14,
-      fullname: "Lionel",
-      mail: "messi@gmail.com",
-      date_transaction: "2021-08-13T15:19:28.986",
-    },
   ],
   searchedContact: [],
   orderedContacts: [],

@@ -6,9 +6,9 @@ export const View = ({ fullname, date_transaction, mail }) => {
     <div>
       <NavLink to="/transfers" className={style.todo}>
         <div className={style.container}>
-          <div>{fullname}</div>
-          <div>{date_transaction && date_transaction.slice(5, 10)}</div>
-          <div>{mail}</div>
+          <div>Nombre: {fullname}</div>
+          <div>Fecha I: {date_transaction && date_transaction.slice(5, 10)}</div>
+          <div>Email: {mail}</div>
         </div>
       </NavLink>
     </div>

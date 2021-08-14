@@ -54,13 +54,13 @@ function Contacts() {
         </div>
         <div className={c.right}>
          <div id={c.tittle}>
-            <h1 className={c.tittle}>Contacts</h1> 
          </div>
           <Filter />
           <div className={c.contactos}>
             {renderButton}
+            <h4 className={c.tittle}>Contacts</h4> 
             <Search funSearch={funSearch} />
-            {shownContacts &&
+            {shownContacts && 
               shownContacts.map((contact, i) => {
                 return (
                   <View
@@ -70,7 +70,7 @@ function Contacts() {
                     date_transaction={contact.date_transaction}
                   />
                 );
-              })}
+              }) }
               <div className={c.button}>
               </div>
           </div>

@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* border: 3px solid rgb(0, 130, 190); */
+  border: 3px solid rgb(255, 255, 255); 
   background-color: #dcdbdb;
 }
 .contactos {
@@ -44,7 +44,7 @@
   border: 4px solid rgb(133, 126, 126);
   border-radius: 20px;
   background: radial-gradient(#76b2fe, #b69efe);
-  width: 30vh;
+  width: 35vh;
   /* margin-left: -15rem; */
 }
 .contactos:hover {
@@ -58,4 +58,5 @@
 }
 .tittle{
   align-items: flex-start;
+  margin-left: 10px;
 }
