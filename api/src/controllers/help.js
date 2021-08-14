@@ -43,5 +43,5 @@ const help = async (req, res) => {
 };
 
 module.exports={
-    help,
-}
+    help}
+
