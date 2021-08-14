@@ -6,7 +6,19 @@ import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
+// import { useForm } from "react-hook-form";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 //import { Link } from "react-router-dom";
+
+
+//VALIDACIONES
+// const schema = yup.object().shape({
+//     password: yup.string().min(8).max(16).required(),
+//     confirmPassword: yup.string().oneOf([yup.ref("password"), null]),
+//   });
+
+
 
 function UpdatePassword({close}) {
     const dispatch = useDispatch();
@@ -56,9 +68,6 @@ function UpdatePassword({close}) {
 
     async function handleSubmit(e) {
         e.preventDefault();
-       
-        if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(updateinfo.password)) { return swal("Password must contain eight characters, an uppercase letter, and a number.", "You clicked the button!", "error") };
-        if (updateinfo.password !== updateinfo.confirmpassword) { return swal("Passwords don't match", "You clicked the button!", "error") }
         dispatch(updateUser(updateinfo));
 
         setUpdateInfo({...updateinfo,
@@ -72,6 +81,7 @@ function UpdatePassword({close}) {
         button: true,
         });
         dispatch(getDateUser())
+         close()
         history.push("/logout")
     }
 

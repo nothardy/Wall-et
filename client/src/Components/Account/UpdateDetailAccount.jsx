@@ -8,13 +8,23 @@ import swal from 'sweetalert';
 import UpdatePassword from './UpdatePassword';
 import { useHistory } from "react-router";
 import u from './UpdateDetailAccount.module.css';
+// import { useForm } from "react-hook-form";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
+
+//1900-01-01 //2003-12-31
+//VALIDACIONES
+// const schema = yup.object().shape({
+//     fullname: yup.string().required(),
+//     email: yup.string().email().required(),
+//     birth_date: yup.string().required(),
+//     dni: yup.number().min(8).max(8).positive().integer().required(),
+//     password: yup.string().min(8).max(16).required(),
+//     confirmPassword: yup.string().oneOf([yup.ref("password"), null]),
+//   });
 
 
-
-
-    
-
-function UpdateDetailAccount({close}) {
+function UpdateDetailAccount({ close }) {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.homeReducer.User);
     const [updateinfo, setUpdateInfo] = useState({
@@ -24,7 +34,7 @@ function UpdateDetailAccount({close}) {
         dni: '',
         birth_date: '',
         ubication: '',
-        photo:''
+        photo: ''
     });
 
     var history = useHistory();
@@ -47,7 +57,7 @@ function UpdateDetailAccount({close}) {
                 dni: user?.user_data.dni || "",
                 birth_date: user?.user_data.birth || "",
                 ubication: user?.user_data.ubicacion || "",
-                photo:user?.account_data.photo || ""
+                photo: user?.account_data.photo || ""
             }
         )
     }, [user])
@@ -61,43 +71,37 @@ function UpdateDetailAccount({close}) {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        if (/^(\d{2}\.{1}\d{3}\.\d{3})|(\d{2}\s{1}\d{3}\s\d{3})$/.test(updateinfo.dni)) { return swal("ID number must not contain points", "You clicked the button!", "error") };
-        if (!/^[0-9]*$/.test(updateinfo.dni)) { return swal("ID must be a number", "You clicked the button!", "error") };
-        if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(updateinfo.mail)) {
-            return swal('Invalid Email', "You clicked the button!", "error");
-        }
-        else{
-        
-      
         dispatch(updateUser(updateinfo));
 
-        setUpdateInfo({...updateinfo,
-            id:  "",
-            fullname:  "",
-            mail:  "",
-            dni:  "",
+        setUpdateInfo({
+            ...updateinfo,
+            id: "",
+            fullname: "",
+            mail: "",
+            dni: "",
             birth_date: "",
-            ubication:  "",
-            photo: ""});
+            ubication: "",
+            photo: ""
+        });
         swal({
-        title: "Info Edited",
-        icon: "success",
-        button: true,
+            title: "Info Edited",
+            icon: "success",
+            button: true,
         });
         dispatch(getDateUser())
-        history.push("/mywallet")
-    }        
+        close()
+        history.push("/account")
     }
 
 
-    
+
     return (
         <div className={u.container}>
-            
+
             {user ?
-            
+
                 <div>
-                    
+
                     <div >
                         {/* <img className="image" src={user.account_data.photo} width="350" height="150" alt="" /> */}
                         <form onSubmit={(e) => handleSubmit(e)}>
@@ -119,7 +123,8 @@ function UpdateDetailAccount({close}) {
                                 {/* <p>{props.user.user_data.dni}</p> */}
                             </div>
                             <input className='' type="text" onChange={handleInputChange} placeholder={user.user_data.dni}
-                                value={updateinfo.dni} name="dni" />
+                                value={updateinfo.dni} name="dni" minlength="8"
+                            />
 
 
                             <div ><p>Birth Date:</p>
@@ -133,22 +138,22 @@ function UpdateDetailAccount({close}) {
                                 value={updateinfo.ubication} name="ubication" />
 
 
-                           
+
                             <button className='' type="submit" value="" name=""> Update Profile </button>
                         </form>
-                        <button onClick={()=>close()}>X</button>
+                        <button onClick={() => close()}>X</button>
                     </div>
-                    
-                   
-                   
+
+
+
                 </div> : <div> <h1>Loading</h1>
                     <img src="" alt="LoadingGif" className='loadingGif' />
                 </div>
-                
-                
+
+
             }
-           
-           
+
+
         </div>
     )
 }

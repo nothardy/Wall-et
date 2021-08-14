@@ -16,6 +16,7 @@ const Payment="Payment",Services="Services",Transfer="Transfer";
 const updateRoutes = require('./updateUser');
 const uploadCard = require('./uploadCard');
 const deleteCard = require('./deleteCard');
+const deleteUser = require('./deleteUser');
 
 router.use('/home', home);
 router.use('/adminSearch', adminSearch);
@@ -23,6 +24,7 @@ router.use('/auth', logRoutes);
 router.use('/updateUser', updateRoutes)
 router.use('/card', uploadCard)
 router.use('/deleteCard', deleteCard)
+router.use('/deleteUser', deleteUser)
 const creaate = async ({ from, to, amount, type_transaction, state, user }) => {
 
     try{

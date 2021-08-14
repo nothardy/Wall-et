@@ -1,55 +1,72 @@
-import React, { useState , useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import swal from 'sweetalert';
 import c from './AddCard.module.css';
 import { getDateUser } from '../../Redux/Actions/Home';
 import Cards from 'react-credit-cards';
-import 'react-credit-cards/es/styles-compiled.css'
+import 'react-credit-cards/es/styles-compiled.css';
+// import { useForm } from "react-hook-form";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
+
+
+//VALIDACIONES
+// const schema = yup.object().shape({
+//     card_num: yup.number(16).positive().integer().required(),
+//     card_name: yup.string().required(),
+//     card_expiration_data: yup.string().date().min().max().required(),//2021-08//2026-12
+//     cvc: yup.number().min(3).max(4).positive().integer().required(),
+//      });
+
+
+
 
 function AddCard({ close }) {
     const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.homeReducer.User);
     const [updateinfo, setUpdateInfo] = useState({
-        id:'',
+        id: '',
         card_num: '',
         card_name: '',
         card_expiration_data: '',
-        card_security_num: ''
+        cvc: '',
+        focus: ''
     })
-
-    useEffect(() => {
-        dispatch(getDateUser()); //Trae la DATA, no el date
-},[]);
+    ///VALIDACIONES
+    // const { addC, handleSubmit, errors } = useForm({
+    //     resolver: yupResolver(schema),
+    //   });
+    //   const submitForm = (data) => {
+    //     console.log(data);
+    //   };
+    //VALIDACIONES
 
     useEffect(() => {
         setUpdateInfo(
             {
-                ...updateinfo, 
+                ...updateinfo,
                 id: user?.id || "",
                 card_num: '',
                 card_name: '',
                 card_expiration_data: '',
-                // card_security_num: '',
                 cvc: '',
-               
-                // cards: user?.account_data.cards || ""
             }
         )
     }, [user])
-  
+
     const handleFocus = (e) => {
-        setUpdateInfo({ 
+        setUpdateInfo({
             ...updateinfo,
-            focus: e.target.name,  
+            focus: e.target.name,
         });
     }
 
     function handleInputChange(e) {
         setUpdateInfo({
             ...updateinfo,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         });
     }
 
@@ -61,7 +78,10 @@ function AddCard({ close }) {
                 {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(updateinfo),
+                    body: JSON.stringify({ ...updateinfo, card_security_num: updateinfo.cvc}),
+                }).then(async () => {
+                    await dispatch(getDateUser());
+                    close()
                 })
             swal('Card created succesfully!', "You clicked the button!", "success");
             history.push('/account');
@@ -75,50 +95,80 @@ function AddCard({ close }) {
         // alert(JSON.stringify(updateinfo))
     }
 
-
+    // function formatDate (input) {
+    //     var datePart = input.match(/\d+/g),
+    //     year = datePart[0].substring(2), // get only two digits
+    //     month = datePart[1];
+    //     return month+'/'+year;
+    //   }
 
     return (
         <div className={c.container}>
             <div >
                 <div >
-                <Cards
-                    cvc={updateinfo.card_security_num}
-                    expiry={updateinfo.card_expiration_data}
-                    focused={updateinfo.focus}
-                    name={updateinfo.card_name}
-                    number={updateinfo.card_num}
-                />
-            
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div >
-                <div ><p htmlFor="number" >Number of credit or debit Card:</p></div>
-                <input  type="text" onFocus={handleFocus} onChange={handleInputChange} placeholder="Número de tarjeta"
-                    name="card_num" maxLength="16"/>
-                    </div>
-                    <div >
-                <div ><p htmlFor="Name">Name in the Card:</p></div>
-                <input  type="text" onChange={handleInputChange} onFocus={handleFocus} placeholder='Name in the Card'
-                     name="card_name" maxLength="30" />
-                    </div>
-                    <div >
-                    <div >
-                <div ><p htmlFor="expiry">Expiration date:</p></div>
-                <input  type="date" data-date-split-input="true" min="2021-08" max="2026-12" onChange={handleInputChange} placeholder={user.account_data.cards.card_expiration_data}
-                     name="card_expiration_data" onFocus={handleFocus} />
-                    </div>
-                    <div >
-                <div ><p htmlFor="cvc">Security code:</p></div>
-                <input  type="text" placeholder='CVC' name='cvc'
-                // name='card_security_num'
-                     onChange={handleInputChange}  onFocus={handleFocus} maxLength="4"/>
-                    </div>
-                    </div>
-                <button  type="submit" value="" name=""> Add New Card </button>
-                <button className='' onClick={() => close()}>X</button>
-            </form>
-        </div>
-        </div>
+                    <Cards
+                        cvc={updateinfo.cvc}
+                        expiry={updateinfo.card_expiration_data}
+                        focused={updateinfo.focus}
+                        name={updateinfo.card_name}
+                        number={updateinfo.card_num}
+                    />
+
+                    <form onSubmit={(e) => handleSubmit(e)}>
+                        <div >
+                            <div ><p htmlFor="number" >Number of credit or debit Card:</p></div>
+                            <input
+                                type="tel"
+                                onFocus={handleFocus}
+                                onChange={handleInputChange}
+                                placeholder="Card Number"
+                                name="card_num"
+                                pattern="[\d| ]{15,22}"
+                                minLength="15"
+                                maxlength="22"
+                                required
+                            />
+                            {/* <p> {errors.card_num?.message}</p> */}
+                        </div>
+                        <div >
+                            <div ><p htmlFor="Name">Name in the Card:</p></div>
+                            <input type="text" onChange={handleInputChange} onFocus={handleFocus} placeholder='Name in the Card'
+                                name="card_name" required />
+                            {/* <p> {errors.card_name?.message} </p> */}
+                        </div>
+                        <div >
+                            <div >
+                                <div ><p htmlFor="expiry">Expiration date:</p></div>
+                                <input type="tel"
+                                    // data-date-split-input="true"
+                                    min="2021-08"
+                                    max="2026-12" onChange={handleInputChange}
+                                    placeholder="Valid Thru"
+                                    name="card_expiration_data" onFocus={handleFocus} pattern="\d\d\d\d"
+                                    maxlength="4"
+                                    required />
+                                {/* <p> {errors.card_expiration_data?.message} </p> */}
+                            </div>
+                            <div >
+                                <div ><p htmlFor="cvc">Security code:</p></div>
+                                <input
+                                    type="tel"
+                                    placeholder='CVC'
+                                    name='cvc'
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocus}
+                                    pattern="\d{3,4}"
+                                    maxlength="4"
+                                    required />
+                                {/* <p> {errors.cvc?.message} </p> */}
+                            </div>
+                        </div>
+                        <button type="submit" value="" name=""> Add New Card </button>
+                        <button className='' onClick={() => close()}>X</button>
+                    </form>
+                </div>
             </div>
+        </div>
     )
 }
 

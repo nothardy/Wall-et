@@ -1,6 +1,7 @@
 import { React, useEffect, useState, useRef } from 'react'
 import { getDateUser } from '../../Redux/Actions/Home';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import a from './DetailAccount.module.css';
 //import swal from 'sweetalert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,11 +12,13 @@ import UpdatePassword from './UpdatePassword';
 import axios from 'axios';
 import swal from 'sweetalert';
 import AddCard from './AddCard';
-
+import Cards from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
 
 
 function DetailAccount() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector((state) => state.homeReducer.User);
     const [updateinfo, setUpdateInfo] = useState({
         id: '',
@@ -74,24 +77,43 @@ function DetailAccount() {
 
 
     //delete account
-    function deleteUser() {
-        axios
-            .post('http://localhost:3001/deleteUser')//o delete??
-            .then((response) => console.log(response.data))
-            .catch((error) => console.log(error));
-        swal("The Account was deleted", { icon: "success" });
+    function deleteUser(id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover your Wall-et account!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios
+                        .delete(`http://localhost:3001/deleteUser/${id}`)//o delete??
+                        .then((response) => console.log(response.data))
+                        .then((logout) => history.push('/logout'))
+                        .catch((error) => console.log(error));
+                    swal("Your Wall-et account was deleted", { icon: "success" });
+                } else {
+                    swal("Your Wall-et account is safe!");
+                }
+            });
     }
-    
+
     //delete card
     function deleteCard(id) {
         axios
             .delete(`http://localhost:3001/deleteCard/${id}`)
             .then((response) => console.log(response.data))
+            .then(async () => {
+                await dispatch(getDateUser())
+            })
+            .then(logout => { })
             .catch((error) => console.log(error));
         swal("The Card was deleted", { icon: "success" });
     }
-
+    // var regex = new Regex("^[0-9]+$");
     return (
+
         <div className={a.container} >
             {user ?
                 <div>
@@ -104,9 +126,16 @@ function DetailAccount() {
                         <div ><p>Address:</p><p>{user.user_data.ubicacion}</p></div>
                         <div ><p>Cards: </p>{user.account_data.cards.length > 0 ? user.account_data.cards.map(card =>
                             <div key={card.id}>
-                                <div>{card.card_num}</div>
-                                <button value={card.id} onClick={() => deleteCard(card.id)}>Delete Card</button> 
+                                {/* <Cards
+                                    name={card.card_name}
+                                    number={card.card_num.substring(0, card.card_num.length-4).replace(/[0-9]/g, "") + card.card_num.substring(card.card_num.length - 4, card.card_num.length)}
+                                /> */}
+                                <ul><li>Card ending in {card.card_num.substring(card.card_num.length - 4, card.card_num.length) + " " + card.card_name}</li>
+                                </ul>
+                                <button value={card.id} onClick={() => deleteCard(card.id)}>Delete Card</button>
                             </div>)
+
+
                             : "No cards available"}
                         </div>
                         <button className='' onClick={() => toggleAddCard()}> Add Card </button>
@@ -135,12 +164,12 @@ function DetailAccount() {
                     <button className='' onClick={() => toggleEditPassword()}> Change Password </button>
                     {editPassword ? <div> <UpdatePassword close={toggleEditPassword} /> </div> : null}
                     <div>
-                        <Link to='/logout'>
-                            <button onClick={() => deleteUser()}>Delete Account</button>
-                        </Link>
+                        {/* <Link to='/logout'> */}
+                        <button value={user.id} onClick={() => deleteUser(user.id)}>Delete Account</button>
+                        {/* </Link> */}
                     </div>
                 </div> : <div> <h1>Loading</h1>
-                    <img src="" alt="LoadingGif" className='loadingGif' />
+                    <img src="https://media.giphy.com/media/cjnnH0h3cfBTORaUnp/giphy.gif" alt="LoadingGif" className='loadingGif' />
                 </div>
             }
 
