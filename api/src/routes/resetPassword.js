@@ -2,7 +2,10 @@ const router = require('express').Router();
 const {passwordReset, resetVerificaction} = require("../controllers/resetPassword")
 
 
-router.post('/password', passwordReset);
-router.post('/verification', resetVerificaction);
+
+router.post('/reset_password', passwordReset);
+router.post('/update_password/:userid', resetVerificaction);
+
+
 
 module.exports = router;

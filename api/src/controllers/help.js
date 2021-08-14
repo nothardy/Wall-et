@@ -5,7 +5,7 @@ const { MAIL_ACCOUNT, MAIL_PASSWORD } = process.env;
 // npm install nodemailer
 
 const help = async (req, res) => {
-    const { mail, mailSubject, mailBody } = req.body;
+    const { mail, subject, message } = req.body;
     try {
         const user = await Account.findOne({ where: { mail: mail } })
 
@@ -26,8 +26,8 @@ const help = async (req, res) => {
         await transporter.sendMail({
             from: `CONSULTATION FOR CUSTOMER HELP SERVICE <${MAIL_ACCOUNT}>`, // sender address
             to: MAIL_ACCOUNT, // receiver adress
-            subject: mailSubject, //Subject mail
-            text: `Mail del usuario: ${mailBody} 
+            subject: subject, //Subject mail
+            text: `Mail del usuario: ${message} 
             Datos del usuario: 
             * Name: ${user.fullname}
             * DNI: ${user.dni}
@@ -43,5 +43,5 @@ const help = async (req, res) => {
 };
 
 module.exports={
-    help,
-}
+    help}
+
