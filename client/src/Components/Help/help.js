@@ -8,7 +8,7 @@ const Help = () => {
 	const [ user, setUser ] = useState({
 		mail: '',
 		mailSubject: '',
-		mailBody: '',
+		mailBody: ''
 	});
 
 	const { register, handleSubmit, formState : { errors } } = useForm();
