@@ -11,9 +11,10 @@ import Account from './Components/Account/Account';
 import Contacts from "./Components/Contacts/Contacts";
 import Payments from "./Components/Payments/Payments";
 import Transfer from "./Components/Transfer/Transfer";
-import Help from "./Components/Help/help";
+import Help from './Components/Help/Help';
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
+
 
 // CSS hecho por:
 // Cami y Celes: /register y /home

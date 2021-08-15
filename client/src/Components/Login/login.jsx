@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { login } from '../../Redux/Actions/loginActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import s from './login.module.css';
 
 export function validate(user) {
@@ -78,6 +79,11 @@ const Login = () => {
                         value={user.mail}
                         placeholder="example@mail.com"
                         onChange={handleChange} />
+                        <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className={s.eIcon}
+                        id='envelope'
+                        />
                     {errors.mail && (
                         <p className={s.errors}>{errors.mail}</p>
                     )}
@@ -122,7 +128,7 @@ const Login = () => {
                 </div>
                 </div>
                 <div className={s.linkslogin}>
-                    <Link to='/forgot'>
+                    <Link to='/recoverpassword'>
                         <p>Forgot Password?</p>
                     </Link>
                 </div>

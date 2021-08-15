@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { forgot } from '../../Redux/Actions/resetActions';
 import { useDispatch } from "react-redux";
-
+import s from './password.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 export function validate(user) {
     let errors = {};
     if (!user.mail) {
-      errors.mail = ('Required Email')
+      errors.mail = ('Required E-mail')
     } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(user.mail)) {
-      errors.mail = 'Invalid Email ';
+      errors.mail = 'Invalid E-mail ';
     }
     return errors;
 }
@@ -40,29 +42,39 @@ const handleSubmit = (e) => {
     dispatch(forgot(user.mail));
 }
 
-    return(
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <h2>Forgot Password?</h2>
-                <div>
+return(
+<div className={s.body}>
+    <div className={s.wrapper}>
+        <h2 className={s.title}>Forgot Password?</h2>
+                <form className={s.form} onSubmit={(e) => handleSubmit(e)}>
+                <div className={s.field}>E-mail</div>
                     <input
-                        autoComplete='off'
-                        id='mail'
-                        type='text'
-                        required='required'
-                        name='mail'
-                        value={user.mail}
-                        placeholder="example@mail.com"
-                        onChange={handleChange}
-                        />
-                        {errors.mail && (
-                    <p>{errors.mail}</p>
-                )}
-                </div>
-                            <div>
-                                <button type='submit'>Submit</button>
-                            </div>
-        </form>  
-    )
+                    className={s.input}
+                    autoComplete='off'
+                    id='mail'
+                    type='text'
+                    required='required'
+                    name='mail'
+                    value={user.mail}
+                    placeholder="example@mail.com"
+                    onChange={handleChange}
+                    />
+                    <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className={s.icon}
+                    id='envelope'
+                    />
+                    {errors.mail && (
+                <p className={s.error}>{errors.mail}</p>
+            )}
+            
+                        <div>
+                            <button className={s.button} type='submit'>Submit</button>
+                        </div>
+    </form>
+    </div>
+</div>  
+)
 }
 
 export default RecoverPassword;
