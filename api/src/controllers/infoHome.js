@@ -7,7 +7,7 @@ const infoUser = async (id) => {
         const transactionsTO = await Transaction.findAll({ where: { to: id }})
         const listTransactions = [...await Promise.all(user.dataValues.transactions.map(async el => {
             const nameTo = await Account.findByPk(el.to)
-            const data = await {
+            const transactionRealize = await {
                 id: el.id,
                 from: el.from,
                 amount: el.amount,
@@ -15,21 +15,23 @@ const infoUser = async (id) => {
                 type_transaction: el.type_transaction,
                 state: el.state,
                 transaction_date: el.createdAt,
-                main: true,
+                main: true, // Key en true, significa que son transacciones realizadas por la cuenta
             }
-            return data
-        })), ...transactionsTO.map(el => {
-            return {
+            return transactionRealize;
+        })), ...await Promise.all(transactionsTO.map( async el => {
+            const nameFrom = await Account.findByPk(el.from);
+            const transactionReceives = {
                 id: el.id,
-                from: el.from,
+                from: nameFrom.dataValues.fullname,
                 amount: el.amount,
                 to: el.to,
                 type_transaction: el.type_transaction,
                 state: el.state,
                 transaction_date: el.createdAt,
-                main: false,
+                main: false, // Key en false, significa que son transacciones que recibe la cuenta
             }
-        })]
+            return transactionReceives;
+        })), ]
         
         const data = await {
             id: user.dataValues.id,
