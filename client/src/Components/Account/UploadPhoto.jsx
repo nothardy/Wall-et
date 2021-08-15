@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDateUser } from '../../Redux/Actions/Home';
 //import Alert from '../components/Alert';
 import up from './UploadPhoto.module.css';
+import axios from 'axios';
 
-export default function UploadPhoto({close}) {
+export default function UploadPhoto({ close }) {
+    const user = useSelector((state) => state.homeReducer.User);
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
@@ -16,6 +18,7 @@ export default function UploadPhoto({close}) {
         previewFile(file);
         setSelectedFile(file);
         setFileInputState(e.target.value);
+        console.log(file)
     };
 
     const previewFile = (file) => {
@@ -28,35 +31,56 @@ export default function UploadPhoto({close}) {
 
     const handleSubmitFile = (e) => {
         e.preventDefault();
-        if (!selectedFile) return;
-        const reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onloadend = () => {
-            uploadImage(reader.result);
-        };
-        reader.onerror = () => {
-            console.error('AHHHHHHHH!!');
-            setErrMsg('something went wrong!');
-        };
-        dispatch(getDateUser())
-        close()
-    };
+        const formData = new FormData();
+        formData.append("photo", selectedFile);
+        //formData.append("id", fileInputState.id);
 
-    const uploadImage = async (base64EncodedImage) => {
-        try {
-            await fetch('/api/upload', {
-                method: 'POST',
-                body: JSON.stringify({ data: base64EncodedImage }),
-                headers: { 'Content-Type': 'application/json' },
-            });
-            setFileInputState('');
-            setPreviewSource('');
-            setSuccessMsg('Image uploaded successfully');
-        } catch (err) {
-            console.error(err);
-            setErrMsg('Something went wrong!');
-        }
-    };
+        //update-profile
+        axios.post("http://localhost:3001/updatePhoto", formData, {
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(res => {
+            console.log(res);
+            this.setState({ msg: res.data.message });
+            this.setState({ profileImage: res.data.results.photo });
+        })
+            .catch(err => console.log(err))
+            dispatch(getDateUser())
+         close()
+    }
+    // const handleSubmitFile = (e) => {
+    //     e.preventDefault();
+    //     if (!selectedFile) return;
+    //     const reader = new FileReader();
+    //     reader.readAsDataURL(selectedFile);
+    //     reader.onloadend = () => {
+    //         uploadImage(reader.result);
+    //     };
+    //     reader.onerror = () => {
+    //         console.error('AHHHHHHHH!!');
+    //         setErrMsg('something went wrong!');
+    //     };
+    //     dispatch(getDateUser())
+    //     close()
+    // };
+
+    // const uploadImage = async (base64EncodedImage) => {
+    //     try {
+    //         //console.log(base64EncodedImage)
+    //         await fetch('/api/upload', {
+    //             method: 'POST',
+    //             body: JSON.stringify({ data: base64EncodedImage }),
+    //             headers: { 'Content-Type': 'application/json' },
+    //         });
+    //         setFileInputState('');
+    //         setPreviewSource('');
+    //         setSuccessMsg('Image uploaded successfully');
+    //     } catch (err) {
+    //         console.error(err);
+    //         setErrMsg('Something went wrong!');
+    //     }
+    // };
     return (
         <div className={up.container}>
             <h1 className={up.title}>Upload an Image</h1>
@@ -82,7 +106,7 @@ export default function UploadPhoto({close}) {
                     style={{ height: '300px' }}
                 />
             )}
-            <button  onClick={()=>close()}>X</button>
+            <button onClick={() => close()}>X</button>
         </div>
     );
 }

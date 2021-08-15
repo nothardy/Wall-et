@@ -17,6 +17,7 @@ const updateRoutes = require('./updateUser');
 const uploadCard = require('./uploadCard');
 const deleteCard = require('./deleteCard');
 const deleteUser = require('./deleteUser');
+const updatePhoto = require('./updatePhoto');
 
 router.use('/home', home);
 router.use('/adminSearch', adminSearch);
@@ -25,6 +26,7 @@ router.use('/updateUser', updateRoutes)
 router.use('/card', uploadCard)
 router.use('/deleteCard', deleteCard)
 router.use('/deleteUser', deleteUser)
+router.use('/updatePhoto', updatePhoto)
 const creaate = async ({ from, to, amount, type_transaction, state, user }) => {
 
     try{
