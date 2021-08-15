@@ -2,7 +2,6 @@ import { Route, Redirect } from "react-router-dom";
 import Home from "./Components/Home/home";
 /* import Loging from './Components/loging/index'; */
 import Register from "./Components/Register/register";
-import RecoverPassword from "./Components/RecoverPassword/recoverpassword";
 import FrecuentlyQuestions from "./Components/FrecuentlyQuestions/frecuentlyquestions";
 import Balance from "./Components/Balance_2/Balance";
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
@@ -12,7 +11,11 @@ import Account from './Components/Account/Account';
 import Contacts from "./Components/Contacts/Contacts";
 import Payments from "./Components/Payments/Payments";
 import Transfer from "./Components/Transfer/index";
-import Help from "./Components/Help/Help";
+import Help from './Components/Help/Help';
+import ResetPassword from "./Components/RecoverPassword/resetPassword";
+import RecoverPassword from "./Components/RecoverPassword/password";
+
+
 // CSS hecho por:
 // Cami y Celes: /register y /home
 // Gonza: NavBar
@@ -34,6 +37,7 @@ export default function App() {
       <Route exact path="/help"  component={Help}/>
       <PrivateRoute path="/mywallet" component= {Home} exact/>
       <PrivateRoute path="/balance" component= {Balance} exact/>
+      <Route exact path='/resetPassword/:userid' component={ResetPassword} />
     </div>
   );
 }

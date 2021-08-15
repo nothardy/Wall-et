@@ -23,7 +23,7 @@
     background: rgba(0, 0, 0, 0.534);
 }
 
-.containerNavBar a:active{
-    color: white;
+.containerNavBar a.active{
+    /* color: white; */
     background: rgba(0, 0, 0, 0.534);  
 }

@@ -16,12 +16,16 @@
     box-shadow: 0 0 30px aqua;
 } */
 .icon{
-   
     color: rgb(26, 43, 68);
     font-size: 15px;
     transform: translateX(390px) translateY(-58px);
-    
     cursor: pointer
+}
+.eIcon{
+    transform: translateX(390px) translateY(-58px);
+    color: rgb(26, 43, 68);
+    font-size: 15px;
+    cursor: pointer;
 }
 .errors{
     color: red;
