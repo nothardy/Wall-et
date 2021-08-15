@@ -48,10 +48,10 @@ const Contact = ({toggleTransaction}) => {
             </div>
             
             <div className={c.bodyContact}>
-                {
+                { /* ACA TENDRIA QUE CONECTAR CON MI STORE. */
                     contacts.map( el => <ViewContact key={el.id} id={el.id} CVU={el.CVU} 
                         fullname={el.fullname} mail={el.mail} toggleTransaction={toggleTransaction}
-                    />)
+                    />)/* PONER EL CASO DE QUE NO ALLA CONTACT, APAREZCA UNA IMG */
                 }
             </div>
         </div>
