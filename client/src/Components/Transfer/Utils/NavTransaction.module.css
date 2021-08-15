@@ -3,7 +3,8 @@
    /*  background: #50548A; */
     display: flex;
     flex-direction: column;
-    margin-top: 2px;
+    position: relative;
+    /* margin-top: 2px; */
 }
 
 .bar{
@@ -14,7 +15,31 @@
 
 }
 
-.btnTransfer{
+#btnBack{
+    position: absolute;
+    top: 0px;
+    left: -18px;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    padding: 3px 10px;
+    transition: 0.2s;
+}
+#btnBack > img{
+    width: 1.6rem;
+    margin-right: 8px;
+}
+#btnBack:hover{
+    
+    background-color: #00923f;
+}
+
+.btnOptions{
 /*     margin-bottom: 20px; */
     font-size: 1.8rem;
     width: calc(100% / 3);
@@ -25,7 +50,7 @@
     margin: 0;
     border-bottom: 3px solid #9b9696;
 }
-.btnTransfer:focus {
+.btnOptions:focus {
     /* margin-top: 30px; */
     color:#009ee3;
     border-bottom: 5px solid #009ee3;

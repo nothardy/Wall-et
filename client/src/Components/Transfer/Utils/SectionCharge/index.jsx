@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Card from './Methods/card'
-import Cash from './Methods/cash'
+import Card from './card'
+import Cash from './cash'
 
-import c from './charge.module.css'
+import c from './index.module.css'
 
 
 const Charge = () => {
