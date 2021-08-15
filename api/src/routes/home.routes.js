@@ -2,8 +2,8 @@ const { Router } = require('express');
 const route = Router();
 const { verifyToken } = require('../middlewares/verifyToken')
 
-const redirectLogin = require('../middlewares/redirectLogin')
-const { infoAdmin, infoUser } = require('../controllers/infoHome')
+
+const { infoUser } = require('../controllers/infoHome')
 
 route.get('/', verifyToken, async (req, res) => {
     try {
