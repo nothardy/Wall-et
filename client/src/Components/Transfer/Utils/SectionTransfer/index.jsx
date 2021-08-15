@@ -8,20 +8,16 @@ import Contact from './contact';
 import t from './index.module.css'
 
 
-const Transfer = ({returnDefault}) => {
+const Transfer = () => {
     const dispatch = useDispatch();
     const store = useSelector(state => state.transactionsReducer)
     let [trasaction , setTrasaction] = useState(false);
-    const [codeCVU , setCodeCVU] = useState({
-        cvu: "",
-    });
-    const toggleTransaction = () =>{
-        setTrasaction(trasaction = !trasaction)
-    }
+    const [codeCVU , setCodeCVU] = useState({ cvu: "",});
+    const toggleTransaction = () => { setTrasaction(trasaction = !trasaction) };
 
     const handleChange = (e) => {
         setCodeCVU({...codeCVU,cvu : e.target.value})
-    }
+    };
 
     const handleSubmit = async(e) =>{
         e.preventDefault()
@@ -29,7 +25,8 @@ const Transfer = ({returnDefault}) => {
 
         dispatch(getUserByCVU(codeCVU))
         setCodeCVU({...codeCVU, cvu : ""})
-    }
+    };
+    
     return (
         <div className={t.container}>
             <div className={t.header} onClick={ () => toggleTransaction()}>
@@ -40,7 +37,6 @@ const Transfer = ({returnDefault}) => {
                 </div>
                 
             </div>
-            {/* <button value="0" onClick={(e)=> returnDefault(e)}></button> */}
             <Contact toggleTransaction={toggleTransaction} />
             
             {
@@ -54,7 +50,7 @@ const Transfer = ({returnDefault}) => {
                                 <button type='submit' id={t.btnSubmit}>Continue</button>
                             </form>
                         </div>
-                    : <CardTransfer returnDefault={returnDefault}/>
+                    : <CardTransfer/>
                     }
                 </div>
             }

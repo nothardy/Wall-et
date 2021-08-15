@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 import cf from './cardTransfer.module.css'
 import axios from 'axios';
 
-const CardTransfer = ({returnDefault}) => {
+const CardTransfer = () => {
     const store = useSelector(state => state.transactionsReducer);
     const dataUser = useSelector(state => state.homeReducer.User);
     const {fullname, cvu, mail, id} = store.dataByCBU;
@@ -38,7 +38,7 @@ const CardTransfer = ({returnDefault}) => {
             
             const {data} = await axios.post('http://localhost:3001/transaction/transfer', dataTransaction)
             await swal("Felicitaciones!", "Se envio con exito su transaccion!", "success");
-            history.push("./balance") /*REDIRECCIONA */
+            history.push("./mywallet") /*REDIRECCIONA */
         }
         catch(err){
             await swal("Lo sentimos!", "Usted no cuenta con cuyo monto!", "error");
@@ -46,7 +46,6 @@ const CardTransfer = ({returnDefault}) => {
     }
     return (
         <div className={cf.container}>
-            <button onClick={(e) => returnDefault(e)} value='0'></button>
             <Tilt style={{ widht: '28rem', height: '28rem', display: 'flex', flexDirection:'column', borderRadius: '6px' ,padding: '20px', padding:'6px', backgroundColor: 'white' }}> 
                 <form onSubmit={ (e) => handleSubmit(e)}>
                 <h3>How much money do you want to send <br /> to {fullname} ?</h3>

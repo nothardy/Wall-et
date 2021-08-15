@@ -1,13 +1,18 @@
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import Bar from '../Bar/bar'
 import NavBar from '../Home/NavBar/navBar'
-/* import Working from '../Working/Working'
-import Charge from './Charge/charge' */
-
+import { getDateUser } from '../../Redux/Actions/Home'
 import NavTransaction from './Utils/NavTransaction'
 
 import p from './index.module.css'
 
 function Transfer() {
+    const dispatch = useDispatch();
+    useEffect(() =>{
+        dispatch(getDateUser())
+    },[dispatch])
+    
     return (
         <div>
             <Bar />
@@ -16,8 +21,6 @@ function Transfer() {
                     <NavBar />
                 </div>
                 <div className={p.right}>
-{/*                     <Working /> */}
-                    {/* <Charge/> */}
                     <NavTransaction/>
                 </div>
             </div>
