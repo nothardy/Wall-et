@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import DefaultText from './SectionDefaultText/defaultText'
 import Transfer from './SectionTransfer/index';
 import Charge from './SectionCharge/index';
+import TransactionHistory from './SectionTransactionHistory';
 import BackImg from './backButton.png'
 import nt from './NavTransaction.module.css'
 
@@ -22,7 +23,7 @@ const NavTransaction = () => {
                 <button className={nt.btnOptions} onClick={ (e) => handleChange(e)} value='3'>History of Transactions</button>  
             </div>
             <div className={nt.body}>
-                { section === '0'? <DefaultText/> : section === '1'? <Transfer returnDefault={handleChange}/> : section === '2'? <Charge/>: 'holisss'/* <Cash/> */}
+                { section === '0'? <DefaultText/> : section === '1'? <Transfer/> : section === '2'? <Charge/>: <TransactionHistory/> }
             </div>
         </div>
     )
