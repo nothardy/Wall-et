@@ -5,7 +5,6 @@ const verifyBalans = async (req, res, next) => {
     try {
         const { from, to, amount } = req.body;
         //const amount = parseInt(req.amount)
-
         if(!from || !to || !amount) throw new Error('data not found')
         
         const account = await Account.findByPk(from);

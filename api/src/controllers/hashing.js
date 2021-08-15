@@ -11,8 +11,10 @@ const HashTable = async (id) => {
             return sumKey % numBuckets;
         }
     }
+    
+    const varHash = metods.hash(user.dataValues.fullname) === NaN ? metods.hash(user.dataValues.mail) : metods.hash(user.dataValues.fullname)
 
-    return `726N${metods.hash(user.dataValues.fullname)}D${user.dataValues.dni[user.dataValues.dni.length-2]}${user.dataValues.dni[user.dataValues.dni.length-1]}`
+    return `${Math.floor(parseInt(metods.hash(user.dataValues.fullname) * Math.random()))}N${varHash}D${user.dataValues.dni[user.dataValues.dni.length-2]}${user.dataValues.dni[user.dataValues.dni.length-1]}${Math.floor(parseInt(metods.hash(user.dataValues.mail) * Math.random()))}`
 } 
 
 module.exports = HashTable

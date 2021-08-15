@@ -10,9 +10,10 @@ const autentification = async ({ id, from, to, amount }) => {
         
         await Transaction.update({state: 'in progress'}, { where: { id: id } })
         
-        const balanceFrom = await Account.update({balance: accountFrom.balance - amount}, {where: {id: from}})
-        const balanceTo = await Account.update({balance: accountTo.balance + amount}, {where: {id: to}})
-
+        const balanceFrom = await Account.update({balance: accountFrom.balance - parseInt(amount)}, {where: {id: from}})
+        const balanceTo = await Account.update({balance: accountTo.balance + parseInt(amount)}, {where: {id: to}})
+        
+        balanceFrom && balanceTo && await Transaction.update({state: 'done'}, { where: { id: id } })
     }
     catch(err){
         console.log(err)
