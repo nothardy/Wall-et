@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDateUser } from '../../Redux/Actions/Home';
+import { getDateUser, updatePhoto, updateUser } from '../../Redux/Actions/Home';
 //import Alert from '../components/Alert';
 import up from './UploadPhoto.module.css';
 import axios from 'axios';
@@ -33,7 +33,7 @@ export default function UploadPhoto({ close }) {
         e.preventDefault();
         const formData = new FormData();
         formData.append("photo", selectedFile);
-        //formData.append("id", fileInputState.id);
+        formData.append("id", user.id);
 
         //update-profile
         axios.post("http://localhost:3001/updatePhoto", formData, {
@@ -42,11 +42,18 @@ export default function UploadPhoto({ close }) {
             }
         }).then(res => {
             console.log(res);
-            this.setState({ msg: res.data.message });
-            this.setState({ profileImage: res.data.results.photo });
+            setSelectedFile({ msg: res.data.message });
+            setSelectedFile({ photo: res.data.results});
         })
             .catch(err => console.log(err))
+            // dispatch(getDateUser(updatePhoto()))
+            // const infoSendDb = {
+                
+            //     formData,
+            //   };
+            //   dispatch(updateUser(infoSendDb));
             dispatch(getDateUser())
+           
          close()
     }
     // const handleSubmitFile = (e) => {
@@ -90,7 +97,7 @@ export default function UploadPhoto({ close }) {
                 <input
                     id="fileInput"
                     type="file"
-                    name="image"
+                    name="photo"
                     onChange={handleFileInputChange}
                     value={fileInputState}
                     className={up.forminput}

@@ -4,6 +4,7 @@ export const GET_DATE_USER = 'GET_DATE_USER';
 export const ADMIN_GET_USER = 'ADMIN_GET_USER';
 export const ADMIN_GET_DATE_USERS = 'ADMIN_GET_DATE_USERS';
 export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_PHOTO='UPDATE_PHOTO';
 
 const testInfo =  [
     {
@@ -97,5 +98,20 @@ export function updateUser(json) {
       });
   };
 }
+
+export function updatePhoto() {
+  return async function dispatch(dispatch){
+    try{
+      const token = localStorage.getItem('token')
+      const {data} = await axios.get(`http://localhost:3001/home`, { headers: { 'x-access-token': token }})
+        return dispatch({type:UPDATE_PHOTO, payload:data})
+    }
+    catch(err){
+        alert("error en getDateUser",err)
+        /* Quitar esto cuando tenga rutas de back */ 
+    }
+}  
+}
+
 
 
