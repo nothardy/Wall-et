@@ -1,16 +1,20 @@
-.containerTransaction{
-    
+.containerTransaction {
   /* min-width: 16rem;
   width: 24vw;
   height: 22rem;
   border-radius: 8px;
   padding: 7px; */
+<<<<<<< HEAD:client/src/Components/Balance_2/Transactions.module.css
   top:3.8rem;
+=======
+  top: 4rem;
+>>>>>>> contacts:client/src/Components/Contacts/Transactions.module.css
   margin-left: 22.5rem;
   /* min-width: 16rem; */
   position: relative;
-  height: 20rem;
+  height: 40rem;
   width: 400px;
+  margin-top: 6rem;
   border: none;
   background: radial-gradient(#76b2fe, #b69efe);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
@@ -20,9 +24,9 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  font-family: 'Roboto', sans-serif;
-  color:midnightblue;
- /*  display: flex;
+  font-family: "Roboto", sans-serif;
+  color: midnightblue;
+  /*  display: flex;
     justify-content: center;
     height: 20rem;
     width: 400px;
@@ -38,30 +42,30 @@
 }
 
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
-.headerTransaction{
+.headerTransaction {
   position: relative;
-  height: 28%;
+  height: 6rem;
   margin-bottom: 15px;
 }
-#titleTransaction{
+#titleTransaction {
   position: absolute;
   font-size: 1.4rem;
   top: 5px;
   left: 12px;
 }
-#recentsTransaction{
+#recentsTransaction {
   position: absolute;
   bottom: 0;
   left: 12px;
 }
-#historyTransaction{
+#historyTransaction {
   position: absolute;
   bottom: 0;
-  right: 12px;  
+  right: 12px;
   cursor: pointer;
 }
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
-.bodyTransaction{
+.bodyTransaction {
   font-size: 1.25rem;
   height: calc(100% - 30%);
   display: flex;
@@ -69,11 +73,10 @@
   overflow-y: auto;
   align-items: center;
   margin-top: 2px;
-  
 }
-.bodyTransaction::-webkit-scrollbar{
-  width: 0.4rem;    
-  height: 0.5rem;   
+.bodyTransaction::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.5rem;
 }
 .bodyTransaction::-webkit-scrollbar-thumb {
   background: rgb(20, 20, 20);
