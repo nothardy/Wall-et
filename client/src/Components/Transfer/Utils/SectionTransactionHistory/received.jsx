@@ -1,13 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React,{useEffect} from "react";
+import { useSelector,useDispatch } from "react-redux";
 import ViewContainer from "./viewContainer";
 import rd from "./received.module.css";
+import { getDateUser } from "../../../../Redux/Actions/Home";
 
 const Received = ({ widht, height, borderRadius }) => {
+  const dispatch=useDispatch();
   const store = useSelector(
-    (state) => state.homeReducer.User.account_data.transactions
-  );
-  const received = store.filter((el) => !el.main);
+    (state) => state.homeReducer)
+const transactions= store.User? store.User.account_data.transactions:[];
+  const received = transactions.filter((el) => !el.main);
+
+  useEffect(()=>{
+    dispatch(getDateUser())
+  },[dispatch])
 
   return (
     <div

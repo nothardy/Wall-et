@@ -32,10 +32,10 @@ export const sendChargeByCard = ({method, status}) =>{/* NO ESTA EN USO, SERIA P
     } 
 }
 
-export const getUserByCVU = ({cvu}) =>{/* Ya ESTA TERMINADA */
+export const getUserByCVU = (info) =>{/* Ya ESTA TERMINADA */
     return async function (dispatch){
        try{
-            const {data} = await axios.post('http://localhost:3001/transaction/transfer/verifyCVU', {cvu})
+            const {data} = await axios.post('http://localhost:3001/transaction/transfer/verifyCVU', info)
             return dispatch({type: GET_USER_FOR_CVU , payload: data})
         }
         catch(err){

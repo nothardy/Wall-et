@@ -1,14 +1,20 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect} from "react";
 import ViewContainer from "./viewContainer";
 import sg from "./shipping.module.css";
+import { getDateUser } from "../../../../Redux/Actions/Home";
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Shipping = ({ widht, height, borderRadius }) => {
+  const dispatch=useDispatch();
   const store = useSelector(
-    (state) => state.homeReducer.User.account_data.transactions
-  );
-  const received = store.filter((el) => el.main);
+    (state) => state.homeReducer);
+    const transactions=store.User?store.User.account_data.transactions:[];
+  const received = transactions.filter((el) => el.main);
 
+  useEffect(()=>{
+    dispatch(getDateUser())
+  },[dispatch])
   return (
     <div
       className={sg.container}

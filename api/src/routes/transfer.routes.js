@@ -3,13 +3,15 @@ const route = Router();
 
 const { Account } = require('../db')
 const transferCreator = require('../controllers/transferCreator')
-const { verifyCVU } = require('../middlewares/verifyCVU')
+const { verify } = require('../middlewares/verifyCVU')
 const { verifyBalans } = require('../middlewares/balansCheck')
 
-route.post('/verifyCVU', verifyCVU, async (req, res) => {
+route.post('/verifyCVU', verify, async (req, res) => {
     try {
-        const cvu = req.body.cvu;
-        const user = await Account.findOne({ where: { cvu: cvu } })
+        const data = req.body.data.replace(' ', '');
+        let user;
+        data.includes('@') ? user = await Account.findOne({ where: { mail: data }}) : user = await Account.findOne({ where: { cvu: data }})
+
         const a = {
             id: user.id,
             fullname: user.fullname,
