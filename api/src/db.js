@@ -5,21 +5,33 @@ const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST, NODE_ENV } =
   process.env;
 
-const sequelize =
-  NODE_ENV === "production"
-    ? new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_PRODUCTION}`,
-        {
-          logging: false,
-          native: false,
-        }
-      )
+let sequelize =
+  process.env.NODE_ENV === "production"
+    ? new Sequelize({
+        database: DB_PRODUCTION,
+        dialect: "postgres",
+        host: DB_HOST,
+        port: 5432,
+        username: DB_USER,
+        password: DB_PASSWORD,
+        pool: {
+          max: 3,
+          min: 1,
+          idle: 10000,
+        },
+        dialectOptions: {
+          ssl: {
+            require: true,
+            // Ref.: https://github.com/brianc/node-postgres/issues/2009
+            rejectUnauthorized: false,
+          },
+          keepAlive: true,
+        },
+        ssl: true,
+      })
     : new Sequelize(
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`,
-        {
-          logging: false,
-          native: false,
-        }
+        { logging: false, native: false }
       );
 
 const basename = path.basename(__filename);
@@ -59,8 +71,8 @@ Transaction.belongsToMany(Account, { through: "transaction_acount" });
 Account.belongsToMany(Contact, { through: "account_contact" });
 Contact.belongsToMany(Account, { through: "account_contact" });
 
-Account.belongsToMany(Contact, { through: 'account_contact' })
-Contact.belongsToMany(Account, { through: 'account_contact' })
+Account.belongsToMany(Contact, { through: "account_contact" });
+Contact.belongsToMany(Account, { through: "account_contact" });
 
 Account.hasMany(Card);
 Card.belongsTo(Account);

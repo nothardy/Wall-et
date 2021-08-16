@@ -7,7 +7,7 @@ export const SEARCH_CONTACT = "SEARCH_CONTACT",
 
 export function getContacts() {
   return (dispatch) => {
-    axios.get("https://localhost:3001/contacts").then((response) => {
+    axios.get("/contacts").then((response) => {
       dispatch({ type: GET_CONTACTS, payload: response.data });
     });
   };
@@ -28,7 +28,7 @@ export function eraseContactFilters() {
 export function addContact(email) {
   return (dispatch) => {
     axios
-      .post("https://localhost:3001/contacts", email, {
+      .post("/contacts", email, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
