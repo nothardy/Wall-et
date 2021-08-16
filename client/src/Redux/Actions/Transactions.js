@@ -15,7 +15,7 @@ export const getCodeCash = (id) =>{ /* TERMINADAAAAAA */
             return dispatch({type:GET_CODE_CASH , payload: data})
         }
         catch(err){
-            alert('error en getCodeCash', err)
+            alert('Error in getCodeCash', err)
         }
     } 
 }
@@ -27,7 +27,7 @@ export const sendChargeByCard = ({method, status}) =>{/* NO ESTA EN USO, SERIA P
             return dispatch({type: SEND_INFO_CHARGE , payload: data})
         }
         catch(err){
-            alert('error en sendInfoCharge', err)
+            alert('Error in sendInfoCharge', err)
         }
     } 
 }
@@ -51,7 +51,7 @@ export const sendingTransactions = (data) =>{
             return dispatch({type: SENDING_TRANSACTIONS , payload: data})
         }
         catch(err){
-            alert('error en sendingTransactions', err)
+            alert('Error in sendingTransactions', err)
         }
     } 
 }
@@ -62,7 +62,7 @@ export const resetStore = () =>{
             return dispatch({type: RESET_DATA , payload: null})
         }
         catch(err){
-            alert('error en getUserByCVU', err)
+            alert('Error in getUserByCVU', err)
         }
     } 
 }

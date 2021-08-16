@@ -37,11 +37,11 @@ const CardTransfer = () => {
         try{
             
             const {data} = await axios.post('http://localhost:3001/transaction/transfer', dataTransaction)
-            await swal("Felicitaciones!", "Se envio con exito su transaccion!", "success");
+            await swal("Congratulations!", "Your transaction has been sent successfully!", "success");
             history.push("./mywallet") /*REDIRECCIONA */
         }
         catch(err){
-            await swal("Lo sentimos!", "Usted no cuenta con cuyo monto!", "error");
+            await swal("We are sorry!", "You don't have that amount!", "error");
         }
     }
     return (
