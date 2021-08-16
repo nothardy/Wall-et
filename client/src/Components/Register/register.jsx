@@ -274,7 +274,7 @@ function Register() {
                     <ReCAPTCHA
                       required
                       ref={captcha}
-                      sitekey={process.env.APIKEY}
+                      sitekey={process.env.API_KEY}
                       onChange={captchaChange}
                     />
                   </div>
