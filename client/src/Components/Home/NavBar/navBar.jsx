@@ -25,7 +25,7 @@ export const NavBar = () => {
       <Link to="/contacts">
         <img src={Contacts} alt="contacts" /> Contacts
       </Link>
-      <Link to="/transfers">
+      <Link to="/transfers/0">
         <img src={Trasnfers} alt="transfers" /> Transfers
       </Link>
       <Link to="/help">

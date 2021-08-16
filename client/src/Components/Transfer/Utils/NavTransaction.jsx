@@ -6,8 +6,8 @@ import TransactionHistory from "./SectionTransactionHistory";
 import BackImg from "./backButton.png";
 import nt from "./NavTransaction.module.css";
 
-const NavTransaction = () => {
-  let [section, setSection] = useState("0");
+const NavTransaction = (props) => {
+  let [section, setSection] = useState(props.section || "0");
 
   const handleChange = (e) => {
     setSection((section = e.target.value));

@@ -19,7 +19,7 @@ const Received = ({ widht, height, borderRadius }) => {
       }}
     >
       <div className={rd.header}>
-        <h1>Transactions Recieved</h1>
+        <h1>Transactions Received</h1>
       </div>
 
       <div className={rd.body}>

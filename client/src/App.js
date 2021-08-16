@@ -29,7 +29,7 @@ export default function App() {
       <Route exact path="/logout" component={Logout} />
       <Route exact path="/account" component={Account} />
       <Route exact path="/contacts" component={Contacts} />
-      <Route exact path="/transfers" component={Transfer} />
+      <Route path="/transfers/:section" component={Transfer} />
       <Route exact path="/help" component={Help} />
       <PrivateRoute path="/mywallet" component={Home} exact />
       <PrivateRoute path="/balance" component={Balance} exact />
