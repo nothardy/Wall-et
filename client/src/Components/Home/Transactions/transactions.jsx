@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ViewTransaction from './Views/view';
 import t from './transaction.module.css';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 const TransactionHistory = () =>{
     const store = useSelector(state => state.homeReducer.User);
