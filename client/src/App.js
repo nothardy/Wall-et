@@ -14,6 +14,7 @@ import Help from "./Components/Help/Help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
 
+
 // CSS hecho por:
 // Cami y Celes: /register y /home
 // Gonza: NavBar
@@ -22,12 +23,14 @@ import RecoverPassword from "./Components/RecoverPassword/password";
 export default function App() {
   return (
     <div>
+
+
       <Route exact path="/" component={Landingpage} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/recoverpassword" component={RecoverPassword} />
       <Route exact path="/faq" component={FrecuentlyQuestions} />
       <Route exact path="/logout" component={Logout} />
-      <Route exact path="/account" component={Account} />
+     <PrivateRoute path="/account"  component={Account} exact/>
       <Route exact path="/contacts" component={Contacts} />
       <Route path="/transfers/:section" component={Transfer} />
       <Route exact path="/help" component={Help} />

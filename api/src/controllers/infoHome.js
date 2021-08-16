@@ -8,38 +8,37 @@ const {
 } = require("../db");
 
 const infoUser = async (id) => {
-  try {
-    const user = await Account.findByPk(id, {
-      include: [{ model: Transaction }, { model: Card }, { model: Contact }],
-    });
-    return {
-      id: user.dataValues.id,
-      user_data: {
-        fullname: user.dataValues.fullname,
-        dni: user.dataValues.dni,
-        ubicacion: user.dataValues.ubication,
-        birth: user.dataValues.birth_date,
-      },
-      account_data: {
-        admin: user.dataValues.admin,
-        mail: user.dataValues.mail,
-        pass: user.dataValues.password,
-        balance: user.dataValues.balance,
-        cvu: user.dataValues.cvu,
-        photo: user.dataValues.photo,
-        cards: user.dataValues.cards,
-        transactions: user.dataValues.transactions.map((el) => {
-          return {
-            id: el.id,
-            from: el.from,
-            amount: el.amount,
-            to: el.to,
-            type_transaction: el.type_transaction,
-            state: el.state,
-            transaction_date: el.createdAt,
-          };
-        }),
-        contacts: user.dataValues.contacts.map((el) => {
+
+    
+    try {
+        const user = await Account.findByPk( id , {include: [{model: Transaction}, {model: Card},{ model: Contact }]} )
+        return {
+            id: user.dataValues.id,
+            user_data: {
+                fullname: user.dataValues.fullname,
+                dni: user.dataValues.dni,
+                ubicacion: user.dataValues.ubication,
+                birth: user.dataValues.birth_date,
+            },
+            account_data: {
+                admin: user.dataValues.admin,
+                mail: user.dataValues.mail,
+                pass: user.dataValues.password,
+                balance: user.dataValues.balance,
+                cvu: user.dataValues.cvu,
+                photo: user.dataValues.photo,
+                cards: user.dataValues.cards,
+                transactions: user.dataValues.transactions.map(el => {return {
+                        id: el.id,
+                        from: el.from,
+                        amount: el.amount,
+                        to: el.to,
+                        type_transaction: el.type_transaction,
+                        state: el.state,
+                        transaction_date: el.createdAt,
+                    }
+                }),
+              contacts: user.dataValues.contacts.map((el) => {
           return {
             id: el.id,
             fullname: el.fullname,
@@ -48,13 +47,19 @@ const infoUser = async (id) => {
             contact_date: el.createdAt,
           };
         }),
-        create: user.dataValues.createdAt,
-      },
-    };
-  } catch (err) {
-    throw new Error(err);
-  }
-};
+       
+                
+                create: user.dataValues.createdAt,
+            },
+        }
+
+    }
+
+    catch (err) {
+        throw new Error(err)
+    }
+}
+
 
 /* const infoAdmin = async (id) => {
 

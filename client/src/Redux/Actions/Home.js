@@ -1,8 +1,11 @@
 import axios from 'axios';
 import swal from 'sweetalert';
+import firebase, { storage } from '../../firebase';
 export const GET_DATE_USER = 'GET_DATE_USER';
 export const ADMIN_GET_USER = 'ADMIN_GET_USER';
 export const ADMIN_GET_DATE_USERS = 'ADMIN_GET_DATE_USERS';
+export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_PHOTO='UPDATE_PHOTO';
 
 const testInfo =  [
     {
@@ -83,3 +86,60 @@ export const adminGetDateUsers = (status) => {
         }
     }
 }
+
+
+export function updateUser(json) {
+  return (dispatch) => {
+    axios
+      .post('http://localhost:3001/updateUser', json, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((response) => {
+        dispatch({ type: UPDATE_USER, payload: response.data });
+      });
+  };
+}
+
+// export function updatePhoto() {
+//   return async function dispatch(dispatch){
+//     try{
+//       const token = localStorage.getItem('token')
+//       const {data} = await axios.get(`http://localhost:3001/home`, { headers: { 'x-access-token': token }})
+//         return dispatch({type:UPDATE_PHOTO, payload:data})
+//     }
+//     catch(err){
+//         alert("error en getDateUser",err)
+//         /* Quitar esto cuando tenga rutas de back */ 
+//     }
+//   }  
+// };
+
+export const updatePhoto = (image, user) => dispatch => {
+  const { id, user_data } = user
+  try {
+    const uploadedImage = firebase.storage().ref().child(`profileImages/${user_data.fullname}`).put(image);
+    uploadedImage.on(
+      'state_changed',
+      snapshot => {},
+      error => {console.error(error)},
+      async () => {
+        await storage
+          .ref(`profileImages`)
+          .child(`${user_data.fullname}`)
+          .getDownloadURL()
+          .then(async photo => {
+            console.log(photo);
+            return axios.post('http://localhost:3001/updatePhoto', { photo, id })
+              .then(res => {
+                user.account_data.photo = photo;
+                dispatch({ type: UPDATE_PHOTO, payload: user })
+              })
+              
+          })
+          .catch(error => console.error(error));
+      }
+    );
+  } catch (err) {
+    console.error(err);
+  }
+};
