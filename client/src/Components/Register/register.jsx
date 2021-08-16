@@ -12,7 +12,6 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 const CAPTCHA_KEY = process.env.REACT_APP_CAPTCHA_KEY;
-console.log(CAPTCHA_KEY);
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
 //import Button from 'react-bootstrap/Button';
