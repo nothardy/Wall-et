@@ -116,13 +116,14 @@ function DetailAccount() {
         swal("The Card was deleted", { icon: "success" });
     }
     // var regex = new Regex("^[0-9]+$");
+ 
     return (
 
         <div className={a.container} >
             {user ?
                 <div>
                     <div >
-                        <img className="image" src={user.account_data.photo} alt="" />
+                        <img className="image" src={`${user.account_data.photo}`} alt="" />
                         <button className='' onClick={() => toggleChangePhoto()}> Change Photo </button>
                     {changePhoto ? <div> <UploadPhoto close={toggleChangePhoto} /> </div> : null}
                         <div ><p>Full Name:</p><p>{user.user_data.fullname}</p></div>

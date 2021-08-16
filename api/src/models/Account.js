@@ -50,7 +50,7 @@ module.exports = (sequelize) => {
         },
 
         photo: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
 
         admin: {

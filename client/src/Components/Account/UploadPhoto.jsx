@@ -10,8 +10,8 @@ export default function UploadPhoto({ close }) {
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errMsg, setErrMsg] = useState('');
+    //const [successMsg, setSuccessMsg] = useState('');
+    //const [errMsg, setErrMsg] = useState('');
     const dispatch = useDispatch();
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
@@ -19,6 +19,7 @@ export default function UploadPhoto({ close }) {
         setSelectedFile(file);
         setFileInputState(e.target.value);
         console.log(file)
+        dispatch(updatePhoto(file, user));
     };
 
     const previewFile = (file) => {
@@ -56,38 +57,7 @@ export default function UploadPhoto({ close }) {
            
          close()
     }
-    // const handleSubmitFile = (e) => {
-    //     e.preventDefault();
-    //     if (!selectedFile) return;
-    //     const reader = new FileReader();
-    //     reader.readAsDataURL(selectedFile);
-    //     reader.onloadend = () => {
-    //         uploadImage(reader.result);
-    //     };
-    //     reader.onerror = () => {
-    //         console.error('AHHHHHHHH!!');
-    //         setErrMsg('something went wrong!');
-    //     };
-    //     dispatch(getDateUser())
-    //     close()
-    // };
 
-    // const uploadImage = async (base64EncodedImage) => {
-    //     try {
-    //         //console.log(base64EncodedImage)
-    //         await fetch('/api/upload', {
-    //             method: 'POST',
-    //             body: JSON.stringify({ data: base64EncodedImage }),
-    //             headers: { 'Content-Type': 'application/json' },
-    //         });
-    //         setFileInputState('');
-    //         setPreviewSource('');
-    //         setSuccessMsg('Image uploaded successfully');
-    //     } catch (err) {
-    //         console.error(err);
-    //         setErrMsg('Something went wrong!');
-    //     }
-    // };
     return (
         <div className={up.container}>
             <h1 className={up.title}>Upload an Image</h1>

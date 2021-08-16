@@ -4,6 +4,6 @@ const route = Router();
 const { updatePhoto } = require('../controllers/updatePhoto');
 
 
-route.post('/', multerMiddleware, updatePhoto);
+route.post('/', updatePhoto);
 
 module.exports = route;
