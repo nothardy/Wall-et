@@ -4,9 +4,12 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST, NODE_ENV } =
   process.env;
-
+// let sequelize = new Sequelize(
+//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`,
+//   { logging: false, native: false }
+// );
 let sequelize =
-  process.env.NODE_ENV === "production"
+  NODE_ENV === "production"
     ? new Sequelize({
         database: DB_PRODUCTION,
         dialect: "postgres",

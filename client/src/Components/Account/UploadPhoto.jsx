@@ -18,7 +18,6 @@ export default function UploadPhoto({ close }) {
     previewFile(file);
     setSelectedFile(file);
     setFileInputState(e.target.value);
-    console.log(file);
     dispatch(updatePhoto(file, user));
   };
 

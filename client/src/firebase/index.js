@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "wall-et-1c491.firebaseapp.com",
   projectId: "wall-et-1c491",
   storageBucket: "wall-et-1c491.appspot.com",

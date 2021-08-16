@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { React, useEffect, useState } from "react";
 import { getDateUser, updateUser } from "../../Redux/Actions/Home";
 import { useSelector, useDispatch } from "react-redux";
@@ -54,7 +55,7 @@ function UpdatePassword({ close }) {
       password: "",
       confirmpassword: "",
     });
-  }, [user, updateinfo]);
+  }, [user]);
 
   function handleInputChange(e) {
     setUpdateInfo({

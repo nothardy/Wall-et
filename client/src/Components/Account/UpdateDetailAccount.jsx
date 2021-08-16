@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { React, useEffect, useState } from "react";
 import { getDateUser, updateUser } from "../../Redux/Actions/Home";
 import { useSelector, useDispatch } from "react-redux";
@@ -37,7 +38,7 @@ function UpdateDetailAccount({ close }) {
 
   useEffect(() => {
     dispatch(getDateUser()); //Trae la DATA, no el date
-  }, [dispatch]);
+  }, []);
   //}, [firstRender, dispatch]);
 
   useEffect(() => {
@@ -51,7 +52,7 @@ function UpdateDetailAccount({ close }) {
       ubication: user?.user_data.ubicacion || "",
       photo: user?.account_data.photo || "",
     });
-  }, [user, updateinfo]);
+  }, [user]);
 
   function handleInputChange(e) {
     setUpdateInfo({

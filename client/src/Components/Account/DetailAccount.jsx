@@ -45,7 +45,7 @@ function DetailAccount() {
       ubication: user?.user_data.ubicacion || "",
       // cards: user?.account_data.cards || ""
     });
-  }, [user, updateinfo]);
+  }, [user]);
 
   //COPY CVU
   const [copySuccess, setCopySuccess] = useState("");

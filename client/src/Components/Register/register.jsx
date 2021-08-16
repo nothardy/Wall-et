@@ -11,6 +11,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
+const CAPTCHA_KEY = process.env.REACT_APP_CAPTCHA_KEY;
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
 //import Button from 'react-bootstrap/Button';
@@ -274,8 +275,9 @@ function Register() {
                     <ReCAPTCHA
                       required
                       ref={captcha}
-                      sitekey={process.env.API_KEY}
+                      sitekey={CAPTCHA_KEY}
                       onChange={captchaChange}
+                      render="explicit"
                     />
                   </div>
                 </div>
