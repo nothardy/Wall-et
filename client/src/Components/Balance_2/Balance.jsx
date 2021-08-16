@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { LineBalance } from "./LineBalance";
 import { DoughnutBalance } from "./Doughnut";

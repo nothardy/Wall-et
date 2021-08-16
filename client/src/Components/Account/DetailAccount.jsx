@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { React, useEffect, useState, useRef } from "react";
 import { getDateUser } from "../../Redux/Actions/Home";
 import { useSelector, useDispatch } from "react-redux";
@@ -30,7 +31,7 @@ function DetailAccount() {
 
   useEffect(() => {
     dispatch(getDateUser()); //Trae la DATA, no el date
-  }, []);
+  }, [dispatch]);
   // }, [firstRender, dispatch]);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ function DetailAccount() {
       ubication: user?.user_data.ubicacion || "",
       // cards: user?.account_data.cards || ""
     });
-  }, [user]);
+  }, [user, updateinfo]);
 
   //COPY CVU
   const [copySuccess, setCopySuccess] = useState("");

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from "react";
 import style from "./Filter.module.css";
 import { ASCENDENTE, DESCENDENTE } from "./Filter";
