@@ -18,7 +18,7 @@ export const contactsHard = {
     {
       id: 2,
       fullname: "Julian",
-      mail: "julianpiñel2@gmail.com",
+      mail: "juliancapo@gmail.com",
       date_transaction: "2021-04-09T15:19:28.986",
     },
     {
@@ -172,7 +172,7 @@ const contactsReducer = (state = initialState, action) => {
     case SET_ORDER:
       return {
         ...state,
-        orderedContacts: getType(action.payload, state.contacts).slice()
+        orderedContacts: getType(action.payload, state.contacts).slice(),
       };
     default:
       return state;

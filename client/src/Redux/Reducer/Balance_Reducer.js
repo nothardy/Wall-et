@@ -5,8 +5,8 @@ export const testInfo = {
   transactions: [
     {
       id: 100,
-      from: "myuser",
-      to: "Walter",
+      from: "juliancapo@gmail.com",
+      to: "walterrodriguez7@gmail.com",
       amount: 2000,
       type_transaction: "Payment",
       state: "done",
@@ -14,8 +14,8 @@ export const testInfo = {
     },
     {
       id: 101,
-      from: "Cele",
-      to: "myuser",
+      from: "celestedubini@gmail.com",
+      to: "juliancapo@gmail.com",
       amount: 7000,
       type_transaction: "Services",
       state: "done",
@@ -23,8 +23,8 @@ export const testInfo = {
     },
     {
       id: 105,
-      from: "myuser",
-      to: "Julian",
+      from: "francoaguero08@gmail.com",
+      to: "juliancapo@gmail.com",
       amount: 100,
       type_transaction: "Transfer",
       state: "done",
@@ -32,8 +32,8 @@ export const testInfo = {
     },
     {
       id: 108,
-      from: "myuser",
-      to: "Georgi",
+      from: "juliancapo@gmail.com",
+      to: "georgina4@gmail.com",
       amount: 7000,
       type_transaction: "Payment",
       state: "done",
@@ -41,8 +41,8 @@ export const testInfo = {
     },
     {
       id: 104,
-      from: "myuser",
-      to: "Mili",
+      from: "juliancapo@gmail.com",
+      to: "milagros21@gmail.com",
       amount: 1000,
       type_transaction: "Transfer",
       state: "done",
@@ -50,8 +50,8 @@ export const testInfo = {
     },
     {
       id: 100,
-      from: "myuser",
-      to: "Franco",
+      from: "juliancapo@gmail.com",
+      to: "francoaguero08@gmail.com",
       amount: 3000,
       type_transaction: "Payment",
       state: "done",
@@ -59,8 +59,8 @@ export const testInfo = {
     },
     {
       id: 100,
-      from: "myuser",
-      to: "Walter",
+      from: "juliancapo@gmail.com",
+      to: "walterrodriguez7@gmail.com",
       amount: 10000,
       type_transaction: "Services",
       state: "done",
@@ -68,8 +68,8 @@ export const testInfo = {
     },
     {
       id: 100,
-      from: "myuser",
-      to: "Cami",
+      from: "juliancapo@gmail.com",
+      to: "camilajure1@gmail.com",
       amount: 1000,
       type_transaction: "Services",
       state: "done",
@@ -77,8 +77,8 @@ export const testInfo = {
     },
     {
       id: 100,
-      from: "myuser",
-      to: "Gonzalo",
+      from: "juliancapo@gmail.com",
+      to: "juarezgonzalo2@gmail.com",
       amount: 8000,
       type_transaction: "Services",
       state: "done",

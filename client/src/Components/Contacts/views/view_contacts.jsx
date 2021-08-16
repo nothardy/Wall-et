@@ -1,17 +1,41 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./view_contacts.module.css";
-export const View = ({ fullname, date_transaction, mail }) => {
+export const View = ({
+  fullname,
+  date_transaction,
+  mail,
+  toggleTransactions,
+}) => {
+  const [renderContactTransactions, setRenderContactTransactions] =
+    React.useState(true);
+
+  const handleOnClick = () => {
+    if (renderContactTransactions === true) toggleTransactions(mail);
+    //setRenderContactTransactions(!renderContactTransactions);
+  };
+
   return (
     <div>
-      <NavLink to="/transfers" className={style.todo}>
+      <div className={style.todo}>
         <div className={style.container}>
-          <div>Nombre: {fullname}</div>
-          <div>Fecha I: {date_transaction && date_transaction.slice(5, 10)}</div>
-          <div>Email: {mail}</div>
+          <button className={style.button} onClick={handleOnClick}>
+            <div>Name: {fullname}</div>
+            <div>
+              Last Transaction:
+              {date_transaction && date_transaction.slice(5, 10)}
+            </div>
+            <div>Email: {mail}</div>
+          </button>
         </div>
-      </NavLink>
+      </div>
     </div>
   );
 };
 export default View;
+
+/*
+<NavLink to="/transfers" className={style.todo}>
+        
+      </NavLink>
+*/

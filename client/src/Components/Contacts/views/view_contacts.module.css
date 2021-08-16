@@ -1,11 +1,27 @@
 .todo {
   display: flex;
-  color: midnightblue;
+  color: rgb(84, 84, 231);
   margin: 19px;
-  text-decoration: none
+  text-decoration: none;
 }
-.container{
+.button:hover {
+  transform: scale(1.04);
+  transition: 0.5s;
+  transition-delay: 2, 4s;
+  transition-timing-function: ease-in-out;
+}
+.container {
   display: flex;
   flex-direction: column;
+  color: rgb(84, 84, 231);
 }
-
+.button {
+  display: flex;
+  flex-direction: column;
+  color: midnightblue;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 20rem;
+  margin-left: 1rem;
+}

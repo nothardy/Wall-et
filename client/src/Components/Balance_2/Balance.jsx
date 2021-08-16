@@ -3,25 +3,24 @@ import { LineBalance } from "./LineBalance";
 import { DoughnutBalance } from "./Doughnut";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../../Redux/Actions/Balance_Action";
-import { getDateUser } from "../../Redux/Actions/Home"
-import Transactions from "./Transactions";
+import { getDateUser } from "../../Redux/Actions/Home";
 import Money from "./Money";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
-import style from './Balance.module.css';
-import { Bar } from '../Bar/bar';
-import { NavBar } from '../Home/NavBar/navBar';
-import { Admin } from '../Home/Admin/admin'
-import { User } from '../Home/User/user'
+import style from "./Balance.module.css";
+import { Bar } from "../Bar/bar";
+import { NavBar } from "../Home/NavBar/navBar";
+import { Admin } from "../Home/Admin/admin";
+import { User } from "../Home/User/user";
 
 function Balance() {
   const dispatch = useDispatch();
-  const  userInfo=useSelector((state) => state.homeReducer.User); //userInfo = testInfo;
+  const userInfo = useSelector((state) => state.homeReducer.User); //userInfo = testInfo;
   let [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
     if (firstRender === true) {
       dispatch(getDateUser());
-      setFirstRender(firstRender = !firstRender)
+      setFirstRender((firstRender = !firstRender));
     }
   }, [firstRender, dispatch]);
 
@@ -40,10 +39,9 @@ function Balance() {
           <div className={style.boxes}>
             <div className={style.moneyAndTransactions}>
               <Money />
-              <Transactions />
             </div>
             <div className={style.graficos}>
-              <div className={style.right} >
+              <div className={style.right}>
                 <div className={style.balance}>
                   <div className={style.grafico}>
                     <div className={style.titleAndGraph}>
@@ -69,7 +67,8 @@ function Balance() {
 //linea 37, lista de las transacciones
 export default Balance;
 
-{/* <Bar/>
+{
+  /* <Bar/>
 
 <div className={h.container}>
     <div className={h.left}>
@@ -83,12 +82,11 @@ export default Balance;
             : <User/>
         }
     </div>
-</div> */}
+</div> */
+}
 
-
-
-
-{/* <div>
+{
+  /* <div>
 <Bar />
 <div />
 <div>
@@ -110,4 +108,5 @@ export default Balance;
   </div>
 </div>
 </div>
-</div> */}
+</div> */
+}
