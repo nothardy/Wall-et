@@ -8,7 +8,10 @@ const Card = () => {
     <Tilt options={{}}>
       <div className={cd.container}>
         Credit Card feature coming soon...
-        <img src={"https://media3.giphy.com/media/bAplZhiLAsNnG/giphy.gif"} />
+        <img
+          src={"https://media3.giphy.com/media/bAplZhiLAsNnG/giphy.gif"}
+          alt=""
+        />
       </div>
     </Tilt>
   );

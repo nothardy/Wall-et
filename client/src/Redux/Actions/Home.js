@@ -7,44 +7,44 @@ export const GET_DATE_USER = "GET_DATE_USER",
   UPDATE_USER = "UPDATE_USER",
   UPDATE_PHOTO = "UPDATE_PHOTO";
 
-const testInfo = [
-  {
-    email: "TonyElTucu@gmail.com",
-    id: 1,
-  },
-  {
-    email: "LaMartu@gmail.com",
-    id: 2,
-  },
-  {
-    email: "GonzaloEmanuel@gmail.com",
-    id: 3,
-  },
-  {
-    email: "Georgina@gmail.com",
-    id: 4,
-  },
-  {
-    email: "Milagros@gmail.com",
-    id: 5,
-  },
-  {
-    email: "Celeste@gmail.com",
-    id: 6,
-  },
-  {
-    email: "Camila@gmail.com",
-    id: 7,
-  },
-  {
-    email: "JulianWey@gmail.com",
-    id: 8,
-  },
-  {
-    email: "Walter@gmail.com",
-    id: 9,
-  },
-];
+// const testInfo = [
+//   {
+//     email: "TonyElTucu@gmail.com",
+//     id: 1,
+//   },
+//   {
+//     email: "LaMartu@gmail.com",
+//     id: 2,
+//   },
+//   {
+//     email: "GonzaloEmanuel@gmail.com",
+//     id: 3,
+//   },
+//   {
+//     email: "Georgina@gmail.com",
+//     id: 4,
+//   },
+//   {
+//     email: "Milagros@gmail.com",
+//     id: 5,
+//   },
+//   {
+//     email: "Celeste@gmail.com",
+//     id: 6,
+//   },
+//   {
+//     email: "Camila@gmail.com",
+//     id: 7,
+//   },
+//   {
+//     email: "JulianWey@gmail.com",
+//     id: 8,
+//   },
+//   {
+//     email: "Walter@gmail.com",
+//     id: 9,
+//   },
+// ];
 
 export const getDateUser = () => {
   /* Trae la date de la cuenta del usuario logeado. */

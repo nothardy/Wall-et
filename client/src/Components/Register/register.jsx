@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useRef } from "react";
 //import './register.module.css';
 import { Link } from "react-router-dom";

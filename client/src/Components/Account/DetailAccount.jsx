@@ -11,7 +11,6 @@ import UpdateDetailAccount from "./UpdateDetailAccount";
 import UpdatePassword from "./UpdatePassword";
 import axios from "axios";
 import AddCard from "./AddCard";
-import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import UploadPhoto from "./UploadPhoto";
 

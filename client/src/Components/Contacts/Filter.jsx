@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import style from "./Filter.module.css";
-import { ASCENDENTE, DESCENDENTE, DEFAULT } from "./Filter";
+import { ASCENDENTE, DESCENDENTE } from "./Filter";
 import { getContacts, setOrder } from "../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector } from "react-redux";
-import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.contactsReducer.contacts);
+  //const user = useSelector((state) => state.contactsReducer.contacts);
 
   useEffect(() => {
     dispatch(getContacts());

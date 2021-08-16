@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import { LineBalance } from "./LineBalance";
 import { DoughnutBalance } from "./Doughnut";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserInfo } from "../../Redux/Actions/Balance_Action";
 import { getDateUser } from "../../Redux/Actions/Home";
 import Money from "./Money";
-import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 import style from "./Balance.module.css";
 import { Bar } from "../Bar/bar";
 import { NavBar } from "../Home/NavBar/navBar";
-import { Admin } from "../Home/Admin/admin";
-import { User } from "../Home/User/user";
-
 function Balance() {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.homeReducer.User); //userInfo = testInfo;

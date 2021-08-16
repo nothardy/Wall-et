@@ -30,7 +30,7 @@ function AddCard({ close }) {
       card_expiration_data: "",
       cvc: "",
     });
-  }, [user]);
+  }, [user, updateinfo]);
 
   const handleFocus = (e) => {
     setUpdateInfo({

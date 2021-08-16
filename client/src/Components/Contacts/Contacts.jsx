@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 //import Working from '../Working/Working'
 import c from "./Contacts.module.css";
@@ -6,10 +7,7 @@ import NavBar from "../Home/NavBar/navBar";
 import Search from "./Search";
 import Filter from "./Filter.jsx";
 import View from "./views/view_contacts";
-import {
-  contactsReducer,
-  contactsHard,
-} from "../../Redux/Reducer/Contacts_Reducer";
+import { contactsHard } from "../../Redux/Reducer/Contacts_Reducer";
 import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 import { useSelector, useDispatch } from "react-redux";
 import { eraseContactFilters } from "../../Redux/Actions/Contacts_Action";
@@ -28,7 +26,7 @@ function Contacts() {
     );
   const [shownContacts, setShownContacts] = useState(select);
   const [search, setSearch] = useState(false);
-  const [renderTransactions, setRenderTransactions] = useState(true);
+  //const [renderTransactions, setRenderTransactions] = useState(true);
   const [transactionUser, setTransactionUser] = useState("");
   // hacer una logica para que primero busque si existen los orderedContacts, si no existen es por que
   // nadie apreto ordenamientos, entonces por defecto busco los contacts

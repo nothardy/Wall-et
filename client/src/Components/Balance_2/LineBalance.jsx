@@ -1,26 +1,23 @@
 import { Line } from "react-chartjs-2";
 import { setAxis } from "../../utils/Methods";
-import{useSelector} from 'react-redux'
-import {useState,useEffect} from 'react'
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 //toLocaleString('default', { month: 'long' })
 
 // ["Enero", "Febrero", "Marzo", "Abril", "Mayo"]
 export function LineBalance(props) {
-  const  userInfo=useSelector((state) => state.homeReducer.User);
-  let [axisState, setAxisState]=useState([[],[]])
-  
-  
+  const userInfo = useSelector((state) => state.homeReducer.User);
+  let [axisState, setAxisState] = useState([[], []]);
+
   //let[xAxis, yAxis] = setAxis(userInfo.account_data.transactions); // para no hardcodear usar esto props.userInfo.accountData.transactions ||
-  
+
   useEffect(() => {
-    if(props.userInfo){
+    if (props.userInfo) {
       setAxisState(setAxis(userInfo.account_data.transactions));
     }
-    
-  }, [props]);
-  
-  
+  }, [props, userInfo.account_data.transactions]);
+
   const state = {
     labels: axisState[0],
     datasets: [
@@ -28,8 +25,8 @@ export function LineBalance(props) {
         label: "Total Expenses",
         data: axisState[1], //eje y
         backgroundColor: "white",
-        color : "black",
-        borderColor : "black",
+        color: "black",
+        borderColor: "black",
         strokeColor: "black",
       },
     ],

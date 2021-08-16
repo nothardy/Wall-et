@@ -1,5 +1,5 @@
 import { getType } from "../../Components/Contacts/Filter";
-import { filterContacts, searchContact } from "../../utils/FilterContacts";
+import { searchContact } from "../../utils/FilterContacts";
 import {
   ERASE_CONTACT_FILTERS,
   GET_CONTACTS,

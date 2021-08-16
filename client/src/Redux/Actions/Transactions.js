@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from "axios";
 import swal from "sweetalert";
 export const GET_CODE_CASH = "GET_CODE_CASH",

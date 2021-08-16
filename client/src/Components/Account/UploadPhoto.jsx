@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDateUser, updatePhoto, updateUser } from "../../Redux/Actions/Home";
+import { getDateUser, updatePhoto } from "../../Redux/Actions/Home";
 //import Alert from '../components/Alert';
 import up from "./UploadPhoto.module.css";
 import axios from "axios";
