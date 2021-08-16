@@ -1,0 +1,35 @@
+.containerSearch{
+    display: flex;
+    align-items: center;
+}
+
+.formSearch{
+    position: absolute;
+    width: 12rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+#inputSearch{
+    position: absolute;
+    right: 22px;
+    width: 10rem;
+    outline: none;
+    font-size: 1rem;
+    border: none;
+    background: none;
+}
+
+#btn__lupaSearch{
+    position: absolute;
+    left: 7px;
+    cursor: pointer;
+    width: 1.7rem;
+}
+ #btn__lupa img{
+    width: 1.4rem;
+}

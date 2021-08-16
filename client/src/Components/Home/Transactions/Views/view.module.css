@@ -1,0 +1,21 @@
+.containerView{
+    position: relative;
+    width: 90%;
+    height: 3rem;
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+}
+#status{
+    font-size: 1rem;
+}
+
+#titleView{
+    margin: 0;
+}
+#amountView{
+    margin: 0;
+}
