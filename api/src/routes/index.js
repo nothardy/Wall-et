@@ -9,7 +9,6 @@ const authRoutes = require("./auth");
 const home = require('./home.routes');
 const adminSearch = require('./searchUser.routes');
 const resetPasswordRoutes = require('./resetPassword');
-const helpRoutes = require('./help')
 
 
 const router = Router();

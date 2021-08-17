@@ -14,6 +14,7 @@ import Transfer from "./Components/Transfer/Transfer";
 import Help from "./Components/Help/help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
+import PublicRoute from "./Components/PublicRoute/PublicRoute"
 
 // CSS hecho por:
 // Cami y Celes: /register y /home
@@ -24,16 +25,16 @@ import RecoverPassword from "./Components/RecoverPassword/password";
 export default function App() {
   return (
     <div>
-      <Route exact path="/"  component= {Landingpage} />
-      <Route exact path="/register"  component= {Register}/>
+      <PublicRoute exact path="/"  component= {Landingpage} />
+      <PublicRoute exact path="/register"  component= {Register}/>
       <Route exact path="/recoverpassword"  component= {RecoverPassword}/>
       <Route exact path="/faq" component= {FrecuentlyQuestions}/>
       <Route exact path="/logout"  component= {Logout} />
-      <Route exact path="/account"  component={Account} />
-      <Route exact path="/contacts" component={Contacts}/>
-      <Route exact path="/payments"  component={Payments}/>
-      <Route exact path="/transfers"  component={Transfer} />
-      <Route exact path="/help"  component={Help}/>
+      <PrivateRoute exact path="/account"  component={Account} />
+      <PrivateRoute exact path="/contacts" component={Contacts}/>
+      <PrivateRoute exact path="/payments"  component={Payments}/>
+      <PrivateRoute exact path="/transfers"  component={Transfer} />
+      <PrivateRoute exact path="/help"  component={Help}/>
       <PrivateRoute path="/mywallet" component= {Home} exact/>
       <PrivateRoute path="/balance" component= {Balance} exact/>
       <Route exact path='/resetPassword/:userid' component={ResetPassword} />
