@@ -1,0 +1,39 @@
+.container{
+    width: 29rem;
+}
+
+.moldAmount{
+    background: none/* antiquewhite */;
+    width: 14rem;
+    height: 3rem;
+    position: relative;
+    font-size: 2rem;
+    border-bottom: 3px solid;
+    margin-top: 2rem;
+}
+
+.moldAmount > img{
+    width: 2.7rem;
+    position: absolute;
+    left: -12px;
+    bottom: -8px;
+}
+
+#inputAmount{  
+    font-size: 1.8rem;
+    width: 10rem;
+    position: absolute;
+    left: 23px;
+    bottom: -5px;
+    outline: none;
+    border: none;
+    background: none;
+    overflow: hidden;
+}
+/* PARA QUITAR EL SCROLL DEL INPUT CON TYPE NUMBER */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }

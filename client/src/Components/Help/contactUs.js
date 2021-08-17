@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { help } from '../../Redux/Actions/helpActions';
 import { useDispatch } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import s from './ContactUs.module.css';
 
-const Help = () => {
+const ContactUs = () => {
 
 	const [ user, setUser ] = useState({
 		mail: '',
@@ -16,7 +19,6 @@ const Help = () => {
 	const dispatch = useDispatch(); 
 
 	function handleChange(e) {
-		console.log(user)
         setUser({
             ...user,
             [e.target.name]: e.target.value
@@ -25,21 +27,22 @@ const Help = () => {
 
 
 	const onSubmit = () => {
-		console.log(user)
 		dispatch(help(user));
 	}
 
 	return (
-		<div>
-			<div>
-				<h3>
+		<div className={s.body}>
+			<div className={s.wrapper}>
+				<h3 className={s.title}>
 					We are here to answer any questions about 'Wall-et' you may have.
                     <br />
                     Please use the Contact Form below to get in touch.
 				</h3>
-				    <form onSubmit={handleSubmit(onSubmit)} onChange={handleChange}> 
-					    <h5>E-mail </h5>
+			
+				    <form className={s.form} onSubmit={handleSubmit(onSubmit)} onChange={handleChange}> 
+					    <div className={s.field}>E-mail </div>
 					<input
+						className={s.input}
                         autoComplete='off'
 						type='text'
                         placeholder='example@mail.com'
@@ -47,9 +50,15 @@ const Help = () => {
                         required:'E-mail is required', 
                         })}
 					/>
+					<FontAwesomeIcon
+                    icon={faEnvelope}
+                    className={s.icon}
+                    id='envelope'
+                    />
                     {errors.mail && <p>{errors.mail.message}</p>}
-					    <h5>Subject </h5>
+					    <div className={s.field}>Subject </div>
 					<input
+						className={s.input}
                         autoComplete='off'
 						type='text'
 						{...register('subject', { 
@@ -57,8 +66,9 @@ const Help = () => {
                         minLength: 3 })}
 					/>
                     {errors.subject && <p>{errors.subject.message}</p>}
-					    <h5>Message </h5>
+					    <div className={s.field}>Message </div>
 					<textarea
+						className={s.textarea}
 						{...register('message', {
 							required: 'The message should have between 4 and 150 characters',
 							minLength: 4,
@@ -67,11 +77,11 @@ const Help = () => {
 					/>
                     {errors.message && <p>{errors.message.message}</p>}
                     <br />
-					<button type='submit'>Send</button>
+					<button className={s.button} type='submit'>Send</button>
 				</form>
 			</div>
 		</div>
 	);
 };
 
-export default Help;
+export default ContactUs;

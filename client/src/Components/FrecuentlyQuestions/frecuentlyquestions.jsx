@@ -20,28 +20,23 @@ function Frecuentlyquestions() {
                     <div className={f.section1}>
                         <div className={f.section1grid}>
                             <p className={f.section1gridtitle}>
-                                Adding a credit card.
+                                Add a credit card.
                             </p>
-                            <p>After linking your credit cards through Wall-et, credentials are encrypted.  Your privacy is important for us. </p>
+                            <p>When you add a credit card, all the information that you stored in the App is encrypted together with your password. Your personal data is important for us.</p>
                             <img src={image1} />
                         </div>
                         <div>
                             <p className={f.section1gridtitle}>
-                                Checking out with Wall-et.
+                                Set up Wall-et.
                             </p>
-                            <p>All you need to know is your email and password so
-                                you can forget all your credit card numbers and
-                                secret codes.</p><br />
+                            <p>All you need to enter is your email and password. When you shop online, your information should automatically populate.</p><br />
                             <img src={image2} />
                         </div>
                         <div className={f.section1grid}>
                             <p className={f.section1gridtitle}>
-                                Shopping securely.
+                                Make purchases in a secure way.
                             </p>
-                            <p>When you pay with Wall-et, you don’t expose your
-                                financial information to sellers. All you need to pay is
-                                your login and password–your sensitive information is
-                                never shared with sellers.</p><br />
+                            <p>One of the benefits of carrying out purchases with 'Wall-et' is that your card number is never provided and makes it nearly impossible for a fraudster to take your card information.</p><br />
                             <img src={image3} />
                         </div>
                     </div> <br/>
@@ -53,30 +48,34 @@ function Frecuentlyquestions() {
                         {show.q2? '-' : '+' }
                         </button>
                         </p>
-                            {show.q2? <p>Wall-et is the safer way to pay because we keep your financial information private. It isn’t <br/>
-                                shared with anyone else when you shop, so you don't have to worry about paying businesses <br/>
-                                and people you don't know.</p> : null}
+                            {show.q2? <p>Yes. 'Wall-et' uses security features that are build into your device to protect <br />
+                            your transactions. Additionally, you will be required to authenticate yourself before loging in.
+                            <br />One of the authentication steps that 'Wall-et' employs is facial recognition.<br />
+                            We don't have access to your full account number.
+                            </p> : null}
                         </div>
                     <div className={f.section2grid}>
                         <p className={f.section2gridtitle}>
-                            Do I need a balance in my account to use it? 
+                            What if my credit/debit card is lost or stolen?
                             <button className={f.button} onClick={()=> setShow({...show, q3: !show.q3})}>
                             {show.q3? '-' : '+' }
                             </button>
                             </p>
-                            {show.q3? <p>You do not need to have any balance in your account to use Wall-et. Similar to a physical wallet, <br/>
-                                when you are making a purchase, you can choose to pay for your items with any of the credit <br/>
-                                cards that are attached to your account. There is no need to pre-fund your account.</p> : null}
+                            {show.q3? <p>If your card is lost or stolen, please notify us immediately at +54 411154545444<br />
+                            We will cancel your card. When the bank issue you a new card and the new card is activated, you <br />
+                            will need to enroll it again in 'Wall-et'.</p> : null}
                         </div>
                         <div className={f.section2grid}>
                         <p className={f.section2gridtitle}> 
-                        How can I recover my password?  
+                        How do I reset my password?  
                         <button className={f.button} onClick={()=> setShow({...show, q1: !show.q1})}>
                             {show.q1? '-' : '+' }
                             </button>
                         </p> 
-                            {show.q1? <p>If you are having issues signing into your account because you forgot password,<br/>
-                                 we can help you recover this information <a href="/recoverpassword">here</a>.</p> : null}
+                            {show.q1? <p>You can reset your password yourself by following our automated procedure.<br />
+                            Click <a href="/recoverpassword">here</a>.Enter the e-mail address registered on your<br />
+                            'Wall-et' account, and hit 'Submit'. You will then receive an e-mail from us instructing <br />
+                            you how to reset your password.</p> : null}
                         </div>
                     </div>
                 </div>

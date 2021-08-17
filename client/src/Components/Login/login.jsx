@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { login } from '../../Redux/Actions/loginActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import s from './login.module.css';
 
 export function validate(user) {
@@ -52,9 +53,9 @@ const Login = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-      
+
         dispatch(login(user));
-        
+
     }
     return (
         <div className={s.centrarlogin}>
@@ -78,6 +79,11 @@ const Login = () => {
                         value={user.mail}
                         placeholder="example@mail.com"
                         onChange={handleChange} />
+                    <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className={s.eIcon}
+                        id='envelope'
+                    />
                     {errors.mail && (
                         <p className={s.errors}>{errors.mail}</p>
                     )}
@@ -112,29 +118,30 @@ const Login = () => {
 
                 </div>
                 <div className={s.cajaboton}>
-                <div>
-                    <button className={s.buttonlogin} type='submit'>Login</button>
-                </div>
-                <div>
-                    <Link to='/register'>
-                        <button className={s.buttonlogin} type='submit'>Create Account</button>
-                    </Link>
-                </div>
+                    <div>
+                        <button className={s.buttonlogin} type='submit'>Login</button>
+                    </div>
+                    <div>
+                        <Link to='/register'>
+                            <button className={s.buttonlogin} type='submit'>Create Account</button>
+                        </Link>
+                    </div>
                 </div>
                 <div className={s.linkslogin}>
-                    <Link to='/forgot'>
+                    <Link to='/recoverpassword'>
                         <p>Forgot Password?</p>
                     </Link>
                 </div>
             </form>
             <div className={s.contactus}>
-
-                <Link to='/faq'>
-                    <p>FAQ</p>
+                <div className={s.faqLanding}>
+                    <Link to='/faq'>
+                        <p>FAQ</p>
                 </Link>
+                </div>
                 <p>Contact Us <br></br>+54 411154545444 <br></br>
-                
-                wall-et@wmail.com</p>
+
+                    wall-et@wmail.com</p>
             </div>
             <footer className={s.footer}> <p> Copyright© 2021 Wall-et</p></footer>
         </div>

@@ -1,0 +1,86 @@
+:root{/* Aqui deberia poner el color que va a utilizar toda la page. De esta manera es una mala practica */
+    --color-bg: #dcdbdb;/* Este root dberia estar en SRC/index.css , Pero lo borraron. */
+    --color-navTransaction: rgba(121, 115, 115, 0.678);
+}/* EN EL COMPONENTE Trasfer(index) ahi tambien lo utilizo */
+
+.container{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    position: relative;  /* HIJO DE FHATER */
+}
+
+.header{
+    min-width: 33rem ;
+    background-color: var(--color-navTransaction);
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid rgb(75, 74, 74);
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    width: 80%;
+}
+.header > img {
+    margin-right: 14px;
+    width: 4rem;
+}
+.left > h2{
+    margin: 0;
+}
+
+.contactContainer{
+    width: 100%;
+    background-color: fuchsia;
+    margin-top: 3rem;
+}
+
+
+/* PARA ABAJO EMPIEZA EL COMPONENTE SOBRE EXPUESTO */
+.overexposedComponent{
+    background-color: var(--color-bg);/* ESTE BACKGROUNG, HACE QUE NO SE VEA LO DE ABAJO, POR ESO DEBE COINCIDIR CON EL COLOR DE PAGE */
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    /* hacia abajo centra */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerCVU{
+    width: 31rem;
+    height: 14rem;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+#input__codeCVU{
+    font-size: 1.7rem;
+    border: 2.6px solid #a69898;
+    margin-left: 2rem;
+    border-radius: 5px;
+    width: 13rem;
+    height: 2.8rem;
+}
+#btnSubmit{
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 11px 16px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: cornflowerblue;
+
+}

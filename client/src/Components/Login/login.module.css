@@ -16,12 +16,16 @@
     box-shadow: 0 0 30px aqua;
 } */
 .icon{
-   
     color: rgb(26, 43, 68);
     font-size: 15px;
     transform: translateX(390px) translateY(-58px);
-    
     cursor: pointer
+}
+.eIcon{
+    transform: translateX(390px) translateY(-58px);
+    color: rgb(26, 43, 68);
+    font-size: 15px;
+    cursor: pointer;
 }
 .errors{
     color: red;
@@ -72,11 +76,13 @@
 .cajaboton{
     margin-top: -27px;
 }
- .linkslogin{
+ .linkslogin > a{
     display: flex;
     justify-content: space-around;
     align-content: center;
     align-items: center;
+    text-decoration: none;
+    color: white;
 }
 
 .centrarlogin{
@@ -111,7 +117,19 @@
     margin-left: 1500px;
 }
 
+.faqLanding > a {
+    text-decoration: none;
+    color: white;
+}
+
+
 .footer{
     margin-top: -50px;
-    color: rgba(83, 83, 83, 0.781);
+    color: #9fadca;
 }
+
+.linkForgotPasswordLanding{
+    color:lightgray;
+    text-decoration: none;
+}
+

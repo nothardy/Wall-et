@@ -195,7 +195,7 @@ function Register() {
             <div className={r.descriptionDetails}>
                 <div className={r.linksRegister}>
                     <Link to='/recoverpassword'>
-                        <p >Forgot Password</p>
+                        <p >Forgot Password?</p>
                     </Link>
                     |
                     <Link to='/faq'>
