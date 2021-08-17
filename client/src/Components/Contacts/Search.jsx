@@ -32,7 +32,7 @@ export const Search = ({ funSearch }) => {
       <div className={style.bus}>
         <form className={style.form} onSubmit={handleSubmit}>
           <span className={style.icon}>
-            <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
           </span>
           <input
             value={contact}

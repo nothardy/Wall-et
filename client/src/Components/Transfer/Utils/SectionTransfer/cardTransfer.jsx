@@ -9,6 +9,7 @@ import swal from "sweetalert";
 
 import cf from "./cardTransfer.module.css";
 import axios from "axios";
+import { addContact } from "../../../../Redux/Actions/Contacts_Action";
 
 const CardTransfer = () => {
   const store = useSelector((state) => state.transactionsReducer);
@@ -40,7 +41,7 @@ const CardTransfer = () => {
       return await swal("error!", "incomplete field!", "error");
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/transaction/transfer",
+        "/transaction/transfer",
         dataTransaction
       );
       await swal(
@@ -48,7 +49,6 @@ const CardTransfer = () => {
         "Your transaction has been sent successfully!",
         "success"
       );
-
       history.push("/mywallet"); /*REDIRECCIONA */
     } catch (err) {
       await swal("We are sorry!", "You don't have that amount!", "error");
