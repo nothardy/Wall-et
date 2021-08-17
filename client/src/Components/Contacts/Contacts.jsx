@@ -7,15 +7,14 @@ import NavBar from "../Home/NavBar/navBar";
 import Search from "./Search";
 import Filter from "./Filter.jsx";
 import View from "./views/view_contacts";
-import { contactsHard } from "../../Redux/Reducer/Contacts_Reducer";
-import { testInfo } from "../../Redux/Reducer/Balance_Reducer";
 import { useSelector, useDispatch } from "react-redux";
-import { eraseContactFilters } from "../../Redux/Actions/Contacts_Action";
+import {
+  eraseContactFilters,
+  getContacts,
+} from "../../Redux/Actions/Contacts_Action";
 import Transactions from "./Transactions";
 
 function Contacts() {
-  const user = testInfo.transactions;
-  const select = contactsHard.contacts;
   const dispatch = useDispatch();
   let contacts = useSelector((store) => store.contactsReducer.contacts),
     searchedContact = useSelector(
@@ -23,18 +22,26 @@ function Contacts() {
     ),
     orderedContacts = useSelector(
       (store) => store.contactsReducer.orderedContacts
-    );
-  const [shownContacts, setShownContacts] = useState(select);
+    ),
+    transactions = useSelector((store) => store.contactsReducer.transactions);
+  const [firstRender, setFirstRender] = useState(true);
+  const [shownContacts, setShownContacts] = useState(contacts);
   const [search, setSearch] = useState(false);
   //const [renderTransactions, setRenderTransactions] = useState(true);
   const [transactionUser, setTransactionUser] = useState("");
   // hacer una logica para que primero busque si existen los orderedContacts, si no existen es por que
   // nadie apreto ordenamientos, entonces por defecto busco los contacts
+
   useEffect(async () => {
+    if (firstRender === true) {
+      setFirstRender(false);
+      dispatch(getContacts());
+    }
+
     if (searchedContact.length > 0) setShownContacts(searchedContact);
     else if (orderedContacts.length > 0) setShownContacts(orderedContacts);
     else setShownContacts(contacts);
-  }, [contacts, searchedContact, orderedContacts]);
+  }, [contacts, searchedContact, orderedContacts, firstRender]);
 
   const funSearch = () => {
     if (search === true) dispatch(eraseContactFilters());
@@ -51,7 +58,7 @@ function Contacts() {
         onClick={funSearch}
         className={c.button}
         type="button"
-        class="w3-button w3-red"
+        className="w3-button w3-red"
       >
         X
       </button>
@@ -87,7 +94,10 @@ function Contacts() {
             <div className={c.button}></div>
           </div>
           <div className={c.transactions}>
-            <Transactions transactionList={user} mail={transactionUser} />
+            <Transactions
+              transactionList={transactions}
+              mail={transactionUser}
+            />
           </div>
         </div>
       </div>

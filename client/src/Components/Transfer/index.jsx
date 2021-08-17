@@ -7,13 +7,14 @@ import NavTransaction from "./Utils/NavTransaction";
 import { useParams } from "react-router";
 
 import p from "./index.module.css";
+import { getContacts } from "../../Redux/Actions/Contacts_Action";
 
 function Transfer() {
   let { section } = useParams();
-  console.log(section);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDateUser());
+    dispatch(getContacts());
   }, [dispatch]);
 
   return (

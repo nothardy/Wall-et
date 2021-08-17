@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import tb from "./Transactions.module.css";
 import ViewTransaction from "./views/view_transactions";
 import { filterTransactions } from "../../utils/FilterTransactions";
 
 export const Transactions = (props) => {
   let transactions = props.transactionList;
-  transactions = filterTransactions(transactions, props.mail);
+  transactions = transactions
+    ? filterTransactions(transactions, props.mail)
+    : [];
+  const [transactionsShown, setTransactionsShown] = useState(transactions);
+  useEffect(() => {
+    setTransactionsShown(filterTransactions(props.transactionList, props.mail));
+  }, [props.mail, props.transactionList]);
 
+  let id = 0;
   return (
     <div className={tb.containerTransaction}>
       <div className={tb.headerTransaction}>
@@ -15,10 +22,10 @@ export const Transactions = (props) => {
         }`}</h2>
       </div>
       <div className={tb.bodyTransaction}>
-        {transactions && transactions.length > 0 ? (
-          transactions.map((el) => (
+        {transactionsShown && transactionsShown.length > 0 ? (
+          transactionsShown.map((el) => (
             <ViewTransaction
-              key={el.id}
+              key={++id}
               from={el.from}
               to={el.to}
               amount={el.amount}

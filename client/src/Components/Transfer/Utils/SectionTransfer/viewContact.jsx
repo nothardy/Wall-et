@@ -1,15 +1,23 @@
 /* eslint-disable */
 import React from "react";
 import { getUserByCVU } from "../../../../Redux/Actions/Transactions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import vc from "./viewContact.module.css";
 
-const ViewContact = ({ id, fullname, CVU, toggleTransaction }) => {
+const ViewContact = ({ id, fullname, CVU, toggleTransaction, mail }) => {
   const dispatch = useDispatch();
+  const user = useSelector((store) => store.homeReducer.User);
 
   const handleSubmit = async () => {
     /* alert(`hola ${fullname}`) */
-    await dispatch(getUserByCVU({ cvu: CVU }));
+    //if (CVU) await dispatch(getUserByCVU({ cvu: CVU }));
+    await dispatch(
+      getUserByCVU({
+        data: mail,
+        cvuAccount: user.account_data.cvu,
+        mailAccount: user.account_data.mail,
+      })
+    );
     toggleTransaction();
   };
 
@@ -24,7 +32,7 @@ const ViewContact = ({ id, fullname, CVU, toggleTransaction }) => {
 
       <div className={vc.right}>
         <h3 id={vc.name}>{fullname}</h3>
-        <span id={vc.cvu}>CVU: {CVU}</span>
+        <span id={vc.cvu}>Mail: {mail}</span>
         <button id={vc.btnSubmit} onClick={() => handleSubmit()}>
           Send
         </button>
