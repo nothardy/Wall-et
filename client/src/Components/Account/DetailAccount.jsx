@@ -111,132 +111,170 @@ function DetailAccount() {
       .then(async () => {
         await dispatch(getDateUser());
       })
-      .then((logout) => {})
+      .then((logout) => { })
       .catch((error) => console.log(error));
     swal("The Card was deleted", { icon: "success" });
   }
   // var regex = new Regex("^[0-9]+$");
 
   return (
-    <div className={a.container}>
+    <div className={a.containerProfile}>
       {user ? (
-        <div>
-          <div>
-            <img className="image" src={`${user.account_data.photo}`} alt="" />
-            <button className="" onClick={() => toggleChangePhoto()}>
-              {" "}
-              Change Photo{" "}
-            </button>
-            {changePhoto ? (
-              <div>
-                {" "}
-                <UploadPhoto close={toggleChangePhoto} />{" "}
+        <div className={a.containerDetailsProfile}>
+          <div >
+            <div className={a.seccionphoto}>
+              <img className={a.image} src={`${user.account_data.photo}`} alt="" />
+              <button className="" onClick={() => toggleChangePhoto()} >
+                {" "}<img
+                  src="https://image.flaticon.com/icons/png/512/964/964100.png"
+                  alt=""
+                  className={a.iconphoto}
+                />
+                Change Photo{" "}
+              </button>
+              {changePhoto ? (
+                <div>
+                  {" "}
+                  <UploadPhoto close={toggleChangePhoto} />{" "}
+                </div>
+              ) : null}
+            </div>
+            <div className={a.datosAndCards}>
+              <div className={a.secciondatos}>
+                <div className={a.datospersonales}>
+                  <p>Full Name:</p>
+                  <p>{user.user_data.fullname}</p>
+                </div>
+                <div className={a.datospersonales}>
+                  <p>E-mail:</p>
+                  <p>{user.account_data.mail}</p>
+                </div>
+                <div className={a.datospersonales}>
+                  <p>Identification Number:</p>
+                  <p>{user.user_data.dni}</p>
+                </div>
+                <div className={a.datospersonales}>
+                  <p >Birth Date:</p>
+                  <p>{user.user_data.birth}</p>
+                </div>
+                <div className={a.datospersonales} >
+                  <p>Address:</p>
+                  <p>{user.user_data.ubicacion? user.user_data.ubicacion:"Not Available"}</p>
+                </div>
+                <div className={a.seccionCVU}>
+                  <p>CVU:</p>
+                  <form>
+                    <div className={a.inputAndIcon}>
+                      <input ref={textAreaRef} value={user.account_data.cvu} className={a.inputCVU} />
+                      {document.queryCommandSupported("copy") && (
+                        <div>
+                          <FontAwesomeIcon
+                            onClick={copyToClipboard}
+                            icon={faCopy}
+                            // className={a.icon}
+                            id="show_hide"
+                            />
+                          {copySuccess}
+                        </div>
+                      )}
+                    </div>
+                  </form>
+                </div>
               </div>
-            ) : null}
-            <div>
-              <p>Full Name:</p>
-              <p>{user.user_data.fullname}</p>
-            </div>
-            <div>
-              <p>E-mail:</p>
-              <p>{user.account_data.mail}</p>
-            </div>
-            <div>
-              <p>Identification Number:</p>
-              <p>{user.user_data.dni}</p>
-            </div>
-            <div>
-              <p>Birth Date:</p>
-              <p>{user.user_data.birth}</p>
-            </div>
-            <div>
-              <p>Address:</p>
-              <p>{user.user_data.ubicacion}</p>
-            </div>
-            <div>
-              <p>Cards: </p>
-              {user.account_data.cards.length > 0
-                ? user.account_data.cards.map((card) => (
-                    <div key={card.id}>
-                      {/* <Cards
+              <div className={a.seccioncardAndButtons}>
+                <div className={a.seccionCard}>
+                  <p>Cards: </p>
+                  {user.account_data.cards.length > 0
+                    ? user.account_data.cards.map((card) => (
+                      <div key={card.id} className={a.singlecardContainer}>
+                        {/* <Cards
                                     name={card.card_name}
                                     number={card.card_num.substring(0, card.card_num.length-4).replace(/[0-9]/g, "") + card.card_num.substring(card.card_num.length - 4, card.card_num.length)}
-                                /> */}
-                      <ul>
-                        <li>
-                          Card ending in{" "}
-                          {card.card_num.substring(
-                            card.card_num.length - 4,
-                            card.card_num.length
-                          ) +
-                            " " +
-                            card.card_name}
-                        </li>
-                      </ul>
-                      <button
-                        value={card.id}
-                        onClick={() => deleteCard(card.id)}
-                      >
-                        Delete Card
-                      </button>
+                                  /> */}
+                        <ul>
+                          <li>
+                            Card ending in{" "}
+                            {card.card_num.substring(
+                              card.card_num.length - 4,
+                              card.card_num.length
+                              ) +
+                              " " +
+                              card.card_name}
+                          </li>
+                        </ul>
+                        <button
+                          value={card.id}
+                          onClick={() => deleteCard(card.id)}
+                          className={a.buttonsDeleteA}
+                          >
+                          Delete Card
+                        </button>
+                      </div>
+                    ))
+                    : "No cards available"}
+
+                  <button className="" onClick={() => toggleAddCard()}> 
+                    {" "}<img
+                      src="https://image.flaticon.com/icons/png/512/2188/2188735.png"
+                      alt=""
+                      className={a.iconcard}
+                    />Add Card
+
+                    {" "}
+                  </button>
+                  {addCard ? (
+                    <div>
+                      {" "}
+                      <AddCard close={toggleAddCard} />{" "}
                     </div>
-                  ))
-                : "No cards available"}
-            </div>
-            <button className="" onClick={() => toggleAddCard()}>
-              {" "}
-              Add Card{" "}
-            </button>
-            {addCard ? (
-              <div>
-                {" "}
-                <AddCard close={toggleAddCard} />{" "}
-              </div>
-            ) : null}
-          </div>
-          <div>
-            <label>CVU:</label>
-            <form>
-              <input ref={textAreaRef} value={user.account_data.cvu} />
-              {document.queryCommandSupported("copy") && (
-                <div>
-                  <FontAwesomeIcon
-                    onClick={copyToClipboard}
-                    icon={faCopy}
-                    // className={a.icon}
-                    id="show_hide"
-                  />
-                  {copySuccess}
+                  ) : null}
                 </div>
-              )}
-            </form>
-            <button className="" onClick={() => toggleEditProfile()}>
-              {" "}
-              Edit Profile{" "}
-            </button>
-            {editProfile ? (
-              <div>
-                {" "}
-                <UpdateDetailAccount close={toggleEditProfile} />{" "}
+                <div>
+                  <div>
+                    <button className="" onClick={() => toggleEditProfile()}>
+                      {" "}
+                      <img
+                        src="https://image.flaticon.com/icons/png/512/3462/3462496.png"
+                        alt=""
+                        className={a.iconedit}
+                      />{" "} Edit Profile
+                    </button>
+                    {editProfile ? (
+                      <div>
+                        {" "}
+                        <UpdateDetailAccount close={toggleEditProfile} />{" "}
+                      </div>
+                    ) : null}
+                  </div>
+                  <button className="" onClick={() => toggleEditPassword()}>
+                    {" "}
+                    <img
+                      src="https://image.flaticon.com/icons/png/512/3064/3064493.png"
+                      alt=""
+                      className={a.iconpassword}
+                    />
+
+                    Change Password{" "}
+                  </button>
+                  {editPassword ? (
+                    <div>
+                      {" "}
+                      <UpdatePassword close={toggleEditPassword} />{" "}
+                    </div>
+                  ) : null}
+                  <div>
+                    {/* <Link to='/logout'> */}
+                    <button value={user.id} onClick={() => deleteUser(user.id)} className={a.buttonsDeleteA}>
+                      Delete Account
+                    </button>
+                    {/* </Link> */}
+                    <Link to="/recoverpassword">
+                      <p className={a.forgotPasswordA}>Forgot Password?</p>
+                    </Link>
+                  </div>
+                </div>
               </div>
-            ) : null}
-          </div>
-          <button className="" onClick={() => toggleEditPassword()}>
-            {" "}
-            Change Password{" "}
-          </button>
-          {editPassword ? (
-            <div>
-              {" "}
-              <UpdatePassword close={toggleEditPassword} />{" "}
             </div>
-          ) : null}
-          <div>
-            {/* <Link to='/logout'> */}
-            <button value={user.id} onClick={() => deleteUser(user.id)}>
-              Delete Account
-            </button>
-            {/* </Link> */}
           </div>
         </div>
       ) : (
@@ -251,9 +289,6 @@ function DetailAccount() {
         </div>
       )}
 
-      <Link to="/recoverpassword">
-        <p>Forgot Password?</p>
-      </Link>
     </div>
   );
 }

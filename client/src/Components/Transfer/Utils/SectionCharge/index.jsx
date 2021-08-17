@@ -17,7 +17,6 @@ const Charge = () => {
         <Card />
       </div>
       <div className={c.right}>
-        <h3>Enter cash</h3>
         <Cash />
       </div>
     </div>

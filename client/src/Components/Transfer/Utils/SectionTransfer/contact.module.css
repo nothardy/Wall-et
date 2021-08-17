@@ -1,23 +1,25 @@
 .container{
-    background-color: var(--color-navTransaction);
-    border: 1px solid black;
-    width: 36rem;
-    height: 21rem;
+    /* background-color: var(--color-navTransaction); */
+    background: radial-gradient(#76b2fe, #b69efe);
+    /* border: 1px solid black; */
+    width: 920px;
+    height: 550px;
     border-radius: 4px;
     margin-top: 3rem;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
 }
 
 .headerContact{
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid midnightblue;
 }
 
 #titleContact{
     padding: 11px 30px;
-    color: #ffffff;
+    color: midnightblue;
     margin: 0;
-    border-bottom: 5px solid #ffffff;
+    border-bottom: 5px solid midnightblue;
 }
 
 .bodyContact{
@@ -34,7 +36,7 @@
     height: 0.5rem;   
   }
 .bodyContact::-webkit-scrollbar-thumb {
-    background: rgb(20, 20, 20);
+    background: midnightblue;
     border-radius: 25px;
     width: 0.4rem;
   }

@@ -102,7 +102,7 @@ function AddCard({ close }) {
             number={updateinfo.card_num}
           />
 
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={(e) => handleSubmit(e)} className={c.addCardForm}>
             <div>
               <div>
                 <p htmlFor="number">Number of credit or debit Card:</p>

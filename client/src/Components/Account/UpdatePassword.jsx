@@ -117,7 +117,7 @@ function UpdatePassword({ close }) {
               </div>
               <div>
                 <input
-                  className=""
+                  className={p.inputPassword}
                   type={show ? "text" : "password"}
                   placeholder="Enter your New Password*"
                   name="password"
@@ -151,7 +151,7 @@ function UpdatePassword({ close }) {
               <div>
                 <p className="">Confirm Password*</p>
                 <input
-                  className=""
+                  className={p.inputPassword}
                   type={showpass2 ? "text" : "password"}
                   placeholder="Confirm Password*"
                   name="confirmpassword"

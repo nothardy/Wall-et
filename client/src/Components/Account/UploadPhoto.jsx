@@ -77,9 +77,11 @@ export default function UploadPhoto({ close }) {
           Submit
         </button>
       </form>
+      <div className={up.contenedorFotoSubmit}>
       {previewSource && (
-        <img src={previewSource} alt="chosen" style={{ height: "300px" }} />
+        <img src={previewSource} alt="chosen" className={up.contenedorFotoSubmit} />
       )}
+      </div>
       <button onClick={() => close()}>X</button>
     </div>
   );

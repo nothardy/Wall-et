@@ -3,11 +3,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 92%;
+    margin-top: 200px;
+    width: 850px;
+    height:450px;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+    background: radial-gradient(#76b2fe, #b69efe);
+    border-radius: 15px;
 }
 
 .paragraph{
-    font-size: 1.5rem;
+    font-size: 28px;
     width: 60%;
     margin: 0;
     text-align: center;

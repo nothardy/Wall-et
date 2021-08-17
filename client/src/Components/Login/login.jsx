@@ -125,12 +125,14 @@ const Login = () => {
             </Link>
           </div>
         </div>
+        
         <div className={s.linkslogin}>
           <Link to="/recoverpassword">
             <p>Forgot Password?</p>
           </Link>
         </div>
-      </form>
+        </form>
+        <div className={s.margeninferior}>
       <div className={s.contactus}>
         <div className={s.faqLanding}>
           <Link to="/faq">
@@ -146,6 +148,7 @@ const Login = () => {
         {" "}
         <p> Copyright© 2021 Wall-et</p>
       </footer>
+    </div>
     </div>
   );
 };

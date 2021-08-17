@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Tilt from "react-vanilla-tilt";
 import PagoFacil from "./pagofacil.png";
 import { getCodeCash } from "../../../../Redux/Actions/Transactions";
 import ch from "./cash.module.css";
@@ -13,8 +12,8 @@ const Cash = () => {
     storeOfUser && dispatch(getCodeCash(storeOfUser.id));
   }, [dispatch, storeOfUser]);
   return (
-    <Tilt>
       <div className={ch.container}>
+        <h1>Enter cash</h1>
         <p>
           Use this code whenever you want to fund your account. The minimum
           amount is $ 50.
@@ -25,7 +24,6 @@ const Cash = () => {
         <p>Show your code to the cashier at:</p>
         <img src={PagoFacil} alt="PagoFacil" />
       </div>
-    </Tilt>
   );
 };
 

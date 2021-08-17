@@ -291,30 +291,46 @@ function Register() {
           )}
           <div className={r.descriptionDetails}>
             <div className={r.linksRegister}>
+            <div className={r.faq}>
               <Link to="/recoverpassword">
                 <p>Forgot Password?</p>
               </Link>
-              |
+              </div>
+              |<div className={r.faq}>
               <Link to="/faq">
                 <p>Frecuently Asked Questions</p>
               </Link>
+              </div>
             </div>
             <div className={r.loginFromRegister}>
               <p className={r.doYouHave}>You already have an account?</p>
+              <div className={r.faq}>
               <Link to="/">
-                <p>Log in</p>
+                <p >Log in</p>               
               </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div className={r.contenedorinferior}>
       <div className={r.contactus}>
+      <div className={r.faq}>
         <Link to="/faq">
-          <p>FAQ</p>
+          <p className={r.faq}>FAQ</p>
         </Link>
-        <p>Contact Us</p>
-        <p> +54 411154545444</p>
-        <p> wall-et@wmail.com</p>
+        </div>
+        <div className={r.letraContactus}>
+        <p>
+          Contact Us <br></br>+54 411154545444 <br></br>
+          wall-et@wmail.com
+        </p>
+        </div>
+        <footer className={r.footer}>
+        {" "}
+        <p> Copyright© 2021 Wall-et</p>
+      </footer>
+      </div>
       </div>
     </div>
   );
