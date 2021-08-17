@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const filterContacts = (transactions) => {
   let contacts = transactions.map((transaction) => {
     let arrobaIndexFrom = Array.from(transaction.from).indexOf("@"),
