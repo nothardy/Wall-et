@@ -125,7 +125,6 @@ const getTransactions = async (id) => {
       return transactionRealize;
     })
   );
-  console.log("LISTTRANSACTIONSSSSSSSSSSSSSSSSSSSSSSSSSSS: ", listTransactions);
   return listTransactions;
 };
 module.exports = { getTransactions, addContactToDb };

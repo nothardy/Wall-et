@@ -1,14 +1,4 @@
 export const filterContacts = (transactions) => {
-  // let contacts = transactions.map((transaction) => {
-  //   let arrobaIndex = Array.from(transaction.from).indexOf("@");
-  //   return {
-  //     fullname: transaction.from.slice(0, arrobaIndex),
-  //     mail: transaction.from,
-  //     date_transaction: transaction.createdAt,
-  //   };
-  // });
-  // contacts = [...new Set(contacts)];
-  // return contacts;
   let contacts = transactions.map((transaction) => {
     let arrobaIndexFrom = Array.from(transaction.from).indexOf("@"),
       arrobaIndexTo = Array.from(transaction.to).indexOf("@");
@@ -22,7 +12,16 @@ export const filterContacts = (transactions) => {
       date_transaction: transaction.transaction_date,
     };
   });
-  return contacts;
+  contacts = [...new Set(contacts)];
+  let contactMails = contacts.map((contact) => contact.mail);
+  contactMails = [...new Set(contactMails)];
+  let uniqueContacts = contacts.map((contact) => {
+    if (contactMails.includes(contact.mail)) {
+      contactMails.splice(contactMails.indexOf(contact.Mail) - 1, 1);
+      return contact;
+    }
+  });
+  return uniqueContacts.filter((contact) => contact !== undefined);
 };
 
 export const searchContact = (contacts, mail) => {
