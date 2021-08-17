@@ -4,6 +4,7 @@
     background: none;
     border-bottom: 1px solid;
     width: 100%;
+    color: midnightblue;
 }
 
 .left{
@@ -51,7 +52,7 @@
     transition: 0.1s;
 }
 #btnSubmit:hover{
-    color: white;
-    background-color: rgb(88, 139, 36);
-    border: 2px solid white;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.747);
 }

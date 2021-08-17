@@ -3,16 +3,16 @@
     justify-content: center;
     background-color: #ffffff;
     color: rgb(3, 5, 7);
-    height: 20rem;
-    width: 390px; 
+    height: 23rem;
+    width: 450px; 
     /* box-shadow: 0 0 0 3px #656673; */
      flex-direction: row;
     border-radius: 10px;
     position: relative; 
-    margin-left: 60px;
-    margin-top: 4rem;
+    margin-left: 90px;
+    margin-top: 2rem;
     background: radial-gradient(#76b2fe, #b69efe); 
-    box-shadow: 0px 6px 10px rgb(0 0 0 / 25%);
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
   }
 
 .name{
@@ -23,6 +23,7 @@
     color:midnightblue;
 }
 .btnBalance{
+    margin-bottom: 60px;
     background: none;
     border-radius: 5px;
     color: midnightblue;
@@ -49,6 +50,7 @@
 .saldo{
 display: flex;
 align-items: center; 
-font-size: 1.5rem;
+font-size: 1.8rem;
 color:midnightblue;
+margin-top: -5rem;
 }

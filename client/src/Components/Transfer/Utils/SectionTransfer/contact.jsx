@@ -4,7 +4,7 @@ import ViewContact from './viewContact';
 import c from './contact.module.css'
 
 const Contact = ({toggleTransaction}) => {
-    const contacts= [
+    const contacts= undefined/* [
         {
           id: 1,
           fullname: "Gonzalo",
@@ -39,19 +39,20 @@ const Contact = ({toggleTransaction}) => {
             CVU:'0000047411100798896147',
             mail: "Luchiana@gmail.com",
             date_transaction: "2021-05-03T15:19:28.986",
-        }];
+        }]; */
 
     return (
         <div className={c.container}>
             <div className={c.headerContact}>
-                <h2 id={c.titleContact}>Contact</h2>
+                <h2 id={c.titleContact}>Contacts</h2>
             </div>
             
             <div className={c.bodyContact}>
                 { /* ACA TENDRIA QUE CONECTAR CON MI STORE. */
-                    contacts.map( el => <ViewContact key={el.id} id={el.id} CVU={el.CVU} 
+                    contacts? contacts.map( el => <ViewContact key={el.id} id={el.id} CVU={el.CVU} 
                         fullname={el.fullname} mail={el.mail} toggleTransaction={toggleTransaction}
                     />)/* PONER EL CASO DE QUE NO ALLA CONTACT, APAREZCA UNA IMG */
+                    : <img src="https://image.flaticon.com/icons/png/512/3565/3565856.png" alt="tda" />
                 }
             </div>
         </div>

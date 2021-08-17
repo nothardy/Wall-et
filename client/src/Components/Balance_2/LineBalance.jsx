@@ -16,7 +16,7 @@ export function LineBalance(props) {
     if (props.userInfo) {
       setAxisState(setAxis(userInfo.account_data.transactions));
     }
-  }, [props, userInfo.account_data.transactions]);
+  }, [props, userInfo]);
 
   const state = {
     labels: axisState[0],

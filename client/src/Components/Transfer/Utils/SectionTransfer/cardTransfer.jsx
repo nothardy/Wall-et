@@ -40,7 +40,7 @@ const CardTransfer = () => {
       return await swal("error!", "incomplete field!", "error");
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/transaction/transfer",
+        "/transaction/transfer",
         dataTransaction
       );
       await swal(
@@ -56,7 +56,7 @@ const CardTransfer = () => {
   };
   return (
     <div className={cf.container}>
-      <Tilt
+      {/* <Tilt
         style={{
           widht: "28rem",
           height: "28rem",
@@ -67,14 +67,14 @@ const CardTransfer = () => {
           padding: "6px",
           backgroundColor: "white",
         }}
-      >
+      > */}
         <form onSubmit={(e) => handleSubmit(e)}>
           <h3>
             How much money do you want to send <br /> to {fullname} ?
           </h3>
           <span>Mail: {mail}</span>
           <div className={cf.moldAmount}>
-            <img src={SignoPeso} alt="signo peso" />
+            <img src="https://image.flaticon.com/icons/png/512/991/991952.png" alt="signo peso" />
             <input
               type="number"
               name="amount"
@@ -89,9 +89,9 @@ const CardTransfer = () => {
             In your Wall-et you have $
             {dataUser ? dataUser.account_data.balance : "nou money"}
           </span>
-          <button type="submit">Send</button>
+          <button className={cf.buttonsend} type="submit">Send</button>
         </form>
-      </Tilt>
+      {/* </Tilt> */}
     </div>
   );
 };

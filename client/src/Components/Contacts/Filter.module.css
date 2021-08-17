@@ -16,9 +16,10 @@
 }
 .base {
   color: rgb(0, 0, 0);
-  margin-left: -20rem;
+  display:flex;
+  align-items:flex-start;
   height: 7rem;
   margin-top: 10rem;
   margin-right: 6px;
-  margin-left: 6px;
+  /* margin-left: -90px; */
 }

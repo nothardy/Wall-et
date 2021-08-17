@@ -1,5 +1,7 @@
 .container {
-  background-color: #cbaa48c2;
+  background: radial-gradient(#76b2fe, #b69efe);
+  box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+  color: midnightblue;
 }
 
 .header {
@@ -21,7 +23,7 @@
   height: 0.5rem;
 }
 .body::-webkit-scrollbar-thumb {
-  background: rgb(20, 20, 20);
+  background: midnightblue;
   border-radius: 25px;
   width: 0.4rem;
 }

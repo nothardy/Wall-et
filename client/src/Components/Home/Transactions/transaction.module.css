@@ -8,13 +8,14 @@
     
     min-width: 16rem;
     position: absolute;
+    
     width: 32.5rem;
     height: 24rem;
     border: none;
     background: radial-gradient(#76b2fe, #b69efe);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
     transition: all 0.2s;
-    bottom: 6rem;
+    bottom: 5rem;
     right: 3.5rem;
     display: flex;
     flex-direction: column;

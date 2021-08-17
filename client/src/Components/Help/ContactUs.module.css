@@ -10,10 +10,11 @@
     flex-direction: column;
     max-width: 500px;
     width: 200%;
-    background-color: #5791ff;
+    background: radial-gradient(#76b2fe, #b69efe);
     margin: 20px auto;
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 15px;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
 }
 
 .title{
@@ -21,7 +22,7 @@
     font-weight: 700;
     font-family: 'Source Sans Pro', sans-serif;
     margin-bottom: 25px;
-    color: black;
+    color: midnightblue;
     text-align: center;
 }
 .form{
@@ -30,45 +31,57 @@
 .field{
     font-size: 15px;
     font-weight: bold;
+    color: midnightblue;
 }
 .input{
-    width: 90%;
+    width: 450px;
     font-size: 15px;
+    font-weight: bold;
     padding: 8px 10px;
-    border-radius: 10px;
+    border-radius: 30px;
     margin-bottom: 25px;
     margin-top: 10px;
-    border: none;
+    border: gray solid 1px;
     height: 30px;
+    /* background: none; */
+    opacity: 0.7;
+    outline: none;
+    color: #080825;
 }
 .textarea{
-    width: 90%;
+    width: 446px;
     font-size: 15px;
+    font-weight: bold;
     padding: 8px 10px;
     border-radius: 10px;
     margin-bottom: 25px;
-    margin-top: 10px;
+    margin-top: 18px;
     border: none;
     height: 100px;
+    opacity: 0.7;
+    outline: none;
+    border: gray solid 1px;
+    color: #080825;
+    resize: none;
 }
+
 .button{
-    margin: 20px 0 30px 0;
-    height: 45px;
-    width: 95%;
-    padding: 8px 10px;
-    font-size: 20px;
+    margin: 0px 0 30px 0;
+     width: 468px; 
+    padding: 10px 10px;
+    font-size: 18px;
     font-weight: bold;
-    border: 0;
-    background-color: navy;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: none;
+    background-color: #5791ff;
     color: white;
     cursor: pointer;
-    border-radius: 10px;
-    text-transform: uppercase;
+    border-radius: 30px;
 }
 .button:hover{
     background-color: #6F77BF;
-    color: black;
 }
+
 .icon{
     cursor: pointer;
     transform: translateX(-30px);

@@ -19,14 +19,14 @@ export const Filter = () => {
   return (
     <>
       <div className={style.base}>
-        <label>Show by order</label>
+        {/* <label>Show by order</label> */}
         <select
           className={style.sele}
           name="Order"
           id="Order"
           onChange={(e) => handleOrder(e)}
         >
-          <option value="default">------</option>
+          <option value="default">Show by order</option>
           <option value={DESCENDENTE}>Mas recientes</option>
           <option value={ASCENDENTE}>Mas antiguas</option>
         </select>
