@@ -73,9 +73,9 @@ export default function UploadPhoto({ close }) {
           value={fileInputState}
           className={up.forminput}
         />
-        <button className={up.btn} type="submit">
+        {/* <button className={up.btn} type="submit">
           Submit
-        </button>
+        </button> */}
       </form>
       <div className={up.contenedorFotoSubmit}>
       {previewSource && (

@@ -17,20 +17,20 @@ const CAPTCHA_KEY = process.env.REACT_APP_CAPTCHA_KEY;
 //import Button from 'react-bootstrap/Button';
 //import Form from 'react-bootstrap/Form';
 
-// export function validate(input) {
-//     let errors = {};
-//     if (!input.mail) {
-//       errors.mail = 'Required Email';
-//     } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
-//       errors.mail = 'Invalid Email ';
-//     }
-//     if (!input.password) {
-//         errors.password = 'Required password';
-//       } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
-//         errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
-//       }
-//     return errors;
-//   };
+export function validate(input) {
+    let errors = {};
+    if (!input.mail) {
+      errors.mail = 'Required Email';
+    } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
+      errors.mail = 'Invalid Email,  Example: wallet@gmail.com';
+    }
+    if (!input.password) {
+        errors.password = 'Required Password';
+      } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
+        errors.password = '';
+      }
+    return errors;
+  };
 
 function Register() {
   const [input, setInput] = useState({
@@ -61,10 +61,10 @@ function Register() {
       ...input,
       [e.target.name]: e.target.value,
     });
-    // setErrors(validate({
-    //     ...input,
-    //     [e.target.value]: e.target.value
-    // }));
+    setErrors(validate({
+        ...input,
+        [e.target.value]: e.target.value
+    }));
   }
 
   async function handleSubmit(e) {
@@ -255,6 +255,7 @@ function Register() {
                   value={input.dni}
                   onChange={handleChange}
                   className={r.inputregister}
+                  minLength="8"
                 />
                 <input
                   htmlFor="birthdate"
