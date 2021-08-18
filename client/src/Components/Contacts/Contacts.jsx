@@ -105,4 +105,8 @@ function Contacts() {
   );
 }
 
+<<<<<<< HEAD
 export default Contacts;
+=======
+export default Contacts;
+>>>>>>> d2a1bddd5c4fc2ff1d471d373ac47a780d0e9e4f

@@ -5,7 +5,6 @@ import NavBar from '../Home/NavBar/navBar'
 import a from './Account.module.css'
 import DetailAccount from './DetailAccount';
 
-
 function Account() {
     return (
         <div>
