@@ -14,7 +14,6 @@ import Help from "./Components/Help/Help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
 
-
 // CSS hecho por:
 // Cami y Celes: /register y /home
 // Gonza: NavBar
