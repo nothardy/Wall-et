@@ -14,8 +14,7 @@ const Contact = ({ toggleTransaction }) => {
 
       <div className={c.bodyContact}>
         {
-          /* ACA TENDRIA QUE CONECTAR CON MI STORE. */
-          contacts ? (
+          contacts.length > 0 ? (
             contacts.map((el) => (
               <ViewContact
                 key={el.id}
@@ -26,13 +25,11 @@ const Contact = ({ toggleTransaction }) => {
                 toggleTransaction={toggleTransaction}
               />
             ))
-          ) : (
-            <img
-              src="https://image.flaticon.com/icons/png/512/3565/3565856.png"
-              alt="tda"
-            />
-          )
-          /* PONER EL CASO DE QUE NO ALLA CONTACT, APAREZCA UNA IMG */
+           ): 
+           <div className={c.default}>
+              <img src="https://image.flaticon.com/icons/png/512/3565/3565856.png" alt="icon not contact"/>
+                  <h2>when you make a transfer, the recipient will <br/> automatically be added as a contact.</h2>
+           </div>
         }
       </div>
     </div>
