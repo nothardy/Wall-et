@@ -50,23 +50,16 @@ module.exports = (sequelize) => {
         },
 
         photo: {
-<<<<<<< HEAD
-            type: DataTypes.STRING,
-=======
             type: DataTypes.TEXT,
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
         },
 
         admin: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
-<<<<<<< HEAD
-=======
         activated: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
         },
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     })
 }

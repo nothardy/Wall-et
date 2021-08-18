@@ -1,11 +1,4 @@
 .container{
-<<<<<<< HEAD
-    width: 29rem;
-}
-
-.moldAmount{
-    background: none/* antiquewhite */;
-=======
     width: 32rem;
     box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
     background-color: white;
@@ -15,7 +8,6 @@
 
 .moldAmount{
     background:white/* antiquewhite */;
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     width: 14rem;
     height: 3rem;
     position: relative;
@@ -25,17 +17,10 @@
 }
 
 .moldAmount > img{
-<<<<<<< HEAD
-    width: 2.7rem;
-    position: absolute;
-    left: -12px;
-    bottom: -8px;
-=======
     width: 1.8rem;
     position: absolute;
     left: -5px;
     bottom: 0px;
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 #inputAmount{  
@@ -55,9 +40,6 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
     }
-<<<<<<< HEAD
-input[type=number] { -moz-appearance:textfield; }
-=======
 input[type=number] { -moz-appearance:textfield; }
 
 .buttonsend{
@@ -79,4 +61,3 @@ input[type=number] { -moz-appearance:textfield; }
 .buttonsend:hover{
     background-color: #6F77BF;
  }
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

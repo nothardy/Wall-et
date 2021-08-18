@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-function DetailAccount() {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default DetailAccount
-=======
 /* eslint-disable */
 import { React, useEffect, useState, useRef } from "react";
 import { getDateUser } from "../../Redux/Actions/Home";
@@ -286,4 +273,3 @@ function DetailAccount() {
   );
 }
 export default DetailAccount;
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

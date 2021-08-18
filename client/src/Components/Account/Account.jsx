@@ -5,10 +5,6 @@ import NavBar from '../Home/NavBar/navBar'
 import a from './Account.module.css'
 import DetailAccount from './DetailAccount';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 function Account() {
     return (
         <div>
@@ -18,11 +14,7 @@ function Account() {
                     <NavBar />
                 </div>
                 <div className={a.right}>
-<<<<<<< HEAD
-                    <DetailAccount />
-=======
                     <DetailAccount/>
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
                 </div>
             </div>
         </div>

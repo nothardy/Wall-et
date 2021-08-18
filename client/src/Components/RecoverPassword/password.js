@@ -1,95 +1,22 @@
 import React, { useState } from 'react';
 import { forgot } from '../../Redux/Actions/resetActions';
 import { useDispatch } from "react-redux";
-<<<<<<< HEAD
-import s from './password.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-=======
 import ps from './password.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 export function validate(user) {
     let errors = {};
     if (!user.mail) {
-<<<<<<< HEAD
-      errors.mail = ('Required E-mail')
-    } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(user.mail)) {
-      errors.mail = 'Invalid E-mail ';
-=======
         errors.mail = ('Required E-mail')
     } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(user.mail)) {
         errors.mail = 'Invalid E-mail ';
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     }
     return errors;
 }
 
 const RecoverPassword = () => {
-<<<<<<< HEAD
-    const [ user, setUser ] = useState({
-        mail:'',
-    });
-
-const [errors, setErrors] = useState({
-    mail:''
-});
-
-const dispatch = useDispatch();
-
-function handleChange(e) {
-    setUser({
-        ...user,
-        [e.target.name]: e.target.value
-        });
-    setErrors(validate({
-       ...user,
-       [e.target.name]: e.target.value
-       }));
-}
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(forgot(user.mail));
-}
-
-return(
-<div className={s.body}>
-    <div className={s.wrapper}>
-        <h2 className={s.title}>Forgot Password?</h2>
-                <form className={s.form} onSubmit={(e) => handleSubmit(e)}>
-                <div className={s.field}>E-mail</div>
-                    <input
-                    className={s.input}
-                    autoComplete='off'
-                    id='mail'
-                    type='text'
-                    required='required'
-                    name='mail'
-                    value={user.mail}
-                    placeholder="example@mail.com"
-                    onChange={handleChange}
-                    />
-                    <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className={s.icon}
-                    id='envelope'
-                    />
-                    {errors.mail && (
-                <p className={s.error}>{errors.mail}</p>
-            )}
-            
-                        <div>
-                            <button className={s.button} type='submit'>Submit</button>
-                        </div>
-    </form>
-    </div>
-</div>  
-)
-=======
     const [user, setUser] = useState({
         mail: '',
     });
@@ -180,7 +107,6 @@ return(
 
    
    
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 export default RecoverPassword;

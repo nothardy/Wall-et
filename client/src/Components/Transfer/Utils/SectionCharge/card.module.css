@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-.container{
-    height: 14rem;
-}
-=======
 .container {
   display: flex;
   flex-direction:column;
@@ -26,4 +21,3 @@
 }
 
 
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

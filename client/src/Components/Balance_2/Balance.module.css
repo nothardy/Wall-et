@@ -18,15 +18,6 @@
     
   }
   .grafico {
-<<<<<<< HEAD
-    height: 25rem; 
-    width: 35rem;
-    background: radial-gradient(#76b2fe, #b69efe);
-    padding: 6px;
-    border-radius: 8px;
-    margin-left: 1.2rem;
-    margin-top: 3.5rem;
-=======
     height: 22rem; 
     width: 600px;
     background: radial-gradient(#76b2fe, #b69efe);
@@ -34,18 +25,13 @@
     border-radius: 8px;
     margin-left: 5rem;
     margin-top: 3rem;
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
      display: flex;
     flex-direction: row;
     justify-content: center;
     transition: 1s;
     transition-delay: 2,4s;
     transition-timing-function: ease-in-out;
-<<<<<<< HEAD
-    box-shadow: 0px 6px 10px rgb(0 0 0 / 25%);
-=======
     box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
   }
   .balance {
    /*   background-color: #ffffff;
@@ -65,11 +51,7 @@
     height: 15rem;
     box-shadow:0 0 0 3px #656673;
     right: 60px; */
-<<<<<<< HEAD
-    margin: 5px 4rem ;
-=======
     margin: 5px 10rem ;
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
      display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -99,10 +81,7 @@
   justify-content: center;
   height: 30rem; 
   width: 30rem;
-<<<<<<< HEAD
-=======
   color: midnightblue
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
   
 }
 .title{
