@@ -10,10 +10,18 @@
     flex-direction: column;
     max-width: 500px;
     width: 200%;
+<<<<<<< HEAD
     background-color: #5791ff;
     margin: 20px auto;
     padding: 30px;
     border-radius: 5px;
+=======
+    background: radial-gradient(#76b2fe, #b69efe);
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 .title{
@@ -21,7 +29,11 @@
     font-weight: 700;
     font-family: 'Source Sans Pro', sans-serif;
     margin-bottom: 25px;
+<<<<<<< HEAD
     color: black;
+=======
+    color: midnightblue;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     text-align: center;
 }
 .form{
@@ -30,6 +42,7 @@
 .field{
     font-size: 15px;
     font-weight: bold;
+<<<<<<< HEAD
 }
 .input{
     width: 90%;
@@ -69,6 +82,59 @@
     background-color: #6F77BF;
     color: black;
 }
+=======
+    color: midnightblue;
+}
+.input{
+    width: 450px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    border: gray solid 1px;
+    height: 30px;
+    /* background: none; */
+    opacity: 0.7;
+    outline: none;
+    color: #080825;
+}
+.textarea{
+    width: 446px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    margin-top: 18px;
+    border: none;
+    height: 100px;
+    opacity: 0.7;
+    outline: none;
+    border: gray solid 1px;
+    color: #080825;
+    resize: none;
+}
+
+.button{
+    margin: 0px 0 30px 0;
+     width: 468px; 
+    padding: 10px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: none;
+    background-color: #5791ff;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+}
+.button:hover{
+    background-color: #6F77BF;
+}
+
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 .icon{
     cursor: pointer;
     transform: translateX(-30px);

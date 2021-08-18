@@ -1,0 +1,23 @@
+.container{
+    width: 80% ;
+    height:65%;
+    
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* background-color:#dcdbdb; */
+      border-radius: 15px;
+      box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+      background: radial-gradient(#76b2fe, #b69efe);
+    }
+    .buttoneditprofile{
+      /* background: none;
+      border-radius: 5px;
+      color: midnightblue;
+      border: 1px solid white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 8px 20px;
+      transition: 0.4s; */
+    }

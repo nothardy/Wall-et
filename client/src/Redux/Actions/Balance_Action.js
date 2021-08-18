@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //import ruta_balance
 import axios from "axios";
 export const USER_INFO = "USER_INFO";
@@ -18,3 +19,6 @@ export const getUserInfo = () => {
           });
         };
       } */
+=======
+
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

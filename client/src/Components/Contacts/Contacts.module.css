@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container{
     height: calc(100vh - 2.5rem);
     display: flex;
@@ -19,3 +20,77 @@
     flex-direction: row;
     justify-content: center;
 }
+=======
+.container {
+  height: calc(100vh - 2.5rem);
+  display: flex;
+  flex-direction: row;
+  color: midnightblue;
+}
+
+.button {
+  width: 3rem;
+  margin: 4px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+#id {
+  display: flex;
+}
+.left {
+  border: 2px solid rgb(164 178 179);
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  width: 16rem;
+}
+
+.right {
+  border: none;
+  width: 100rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+  
+}
+.contactos {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  overflow-x: hidden;
+  margin-top: 10rem;
+  height: 45rem;
+  border: none;
+  border-radius: 20px;
+  background: radial-gradient(#76b2fe, #b69efe);
+  width: 42vh;
+  /* margin-left: -15rem; */
+}
+.contactos:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.04);
+}
+.contactos::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.5rem;
+}
+.contactos::-webkit-scrollbar-thumb {
+  background:midnightblue;
+  border-radius: 40px;
+  width: 0.4rem;
+}
+.contactos::-webkit-scrollbar-track {
+  background: #0f101370;
+  border-radius: 10px;
+  height: 1rem;
+}
+
+.tittle {
+  align-items: flex-start;
+  margin-left: 2.5rem;
+}
+.transactions {
+  margin-left: -6rem;
+}
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

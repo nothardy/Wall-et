@@ -30,7 +30,11 @@ label {
 }
 .formulario{
     margin-top: 80px;
+<<<<<<< HEAD
     height: 85vh;
+=======
+    height: 80vh;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     display: block;
     justify-content: center;
     align-items: center;
@@ -41,6 +45,10 @@ label {
     border-radius: 30px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
     font-family: 'Source Sans Pro', sans-serif;
+<<<<<<< HEAD
+=======
+    backdrop-filter:blur(5px);
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 } 
 .centrarformulario{
     display:flex;
@@ -99,11 +107,15 @@ label {
     margin: auto;
     padding: 20px 50px;
     text-align: center;
+<<<<<<< HEAD
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     color: #9fadca;
     
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+=======
+    color: #9fadca;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 .icon{
     color: rgb(26, 43, 68);
@@ -138,7 +150,11 @@ label {
     background-color:transparent ;
 }
 .passwordWarning{
+<<<<<<< HEAD
     font-size: small;
+=======
+    font-size: 16px;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     color: #9fadca;
     margin-top: 0px;
 }
@@ -157,8 +173,27 @@ label {
 .contactus{
     font-size: 15px;
     color: #9fadca;
+<<<<<<< HEAD
     margin-top: -110px;
     margin-left: 1500px;
+=======
+    margin-top: -100px;
+    margin-left: 1680px;
+   
+}
+
+.faq > a {
+    text-decoration: none;
+    color:#bacdf3;
+}
+.footer{
+    margin-top: -50px;
+    color: #9fadca;
+    margin-left:-650px;
+}
+.contenedorinferior{
+    margin-top:50px;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 /* .formulario{
     font-family: font-family;

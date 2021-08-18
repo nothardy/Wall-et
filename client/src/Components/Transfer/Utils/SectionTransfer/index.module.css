@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 :root{/* Aqui deberia poner el color que va a utilizar toda la page. De esta manera es una mala practica */
     --color-bg: #dcdbdb;/* Este root dberia estar en SRC/index.css , Pero lo borraron. */
     --color-navTransaction: rgba(121, 115, 115, 0.678);
 }/* EN EL COMPONENTE Trasfer(index) ahi tambien lo utilizo */
+=======
+/* :root{
+    --color-bg: #dcdbdb; 
+    --color-navTransaction: rgba(121, 115, 115, 0.678);
+} */
+
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 .container{
     width: 80%;
@@ -12,6 +20,7 @@
     justify-content: center;
     font-size: 1.5rem;
     position: relative;  /* HIJO DE FHATER */
+<<<<<<< HEAD
 }
 
 .header{
@@ -20,15 +29,39 @@
     display: flex;
     border-radius: 5px;
     border: 1px solid rgb(75, 74, 74);
+=======
+    
+}
+
+.header{
+    margin-top: -100px;
+    margin-bottom: 0px;
+    min-width: 33rem ;
+    background: radial-gradient(#76b2fe, #b69efe);
+    /* background-color: var(--color-navTransaction); */
+    display: flex;
+    border-radius: 15px;
+    /* border: 1px solid rgb(75, 74, 74); */
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     flex-direction: row;
     align-items: center;
     cursor: pointer;
     z-index: 2;
+<<<<<<< HEAD
     width: 80%;
+=======
+    width: 930px;
+    color:midnightblue;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 .header > img {
     margin-right: 14px;
     width: 4rem;
+<<<<<<< HEAD
+=======
+    color: midnightblue;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 .left > h2{
     margin: 0;
@@ -38,12 +71,22 @@
     width: 100%;
     background-color: fuchsia;
     margin-top: 3rem;
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 
 /* PARA ABAJO EMPIEZA EL COMPONENTE SOBRE EXPUESTO */
+<<<<<<< HEAD
 .overexposedComponent{
     background-color: var(--color-bg);/* ESTE BACKGROUNG, HACE QUE NO SE VEA LO DE ABAJO, POR ESO DEBE COINCIDIR CON EL COLOR DE PAGE */
+=======
+.overexposedComponent{ 
+    backdrop-filter: blur(10px);
+    /* background-color: var(--color-bg);ESTE BACKGROUNG, HACE QUE NO SE VEA LO DE ABAJO, POR ESO DEBE COINCIDIR CON EL COLOR DE PAGE */
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     position: absolute;
     z-index: 10;
     width: 100%;
@@ -59,8 +102,14 @@
     height: 14rem;
     background-color: #ffffff;
     padding: 10px;
+<<<<<<< HEAD
     border-radius: 4px;
     position: relative;
+=======
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 #input__codeCVU{
@@ -68,10 +117,17 @@
     border: 2.6px solid #a69898;
     margin-left: 2rem;
     border-radius: 5px;
+<<<<<<< HEAD
     width: 13rem;
     height: 2.8rem;
 }
 #btnSubmit{
+=======
+    width: 25rem;
+    height: 2.8rem;
+}
+/* #btnSubmit{
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     cursor: pointer;
     font-size: 1.3rem;
     padding: 11px 16px;
@@ -83,4 +139,28 @@
     border-radius: 4px;
     background-color: cornflowerblue;
 
+<<<<<<< HEAD
 }
+=======
+} */
+
+#btnSubmit{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 30px;
+    padding:  11px 16px;
+    font-size:  1.3rem;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 15px;
+    cursor:pointer;
+    /* width: 450px; */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+#btnSubmit:hover{
+    background-color: #6F77BF;
+ }
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

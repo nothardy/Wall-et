@@ -1,9 +1,31 @@
 .container{
+<<<<<<< HEAD
     font-size: 1.5rem;
 }
 #box_code{
     background-color: rgba(43, 42, 42, 0.418);
     color: white;
+=======
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    height: 35rem;
+    background: radial-gradient(#76b2fe, #b69efe);
+    border-radius: 15px;
+    color: midnightblue;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+    /* box-shadow: 0px 6px 10px rgb(0 0 0 / 25%); */
+    text-align: center;
+}
+#box_code{
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+   background-color: rgba(43, 42, 42, 21%);
+    color: midnightblue;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     display: flex;
     justify-content: center;
     align-items: center;

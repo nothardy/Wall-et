@@ -3,16 +3,28 @@
     justify-content: center;
     background-color: #ffffff;
     color: rgb(3, 5, 7);
+<<<<<<< HEAD
     height: 20rem;
     width: 390px; 
+=======
+    height: 23rem;
+    width: 450px; 
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     /* box-shadow: 0 0 0 3px #656673; */
      flex-direction: row;
     border-radius: 10px;
     position: relative; 
+<<<<<<< HEAD
     margin-left: 60px;
     margin-top: 4rem;
     background: radial-gradient(#76b2fe, #b69efe); 
     box-shadow: 0px 6px 10px rgb(0 0 0 / 25%);
+=======
+    margin-left: 90px;
+    margin-top: 2rem;
+    background: radial-gradient(#76b2fe, #b69efe); 
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
   }
 
 .name{
@@ -23,6 +35,10 @@
     color:midnightblue;
 }
 .btnBalance{
+<<<<<<< HEAD
+=======
+    margin-bottom: 60px;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     background: none;
     border-radius: 5px;
     color: midnightblue;
@@ -49,6 +65,12 @@
 .saldo{
 display: flex;
 align-items: center; 
+<<<<<<< HEAD
 font-size: 1.5rem;
 color:midnightblue;
+=======
+font-size: 1.8rem;
+color:midnightblue;
+margin-top: -5rem;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }

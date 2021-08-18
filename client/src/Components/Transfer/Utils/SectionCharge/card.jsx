@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import Tilt from 'react-vanilla-tilt'
 
@@ -14,5 +15,27 @@ const Card = () => {
 
     )
 }
+=======
+import React from "react";
+
+import cd from "./card.module.css";
+
+const Card = () => {
+  return (
+      <div className={cd.container}>
+        <h1>Credit Card feature coming soon...</h1>
+        {/* <img
+          src={"https://media3.giphy.com/media/bAplZhiLAsNnG/giphy.gif"}
+          alt=""
+        /> */}
+ <img
+          src={"https://media.giphy.com/media/cJHeQTbMltsjcCHiVs/giphy.gif"}
+          alt=""
+        /> 
+
+      </div>
+  );
+};
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 export default Card;

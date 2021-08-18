@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container{
     width: 100%;
     height: 100%;
@@ -30,6 +31,37 @@
 
 
 
+=======
+.container {
+  width: 100%;
+  height: 100%;
+  /* background-color: rgb(158, 102, 29); */
+  display: flex;
+  
+  /*     justify-content: center;
+ */
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  /* background: radial-gradient(#d688f5, #c2a3e5); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  width: 50%;
+  /* height: 100%; */
+  /* background-color: rgb(110, 110, 110); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 /* OTRA VERSION
  .section__charge{
     width: 20%;
@@ -43,6 +75,7 @@
     cursor: pointer;
 } */
 
+<<<<<<< HEAD
 
 
 
@@ -51,6 +84,8 @@
 
 
 
+=======
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 /* ANTERIOR COMPONENTE */
 /* #btn_charge{
   border: 1px solid white;
@@ -98,4 +133,8 @@
 .box_trasferOrCash{
     position: absolute;
     z-index: 20;
+<<<<<<< HEAD
 } */
+=======
+} */
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

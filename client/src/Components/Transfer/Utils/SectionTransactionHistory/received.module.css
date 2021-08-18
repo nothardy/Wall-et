@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header{
     background-color: cornsilk;
     height: 20%;
@@ -25,3 +26,39 @@
     border-radius: 4px;
     height: 1rem;
 }
+=======
+.container {
+  background: radial-gradient(#d688f5, #c2a3e5);
+  box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+  color: rgb(98 54 95);
+}
+
+.header {
+  /* background-color: cornsilk; */
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  /* background-color: rgb(228, 114, 137); */
+  margin-top: 3px;
+  height: 76%;
+  overflow-y: auto;
+}
+.body::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.5rem;
+}
+.body::-webkit-scrollbar-thumb {
+  background: rgb(98 54 95);
+  border-radius: 25px;
+  width: 0.4rem;
+}
+.body::-webkit-scrollbar-track {
+  background: #97a5bb70;
+  border-radius: 4px;
+  height: 1rem;
+}
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

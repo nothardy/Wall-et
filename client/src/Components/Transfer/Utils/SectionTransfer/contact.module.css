@@ -1,23 +1,44 @@
 .container{
+<<<<<<< HEAD
     background-color: var(--color-navTransaction);
     border: 1px solid black;
     width: 36rem;
     height: 21rem;
     border-radius: 4px;
     margin-top: 3rem;
+=======
+    /* background-color: var(--color-navTransaction); */
+    background: radial-gradient(#76b2fe, #b69efe);
+    /* border: 1px solid black; */
+    width: 920px;
+    height: 550px;
+    border-radius: 4px;
+    margin-top: 3rem;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 .headerContact{
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
     border-bottom: 1px solid black;
+=======
+    border-bottom: 1px solid midnightblue;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 #titleContact{
     padding: 11px 30px;
+<<<<<<< HEAD
     color: #ffffff;
     margin: 0;
     border-bottom: 5px solid #ffffff;
+=======
+    color: midnightblue;
+    margin: 0;
+    border-bottom: 5px solid midnightblue;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }
 
 .bodyContact{
@@ -34,7 +55,11 @@
     height: 0.5rem;   
   }
 .bodyContact::-webkit-scrollbar-thumb {
+<<<<<<< HEAD
     background: rgb(20, 20, 20);
+=======
+    background: midnightblue;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     border-radius: 25px;
     width: 0.4rem;
   }
@@ -42,4 +67,18 @@
     background: #97a5bb70;
     border-radius: 4px;
     height: 1rem;
+<<<<<<< HEAD
+=======
+}
+
+.default{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.default > img{
+    width: 15rem;
+    margin-left: 70px;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 }

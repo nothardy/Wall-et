@@ -8,11 +8,23 @@ require("./db.js");
 
 const server = express();
 
+<<<<<<< HEAD
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json());
 server.use(cookieParser());
 server.use(morgan("dev"));
 server.use(cors());
+=======
+server.use(express.urlencoded({ extended: true, limit: "50mb" }));
+server.use(express.json());
+server.use(cookieParser());
+server.use(morgan("dev"));
+server.use(
+  cors({
+    origin: "*",
+  })
+);
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");

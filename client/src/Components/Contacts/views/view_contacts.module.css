@@ -1,0 +1,31 @@
+.todo {
+  display: flex;
+  color: rgb(84, 84, 231);
+  margin: 19px;
+  text-decoration: none;
+}
+.button:hover {
+  transform: scale(1.04);
+  transition: 0.5s;
+  transition-delay: 2, 4s;
+  transition-timing-function: ease-in-out;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  color: rgb(84, 84, 231);
+  font-size: 20rem;
+}
+.button {
+  display: flex;
+  flex-direction: column;
+  color: midnightblue;
+  background-color: transparent;
+  /* border: 1px solid black; */
+  border:groove 1px;
+  border-radius: 8px;
+  font-size: 18px;
+  width: 22rem;
+  height:70px;
+  margin-left: 1rem;
+}

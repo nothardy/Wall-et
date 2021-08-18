@@ -1,0 +1,209 @@
+.icon{
+    color: rgb(26, 43, 68);
+    font-size: 15px;
+    transform: translateX(-55px);
+    cursor: pointer
+} 
+.containerDetailsProfile{
+    width: 800px;
+}
+.passwordWarning{
+    font-size: small;
+    color: #9fadca;
+    margin-top: 0px;
+}
+.containerProfile{
+    position: absolute;
+    top: 450px; 
+    left: 800px;
+    transform: translate(-50%, -50%);
+    }
+    .image{
+        width:250px;
+        height:250px;
+        border-radius:150px;
+    }
+
+    .iconphoto{
+        width: 25px;
+        height:25px;
+    }
+    .iconedit{
+        width: 25px;
+        height:25px;
+    }
+    .iconcard{
+        width: 25px;
+        height:25px;
+    }
+    .iconpassword{
+        width: 25px;
+        height:25px;
+    }
+    .seccionphoto{
+        width: 30px;
+        height:30px;
+        margin-right:1700px;
+        margin-top: 40px;
+    }
+
+    .secciondatos{
+        width:600px;
+        flex-direction: column;
+        margin-top: 270px;
+        font-size:20px;
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-end;
+
+    }
+    .datospersonales{
+    display:flex;
+    justify-content: space-between;
+    width: 30rem;
+    border-bottom: groove 1px
+    }
+    .seccioncardAndButtons{
+        width:600px;
+        /* border:solid black; */
+        margin-left: 100px;
+        margin-top: 267px;
+        font-size:20px
+    }
+    .seccionCVU{
+        font-size:20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .datosAndCards{
+        display: flex;
+        width: 1300px;
+    }
+
+    .inputCVU{
+        border: none;
+        outline: none;
+    }
+
+    .inputAndIcon{
+    display: flex;
+    }
+
+    .buttonsDeleteA{
+        background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(0, 0, 0, 0.747);
+        width: 9.4rem;
+    }
+
+    .buttonsDeleteA:hover{
+        border: 1px solid rgb(0, 0, 0);
+        color: white;
+       background: orangered;
+    }
+
+    .forgotPasswordA{
+        text-align: center;
+    }
+
+    .singlecardContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: groove 1px;
+        border-top: groove 1px;
+    }
+    .buttoneditProfile{
+        
+        background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+    }
+    .buttoneditProfile:hover{
+        border: 1px solid rgb(0, 0, 0);
+        color: white;
+       background: #50548A;
+    }
+
+    .buttoneditPassword{
+        background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+    }
+    .buttoneditPassword:hover{
+        border: 1px solid rgb(0, 0, 0);
+        color: white;
+       background: #50548A;
+    }
+
+    .buttonsCenteredAccount{
+        display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: 488px;
+    justify-content: space-around;
+    }
+
+
+.buttonAddCard{
+    background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+}
+.buttonAddCard:hover{
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+   background: #50548A;
+}
+.buttonChangePhoto{
+    background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+}
+.buttonChangePhoto:hover{
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+   background: #50548A;
+}
+
+.inputCVUCopy{
+    display:flex;
+justify-content: flex-end;
+}

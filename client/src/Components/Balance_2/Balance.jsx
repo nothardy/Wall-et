@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+=======
+/* eslint-disable */
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 import React, { useEffect, useState } from "react";
 import { LineBalance } from "./LineBalance";
 import { DoughnutBalance } from "./Doughnut";
 import { useSelector, useDispatch } from "react-redux";
+<<<<<<< HEAD
 import { getUserInfo } from "../../Redux/Actions/Balance_Action";
 import { getDateUser } from "../../Redux/Actions/Home"
 import Transactions from "./Transactions";
@@ -16,12 +21,26 @@ import { User } from '../Home/User/user'
 function Balance() {
   const dispatch = useDispatch();
   const  userInfo=useSelector((state) => state.homeReducer.User); //userInfo = testInfo;
+=======
+import { getDateUser } from "../../Redux/Actions/Home";
+import Money from "./Money";
+import style from "./Balance.module.css";
+import { Bar } from "../Bar/bar";
+import { NavBar } from "../Home/NavBar/navBar";
+function Balance() {
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.homeReducer.User); //userInfo = testInfo;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
   let [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
     if (firstRender === true) {
       dispatch(getDateUser());
+<<<<<<< HEAD
       setFirstRender(firstRender = !firstRender)
+=======
+      setFirstRender((firstRender = !firstRender));
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     }
   }, [firstRender, dispatch]);
 
@@ -40,10 +59,16 @@ function Balance() {
           <div className={style.boxes}>
             <div className={style.moneyAndTransactions}>
               <Money />
+<<<<<<< HEAD
               <Transactions />
             </div>
             <div className={style.graficos}>
               <div className={style.right} >
+=======
+            </div>
+            <div className={style.graficos}>
+              <div className={style.right}>
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
                 <div className={style.balance}>
                   <div className={style.grafico}>
                     <div className={style.titleAndGraph}>
@@ -69,7 +94,12 @@ function Balance() {
 //linea 37, lista de las transacciones
 export default Balance;
 
+<<<<<<< HEAD
 {/* <Bar/>
+=======
+{
+  /* <Bar/>
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 <div className={h.container}>
     <div className={h.left}>
@@ -83,12 +113,20 @@ export default Balance;
             : <User/>
         }
     </div>
+<<<<<<< HEAD
 </div> */}
 
 
 
 
 {/* <div>
+=======
+</div> */
+}
+
+{
+  /* <div>
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 <Bar />
 <div />
 <div>
@@ -110,4 +148,9 @@ export default Balance;
   </div>
 </div>
 </div>
+<<<<<<< HEAD
 </div> */}
+=======
+</div> */
+}
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
