@@ -8,7 +8,10 @@ const { MAIL_ACCOUNT, MAIL_PASSWORD, FRONT_HOST } = process.env;
 
 const passwordReset = async (req, res) => {
     const { mail } = req.body;
+<<<<<<< HEAD
+=======
     console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: ',FRONT_HOST)
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     try {
         const user = await Account.findOne({ where: { mail: mail } })
         if (!user) return res.status(404).send("The mail is not registered");
@@ -36,7 +39,11 @@ const passwordReset = async (req, res) => {
             to: mail, // receiver adress
             subject: "Password Reset Request for Wall-et", //Subject mail
             html: `<p> Hi ${user.fullname}. In order to reset your password, please </p>
+<<<<<<< HEAD
+            <a href="${FRONT_HOST}/resetPassword/${token}"> Click here </a>. 
+=======
             <a href="${FRONT_HOST}resetPassword/${token}"> Click here </a>. 
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
             <p>If you did not request a new password, please ignore this mail. </p>`,
         });
 

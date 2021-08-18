@@ -1,4 +1,11 @@
 .container{
+<<<<<<< HEAD
+    font-size: 1.5rem;
+}
+#box_code{
+    background-color: rgba(43, 42, 42, 0.418);
+    color: white;
+=======
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,6 +25,7 @@
     box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
    background-color: rgba(43, 42, 42, 21%);
     color: midnightblue;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
     display: flex;
     justify-content: center;
     align-items: center;

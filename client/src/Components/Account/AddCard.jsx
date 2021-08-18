@@ -103,7 +103,7 @@ function AddCard({ close }) {
           />
 
           <form onSubmit={(e) => handleSubmit(e)} className={c.addCardForm}>
-            <div>
+            <div className={c.centerNumberCard}>
               <div>
                 <p htmlFor="number">Number of credit or debit Card:</p>
               </div>
@@ -116,6 +116,7 @@ function AddCard({ close }) {
                 pattern="[\d| ]{15,22}"
                 minLength="15"
                 maxlength="22"
+               
                 required
               />
             </div>

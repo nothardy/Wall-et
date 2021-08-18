@@ -65,7 +65,7 @@
     }
     .seccioncardAndButtons{
         width:600px;
-        border:solid black;
+        /* border:solid black; */
         margin-left: 100px;
         margin-top: 267px;
         font-size:20px
@@ -122,3 +122,88 @@
         border-bottom: groove 1px;
         border-top: groove 1px;
     }
+    .buttoneditProfile{
+        
+        background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+    }
+    .buttoneditProfile:hover{
+        border: 1px solid rgb(0, 0, 0);
+        color: white;
+       background: #50548A;
+    }
+
+    .buttoneditPassword{
+        background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+    }
+    .buttoneditPassword:hover{
+        border: 1px solid rgb(0, 0, 0);
+        color: white;
+       background: #50548A;
+    }
+
+    .buttonsCenteredAccount{
+        display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: 488px;
+    justify-content: space-around;
+    }
+
+
+.buttonAddCard{
+    background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+}
+.buttonAddCard:hover{
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+   background: #50548A;
+}
+.buttonChangePhoto{
+    background: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border: 1px solid gray;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 20px;
+        transition: 0.4s;
+        background-color: rgba(112, 109, 109, 0.747);
+        width: 9.4rem;
+}
+.buttonChangePhoto:hover{
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+   background: #50548A;
+}
+
+.inputCVUCopy{
+    display:flex;
+justify-content: flex-end;
+}

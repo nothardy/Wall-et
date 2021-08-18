@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import React from 'react'
+
+function DetailAccount() {
+    return (
+        <div>
+            
+        </div>
+    )
+}
+
+export default DetailAccount
+=======
 /* eslint-disable */
 import { React, useEffect, useState, useRef } from "react";
 import { getDateUser } from "../../Redux/Actions/Home";
@@ -124,12 +137,8 @@ function DetailAccount() {
           <div >
             <div className={a.seccionphoto}>
               <img className={a.image} src={`${user.account_data.photo}`} alt="" />
-              <button className="" onClick={() => toggleChangePhoto()} >
-                {" "}<img
-                  src="https://image.flaticon.com/icons/png/512/964/964100.png"
-                  alt=""
-                  className={a.iconphoto}
-                />
+              <button className={a.buttonChangePhoto} onClick={() => toggleChangePhoto()} >
+               
                 Change Photo{" "}
               </button>
               {changePhoto ? (
@@ -163,7 +172,7 @@ function DetailAccount() {
                 </div>
                 <div className={a.seccionCVU}>
                   <p>CVU:</p>
-                  <form>
+                  <form className={a.inputCVUCopy}>
                     <div className={a.inputAndIcon}>
                       <input ref={textAreaRef} value={user.account_data.cvu} className={a.inputCVU} />
                       {document.queryCommandSupported("copy") && (
@@ -180,6 +189,40 @@ function DetailAccount() {
                     </div>
                   </form>
                 </div>
+                            <div className={a.buttonsCenteredAccount}>
+                              <div>
+                                <button className={a.buttoneditProfile} onClick={() => toggleEditProfile()}>
+                                  {" "}
+                                 {" "} Edit Profile 
+                                </button>
+                                {editProfile ? (
+                                  <div>
+                                    {" "}
+                                    <UpdateDetailAccount close={toggleEditProfile} />{" "}
+                                  </div>
+                                ) : null}
+                              </div>
+                              <button className={a.buttoneditPassword} onClick={() => toggleEditPassword()}>
+                                {" "}
+                                 Change Password{" "}
+                              </button>
+                              {editPassword ? (
+                                <div>
+                                  {" "}
+                                  <UpdatePassword close={toggleEditPassword} />{" "}
+                                </div>
+                              ) : null}
+                              <div>
+                                {/* <Link to='/logout'> */}
+                                <button value={user.id} onClick={() => deleteUser(user.id)} className={a.buttonsDeleteA}>
+                                  Delete Account
+                                </button>
+                                {/* </Link> */}
+                                <Link to="/recoverpassword">
+                                  <p className={a.forgotPasswordA}>Forgot Password?</p>
+                                </Link>
+                              </div>
+                            </div>
               </div>
               <div className={a.seccioncardAndButtons}>
                 <div className={a.seccionCard}>
@@ -213,14 +256,8 @@ function DetailAccount() {
                     ))
                     : "No cards available"}
 
-                  <button className="" onClick={() => toggleAddCard()}> 
-                    {" "}<img
-                      src="https://image.flaticon.com/icons/png/512/2188/2188735.png"
-                      alt=""
-                      className={a.iconcard}
-                    />Add Card
-
-                    {" "}
+                  <button className={a.buttonAddCard} onClick={() => toggleAddCard()}> 
+                   Add Card
                   </button>
                   {addCard ? (
                     <div>
@@ -228,50 +265,6 @@ function DetailAccount() {
                       <AddCard close={toggleAddCard} />{" "}
                     </div>
                   ) : null}
-                </div>
-                <div>
-                  <div>
-                    <button className="" onClick={() => toggleEditProfile()}>
-                      {" "}
-                      <img
-                        src="https://image.flaticon.com/icons/png/512/3462/3462496.png"
-                        alt=""
-                        className={a.iconedit}
-                      />{" "} Edit Profile
-                    </button>
-                    {editProfile ? (
-                      <div>
-                        {" "}
-                        <UpdateDetailAccount close={toggleEditProfile} />{" "}
-                      </div>
-                    ) : null}
-                  </div>
-                  <button className="" onClick={() => toggleEditPassword()}>
-                    {" "}
-                    <img
-                      src="https://image.flaticon.com/icons/png/512/3064/3064493.png"
-                      alt=""
-                      className={a.iconpassword}
-                    />
-
-                    Change Password{" "}
-                  </button>
-                  {editPassword ? (
-                    <div>
-                      {" "}
-                      <UpdatePassword close={toggleEditPassword} />{" "}
-                    </div>
-                  ) : null}
-                  <div>
-                    {/* <Link to='/logout'> */}
-                    <button value={user.id} onClick={() => deleteUser(user.id)} className={a.buttonsDeleteA}>
-                      Delete Account
-                    </button>
-                    {/* </Link> */}
-                    <Link to="/recoverpassword">
-                      <p className={a.forgotPasswordA}>Forgot Password?</p>
-                    </Link>
-                  </div>
                 </div>
               </div>
             </div>
@@ -293,3 +286,4 @@ function DetailAccount() {
   );
 }
 export default DetailAccount;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9

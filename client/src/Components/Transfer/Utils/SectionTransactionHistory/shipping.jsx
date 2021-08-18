@@ -1,3 +1,32 @@
+<<<<<<< HEAD
+import React from 'react'
+import { useSelector } from 'react-redux';
+import sg from './shipping.module.css'
+
+const Shipping = ({widht, height}) => {
+
+    const store = useSelector(state => state.homeReducer.User.account_data.transactions)
+    const received = store.filter( el => el.main);
+
+    return (
+        <div style={{width:`${widht}`, height:`${height}`,backgroundColor: 'red'}}>
+
+            <div className={sg.header}>
+                <h3>Transactoins Shipping</h3>
+            </div>
+            
+            <div className={sg.body}>
+                {
+                    received? received.map( el => <div>{el.to}</div> )
+                    : <h3>Not Found</h3>
+                }
+            </div>
+
+        </div>
+    )
+}
+
+=======
 import React, { useEffect} from "react";
 import ViewContainer from "./viewContainer";
 import sg from "./shipping.module.css";
@@ -46,5 +75,6 @@ const Shipping = ({ widht, height, borderRadius }) => {
     </div>
   );
 };
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 export default Shipping;

@@ -1,3 +1,32 @@
+<<<<<<< HEAD
+import React from 'react';
+import {  useSelector } from 'react-redux';  
+
+import ba from './balance.module.css';
+export const Balance = () =>{
+    const store = useSelector(state => state.homeReducer.User);
+    
+    return(
+        <div className={ba.containerBalance}>
+           {
+            store ? 
+            <>
+                <h2 id={ba.titleBalance}>Balance</h2> 
+                    <h2 id={ba.cashBalance}>{`$ ${store.account_data.balance}`}</h2>
+                    <div className={ba.footerBalance}>
+                        
+                        <button className={ba.btnBalance}>Send</button>
+                        <button className={ba.btnBalance}>Charge</button>
+                    </div>
+            </>
+                : (<h3>Cargando... Balance</h3>)
+            }
+        </div>
+        
+    )
+}
+export default Balance;
+=======
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -28,3 +57,4 @@ export const Balance = () => {
   );
 };
 export default Balance;
+>>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
