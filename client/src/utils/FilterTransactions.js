@@ -1,8 +1,14 @@
 export const filterTransactions = (transactions, mail) => {
+  // let specificUserTransactions = transactions.filter(
+  //   (transaction) =>
+  //     transaction.to.includes(mail.toLowerCase()) ||
+  //     transaction.from.includes(mail.toLowerCase())
+  // );
+  // return specificUserTransactions;
   let specificUserTransactions = transactions.filter(
     (transaction) =>
-      transaction.to.includes(mail.toLowerCase()) ||
-      transaction.from.includes(mail.toLowerCase())
+      transaction.from.includes(mail.toLowerCase()) ||
+      transaction.to.includes(mail.toLowerCase())
   );
   return specificUserTransactions;
 };

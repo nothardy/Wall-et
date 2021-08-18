@@ -1,24 +1,18 @@
 import { Doughnut } from "react-chartjs-2";
 import { getTransactionTypesPercentage } from "../../utils/Methods";
-import {useSelector} from 'react-redux';
-import {useState,useEffect} from 'react'
+
+import { useState, useEffect } from "react";
 
 export function DoughnutBalance(props) {
-  const  userInfo=useSelector((state) => state.homeReducer.User);
-const[types,setTypes]=useState([]);
+  const [types, setTypes] = useState([]);
 
-
-useEffect(() => {
-  if(props.userInfo){
-    setTypes(getTransactionTypesPercentage(
-      props.userInfo.account_data.transactions
-    ));
-  }
-  
-}, [props]);
-
-
-
+  useEffect(() => {
+    if (props.userInfo) {
+      setTypes(
+        getTransactionTypesPercentage(props.userInfo.account_data.transactions)
+      );
+    }
+  }, [props]);
 
   const state = {
     labels: ["Services", "Payments", "Transfers"],
@@ -43,7 +37,13 @@ useEffect(() => {
 
   return (
     <div>
-      <Doughnut type="doughnut" data={state} options={options} height={"200px"} width={"500px"} />
+      <Doughnut
+        type="doughnut"
+        data={state}
+        options={options}
+        height={"200px"}
+        width={"500px"}
+      />
     </div>
   );
 }

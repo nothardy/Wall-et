@@ -5,13 +5,35 @@ export const SEARCH_CONTACT = "SEARCH_CONTACT",
   ADD_CONTACT = "ADD_CONTACT",
   ERASE_CONTACT_FILTERS = "ERASE;CONTACT_FILTERS";
 
-export function getContacts() {
+// export function getContacts() {
+//   return (dispatch) => {
+//     // axios.get("/contacts").then((response) => {
+//     //   dispatch({ type: GET_CONTACTS, payload: response.data });
+//     // });
+//     const token = localStorage.getItem("token");
+//     axios
+//       .get(`/contacts`, {
+//         headers: { "x-access-token": token },
+//       })
+//       .then((response) => {
+//         dispatch({ type: GET_CONTACTS, payload: response.data });
+//       });
+//   };
+// }
+
+export const getContacts = () => {
+  /* Trae la date de la cuenta del usuario logeado. */
   return (dispatch) => {
-    axios.get("https://localhost:3001/contacts").then((response) => {
-      dispatch({ type: GET_CONTACTS, payload: response.data });
-    });
+    const token = localStorage.getItem("token");
+    axios
+      .get(`/contacts`, {
+        headers: { "x-access-token": token },
+      })
+      .then((response) => {
+        dispatch({ type: GET_CONTACTS, payload: response.data });
+      });
   };
-}
+};
 
 export function searchContact(mail) {
   return (dispatch) => {
@@ -28,7 +50,7 @@ export function eraseContactFilters() {
 export function addContact(email) {
   return (dispatch) => {
     axios
-      .post("https://localhost:3001/contacts", email, {
+      .post("/contacts", email, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {

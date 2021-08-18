@@ -14,14 +14,18 @@
   display: flex;
   flex-direction: column;
   color: rgb(84, 84, 231);
+  font-size: 20rem;
 }
 .button {
   display: flex;
   flex-direction: column;
   color: midnightblue;
   background-color: transparent;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border:groove 1px;
   border-radius: 8px;
-  width: 20rem;
+  font-size: 18px;
+  width: 22rem;
+  height:70px;
   margin-left: 1rem;
 }

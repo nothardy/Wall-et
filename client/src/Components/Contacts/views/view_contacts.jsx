@@ -1,5 +1,5 @@
+/* eslint-disable */
 import React from "react";
-import { NavLink } from "react-router-dom";
 import style from "./view_contacts.module.css";
 export const View = ({
   fullname,

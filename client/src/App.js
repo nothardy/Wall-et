@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "./Components/Home/home";
 /* import Loging from './Components/loging/index'; */
 import Register from "./Components/Register/register";
@@ -22,14 +22,12 @@ import RecoverPassword from "./Components/RecoverPassword/password";
 export default function App() {
   return (
     <div>
-
-
       <Route exact path="/" component={Landingpage} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/recoverpassword" component={RecoverPassword} />
       <Route exact path="/faq" component={FrecuentlyQuestions} />
       <Route exact path="/logout" component={Logout} />
-     <PrivateRoute path="/account"  component={Account} exact/>
+      <PrivateRoute path="/account" component={Account} exact />
       <Route exact path="/contacts" component={Contacts} />
       <Route path="/transfers/:section" component={Transfer} />
       <Route exact path="/help" component={Help} />

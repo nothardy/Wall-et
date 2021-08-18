@@ -4,7 +4,7 @@
     width: 30rem;/* Si se ve muy grande, SACARLO */
     height: 20rem;
     position: absolute;
-    top: 6rem;
+    top: 2.5rem;
     right: 3.5rem;
     border: none;
     display: flex;
@@ -14,7 +14,7 @@
     border-radius: 10px;
     padding: 7px;
     background-color: #D7DAF4;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
     padding: 20px;
     transition: all 0.2s;
     background: radial-gradient(#76b2fe, #b69efe);

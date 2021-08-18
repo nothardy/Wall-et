@@ -1,5 +1,3 @@
-
-
 .title {
     text-align: center;
     margin-bottom: 4rem;
@@ -34,12 +32,22 @@
 
 
 .container{
-    width: 100% ;
-    height:30%;
-    
+    width: 50rem ;
+    height:35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color:#dcdbdb;
+      /* background-color:#dcdbdb; */
+      border-radius: 15px;
+      box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+      background: radial-gradient(#76b2fe, #b69efe);
+    }
+    .contenedorFotoSubmit{
+        width:250px;
+        height:250px;
+        border-radius:150px;
     }
