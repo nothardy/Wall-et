@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-require('dotenv').config();
-const { Sequelize } = require('sequelize');
-const fs = require('fs');
-const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST, NODE_ENV,
-} = process.env;
-
-const sequelize = NODE_ENV === 'production' ? new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_PRODUCTION}`, {
-  logging: false,
-  native: false, 
-}) : 
-
-new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`, {
-  logging: false,
-  native: false, 
-});
-=======
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
@@ -55,7 +36,6 @@ let sequelize =
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`,
         { logging: false, native: false }
       );
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 const basename = path.basename(__filename);
 //json w token
@@ -88,14 +68,6 @@ const { Account, Transaction, Card, Contact } = sequelize.models;
 
 // Aca vendrian las relaciones
 
-<<<<<<< HEAD
-
-Account.belongsToMany(Transaction, { through: 'transaction_acount' });
-Transaction.belongsToMany(Account, { through: 'transaction_acount' });
-
-Account.belongsToMany(Contact, { through: 'account_contact' })
-Contact.belongsToMany(Account, { through: 'account_contact' })
-=======
 Account.belongsToMany(Transaction, { through: "transaction_acount" });
 Transaction.belongsToMany(Account, { through: "transaction_acount" });
 
@@ -104,18 +76,11 @@ Contact.belongsToMany(Account, { through: "account_contact" });
 
 Account.belongsToMany(Contact, { through: "account_contact" });
 Contact.belongsToMany(Account, { through: "account_contact" });
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 Account.hasMany(Card);
 Card.belongsTo(Account);
 
-<<<<<<< HEAD
-
 /* Account.belongsToMany(Account, {through: 'user_contact'}) */
-
-=======
-/* Account.belongsToMany(Account, {through: 'user_contact'}) */
->>>>>>> 546f62db966214f91a3f258460809c8c9b4656a9
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
