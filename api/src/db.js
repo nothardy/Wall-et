@@ -4,41 +4,38 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PRODUCTION, DB_TEST, NODE_ENV } =
   process.env;
-
-let sequelize = new Sequelize('postgres://vkelouwh:l-0w94cFRtWXjBPFsvq7b79ZwvW6bkWr@chunee.db.elephantsql.com/vkelouwh')
-
 // let sequelize = new Sequelize(
 //   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`,
 //   { logging: false, native: false }
 // );
-// let sequelize =
-//   NODE_ENV === "production"
-//     ? new Sequelize({
-//         database: DB_PRODUCTION,
-//         dialect: "postgres",
-//         host: DB_HOST,
-//         port: 5432,
-//         username: DB_USER,
-//         password: DB_PASSWORD,
-//         pool: {
-//           max: 3,
-//           min: 1,
-//           idle: 10000,
-//         },
-//         dialectOptions: {
-//           ssl: {
-//             require: true,
-//             // Ref.: https://github.com/brianc/node-postgres/issues/2009
-//             rejectUnauthorized: false,
-//           },
-//           keepAlive: true,
-//         },
-//         ssl: true,
-//       })
-//     : new Sequelize(
-//         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`,
-//         { logging: false, native: false }
-//       );
+let sequelize =
+  NODE_ENV === "production"
+    ? new Sequelize({
+        database: DB_PRODUCTION,
+        dialect: "postgres",
+        host: DB_HOST,
+        port: 5432,
+        username: DB_USER,
+        password: DB_PASSWORD,
+        pool: {
+          max: 3,
+          min: 1,
+          idle: 10000,
+        },
+        dialectOptions: {
+          ssl: {
+            require: true,
+            // Ref.: https://github.com/brianc/node-postgres/issues/2009
+            rejectUnauthorized: false,
+          },
+          keepAlive: true,
+        },
+        ssl: true,
+      })
+    : new Sequelize(
+        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_TEST}`,
+        { logging: false, native: false }
+      );
 
 const basename = path.basename(__filename);
 //json w token
