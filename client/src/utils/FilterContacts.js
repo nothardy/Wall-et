@@ -11,6 +11,7 @@ export const filterContacts = (transactions) => {
       mail:
         transaction.user === transaction.to ? transaction.from : transaction.to,
       date_transaction: transaction.transaction_date,
+      cvu: transaction.cvu,
     };
   });
   contacts = [...new Set(contacts)];

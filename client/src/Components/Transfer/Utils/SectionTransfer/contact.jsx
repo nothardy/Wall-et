@@ -19,7 +19,7 @@ const Contact = ({ toggleTransaction }) => {
               <ViewContact
                 key={el.id}
                 id={el.id}
-                CVU={el.CVU}
+                CVU={el.cvu}
                 fullname={el.fullname}
                 mail={el.mail}
                 toggleTransaction={toggleTransaction}

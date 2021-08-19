@@ -32,7 +32,7 @@ const ViewContact = ({ id, fullname, CVU, toggleTransaction, mail }) => {
 
       <div className={vc.right}>
         <h3 id={vc.name}>{fullname}</h3>
-        <span id={vc.cvu}>Mail: {mail}</span>
+        <span id={vc.cvu}>CVU: {CVU}</span>
         <button id={vc.btnSubmit} onClick={() => handleSubmit()}>
           Send
         </button>
