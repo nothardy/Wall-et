@@ -17,7 +17,7 @@ const CAPTCHA_KEY = process.env.REACT_APP_CAPTCHA_KEY;
 //import Button from 'react-bootstrap/Button';
 //import Form from 'react-bootstrap/Form';
 
-export function validate(input) {
+function validate(input) {
     let errors = {};
     if (!input.mail) {
       errors.mail = 'Required Email';
