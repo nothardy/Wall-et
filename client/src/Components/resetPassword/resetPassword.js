@@ -60,7 +60,8 @@ const ResetPassword = () => {
   function handleSubmit(e) {
    e.preventDefault()
    if (user.password !== user.password2) { 
-     return swal("Passwords don't match", { icon: 'error'})}
+     return swal("Passwords don't match", { icon: 'error'})
+    }
     dispatch(changePassword({ userid, password: user.password }))
   }
 
