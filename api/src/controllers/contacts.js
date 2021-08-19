@@ -116,6 +116,7 @@ const getTransactions = async (id) => {
         user: myUser.dataValues.mail,
         from: nameFrom.dataValues.mail,
         amount: el.amount,
+        cvu: nameTo.dataValues.cvu,
         to: nameTo.dataValues.mail,
         type_transaction: el.type_transaction,
         state: el.state,

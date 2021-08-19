@@ -49,7 +49,7 @@ const infoUser = async (id) => {
                 cvu: user.dataValues.cvu,
                 photo: user.dataValues.photo,
                 cards: user.dataValues.cards,
-                transactions: listTransactions,
+                transactions: listTransactions.sort( (a, b) => a.transaction_date < b.transaction_date? 1 : -1 || 0),
                 contacts: user.dataValues.contacts.map(el => {return {
                     id: el.id,
                     fullname: el.fullname,
@@ -66,40 +66,10 @@ const infoUser = async (id) => {
     }
 
     catch (err) {
+        console.log(err)
         throw new Error(err)
     }
 }
-
-/* const infoAdmin = async (id) => {
-
-    try {
-        const info = await Account.findAll({ where: [{admin: true}, { mail: mail }] });
-        return {
-            id: info[0].dataValues.id,
-                user_data: {
-                    fullname: info[0].dataValues.fullname,
-                    dni: info[0].dataValues.dni,
-                    ubicacion: info[0].dataValues.ubicacion,
-                    birth: info[0].dataValues.birth,
-                },
-                account_data: {
-                    admin: info[0].dataValues.admin,
-                    mail: info[0].dataValues.mail,
-                    pass: info[0].dataValues.password,
-                    balance: info[0].dataValues.balance,
-                    cvu: info[0].dataValues.cvu,
-                    photo: info[0].dataValues.photo,
-                    cards: info[0].dataValues.cards,
-                    transactions: info[0].dataValues.transactions,
-                    create: info[0].createdAt,
-            }
-        }
-    }
-
-    catch (err) {
-        throw new Error(err);
-    }
-} */
 
 const transac = async (name) => {
     try { 
@@ -114,6 +84,5 @@ const transac = async (name) => {
 
 module.exports = {
     infoUser,
-    /* infoAdmin, */
     transac
 }
