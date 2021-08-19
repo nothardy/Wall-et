@@ -2,6 +2,10 @@ require('dotenv').config();
 const { Account } = require("../db");
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
+//abajo import de sendmail
+const nodemailer = require("nodemailer");
+const { MAIL_ACCOUNT, MAIL_PASSWORD, FRONT_HOST } = process.env;
+//const jwt = require("jsonwebtoken");
 
 async function register(req, res, next) {
   const { fullname, password, dni, mail, birth_date } = req.body;
@@ -49,6 +53,80 @@ function generatorCVU() {
   return "000" + "0047" + "4" + C + verificador2;
 }
 
+
+//envioemail
+const sendMailConfirmation = async (req, res) => {
+
+  const { mail } = req.body;
+  try {
+     const user = await Account.findOne({ where: { mail: mail } })
+    // if (!user) return res.status(404).send("The mail is not registered");
+
+    // To send an mail, we must first define a transporter. We will do it as follows:
+    const transporter = nodemailer.createTransport({
+          service: "gmail",
+          host: "smtp.gmail.com",
+          auth: {
+            user: MAIL_ACCOUNT,
+            pass: MAIL_PASSWORD,
+          },
+          tls: {rejectUnauthorized: false},
+        })
+    
+    await transporter.verify().then(()=> console.log("ready to send email"))
+    // send mail with defined transport object
+
+    // const token = await jwt.sign({ id: user.id }, "mysecretkey", {
+    //     expiresIn: 60 * 60 * 24, // 10min
+    // });
+
+    await transporter.sendMail({
+        from: MAIL_ACCOUNT, // sender address
+        to: mail, // receiver adress
+        subject: "Verify your new Account in Wall-et", //Subject mail
+        html: `<p> Hi ${user.fullname}. In order to reset your password, please </p>
+        <a href="${FRONT_HOST}/"> Click here </a>. 
+        <p>If you did not request a new password, please ignore this mail. </p>`,
+    });
+
+    return res.status(200).json({msg: "mail sent"})
+}catch(error){
+    res.status(400).json({msg: error})
+}
+  //   var transport = nodemailer.createTransport({
+  //  var transport = nodemailer.createTransport({
+  //       service: 'Gmail',
+  //       auth: {
+  //           user: correo_origen,
+  //           pass: password_origen
+  //       }
+  //   });
+
+  //   var mailOptions = {
+  //     from: correo,
+  //     to: "alternetvpn@gmail.com",
+  //     subject: asunto,
+  //     text: mensaje + " responder a " + correo,
+  //     html: pulsa <a href="url/confirmacion?token">aquí</a> para activar tu cuenta,
+  //   };
+
+  //   transport.sendMail(mailOptions, function (error, info) {
+  //       console.log(msg_str_altervpn_ini);
+  //       if (error) {
+  //           console.log(msg_str_mail_error + msg_str_mail_respu + error);
+  //           callback(true);
+  //       } else {
+  //           console.log(msg_str_mail_envia + msg_str_mail_respu + info.response);
+  //           callback(false);
+  //       }
+  //       console.log(msg_str_altervpn_fin);
+  //   });
+};
+
+
+
+
 module.exports = {
-  register
+  register,
+  sendMailConfirmation,
 };

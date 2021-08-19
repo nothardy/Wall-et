@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import dotenv from "dotenv";
+import { confirmRegister } from "../../Redux/Actions/RegisterActions";
+import { useDispatch } from "react-redux";
 dotenv.config();
 const CAPTCHA_KEY = process.env.REACT_APP_CAPTCHA_KEY;
 
@@ -48,6 +50,7 @@ function Register() {
   const captcha = useRef(null);
   const [show, setShow] = useState(false);
   const [showpass2, setShowpass2] = useState(false);
+  const dispatch= useDispatch()
 
   const handleShowHide = () => {
     setShow(!show);
@@ -115,6 +118,7 @@ function Register() {
       //     swal('We could not create account. Please try again.', "You clicked the button!", "error");
       // }
       try {
+        
         await axios.post("/register", JSON.stringify(input), {
           headers: { "Content-Type": "application/json" },
         });
@@ -123,6 +127,7 @@ function Register() {
           "You clicked the button!",
           "success"
         );
+        dispatch(confirmRegister({mail: input.mail}))
       } catch (err) {
         swal(
           "We could not create account. Please try again.",
@@ -130,13 +135,20 @@ function Register() {
           "error"
         );
       }
+      
       history.push("/");
     } else {
       swal("Please accept the captcha", "You clicked the button!", "warning");
       cambiarUsuarioValido(false);
       cambiarCaptchaValido(false);
     }
+  
   }
+
+//  function handleClick(){
+//   confirmRegister(input.mail)
+//   }
+
 
   function captchaChange() {
     if (captcha.current.getValue()) {
@@ -284,7 +296,7 @@ function Register() {
                 </div>
 
                 {/* {captchaValido === false && <div className="error-captcha">Please accept the captcha</div>} */}
-                <button type="submit" className={r.buttoncreate}>
+                <button type="submit"  className={r.buttoncreate}>
                   Create Account
                 </button>
               </form>
