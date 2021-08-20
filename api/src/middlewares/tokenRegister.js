@@ -5,18 +5,20 @@ const jwt = require('jsonwebtoken');
 const getTokenRegister =  (payload) => {
     return jwt.sign({
         data: payload
-    }, 'SECRET', {expiresIn: '1h'});
+    }, 'mysecretkey', {expiresIn: '1h'});
 }
 
 const getTokenData = (token) =>{
-    let data = nul;
-    jwt.verify(token, 'SECRET', (err, decoded) => {
+    let data = null;
+
+    jwt.verify(token, 'mysecretkey', (err, decoded) => {
         if (err){
             console.log('Error data token')
         } else{
             data = decoded
         }
     })
+
     return data;
 }
 

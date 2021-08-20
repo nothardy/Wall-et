@@ -1,38 +1,58 @@
 require('dotenv').config();
-const { Account } = require("../db");
-const { v4: uuidv4 } = require('uuid');
+const {
+  Account
+} = require("../db");
+const {
+  v4: uuidv4
+} = require('uuid');
 const bcrypt = require('bcrypt');
 //abajo import de sendmail
 const nodemailer = require("nodemailer");
-const { getTokenRegister, getTokenData } = require('../middlewares/tokenRegister');
-const { MAIL_ACCOUNT, MAIL_PASSWORD, FRONT_HOST } = process.env;
+const {
+  getTokenRegister,
+  getTokenData
+} = require('../middlewares/tokenRegister');
+const {
+  MAIL_ACCOUNT,
+  MAIL_PASSWORD,
+  FRONT_HOST
+} = process.env;
 //const {sendMailConfirmation} = require('../middlewares/mailSendVerify');
 const jwt = require("jsonwebtoken");
 
 async function register(req, res, next) {
-  const { fullname, password, dni, mail, birth_date } = req.body;
+  const {
+    fullname,
+    password,
+    dni,
+    mail,
+    birth_date
+  } = req.body;
   try {
     //verificar que el usuario no exista
-const user = await Account.findOne({where :{mail : mail}}) ;
-console.log(user)
-if(user ){
-  return res.json({
-    success:false,
-    msg: 'Account exist'
-  });
-}
+    const user = await Account.findOne({
+      where: {
+        mail: mail
+      }
+    });
+    // console.log(user)
+    if (user !== null) {
+      throw new Error("Account exist")
+    }
 
+    if (password.length === 0 || !password) {
+      throw new Error("Invalid Password")
+    }
+    if (!fullname || !dni || !mail || !birth_date) {
+      throw new Error("All fields are required ")
+    };
+    if (password.length < 8) {
+      throw new Error("Password is too short, should have 8 characters")
+    };
+    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/gm.test(password)) {
+      throw new Error("Password must contain an uppercase letter, a lowercase and a number.")
+    }
 
-    if (password.length === 0 || !password) { throw new Error("Invalid Password") }
-    if (!fullname || !dni || !mail || !birth_date) { throw new Error("All fields are required ") };
-    if (password.length < 8) { throw new Error("Password is too short, should have 8 characters") };
-    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])/gm.test(password)) { throw new Error("Password must contain an uppercase letter, a lowercase and a number.") }
-    // if(user ){
-    //   return res.json({
-    //     success:false,
-    //     msg: 'Account exist'
-    //   });
-    // }
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const newUser = await Account.create({
@@ -43,43 +63,50 @@ if(user ){
       mail: mail.toLowerCase(),
       birth_date,
       cvu: generatorCVU(),
-      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" 
+      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
     })
     //
-    
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
       auth: {
-          user: MAIL_ACCOUNT,
-          pass: MAIL_PASSWORD,
+        user: MAIL_ACCOUNT,
+        pass: MAIL_PASSWORD,
       },
-          tls: {rejectUnauthorized: false},
-      })
+      tls: {
+        rejectUnauthorized: false
+      },
+    })
 
-      await transporter.verify().then(()=> console.log("ready to send email"))
-    //    const token = await jwt.sign({ id: newUser.id, mail: newUser.mail }, "mysecretkey", {
-    //      expiresIn: 60 * 60 * 24, // 10min
-    //  });
+    await transporter.verify().then(() => console.log("ready to send email"))
+
+    const token = await jwt.sign({
+      id: newUser.id
+    }, "mysecretkey", {
+      expiresIn: 60 * 60 * 24, // 10min
+    });
 
     await transporter.sendMail({
       from: MAIL_ACCOUNT, // sender address
       to: mail, // receiver adress
       subject: "Verify your new Account in Wall-et", //Subject mail
       html: `<p> Hi ${newUser.fullname}. In order to verify your new Account, please </p>
-      <a href="${FRONT_HOST}"> Click here </a>. 
+      <a href="${FRONT_HOST}confirmMail/${token}"> Click here </a>. 
       <p>If you did not request a new account, please ignore this mail. </p>`,
-  });
+    });
     //const token = getTokenRegister({mail: newUser.mail, id: newUser.id});
     //await sendMailConfirmation(mail, res);
     await newUser.save()
     //
     const response = await newUser;
-        return res.json({
-          message: "Created an Account succesfully",
-        });
+    return res.json({
+      message: "Created an Account succesfully",
+    });
   } catch (error) {
-    res.status(400).json({msg: error})
+    res.status(400).json({
+      msg: error
+    })
   }
 }
 
@@ -103,6 +130,53 @@ function generatorCVU() {
   verificador2 = (10 - verificador2 % 10) % 10;
   return "000" + "0047" + "4" + C + verificador2;
 }
+
+const confirm = async (req, res) => {
+  try {
+    //obtener el token 
+    const {
+      token
+    } = req.params;
+    // verificar la data
+    const data = jwt.verify(token, "mysecretkey");
+
+    if (data === null) {
+      return res.json({
+        success: false,
+        msj: 'Error data'
+      })
+    }
+
+    //verificar la existencia del usuario
+    const user = await Account.findByPk(data.id);
+
+
+    // if (user === null ){ 
+    //    return res.json({
+    //  success: false,
+    //  msj: 'User doesnt exist'
+    // }) }
+    //verificar el id
+    //if (id !== user.id){
+    // return   res.json({
+    //  success: false,
+    //  msj: 'User id doesnt exist'
+    // })
+    //}
+    //actualizar usuario
+    user.activated = true;
+    await user.save()
+    //redireccionar a la confirmacion 
+    return res.status(200)
+
+  } catch (error) {
+    res.status(400).json({
+      msg: error
+    })
+  }
+}
+
+
 
 //Obtener la data del usuario:name,mail,etc
 //listo
@@ -137,5 +211,6 @@ function generatorCVU() {
 
 module.exports = {
   register,
+  confirm
 
 };

@@ -127,16 +127,18 @@ function Register() {
           "You clicked the button!",
           "success"
         );
-        dispatch(confirmRegister({mail: input.mail}))
+        history.push("/verifyMail");
+       // dispatch(confirmRegister({mail: input.mail}))
       } catch (err) {
+        console.log(err)
         swal(
-          "We could not create account. Please try again.",
+          "You already have a account.",
           "You clicked the button!",
           "error"
         );
       }
       
-      history.push("/");
+      // history.push("/");
     } else {
       swal("Please accept the captcha", "You clicked the button!", "warning");
       cambiarUsuarioValido(false);

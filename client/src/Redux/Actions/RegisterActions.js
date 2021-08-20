@@ -7,11 +7,10 @@ USER_CONFIRMREGISTER_SUCCESS = "USER_CONFIRMREGISTER_SUCCESS";
 
 //axios.defaults.baseURL = "http://localhost:3001/";
 
-export const confirmRegister = (mail) => async (dispatch) => {
-  dispatch({ type: USER_CONFIRMREGISTER_REQUEST, payload: mail });
+export const confirmRegister = (token) => async (dispatch) => {
+  dispatch({ type: USER_CONFIRMREGISTER_REQUEST, payload: token });
   return axios
-    .post("/register", { mail }, {
-      headers: { "Content-Type": "application/json" }},)
+    .get("/register/" + token)
     .then((response) => {
       dispatch({ type: USER_CONFIRMREGISTER_SUCCESS, payload: response.data });
       swal(

@@ -13,6 +13,8 @@ import Transfer from "./Components/Transfer/index";
 import Help from "./Components/Help/Help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
+import Verify from "./utils/Verify";
+import checkMail from "./Components/Register/checkMail";
 
 // CSS hecho por:
 // Cami y Celes: /register y /home
@@ -23,6 +25,8 @@ export default function App() {
   return (
     <div>
       <Route exact path="/" component={Landingpage} />
+      <Route exact path="/confirmMail/:token" component={Verify} />
+      <Route exact path="/verifyMail" component={checkMail} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/recoverpassword" component={RecoverPassword} />
       <Route exact path="/faq" component={FrecuentlyQuestions} />
