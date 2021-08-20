@@ -5,9 +5,10 @@ import {
   GET_CONTACTS,
   SEARCH_CONTACT,
   SET_ORDER,
+  FAVORITE_CONTACT,ERASE_FAVORITE_CONTACT
 } from "../Actions/Contacts_Action";
 
-export const contactsHard = {
+/* export const contactsHard = {
   contacts: [
     {
       id: 1,
@@ -88,13 +89,15 @@ export const contactsHard = {
       date_transaction: "2021-03-20T15:19:28.986",
     },
   ],
-};
+}; */
 
 const initialState = {
   contacts: [],
   searchedContact: [],
   orderedContacts: [],
   transactions: [],
+  favorites:[],
+  remove:[]
 };
 //ordenar por prioridad
 const contactsReducer = (state = initialState, action) => {
@@ -121,6 +124,16 @@ const contactsReducer = (state = initialState, action) => {
         ...state,
         orderedContacts: getType(action.payload, state.contacts).slice(),
       };
+    case FAVORITE_CONTACT :
+      return{
+        ...state,
+        favorites:  [...state.favorites, action.payload]
+      }
+      case ERASE_FAVORITE_CONTACT:
+        return{
+          ...state,
+          remove: action.payload
+        }
     default:
       return state;
   }

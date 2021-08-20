@@ -1,19 +1,37 @@
 /* eslint-disable */
-import React from "react";
+import React, {useEffect, useState} from "react";
 import style from "./view_contacts.module.css";
-export const View = ({
-  fullname,
-  date_transaction,
-  mail,
-  toggleTransactions,
-}) => {
+import { favoriteContact } from "../../../Redux/Actions/Contacts_Action";
+import { useDispatch, useSelector} from "react-redux";
+export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
   const [renderContactTransactions, setRenderContactTransactions] =
     React.useState(true);
+  
+  const dispatch = useDispatch();
+  //
+  const favorites = useSelector(state => state.contactsReducer.favorites);
+  //
+  /* const [fav, setFav] = useState(true) */
+  const [user, setUser] = useState({
+    fullname,
+    mail,
+    date_transaction
+  })
+  
+ /*  useEffect((e) => {
+      dispatch(favoriteContact(e.target.value))    
+  },[dispatch]) */
+
 
   const handleOnClick = () => {
     if (renderContactTransactions === true) toggleTransactions(mail);
     //setRenderContactTransactions(!renderContactTransactions);
   };
+
+  const FavClick = (e) =>{
+    dispatch(favoriteContact(user))
+    
+  }
 
   return (
     <div>
@@ -27,6 +45,7 @@ export const View = ({
             </div>
             <div>Email: {mail}</div>
           </button>
+          <button  onClick={(e) => FavClick(e)}>Fav</button>
         </div>
       </div>
     </div>

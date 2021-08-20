@@ -13,6 +13,9 @@ import {
   getContacts,
 } from "../../Redux/Actions/Contacts_Action";
 import Transactions from "./Transactions";
+import Favorites from "./Favorites";
+import ViewTransaction from "./views/view_transactions";
+import View_favorite from "./views/view_favorite";
 
 function Contacts() {
   const dispatch = useDispatch();
@@ -23,10 +26,15 @@ function Contacts() {
     orderedContacts = useSelector(
       (store) => store.contactsReducer.orderedContacts
     ),
-    transactions = useSelector((store) => store.contactsReducer.transactions);
+    transactions = useSelector((store) => store.contactsReducer.transactions
+    ),
+    fav = useSelector((store) => store.contactsReducer.favorites);
   const [firstRender, setFirstRender] = useState(true);
   const [shownContacts, setShownContacts] = useState(contacts);
   const [search, setSearch] = useState(false);
+  //favoritos
+  const [favorites, setFavorites] = useState(fav);
+  /* console.log(favorites) */
   //const [renderTransactions, setRenderTransactions] = useState(true);
   const [transactionUser, setTransactionUser] = useState("");
   // hacer una logica para que primero busque si existen los orderedContacts, si no existen es por que
@@ -89,15 +97,22 @@ function Contacts() {
                     mail={contact.mail}
                     date_transaction={contact.date_transaction}
                   />
-                );
-              })}
-            <div className={c.button}></div>
+                  );
+                })}
+            {/* <div className={c.button}>x</div> */}
           </div>
           <div className={c.transactions}>
             <Transactions
               transactionList={transactions}
               mail={transactionUser}
             />
+            {renderButton}
+            <Favorites
+            toggleTransactions={toggleTransactions}
+            funSearch={funSearch} 
+            />
+          </div>
+          <div>
           </div>
         </div>
       </div>

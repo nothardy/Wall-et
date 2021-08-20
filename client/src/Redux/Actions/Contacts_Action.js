@@ -3,8 +3,9 @@ export const SEARCH_CONTACT = "SEARCH_CONTACT",
   SET_ORDER = "SET_ORDER",
   GET_CONTACTS = "GET_CONTACTS",
   ADD_CONTACT = "ADD_CONTACT",
-  ERASE_CONTACT_FILTERS = "ERASE;CONTACT_FILTERS";
-
+  ERASE_CONTACT_FILTERS = "ERASE;CONTACT_FILTERS",
+  FAVORITE_CONTACT = 'FAVORITE_CONTACT',
+  ERASE_FAVORITE_CONTACT ='ERASE_FAVORITE_CONTACT';
 // export function getContacts() {
 //   return (dispatch) => {
 //     // axios.get("/contacts").then((response) => {
@@ -66,4 +67,19 @@ export function setOrder(order) {
       payload: order,
     });
   };
+}
+export function favoriteContact (favorite) {
+  return (dispatch) => {
+    dispatch({
+      type:FAVORITE_CONTACT,
+      payload: favorite,
+    })
+  }
+}
+export function eraseFavoriteContact (){
+  return(dispatch) => {
+    dispatch({
+      type: ERASE_FAVORITE_CONTACT
+    })
+  }
 }
