@@ -1,0 +1,63 @@
+.container{
+    width: 32rem;
+    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+    background-color: white;
+    position:relative;
+    height: 410px;
+}
+
+.moldAmount{
+    background:white/* antiquewhite */;
+    width: 14rem;
+    height: 3rem;
+    position: relative;
+    font-size: 2rem;
+    border-bottom: 3px solid;
+    margin-top: 2rem;
+}
+
+.moldAmount > img{
+    width: 1.8rem;
+    position: absolute;
+    left: -5px;
+    bottom: 0px;
+}
+
+#inputAmount{  
+    font-size: 1.8rem;
+    width: 10rem;
+    position: absolute;
+    left: 23px;
+    bottom: -5px;
+    outline: none;
+    border: none;
+    background: none;
+    overflow: hidden;
+}
+/* PARA QUITAR EL SCROLL DEL INPUT CON TYPE NUMBER */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }
+
+.buttonsend{
+    position: absolute;
+    bottom: 45px;
+    right: 45px;
+    border-radius: 30px;
+    padding:  11px 16px;
+    font-size:  1.3rem;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 15px;
+    cursor:pointer;
+    width: 150px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.buttonsend:hover{
+    background-color: #6F77BF;
+ }
