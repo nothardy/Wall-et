@@ -127,4 +127,27 @@ const getTransactions = async (id) => {
   );
   return listTransactions;
 };
-module.exports = { getTransactions, addContactToDb };
+
+const postFavorite = async (req,res,next)=>{
+  const favoriteToAdd=req.body;
+  const id = req.userId;
+  try{
+  const account= await Account.findOne({
+    where:{
+      id:id
+    }
+  })
+
+  await account.addFavorite(favoriteToAdd)
+  res.json({ msg: `Favorite successfully added to account` });
+}catch(error){
+  next(error)
+}
+}
+
+
+module.exports = { getTransactions, addContactToDb,postFavorite };
+
+
+
+

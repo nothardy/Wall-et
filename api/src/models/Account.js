@@ -62,5 +62,15 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
+        favorites: {
+            // una manera que encontre en stackoverflow de declarar array de objetos
+            type: DataTypes.STRING,
+            get: function () {
+              return JSON.parse(this.getDataValue("favorites"));
+            },
+            set: function (value) {
+              return this.setDataValue("favorites", JSON.stringify(value));
+            },
+          },
     })
 }

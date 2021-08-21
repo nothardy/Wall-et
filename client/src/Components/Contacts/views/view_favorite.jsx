@@ -1,12 +1,12 @@
 /* eslint-disable */
 import React, {useEffect, useState} from "react";
 import style from "./view_contacts.module.css";
-import { favoriteContact } from "../../../Redux/Actions/Contacts_Action";
+import { eraseFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector} from "react-redux";
 export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
   const [renderContactTransactions, setRenderContactTransactions] =
     React.useState(true);
-  
+    //const [user, setUser] = useState(false);
   const dispatch = useDispatch();
   //
   const favorites = useSelector(state => state.contactsReducer.favorites);
@@ -28,10 +28,12 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
     //setRenderContactTransactions(!renderContactTransactions);
   };
 
-  const FavClick = (e) =>{
-    dispatch(favoriteContact(user))
-    
-  }
+
+    const eraseFavorite = () => {
+        if (user){
+            dispatch(eraseFavoriteContact(mail))};
+        setUser(!user);
+    }
 
   return (
     <div>
@@ -45,16 +47,10 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
             </div>
             <div>Email: {mail}</div>
           </button>
-          <button  onClick={(e) => FavClick(e)}>Fav</button>
+          <button onClick={eraseFavorite}>x</button>
         </div>
       </div>
     </div>
   );
 };
 export default View;
-
-/*
-<NavLink to="/transfers" className={style.todo}>
-        
-      </NavLink>
-*/
