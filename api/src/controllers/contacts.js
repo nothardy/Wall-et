@@ -127,4 +127,31 @@ const getTransactions = async (id) => {
   );
   return listTransactions;
 };
+<<<<<<< HEAD
 module.exports = { getTransactions, addContactToDb };
+=======
+
+const postFavorite = async (req,res,next)=>{
+  const favoriteToAdd=req.body;
+  const id = req.userId;
+  try{
+  const account= await Account.findOne({
+    where:{
+      id:id
+    }
+  })
+
+  await account.addFavorite(favoriteToAdd)
+  res.json({ msg: `Favorite successfully added to account` });
+}catch(error){
+  next(error)
+}
+}
+
+
+module.exports = { getTransactions, addContactToDb,postFavorite };
+
+
+
+
+>>>>>>> 071cba109ab2602dcdc9afdbf9b59d6c527d3bf6

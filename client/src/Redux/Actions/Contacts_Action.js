@@ -5,7 +5,8 @@ export const SEARCH_CONTACT = "SEARCH_CONTACT",
   ADD_CONTACT = "ADD_CONTACT",
   ERASE_CONTACT_FILTERS = "ERASE;CONTACT_FILTERS",
   FAVORITE_CONTACT = 'FAVORITE_CONTACT',
-  ERASE_FAVORITE_CONTACT ='ERASE_FAVORITE_CONTACT';
+  ERASE_FAVORITE_CONTACT ='ERASE_FAVORITE_CONTACT',
+  ADD_FAVORITE_CONTACT="ADD_FAVORITE_CONTACT";
 // export function getContacts() {
 //   return (dispatch) => {
 //     // axios.get("/contacts").then((response) => {
@@ -68,6 +69,21 @@ export function setOrder(order) {
     });
   };
 }
+
+export function addFavoriteContact(user) {
+  return (dispatch) => {
+    const token = localStorage.getItem("token");
+    axios
+      .post("URL", user, {
+        headers: { "Content-Type": "application/json" ,
+        "x-access-token":token},
+      })
+      .then((response) => {
+        dispatch({ type: ADD_FAVORITE_CONTACT, payload: response.data });
+      });
+  };
+}
+
 export function favoriteContact (favorite) {
   return (dispatch) => {
     dispatch({
@@ -76,10 +92,11 @@ export function favoriteContact (favorite) {
     })
   }
 }
-export function eraseFavoriteContact (){
+export function eraseFavoriteContact (mail){
   return(dispatch) => {
     dispatch({
-      type: ERASE_FAVORITE_CONTACT
+      type: ERASE_FAVORITE_CONTACT,
+      payload:mail
     })
   }
 }
