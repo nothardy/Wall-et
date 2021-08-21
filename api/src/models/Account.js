@@ -13,6 +13,7 @@ module.exports = (sequelize) => {
           mail: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
 
         password: {
@@ -59,7 +60,7 @@ module.exports = (sequelize) => {
         },
         activated: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true,
+            defaultValue: false,
         },
     })
 }

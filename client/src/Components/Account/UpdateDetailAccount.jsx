@@ -152,7 +152,7 @@ function UpdateDetailAccount({ close }) {
                 placeholder={user.user_data.dni}
                 value={updateinfo.dni}
                 name="dni"
-                minlength="8"
+                minLength="8"
               />
               <div>
                 <p>Birth Date:</p>
@@ -181,7 +181,7 @@ function UpdateDetailAccount({ close }) {
                 name="ubication"
               />
 
-              <button className="" type="submit" value="" name="">
+              <button className={u.buttoneditprofile} type="submit" value="" name="">
                 {" "}
                 Update Profile{" "}
               </button>

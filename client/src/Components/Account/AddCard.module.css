@@ -6,16 +6,25 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color:#dcdbdb;
+      /* background-color:#dcdbdb; */
       /* display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh; */
       display: flex;
       align-items: center;
+      border-radius: 15px;
+      box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+      background: radial-gradient(#76b2fe, #b69efe);
 }
 
 .addCardForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centerNumberCard{
   display: flex;
   flex-direction: column;
   align-items: center;

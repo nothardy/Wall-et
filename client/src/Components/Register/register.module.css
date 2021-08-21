@@ -135,7 +135,7 @@ label {
     background-color:transparent ;
 }
 .passwordWarning{
-    font-size: small;
+    font-size: 16px;
     color: #9fadca;
     margin-top: 0px;
 }

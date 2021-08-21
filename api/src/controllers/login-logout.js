@@ -20,9 +20,9 @@ const login = async (req, res) => {
     const token = jwt.sign({ id: user.id }, "mysecretkey", {
       expiresIn: 60 * 60 * 24, // 60*60*24s = 1day 
     });
+
     return res.status(200).json({ 
       ...user,
-      auth: true,
       token: token,
     });
   }catch{}

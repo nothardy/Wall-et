@@ -10,27 +10,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import dotenv from "dotenv";
+import { confirmRegister } from "../../Redux/Actions/RegisterActions";
+import { useDispatch } from "react-redux";
 dotenv.config();
 const CAPTCHA_KEY = process.env.REACT_APP_CAPTCHA_KEY;
 
-//import 'bootstrap/dist/css/bootstrap.min.css';
-//import Button from 'react-bootstrap/Button';
-//import Form from 'react-bootstrap/Form';
 
-// export function validate(input) {
-//     let errors = {};
-//     if (!input.mail) {
-//       errors.mail = 'Required Email';
-//     } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
-//       errors.mail = 'Invalid Email ';
-//     }
-//     if (!input.password) {
-//         errors.password = 'Required password';
-//       } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
-//         errors.password = 'The password must contain eight characters, an uppercase letter, and a number.';
-//       }
-//     return errors;
-//   };
+export function validate(input) {
+    let errors = {};
+    if (!input.mail) {
+      errors.mail = 'Required Email';
+    } else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.mail)) {
+      errors.mail = 'Invalid Email,  Example: wallet@gmail.com';
+    }
+    if (!input.password) {
+        errors.password = 'Required Password';
+      } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.password)) {
+        errors.password = '';
+      }
+    return errors;
+  };
 
 function Register() {
   const [input, setInput] = useState({
@@ -48,6 +47,7 @@ function Register() {
   const captcha = useRef(null);
   const [show, setShow] = useState(false);
   const [showpass2, setShowpass2] = useState(false);
+  const dispatch= useDispatch()
 
   const handleShowHide = () => {
     setShow(!show);
@@ -61,10 +61,10 @@ function Register() {
       ...input,
       [e.target.name]: e.target.value,
     });
-    // setErrors(validate({
-    //     ...input,
-    //     [e.target.value]: e.target.value
-    // }));
+    setErrors(validate({
+        ...input,
+        [e.target.value]: e.target.value
+    }));
   }
 
   async function handleSubmit(e) {
@@ -115,6 +115,7 @@ function Register() {
       //     swal('We could not create account. Please try again.', "You clicked the button!", "error");
       // }
       try {
+        
         await axios.post("/register", JSON.stringify(input), {
           headers: { "Content-Type": "application/json" },
         });
@@ -123,20 +124,28 @@ function Register() {
           "You clicked the button!",
           "success"
         );
+        history.push("/verifyMail");
+       
       } catch (err) {
+        console.log(err)
         swal(
-          "We could not create account. Please try again.",
+          "You already have a account.",
           "You clicked the button!",
           "error"
         );
       }
-      history.push("/");
+      
+    
     } else {
       swal("Please accept the captcha", "You clicked the button!", "warning");
       cambiarUsuarioValido(false);
       cambiarCaptchaValido(false);
     }
+  
   }
+
+
+
 
   function captchaChange() {
     if (captcha.current.getValue()) {
@@ -152,7 +161,7 @@ function Register() {
             <div className={r.centrar}>
               <h2 className={r.create}> Create your Account </h2>
               <form onSubmit={(e) => handleSubmit(e)}>
-                {/* <p className={r.titles}>Full Name*</p> */}
+               
                 <input
                   type="text"
                   placeholder="Full Name*"
@@ -163,9 +172,9 @@ function Register() {
                   onChange={handleChange}
                   className={r.inputregister}
                 />
-                {/* <p className={r.titles}>Identification Number*</p> */}
+               
                 <div>
-                  {/* <p className={r.titles}>E-mail*</p> */}
+        
                   <input
                     className={r.inputregister}
                     type="text"
@@ -180,7 +189,7 @@ function Register() {
                 </div>
 
                 <div>
-                  {/* <p className={r.titles}>Password*</p> */}
+              
                   <input
                     className={r.inputregister}
                     type={show ? "text" : "password"}
@@ -215,7 +224,7 @@ function Register() {
                   {errors.password && <p className="">{errors.password}</p>}
                 </div>
                 <div>
-                  {/* <p className={r.titles}>Confirm Password*</p> */}
+                
                   <input
                     className={r.inputregister}
                     type={showpass2 ? "text" : "password"}
@@ -246,7 +255,7 @@ function Register() {
                   {errors.password && <p className="">{errors.password}</p>}
                 </div>
 
-                {/* <label htmlFor="birthdate" className={r.titles}></label> */}
+              
                 <input
                   type="text"
                   placeholder="Identification Number*"
@@ -255,6 +264,7 @@ function Register() {
                   value={input.dni}
                   onChange={handleChange}
                   className={r.inputregister}
+                  minLength="8"
                 />
                 <input
                   htmlFor="birthdate"
@@ -283,7 +293,7 @@ function Register() {
                 </div>
 
                 {/* {captchaValido === false && <div className="error-captcha">Please accept the captcha</div>} */}
-                <button type="submit" className={r.buttoncreate}>
+                <button type="submit"  className={r.buttoncreate}>
                   Create Account
                 </button>
               </form>
