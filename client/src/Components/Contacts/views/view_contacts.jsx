@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, {useEffect, useState} from "react";
 import style from "./view_contacts.module.css";
-import { favoriteContact } from "../../../Redux/Actions/Contacts_Action";
+import { addFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector} from "react-redux";
 export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
   const [renderContactTransactions, setRenderContactTransactions] =
@@ -30,6 +30,7 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
 
   const FavClick = (e) =>{
     dispatch(favoriteContact(user))
+    dispatch(addFavoriteContact(user))
     
   }
 

@@ -49,4 +49,5 @@ router.use("/adminSearch", adminSearch);
 router.use("/auth", authRoutes);
 router.use("/resetPassword", resetPasswordRoutes);
 
+
 module.exports = router;
