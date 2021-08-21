@@ -29,6 +29,7 @@
     "nodemon": "^2.0.12",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
+    "stripe": "^8.170.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

@@ -10,6 +10,8 @@ const contacts = require("./contacts");
 
 const router = Router();
 
+
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -48,5 +50,6 @@ router.use("/home", home);
 router.use("/adminSearch", adminSearch);
 router.use("/auth", authRoutes);
 router.use("/resetPassword", resetPasswordRoutes);
+
 
 module.exports = router;

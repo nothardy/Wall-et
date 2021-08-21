@@ -7,7 +7,7 @@ const infoUser = async (id) => {
         const transactionsTO = await Transaction.findAll({ where: { to: id }})
         const listTransactions = [...await Promise.all(user.dataValues.transactions.map(async el => {
             const nameTo = await Account.findByPk(el.to)
-            const transactionRealize = await {
+            const transactionRealize = {
                 id: el.id,
                 from: el.from,
                 amount: el.amount,
@@ -33,7 +33,7 @@ const infoUser = async (id) => {
             return transactionReceives;
         })), ]
         
-        const data = await {
+        const data = {
             id: user.dataValues.id,
             user_data: {
                 fullname: user.dataValues.fullname,
