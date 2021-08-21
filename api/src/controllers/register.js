@@ -1,23 +1,9 @@
 require('dotenv').config();
-const {
-  Account
-} = require("../db");
-const {
-  v4: uuidv4
-} = require('uuid');
+const {  Account} = require("../db");
+const {  v4: uuidv4} = require('uuid');
 const bcrypt = require('bcrypt');
-//abajo import de sendmail
 const nodemailer = require("nodemailer");
-const {
-  getTokenRegister,
-  getTokenData
-} = require('../middlewares/tokenRegister');
-const {
-  MAIL_ACCOUNT,
-  MAIL_PASSWORD,
-  FRONT_HOST
-} = process.env;
-//const {sendMailConfirmation} = require('../middlewares/mailSendVerify');
+const {  MAIL_ACCOUNT,  MAIL_PASSWORD,  FRONT_HOST} = process.env;
 const jwt = require("jsonwebtoken");
 
 async function register(req, res, next) {
@@ -29,13 +15,12 @@ async function register(req, res, next) {
     birth_date
   } = req.body;
   try {
-    //verificar que el usuario no exista
-    const user = await Account.findOne({
+      const user = await Account.findOne({
       where: {
         mail: mail
       }
     });
-    // console.log(user)
+ 
     if (user !== null) {
       throw new Error("Account exist")
     }
@@ -88,17 +73,15 @@ async function register(req, res, next) {
     });
 
     await transporter.sendMail({
-      from: MAIL_ACCOUNT, // sender address
-      to: mail, // receiver adress
-      subject: "Verify your new Account in Wall-et", //Subject mail
+      from: MAIL_ACCOUNT,
+      to: mail,
+      subject: "Verify your new Account in Wall-et",
       html: `<p> Hi ${newUser.fullname}. In order to verify your new Account, please </p>
       <a href="${FRONT_HOST}confirmMail/${token}"> Click here </a>. 
       <p>If you did not request a new account, please ignore this mail. </p>`,
     });
-    //const token = getTokenRegister({mail: newUser.mail, id: newUser.id});
-    //await sendMailConfirmation(mail, res);
-    await newUser.save()
-    //
+      await newUser.save()
+    
     const response = await newUser;
     return res.json({
       message: "Created an Account succesfully",
@@ -133,11 +116,8 @@ function generatorCVU() {
 
 const confirm = async (req, res) => {
   try {
-    //obtener el token 
-    const {
-      token
-    } = req.params;
-    // verificar la data
+    const { token } = req.params;
+
     const data = jwt.verify(token, "mysecretkey");
 
     if (data === null) {
@@ -147,26 +127,10 @@ const confirm = async (req, res) => {
       })
     }
 
-    //verificar la existencia del usuario
+
     const user = await Account.findByPk(data.id);
-
-
-    // if (user === null ){ 
-    //    return res.json({
-    //  success: false,
-    //  msj: 'User doesnt exist'
-    // }) }
-    //verificar el id
-    //if (id !== user.id){
-    // return   res.json({
-    //  success: false,
-    //  msj: 'User id doesnt exist'
-    // })
-    //}
-    //actualizar usuario
     user.activated = true;
     await user.save()
-    //redireccionar a la confirmacion 
     return res.status(200)
 
   } catch (error) {
@@ -175,38 +139,6 @@ const confirm = async (req, res) => {
     })
   }
 }
-
-
-
-//Obtener la data del usuario:name,mail,etc
-//listo
-//verificar que el usuario no exista
-//listo
-// let user = await Account.findOne({mail}) || null;
-// if(user !== null){
-//   return res.json({
-//     success:false,
-//     msg: ' Account exist'
-//   })
-// }
-//generar el codigo id
-//uuidv4()
-//listo
-//crear un nuevo usuario
-//listo
-
-//generar token
-// const token = getTokenRegister({mail, id});
-//obtener un template
-
-//enviar el email
-// await sendMailConfirmation(mail, html);
-// await user.save()
-
-// res.json({
-//   success:true,
-//   msj: 'Correctly register'
-// })
 
 
 module.exports = {
