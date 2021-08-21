@@ -10,6 +10,7 @@ function FaceRecognition() {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
     const [initializing, setInitializing] = useState(false)
+    const [faceDetections, setFaceDetections]=useState({})
     useEffect(() => {
         const loadModels = async () => {
             const MODEL_URL = process.env.PUBLIC_URL + "/models";
@@ -18,6 +19,7 @@ function FaceRecognition() {
                 faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
                 faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
                 faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
+                faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL)
             ]).then(startVideo);
         }
         loadModels();
@@ -33,23 +35,26 @@ function FaceRecognition() {
     const handleVideoOnPlay = () => {
         setInterval(async () => {
             if (initializing) { setInitializing(false) };
-            canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(webcamRef.current);
-            const displaySize = { width: 640, height: 480};
-            console.log(displaySize)
-            faceapi.matchDimensions(canvasRef.current, displaySize);
-            const detections = await faceapi.detectAllFaces(webcamRef.current, new faceapi.TinyFaceDetectorOptions).withFaceLandmarks();
-            console.log(detections)
-            const resizedDetections = faceapi.resizeResults(detections, displaySize);
-            canvasRef.current.getContext("2d").clearRect(0, 0, 640, 480);
-            faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
-            faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
+            try {
+                canvasRef.current.innerHTML = faceapi.createCanvasFromMedia(webcamRef.current);
+                const displaySize = { width: 640, height: 480};
+                //console.log(displaySize)
+                faceapi.matchDimensions(canvasRef.current, displaySize);
+                const detections = await faceapi.detectSingleFace(webcamRef.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor();
+                const resizedDetections = faceapi.resizeResults(detections, displaySize);
+                canvasRef.current.getContext("2d").clearRect(0, 0, 640, 480);
+                faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
+                faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections)
+            } catch (error) {
+                console.log("shit")
+            }
         }, 100)
     }
+
 
     return (
         <div className={fr.container}>
             Funco
-            {console.log(webcamRef)}
             <span>{initializing ? "Initializing" : "Ready"}</span>
             <div className={fr.videoandCanvas}>
             <video ref={webcamRef}
@@ -58,8 +63,11 @@ function FaceRecognition() {
             <canvas
                 ref={canvasRef} className={fr.canvasFace}/>
                 </div>
+                { !initializing &&
+                <button>Capture</button>}
         </div>
     )
 }
 
 export default FaceRecognition
+
