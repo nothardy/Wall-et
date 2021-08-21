@@ -20,16 +20,16 @@ const login = async (req, res) => {
     const token = jwt.sign({ id: user.id }, "mysecretkey", {
       expiresIn: 60 * 60 * 24, // 60*60*24s = 1day 
     });
-    res.status(200).json({ 
+
+    return res.status(200).json({ 
       ...user,
-      auth: true,
       token: token,
     });
   }catch{}
 };
 
 const logout = (req, res) => {
-    res.status(200).send({auth: false, token: null});
+    return res.status(200).send({auth: false, token: null});
 };
 
 module.exports= {

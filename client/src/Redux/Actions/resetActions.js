@@ -6,8 +6,6 @@ const USER_FORGOTPASSWORD_REQUEST = "USER_FORGOTPASSWORD_REQUEST",
   USER_CHANGEPASSWORD_REQUEST = "USER_CHANGEPASSWORD_REQUEST",
   USER_CHANGEPASSWORD_SUCCESS = "USER_CHANGEPASSWORD_SUCCESS";
 
-//axios.defaults.baseURL = "http://localhost:3001/";
-
 export const forgot = (mail) => async (dispatch) => {
   dispatch({ type: USER_FORGOTPASSWORD_REQUEST, payload: mail });
   return axios
@@ -27,10 +25,11 @@ export const changePassword =
   async (dispatch) => {
     dispatch({ type: USER_CHANGEPASSWORD_REQUEST, payload: password });
     return axios
-      .post("/resetPassword/update_password/" + userid, { password })
+      .post("/resetPassword/update_password/" + userid, { password }, 
+      {headers: { "Content-Type": "application/json" }})
       .then((response) => {
         dispatch({ type: USER_CHANGEPASSWORD_SUCCESS, payload: response.data });
-        window.location.href = "/";
       })
+      .then(()=> window.location.href = "/")
       .catch((error) => swal("Passwords don't match", { icon: "error" }));
   };
