@@ -7,9 +7,7 @@ export function uploadFaceDescriptors(faceDetections) {
     console.log("Llegue")
     return (dispatch) => {
       axios
-        .post("/face", faceDetections, {
-          headers: { "Content-Type": "application/json" },
-        })
+        .post("/face", {faceDetections})
         .then((response) => {
           dispatch({ type: UPLOAD_FACE_DETECTIONS, payload: response.data });
         })
