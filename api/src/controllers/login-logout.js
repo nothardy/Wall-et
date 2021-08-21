@@ -29,7 +29,7 @@ const login = async (req, res) => {
 };
 
 const logout = (req, res) => {
-    res.status(200).send({auth: false, token: null});
+    return res.status(200).send({auth: false, token: null});
 };
 
 module.exports= {
