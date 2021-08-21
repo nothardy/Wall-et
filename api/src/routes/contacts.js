@@ -2,7 +2,7 @@
 // const router = express.Router();
 const { Router } = require("express");
 const route = Router();
-const { getTransactions, addContactToDb,postFavorite } = require("../controllers/contacts");
+const { getTransactions, addContactToDb,postFavorite, getFavorites } = require("../controllers/contacts");
 const { infoUser } = require("../controllers/infoHome");
 const { verifyToken } = require("../middlewares/verifyToken");
 
@@ -16,7 +16,9 @@ route.get("/", verifyToken, async (req, res) => {
     res.status(400).json({ err: error });
   }
 });
+route.get('/favorites',verifyToken,getFavorites);
 route.post('/favorites',verifyToken, postFavorite)
+
 //router.route("/").get).post(addContactToDb);
 
 module.exports = route;

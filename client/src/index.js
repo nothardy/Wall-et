@@ -9,8 +9,12 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
+<<<<<<< HEAD
 
 //axios.defaults.baseURL =  process.env.REACT_APP_API || "http://localhost:3001";
+=======
+ //axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001/"; 
+>>>>>>> 5a574fd29b5cb532199718e22a67ffb9437dc599
 axios.defaults.baseURL = "http://localhost:3001/";
 
 ReactDOM.render(

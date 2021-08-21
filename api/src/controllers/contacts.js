@@ -1,5 +1,5 @@
-const { Account, Transaction, Card, Contact } = require("../db");
-const { Op } = require("sequelize");
+const { Account, Transaction, Card, Contact, Favorite } = require("../db");
+const { Op, UUID } = require("sequelize");
 const { v4: uuidv4 } = require("uuid");
 // const {
 //   default: Transactions,
@@ -120,38 +120,52 @@ const getTransactions = async (id) => {
         type_transaction: el.type_transaction,
         state: el.state,
         transaction_date: el.createdAt,
-        main: true, // Key en true, significa que son transacciones realizadas por la cuenta
+        main: true,
+        // Key en true, significa que son transacciones realizadas por la cuenta
       };
       return transactionRealize;
     })
   );
   return listTransactions;
 };
-<<<<<<< HEAD
-module.exports = { getTransactions, addContactToDb };
-=======
 
-const postFavorite = async (req,res,next)=>{
-  const favoriteToAdd=req.body;
+const postFavorite = async (req, res, next) => {
+  const favoriteToAdd = req.body;
   const id = req.userId;
-  try{
-  const account= await Account.findOne({
-    where:{
-      id:id
-    }
-  })
+  try {
+    await Favorite.create({
+      id: uuidv4(),
+      user: favoriteToAdd.fullname,
+      mail: favoriteToAdd.mail,
+      date_transaction: favoriteToAdd.date_transaction,
+      accountId: id,
+    });
 
-  await account.addFavorite(favoriteToAdd)
-  res.json({ msg: `Favorite successfully added to account` });
-}catch(error){
-  next(error)
-}
-}
+    res.json({ msg: `Favorite successfully added to account` });
+  } catch (error) {
+    next(error);
+  }
+};
 
+const getFavorites = async (req, res, next) => {
+  const id = req.userId;
+  try {
+    const user = await Account.findByPk(id, {
+      include: [{ model: Favorite }],
+    });
 
-module.exports = { getTransactions, addContactToDb,postFavorite };
+    const data = {
+      favorites: user.dataValues.favorites,
+    };
+    res.json(data);
+  } catch (error) {
+    next(error);
+  }
+};
 
-
-
-
->>>>>>> 071cba109ab2602dcdc9afdbf9b59d6c527d3bf6
+module.exports = {
+  getTransactions,
+  addContactToDb,
+  postFavorite,
+  getFavorites,
+};

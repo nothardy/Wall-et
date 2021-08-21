@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   eraseContactFilters,
   getContacts,
+  getFavorites,
 } from "../../Redux/Actions/Contacts_Action";
 import Transactions from "./Transactions";
 import Favorites from "./Favorites";
@@ -26,8 +27,7 @@ function Contacts() {
     orderedContacts = useSelector(
       (store) => store.contactsReducer.orderedContacts
     ),
-    transactions = useSelector((store) => store.contactsReducer.transactions
-    ),
+    transactions = useSelector((store) => store.contactsReducer.transactions),
     fav = useSelector((store) => store.contactsReducer.favorites);
   const [firstRender, setFirstRender] = useState(true);
   const [shownContacts, setShownContacts] = useState(contacts);
@@ -44,6 +44,7 @@ function Contacts() {
     if (firstRender === true) {
       setFirstRender(false);
       dispatch(getContacts());
+      dispatch(getFavorites());
     }
 
     if (searchedContact.length > 0) setShownContacts(searchedContact);
@@ -97,8 +98,8 @@ function Contacts() {
                     mail={contact.mail}
                     date_transaction={contact.date_transaction}
                   />
-                  );
-                })}
+                );
+              })}
             {/* <div className={c.button}>x</div> */}
           </div>
           <div className={c.transactions}>
@@ -108,12 +109,11 @@ function Contacts() {
             />
             {renderButton}
             <Favorites
-            toggleTransactions={toggleTransactions}
-            funSearch={funSearch} 
+              toggleTransactions={toggleTransactions}
+              funSearch={funSearch}
             />
           </div>
-          <div>
-          </div>
+          <div></div>
         </div>
       </div>
     </div>
