@@ -19,7 +19,7 @@ async function register(req, res, next) {
       mail: mail.toLowerCase(),
       birth_date,
       cvu: generatorCVU(),
-      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" 
     })
     const response = await newUser;
         return res.json({

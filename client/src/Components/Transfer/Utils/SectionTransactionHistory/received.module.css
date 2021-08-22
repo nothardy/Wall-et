@@ -1,0 +1,32 @@
+.container {
+  background-color: rgb(53 110 43 / 70%);
+}
+
+.header {
+  /* background-color: cornsilk; */
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  /* background-color: rgb(228, 114, 137); */
+  margin-top: 3px;
+  height: 76%;
+  overflow-y: auto;
+}
+.body::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.5rem;
+}
+.body::-webkit-scrollbar-thumb {
+  background: rgb(20, 20, 20);
+  border-radius: 25px;
+  width: 0.4rem;
+}
+.body::-webkit-scrollbar-track {
+  background: #97a5bb70;
+  border-radius: 4px;
+  height: 1rem;
+}

@@ -50,12 +50,16 @@ module.exports = (sequelize) => {
         },
 
         photo: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
 
         admin: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
+        },
+        activated: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
         },
     })
 }

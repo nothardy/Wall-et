@@ -1,0 +1,17 @@
+.icon{
+    color: rgb(26, 43, 68);
+    font-size: 15px;
+    transform: translateX(-55px);
+    cursor: pointer
+} 
+.passwordWarning{
+    font-size: small;
+    color: #9fadca;
+    margin-top: 0px;
+}
+.container{
+    position: absolute;
+    top: 60%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }

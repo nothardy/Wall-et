@@ -5,6 +5,7 @@ import NavBar from '../Home/NavBar/navBar'
 import a from './Account.module.css'
 import DetailAccount from './DetailAccount';
 
+
 function Account() {
     return (
         <div>
@@ -14,7 +15,7 @@ function Account() {
                     <NavBar />
                 </div>
                 <div className={a.right}>
-                    <DetailAccount />
+                    <DetailAccount/>
                 </div>
             </div>
         </div>

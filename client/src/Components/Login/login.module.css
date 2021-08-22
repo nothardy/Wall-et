@@ -76,11 +76,13 @@
 .cajaboton{
     margin-top: -27px;
 }
- .linkslogin{
+ .linkslogin > a{
     display: flex;
     justify-content: space-around;
     align-content: center;
     align-items: center;
+    text-decoration: none;
+    color: white;
 }
 
 .centrarlogin{
@@ -115,7 +117,19 @@
     margin-left: 1500px;
 }
 
+.faqLanding > a {
+    text-decoration: none;
+    color: white;
+}
+
+
 .footer{
     margin-top: -50px;
-    color: rgba(83, 83, 83, 0.781);
+    color: #9fadca;
 }
+
+.linkForgotPasswordLanding{
+    color:lightgray;
+    text-decoration: none;
+}
+
