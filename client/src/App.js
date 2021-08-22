@@ -14,6 +14,7 @@ import Transfer from "./Components/Transfer/Transfer";
 import Help from './Components/Help/Help';
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
+import WalletCard from "./Components/Wall-etCard/wall-etCard";
 
 
 // CSS hecho por:
@@ -38,6 +39,7 @@ export default function App() {
       <PrivateRoute path="/mywallet" component= {Home} exact/>
       <PrivateRoute path="/balance" component= {Balance} exact/>
       <Route exact path='/resetPassword/:userid' component={ResetPassword} />
+      <Route exact path = '/walletCard' component={WalletCard} />
     </div>
   );
 }
