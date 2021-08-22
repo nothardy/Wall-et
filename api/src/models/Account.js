@@ -1,65 +1,76 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-    sequelize.define('account', {
-        
-        id: {
-            type: DataTypes.UUID,
-            primaryKey: true,
-            defaultValue: DataTypes.UUIDV4,
-            unique: true,
-          },
-          
-          mail: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+	sequelize.define("account", {
+		id: {
+			type: DataTypes.UUID,
+			primaryKey: true,
+			defaultValue: DataTypes.UUIDV4,
+			unique: true,
+		},
 
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+		mail: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        fullname: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-      
-        dni: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-      
-        ubication: {
-            type: DataTypes.STRING,
-        },
-      
-        birth_date: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        
-        
-        balance: {
-            type: DataTypes.FLOAT,
-            defaultValue: 0,
-        },
+		password: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        cvu: {
-            type: DataTypes.STRING,
-        },
+		fullname: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        photo: {
-            type: DataTypes.TEXT,
-        },
+		dni: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        admin: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-        },
-        activated: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: true,
-        },
-    })
-}
+		ubication: {
+			type: DataTypes.STRING,
+		},
+
+		birth_date: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+
+		balance: {
+			type: DataTypes.FLOAT,
+			defaultValue: 0,
+		},
+
+		cvu: {
+			type: DataTypes.STRING,
+		},
+
+		photo: {
+			type: DataTypes.TEXT,
+		},
+
+		admin: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
+		activated: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: true,
+		},
+		faceDescriptor: {
+			// una manera que encontre en stackoverflow de declarar array de objetos
+			type: DataTypes.STRING(35000),
+			get: function () {
+				return JSON.parse(this.getDataValue("faceDescriptor"));
+			},
+			set: function (value) {
+				return this.setDataValue(
+					"faceDescriptor",
+					JSON.stringify(value)
+				);
+			},
+		},
+	});
+};

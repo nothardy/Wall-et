@@ -21,21 +21,25 @@ import FaceRecognition from "./Components/FaceRecognition/FaceRecognition";
 // Franco: mywallet
 
 export default function App() {
-  return (
-    <div>
-      <Route exact path="/" component={Landingpage} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/recoverpassword" component={RecoverPassword} />
-      <Route exact path="/faq" component={FrecuentlyQuestions} />
-      <Route exact path="/logout" component={Logout} />
-      <PrivateRoute path="/account" component={Account} exact />
-      <Route exact path="/contacts" component={Contacts} />
-      <Route path="/transfers/:section" component={Transfer} />
-      <Route exact path="/help" component={Help} />
-      <PrivateRoute path="/mywallet" component={Home} exact />
-      <PrivateRoute path="/balance" component={Balance} exact />
-      <Route exact path="/resetPassword/:userid" component={ResetPassword} />
-      <PrivateRoute path="/face" component={FaceRecognition} exact />
-    </div>
-  );
+	return (
+		<div>
+			<Route exact path="/" component={Landingpage} />
+			<Route exact path="/register" component={Register} />
+			<Route exact path="/recoverpassword" component={RecoverPassword} />
+			<Route exact path="/faq" component={FrecuentlyQuestions} />
+			<Route exact path="/logout" component={Logout} />
+			<PrivateRoute path="/account" component={Account} exact />
+			<Route exact path="/contacts" component={Contacts} />
+			<Route path="/transfers/:section" component={Transfer} />
+			<Route exact path="/help" component={Help} />
+			<PrivateRoute path="/mywallet" component={Home} exact />
+			<PrivateRoute path="/balance" component={Balance} exact />
+			<Route
+				exact
+				path="/resetPassword/:userid"
+				component={ResetPassword}
+			/>
+			<PrivateRoute path="/face" component={FaceRecognition} exact />
+		</div>
+	);
 }

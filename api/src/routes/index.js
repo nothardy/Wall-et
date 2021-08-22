@@ -28,6 +28,7 @@ const authRoutes = require("./auth");
 const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
+const face = require("./face");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -48,5 +49,6 @@ router.use("/home", home);
 router.use("/adminSearch", adminSearch);
 router.use("/auth", authRoutes);
 router.use("/resetPassword", resetPasswordRoutes);
+router.use("/face", face);
 
 module.exports = router;
