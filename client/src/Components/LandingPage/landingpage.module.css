@@ -24,3 +24,20 @@
         width: auto;
     }
   } */
+
+/* Extra large devices (large desktop, 1200px and up)*/
+@media (max-width: 1200px) {
+    
+}
+/*  large devices ( desktops, 992px and up)*/
+@media (max-width: 992px) {
+    
+}
+/* Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+    
+}
+/* Small devices (phones, 576px and up)*/
+@media (max-width: 576px) {
+    
+}

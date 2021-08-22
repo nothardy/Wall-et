@@ -14,6 +14,8 @@ import axios from "axios";
 import AddCard from "./AddCard";
 import "react-credit-cards/es/styles-compiled.css";
 import UploadPhoto from "./UploadPhoto";
+import DarkMode from "../DarkMode/DarkMode";
+import '../../App.css'
 
 function DetailAccount() {
   const dispatch = useDispatch();
@@ -119,6 +121,7 @@ function DetailAccount() {
 
   return (
     <div className={a.containerProfile}>
+      
       {user ? (
         <div className={a.containerDetailsProfile}>
           <div >
@@ -212,6 +215,7 @@ function DetailAccount() {
                             </div>
               </div>
               <div className={a.seccioncardAndButtons}>
+              <DarkMode />
                 <div className={a.seccionCard}>
                   <p>Cards: </p>
                   {user.account_data.cards.length > 0
