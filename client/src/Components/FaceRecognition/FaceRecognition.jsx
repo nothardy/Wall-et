@@ -19,6 +19,8 @@ function FaceRecognition() {
 	const [initializing, setInitializing] = useState(false);
 	const [faceDetections, setFaceDetections] = useState([]);
 	const [updateFaceDetection, setUpdateFaceDetection] = useState(false);
+	const [isUser, setIsUser] = useState(false);
+	// const arrayfloated = new Float32Array(userFace);
 	useEffect(() => {
 		if (updateFaceDetection === true) {
 			dispatch(getFaceDescriptor());
@@ -101,20 +103,27 @@ function FaceRecognition() {
 	const checkFace = async () => {
 		await faceCapture();
 
-		// let faceDetectionsArray = Array.prototype.slice.call(faceDetections);
-		// faceDetectionsArray = faceDetectionsArray.map((element) =>
-		// 	Array.prototype.slice.call(element)
-		// );
+		userFace = userFace.map(
+			(element) => new Float32Array(Object.values(element))
+		);
 
 		console.log("face detectiosn=>", faceDetections);
 		console.log("user face =>", userFace);
 
 		if (faceDetections.length === userFace.length) {
-			// const faceCheck = faceapi.euclideanDistance(
-			// 	faceDetections,
-			// 	userFace
-			// );
-			//console.log("facecheck =>", faceCheck);
+			let faceCheck = [];
+			let faceCheckAverage = 0;
+			for (let i = 0; i <= 9; i++) {
+				faceCheck.push(
+					faceapi.euclideanDistance(faceDetections[i], userFace[i])
+				);
+				faceCheckAverage = faceCheckAverage + faceCheck[i];
+			}
+			faceCheckAverage = faceCheckAverage / 10;
+
+			if (faceCheckAverage <= 0.4) setIsUser(true);
+
+			console.log("facecheck =>", faceCheckAverage);
 		} else {
 			console.log("faceDetections length:", faceDetections.length);
 			console.log("userFace length:", userFace.length);
@@ -145,6 +154,7 @@ function FaceRecognition() {
 			console.log(faceDetections.length);
 		}
 	};
+
 	async function handleCapture() {
 		await faceCapture();
 		// 	try {
@@ -193,6 +203,7 @@ function FaceRecognition() {
 			</div>
 			{!initializing && <button onClick={handleCapture}>Capture</button>}
 			{!initializing && <button onClick={checkFace}>Check Face</button>}
+			{isUser === true ? "AUTHENTICATED!" : "NOT AUTHENTICATED"}
 		</div>
 	);
 }
