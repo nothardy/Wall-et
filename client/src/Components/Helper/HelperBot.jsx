@@ -1,9 +1,9 @@
-import s from './Help.module.css';
+import s from './HelperBot.module.css';
 import Bar from '../Bar/bar';
 import NavBar from '../Home/NavBar/navBar';
-import ContactUs from './contactUs';
+import Helper from './Helper';
 
-function Help() {
+function HelperBot() {
     return (
         <div>
             <Bar />
@@ -12,11 +12,11 @@ function Help() {
                     <NavBar />
                 </div>
                 <div className={s.right}>
-                    <ContactUs />
+                    <Helper />
                 </div>
             </div>
         </div>
     )
 }
 
-export default Help
+export default HelperBot

@@ -13,9 +13,10 @@ import Transfer from "./Components/Transfer/index";
 import Help from "./Components/Help/Help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
-import WalletCard from "./Components/Wall-etCard/wall-etCard";
+import Card from "./Components/Wall-etCard/Card";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
-import Payments from "./Components/Payments/Payments"
+import Payments from "./Components/Payments/Payments";
+import HelperBot from "./Components/Helper/HelperBot";
 
 
 // CSS hecho por:
@@ -35,11 +36,12 @@ export default function App() {
       <PrivateRoute exact path="/contacts" component={Contacts}/>
       <PrivateRoute exact path="/payments"  component={Payments}/>
       <PrivateRoute exact path="/transfers"  component={Transfer} />
-      <PrivateRoute exact path="/help"  component={Help}/>
+      <PrivateRoute exact path="/help"  component={HelperBot}/>
+      <PrivateRoute exact path="/help/form"  component={Help}/>
       <PrivateRoute path="/mywallet" component= {Home} exact/>
       <PrivateRoute path="/balance" component= {Balance} exact/>
       <Route exact path='/resetPassword/:userid' component={ResetPassword} />
-      <Route exact path = '/walletCard' component={WalletCard} />
+      <Route exact path = '/walletCard' component={Card} />
     </div>
   );
 }

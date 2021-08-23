@@ -2,6 +2,7 @@ require('dotenv').config();
 const { Account } = require("../db");
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
+const {card} = require('./walletCard')
 
 async function register(req, res, next) {
   const { fullname, password, dni, mail, birth_date } = req.body;
@@ -19,11 +20,13 @@ async function register(req, res, next) {
       mail: mail.toLowerCase(),
       birth_date,
       cvu: generatorCVU(),
-      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" 
+      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      card: card(fullname)
     })
     const response = await newUser;
         return res.json({
           message: "Created an Account succesfully",
+          user: response
         });
   } catch (error) { next(error) }
 }

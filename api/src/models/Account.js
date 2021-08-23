@@ -57,6 +57,11 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
+
+        card: {
+            type: DataTypes.JSON,
+        },
+
         activated: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,

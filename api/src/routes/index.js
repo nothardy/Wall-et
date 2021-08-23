@@ -28,7 +28,6 @@ const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
 const contacts= require("./contacts");
-const fakeCard= require('./fakeCard');
 
 
 // Configurar los routers
@@ -50,6 +49,5 @@ router.use("/home", home);
 router.use("/adminSearch", adminSearch);
 router.use("/auth", authRoutes);
 router.use("/resetPassword", resetPasswordRoutes);
-router.use('/mycard', fakeCard)
 
 module.exports = router;

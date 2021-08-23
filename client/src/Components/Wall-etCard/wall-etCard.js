@@ -1,125 +1,89 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { getDateUser } from "../../Redux/Actions/Home";
 import Cards from "react-credit-cards";
 import 'react-credit-cards/es/styles-compiled.css';
-import { addWalletCard } from "../../Redux/Actions/walletActions";
-import { useDispatch } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 const WalletCard = () => {
-    const [info, setInfo] = useState({
-        number: '',
-        name: '',
-        cvc: '',
-        expiry: '',
-        focus: '',
-    })
+  const user = useSelector(state => state.homeReducer.User);
+  const dispatch = useDispatch();
+  
+  let [firstRender, setFirstRender] = useState(true);
 
-    const dispatch = useDispatch();
+  useEffect(() => {
+    if (firstRender === true) {
+      dispatch(getDateUser());
+      setFirstRender(firstRender = !firstRender)
+    }
+  }, [firstRender, dispatch]);
 
-    function handleInputChange (e) {
-        setInfo({
-            ...info, 
-            [e.target.name]: e.target.value
-        })
-    }
+  const card = user ? user.card : null
 
-    function handleFocusChange (e) {
-        setInfo({
-            ...info, 
-            focus : e.target.name
-        })
-    }
-    
-    function handleSubmit (e) {
-        e.preventDefault();
-        dispatch(addWalletCard(info))
-    }
-    return (
+  //COPY CARD 
+  const [copySuccess, setCopySuccess] = useState('');
+  const textAreaRef = useRef(null);
+
+  function copyToClipboard(e) {
+    e.preventDefault();
+    textAreaRef.current.select();
+    document.execCommand('copy');
+    e.target.focus();
+    setCopySuccess('Copied!');
+  };
+
+  return (
+    <div>
+      {card ?
         <div>
+          <Cards
+            number={card.number}
+            name={card.name}
+            expiry={card.expiry}
+            cvc={card.cvc}
+            focused={card.name}
+          />
           <div>
-            <div>
-              <Cards
-                number={info.number}
-                name={info.name}
-                expiry={info.expiry}
-                cvc={info.cvc}
-                focused={info.focus}  
-              />
-    
-              <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
-                  <div>
-                    <label htmlFor="number">Number of credit or debit Card:</label>
-                  </div>
-                  <input
-                    type="text" 
-                    name="number"
-                    id='number'
-                    placeholder="Card Number"
-                    onChange={handleInputChange}
-                    onFocus={handleFocusChange}
-                    pattern="[\d| ]{15,22}"
-                    minLength="15"
-                    maxlength="22"
-                    required
-                  />
-                </div>
-                <div>
-                  <div>
-                    <label htmlFor="name">Cardholder's Name:</label>
-                  </div>
-                  <input
-                    type="text"
-                    name="name"
-                    id='name'
-                    placeholder="Name"
-                    onChange={handleInputChange}
-                    onFocus={handleFocusChange}
-                    required
-                  />
-                </div>
-                <div>
-                  <div>
-                    <div>
-                      <label htmlFor="expiry">Expiration date:</label>
-                    </div>
-                    <input
-                      type="text"
-                      name="expiry"
-                      id="expiry"
-                      placeholder="Valid Date"
-                      data-date-split-input="true"
-                      min="2021-08"
-                      max="2026-12"
-                      onChange={handleInputChange}
-                      onFocus={handleFocusChange}
-                      pattern="\d\d\d\d"
-                      maxlength="4"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <label htmlFor="cvc">CVC</label>
-                    </div>
-                    <input
-                      type="text"
-                      name="cvc"
-                      id="cvc"
-                      placeholder="CVC"
-                      onChange={handleInputChange}
-                      onFocus={handleFocusChange}
-                      pattern="\d{3,4}"
-                      maxlength="4"
-                      required
-                    />
-                  </div>
-                </div>
-                <button type="submit" >Add Wall-et Card</button>
-              </form>
-            </div>
+            <h4 id="number">Number of credit or debit Card:</h4>
+            <p>{card.number} </p>
+            <hr />
           </div>
-        </div>
-      );
-    }
-    
-    export default WalletCard; 
+          <div>
+            <h4 id="name">Cardholder's Name:</h4>
+            <p>{card.name} </p>
+            <hr />
+          </div>
+          <div>
+            <h4 id="expiry">Expiration date:</h4>
+            <p>{card.expiry} </p>
+            <hr />
+          </div>
+          <div>
+            <h4 id="cvc">CVC</h4>
+            <p>{card.cvc} </p>
+            <hr />
+          </div>
+          <form>
+            <label htmlFor='cardNumber'> Copy the card number </label>
+            <input
+              id='cardNumber'
+              ref={textAreaRef}
+              value={card.number} />
+            {
+              document.queryCommandSupported('copy') &&
+              <div>
+                <FontAwesomeIcon
+                  onClick={copyToClipboard}
+                  icon={faCopy}
+                  id='show_hide' />
+                {copySuccess}
+              </div>
+            }
+          </form>
+        </div> : 'Loading...'}
+    </div>
+  );
+}
+
+export default WalletCard;

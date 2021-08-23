@@ -1,9 +1,9 @@
-import s from './Help.module.css';
-import Bar from '../Bar/bar';
-import NavBar from '../Home/NavBar/navBar';
-import ContactUs from './contactUs';
+import s from './Card.module.css'
+import Bar from '../Bar/bar'
+import NavBar from '../Home/NavBar/navBar'
+import WalletCard from './wall-etCard'
 
-function Help() {
+function Card() {
     return (
         <div>
             <Bar />
@@ -12,11 +12,11 @@ function Help() {
                     <NavBar />
                 </div>
                 <div className={s.right}>
-                    <ContactUs />
+                    <WalletCard />
                 </div>
             </div>
         </div>
     )
 }
 
-export default Help
+export default Card
