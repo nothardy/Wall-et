@@ -8,12 +8,14 @@ import {
 	getFaceDescriptor,
 	uploadFaceDescriptors,
 } from "../../Redux/Actions/FaceRecognition_Action";
+import { getDateUser } from "../../Redux/Actions/Home";
 import swal from "sweetalert";
 
 function FaceRecognition() {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	let userFace = useSelector((store) => store.faceReducer.faceDescriptor);
+	let userName= useSelector((store) => store.homeReducer)
 	const videoHeight = 480;
 	const videoWidth = 640;
 	const webcamRef = useRef(null);
@@ -25,7 +27,8 @@ function FaceRecognition() {
 	// const arrayfloated = new Float32Array(userFace);
 	useEffect(() => {
 		if (updateFaceDetection === true) {
-			dispatch(getFaceDescriptor());
+			dispatch(getFaceDescriptor())
+			dispatch(getDateUser());
 			setUpdateFaceDetection(false);
 		}
 		const loadModels = async () => {
@@ -141,7 +144,11 @@ function FaceRecognition() {
 			}
 			faceCheckAverage = faceCheckAverage / 10;
 
-			if (faceCheckAverage <= 0.45) setIsUser(true);
+			if (faceCheckAverage <= 0.45) {setIsUser(true); swal(
+				`You are ${userName.fullname}`, //No funciona todavia
+				"You clicked the button!",
+				"success"
+			);};
 
 			console.log("facecheck =>", faceCheckAverage);
 		} else {

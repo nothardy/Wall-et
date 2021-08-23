@@ -13,7 +13,7 @@ import Transfer from "./Components/Transfer/index";
 import Help from "./Components/Help/Help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
-import FaceRecognition from "./Components/FaceRecognition/FaceRecognition";
+import FaceView from "./Components/FaceRecognition/FaceView";
 
 // CSS hecho por:
 // Cami y Celes: /register y /home
@@ -39,7 +39,7 @@ export default function App() {
 				path="/resetPassword/:userid"
 				component={ResetPassword}
 			/>
-			<PrivateRoute path="/face" component={FaceRecognition} exact />
+			<PrivateRoute path="/face" component={FaceView} exact />
 		</div>
 	);
 }
