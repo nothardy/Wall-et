@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import * as faceapi from "face-api.js";
 //import Webcam from "react-webcam"
 import fr from "./FaceRecognition.module.css";
@@ -11,6 +12,7 @@ import swal from "sweetalert";
 
 function FaceRecognition() {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	let userFace = useSelector((store) => store.faceReducer.faceDescriptor);
 	const videoHeight = 480;
 	const videoWidth = 640;
@@ -93,13 +95,31 @@ function FaceRecognition() {
 		dispatch(uploadFaceDescriptors(faceDetections));
 		setUpdateFaceDetection(true);
 		setFaceDetections([]);
+		dispatch(getFaceDescriptor())
 		swal(
 			"Face detection done succesfully!",
 			"You clicked the button!",
 			"success"
 		);
 	}
-
+	function deleteFace() {
+		swal({
+			title: "Are you sure?",
+			text: "Once deleted, you will need to upload your face again!",
+			icon: "warning",
+			buttons: true,
+			dangerMode: true,
+		}).then((willDelete) => {
+			if (willDelete) {
+				dispatch(uploadFaceDescriptors(null));
+				setUpdateFaceDetection(true);
+				swal("Your face was deleted", { icon: "success" });
+				//history.push("/mywallet")
+			} else {
+				swal("Your face scan is safe!");
+			}
+		});
+	}
 	const checkFace = async () => {
 		await faceCapture();
 
@@ -121,7 +141,7 @@ function FaceRecognition() {
 			}
 			faceCheckAverage = faceCheckAverage / 10;
 
-			if (faceCheckAverage <= 0.4) setIsUser(true);
+			if (faceCheckAverage <= 0.45) setIsUser(true);
 
 			console.log("facecheck =>", faceCheckAverage);
 		} else {
@@ -188,7 +208,6 @@ function FaceRecognition() {
 
 	return (
 		<div className={fr.container}>
-			Funco
 			<span>{initializing ? "Initializing" : "Ready"}</span>
 			<div className={fr.videoandCanvas}>
 				<video
@@ -203,6 +222,7 @@ function FaceRecognition() {
 			</div>
 			{!initializing && <button onClick={handleCapture}>Capture</button>}
 			{!initializing && <button onClick={checkFace}>Check Face</button>}
+			{Object.entries(userFace).length===0 || !userFace?"":<button onClick={deleteFace}>Delete</button>}
 			{isUser === true ? "AUTHENTICATED!" : "NOT AUTHENTICATED"}
 		</div>
 	);

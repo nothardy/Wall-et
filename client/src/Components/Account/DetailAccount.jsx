@@ -317,7 +317,7 @@ function DetailAccount() {
 								</div>
 								<Link to="/face">
 									<button className={a.buttonAddFace}>
-										{!userFace ? "Add Face" : "Update Face"}
+										{Object.entries(userFace).length===0 || !userFace? "Add Face" : "Update Face"}
 									</button>
 								</Link>
 							</div>
