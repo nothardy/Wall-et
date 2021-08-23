@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Logout = async() => {
     await axios.get('/auth/logout')
-    localStorage.clear()
+    localStorage.removeItem("token");
     return window.location.href = "/";
 }
 
