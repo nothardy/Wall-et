@@ -15,7 +15,7 @@ function FaceRecognition() {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	let userFace = useSelector((store) => store.faceReducer.faceDescriptor);
-	let userName= useSelector((store) => store.homeReducer)
+	let userName = useSelector((store) => store.homeReducer)
 	const videoHeight = 480;
 	const videoWidth = 640;
 	const webcamRef = useRef(null);
@@ -116,6 +116,8 @@ function FaceRecognition() {
 			if (willDelete) {
 				dispatch(uploadFaceDescriptors(null));
 				setUpdateFaceDetection(true);
+				setFaceDetections([]);
+				setIsUser(false);
 				swal("Your face was deleted", { icon: "success" });
 				//history.push("/mywallet")
 			} else {
@@ -124,6 +126,10 @@ function FaceRecognition() {
 		});
 	}
 	const checkFace = async () => {
+		if (Object.entries(userFace).length === 0 || !userFace) return swal(
+			"There is no face data",
+			"You must capture your first face",
+			"error")
 		await faceCapture();
 
 		userFace = userFace.map(
@@ -144,12 +150,20 @@ function FaceRecognition() {
 			}
 			faceCheckAverage = faceCheckAverage / 10;
 
-			if (faceCheckAverage <= 0.45) {setIsUser(true); swal(
-				`You are ${userName.fullname}`, //No funciona todavia
-				"You clicked the button!",
-				"success"
-			);};
-
+			if (faceCheckAverage <= 0.45) {
+				setIsUser(true); swal(
+					`You are authenticated`, //No funciona todavia
+					"You clicked the button!",
+					"success"
+				)
+			}
+			else {
+				setFaceDetections([]);
+				swal(
+					"We could not check your face.",
+					"Please try again.",
+					"error")
+			};
 			console.log("facecheck =>", faceCheckAverage);
 		} else {
 			console.log("faceDetections length:", faceDetections.length);
@@ -229,7 +243,7 @@ function FaceRecognition() {
 			</div>
 			{!initializing && <button onClick={handleCapture}>Capture</button>}
 			{!initializing && <button onClick={checkFace}>Check Face</button>}
-			{Object.entries(userFace).length===0 || !userFace?"":<button onClick={deleteFace}>Delete</button>}
+			{Object.entries(userFace).length === 0 || !userFace ? "" : <button onClick={deleteFace}>Delete</button>}
 			{isUser === true ? "AUTHENTICATED!" : "NOT AUTHENTICATED"}
 		</div>
 	);
