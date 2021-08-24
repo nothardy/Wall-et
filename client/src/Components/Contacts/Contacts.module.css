@@ -70,3 +70,9 @@
 .transactions {
   margin-left: -6rem;
 }
+
+@media (max-height: 921px) {
+  .tittle {
+    font-size: 18px;
+  }
+  }

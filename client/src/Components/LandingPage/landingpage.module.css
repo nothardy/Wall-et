@@ -26,8 +26,10 @@
   } */
 
 /* Extra large devices (large desktop, 1200px and up)*/
-@media (max-width: 1200px) {
-    
+@media (max-height: 937px) {
+   .wallet {
+font-size:2000px;
+    }
 }
 /*  large devices ( desktops, 992px and up)*/
 @media (max-width: 992px) {
