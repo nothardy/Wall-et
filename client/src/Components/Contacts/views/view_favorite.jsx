@@ -31,9 +31,9 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions, use
   };
 
 
-    const eraseFavorite = () => {
+    const eraseFavorite = (e) => {
       if(user)dispatch(eraseFavoriteContact(mail));
-      setUser(!user);
+      setUser(e.target.value);
     }
 
   return (
@@ -48,7 +48,7 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions, use
             </div>
             <div>Email: {mail}</div>
           </button>
-          <button onClick={eraseFavorite}>x</button>
+          <button className={style.buttonX}onClick={eraseFavorite}>x</button>
         </div>
       </div>
     </div>

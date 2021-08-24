@@ -29,3 +29,23 @@
   height:70px;
   margin-left: 1rem;
 }
+.buttonFav{
+  display: flex;
+  margin-left: 25rem;
+  justify-content: center;
+  align-items: center;
+  background-color: seagreen;
+  width: 3rem;
+  margin-top: -2.5rem;
+}
+.buttonFav:hover{
+  background-color: seashell;
+}
+.buttonX{
+  display: flex;
+  margin-left: 20rem;
+  align-items: center;
+  background-color: red;
+  width: 3rem;
+  margin-top: -2rem;
+}

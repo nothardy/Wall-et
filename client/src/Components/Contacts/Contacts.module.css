@@ -5,11 +5,12 @@
   color: midnightblue;
 }
 
-.button {
+.buton{
   width: 3rem;
   margin: 4px;
   border: 1px solid black;
   border-radius: 10px;
+  background-color: red;
 }
 #id {
   display: flex;

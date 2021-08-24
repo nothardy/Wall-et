@@ -46,7 +46,7 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
             </div>
             <div>Email: {mail}</div>
           </button>
-          <button  onClick={(e) => FavClick(e)}>Fav</button>
+            <button className={style.buttonFav} onClick={(e) => FavClick(e)}>Fav</button>
         </div>
       </div>
     </div>

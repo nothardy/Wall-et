@@ -65,7 +65,7 @@ function Contacts() {
     search === true ? (
       <button
         onClick={funSearch}
-        className={c.button}
+        className={c.buton}
         type="button"
         className="w3-button w3-red"
       >
@@ -86,7 +86,7 @@ function Contacts() {
           <Filter />
           <div className={c.contactos}>
             {renderButton}
-            <h4 className={c.tittle}>Contacts</h4>
+            <h2 className={c.tittle}>Contacts</h2>
             <Search funSearch={funSearch} />
             {shownContacts &&
               shownContacts.map((contact, i) => {
@@ -107,7 +107,6 @@ function Contacts() {
               transactionList={transactions}
               mail={transactionUser}
             />
-            {renderButton}
             <Favorites
               toggleTransactions={toggleTransactions}
               funSearch={funSearch}

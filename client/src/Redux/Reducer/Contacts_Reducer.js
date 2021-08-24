@@ -57,9 +57,7 @@ const contactsReducer = (state = initialState, action) => {
     case ERASE_FAVORITE_CONTACT:
       return {
         ...state,
-        favorites: state.favorites.filter(
-          (id) => id.mail !== action.payload
-        ),
+        favorites: state.favorites.filter((user) => user.mail !== action.payload),
       };
     default:
       return state;
