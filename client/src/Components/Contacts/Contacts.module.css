@@ -66,6 +66,7 @@
 .tittle {
   align-items: flex-start;
   margin-left: 2.5rem;
+  font-size: 22px;
 }
 .transactions {
   margin-left: -6rem;

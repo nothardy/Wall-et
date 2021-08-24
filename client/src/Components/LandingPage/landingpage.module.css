@@ -26,9 +26,12 @@
   } */
 
 /* Extra large devices (large desktop, 1200px and up)*/
-@media (max-height: 937px) {
-   .wallet {
-font-size:2000px;
+@media (max-height: 1080px) {
+    .landingPage{
+        background: url("https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80") no-repeat center fixed;
+    
+        height: 100vh;
+    
     }
 }
 /*  large devices ( desktops, 992px and up)*/
