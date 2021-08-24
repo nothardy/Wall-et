@@ -7,7 +7,7 @@ import ViewPrice from "./viewPrice";
 import axios from 'axios';
 import { useHistory } from "react-router";
 import swal from "sweetalert";
-/* import { nameCard } from "../../../../utils/NameBankCard"; */
+import {Link} from 'react-router-dom'
 import OptionCardView from "./optionCardView";
 import cd from "./card.module.css";
 
@@ -87,11 +87,11 @@ const Card = () => {
   }
   
 
-  let [cardOption, setCardOption] = useState(false)
+  let [cardOption, setCardOption] = useState(true)
   const toggleCardOption = () => { setCardOption(cardOption = !cardOption) }
   return (
     <div className={cd.container} >
-      <h1>Enter card</h1>
+      <h1>Choose a Card</h1>
       
         
       {!modalCard?  
@@ -121,11 +121,15 @@ const Card = () => {
       :
         <div className={cd.modalCard} style={{display: "flex", flexDirection: "column", alignItems:"center"}}>
           {cardOption ?
-            <div className={cd.modalCard__OptionCard}>   
-              <span>You Cards</span> 
-              <div style={{overflowY:"auto", width: "100%"}}>
+            <div className={cd.modalCard_OptionCard}>   
+              <h2>Your Cards</h2> 
+              <div className={cd.modalCard_ContainerOptionCard}>
                 {cards.length > 0? cards.map(el => <OptionCardView values={el} chargeChange={chargeChange}/>) 
-                : <span>no posee cards</span>}
+                  : <span>To load with a card, it must be <br /> 
+                    registered in the account. You don't own any. <br /> 
+                    Click on this <Link to="/account">link</Link> to go to register your card.
+                  </span>
+                }
               </div>       
             </div>
             : <button onClick={ () => toggleCardOption()}>toggle</button>

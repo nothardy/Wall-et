@@ -80,19 +80,38 @@
 
 /* FORMULARIOO PA BAJO */
 
-.modalCard__OptionCard{
+.modalCard_OptionCard{
   position: absolute;
-    background: antiquewhite;
+  background: radial-gradient(#d688f5, #c2a3e5);
+  box-shadow: 0px 0px 8px -1px black;
     width: 80%;
     height: 39%;
     /* overflow-y: scroll; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     padding: 4px 1px;
     border-radius: 6px;
     /* backdrop-filter: blur(6px); */
+}
+.modalCard_ContainerOptionCard{
+  overflow-y: auto;
+  width: 100%;
+}
+.modalCard_ContainerOptionCard::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.5rem;
+}
+.modalCard_ContainerOptionCard::-webkit-scrollbar-thumb {
+  background: rgb(98 54 95);
+  border-radius: 25px;
+  width: 0.4rem;
+}
+.modalCard_ContainerOptionCard::-webkit-scrollbar-track {
+  background: #97a5bb70;
+  border-radius: 4px;
+  height: 1rem;
 }
 
 

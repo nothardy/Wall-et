@@ -50,5 +50,6 @@ export const nameCard = (num) => {
     
     if(num[0] ==='2' || num[0] === '4') { return card[num[0]]};
     if(num[0] === '3' || num[0]=== '5') { return card[num[0]][num[1]] || 'Card' };
-    if(num[0] === '6') { return card[num[0]][num[1]][num[2]] || 'Card' };
+    if(num[0] === '6' && num[1] === '2' || num[1] === '4') { return card[num[0]][num[1]][num[2]] || 'Card' };
+    if(num[0] === '6' && num[1] === '5'){return card[num[0]][num[1]] || 'Card'}
 }
