@@ -6,6 +6,7 @@ const { getTransactions, addContactToDb,postFavorite, getFavorites } = require("
 const { infoUser } = require("../controllers/infoHome");
 const { verifyToken } = require("../middlewares/verifyToken");
 
+
 //router.route("/").get(verifyToken, getTransactions).post(addContactToDb);
 route.use("/", verifyToken);
 route.get("/", verifyToken, async (req, res) => {

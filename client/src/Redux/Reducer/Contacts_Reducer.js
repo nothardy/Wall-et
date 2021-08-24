@@ -57,7 +57,7 @@ const contactsReducer = (state = initialState, action) => {
       return {
         ...state,
         favorites: state.favorites.filter(
-          (user) => user.mail !== action.payload
+          (user) => action.payload !== user.mail
         ),
       };
     default:

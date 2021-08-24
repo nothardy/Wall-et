@@ -32,6 +32,7 @@ export const Favorites = ({toggleTransactions}) => {
                     fullname={contact.fullname}
                     mail={contact.mail}
                     date_transaction={contact.date_transaction}
+                    accountId={contact.user}
                     />   
                     ))
                     

@@ -4,9 +4,7 @@ const Payment = "Payment",
 const { Router } = require("express");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-
-//sendemail
-//const { sendMailConfirmation } = require("../controllers/register.js");
+const { register } = require("../controllers/register.js");
 const logRoutes = require("./auth");
 const contacts = require("./contacts");
 
@@ -14,7 +12,7 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-const  register  = require("./register");
+
 const { Transaction, Account, transaction_acount } = require("../db");
 const transaction = require("./transactions.routes");
 const transfer = require("./transfer.routes");
@@ -22,6 +20,7 @@ const updateRoutes = require("./updateUser");
 const uploadCard = require("./uploadCard");
 const deleteCard = require("./deleteCard");
 const deleteUser = require("./deleteUser");
+ const deleteFav = require('./deleteFav'); 
 const updatePhoto = require("./updatePhoto");
 /* const { Transaction, Account, transaction_acount } = require('../db');
 const Payment="Payment",Services="Services",Transfer="Transfer"; */
@@ -38,12 +37,12 @@ const resetPasswordRoutes = require("./resetPassword");
 
 router.use("/contacts", contacts);
 router.use("/register", register);
-//router.use("/register", sendMailConfirmation);
 router.use("/transaction", transaction);
 router.use("/updateUser", updateRoutes);
 router.use("/card", uploadCard);
 router.use("/deleteCard", deleteCard);
 router.use("/deleteUser", deleteUser);
+ router.use("/deleteFav", deleteFav );  
 router.use("/updatePhoto", updatePhoto);
 router.use("/transaction/transfer", transfer);
 router.use("/help", helpRoutes);

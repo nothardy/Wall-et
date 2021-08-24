@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from 'sweetalert'
 export const SEARCH_CONTACT = "SEARCH_CONTACT",
   SET_ORDER = "SET_ORDER",
   GET_CONTACTS = "GET_CONTACTS",
@@ -87,6 +88,7 @@ export function addFavoriteContact(user) {
 
 export function favoriteContact (favorite) {
   return (dispatch) => {
+    
     dispatch({
       type:FAVORITE_CONTACT,
       payload: favorite,
@@ -107,10 +109,17 @@ export function getFavorites(){
   };
 }
 export function eraseFavoriteContact (mail){
-  return(dispatch) => {
-    dispatch({
-      type: ERASE_FAVORITE_CONTACT,
-      payload:mail
-    })
-  }
+  return async (dispatch) => {
+    const token = localStorage.getItem("token");
+    try{
+      const {data} = await axios.delete(`/deleteFav/favorites?mail=${mail}`,{
+        headers: { "Content-Type": "application/json" , "x-access-token": token } 
+      }
+      )
+        dispatch({ type: ERASE_FAVORITE_CONTACT, payload: data });
+    }catch(err){
+      alert("Error", err);
+    }
+  };
 }
+
