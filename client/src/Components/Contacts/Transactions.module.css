@@ -67,7 +67,10 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+<<<<<<< HEAD
   overflow-x: hidden;
+=======
+>>>>>>> fakeCard
   align-items: center;
   margin-top: 2px;
 }

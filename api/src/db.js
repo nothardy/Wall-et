@@ -74,8 +74,13 @@ Transaction.belongsToMany(Account, { through: "transaction_acount" });
 Account.belongsToMany(Contact, { through: "account_contact" });
 Contact.belongsToMany(Account, { through: "account_contact" });
 
+<<<<<<< HEAD
 Account.belongsToMany(Contact, { through: "account_contact" });
 Contact.belongsToMany(Account, { through: "account_contact" });
+=======
+Account.belongsToMany(Contact, { through: 'account_contact' })
+Contact.belongsToMany(Account, { through: 'account_contact' })
+>>>>>>> fakeCard
 
 Account.hasMany(Card);
 Card.belongsTo(Account);

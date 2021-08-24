@@ -19,19 +19,11 @@
 .header{
     margin-top: -100px;
     margin-bottom: 0px;
-    min-width: 33rem ;
     background: radial-gradient(#76b2fe, #b69efe);
     /* background-color: var(--color-navTransaction); */
     display: flex;
     border-radius: 15px;
     /* border: 1px solid rgb(75, 74, 74); */
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    z-index: 2;
-    width: 930px;
-    color:midnightblue;
-    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
 }
 .header > img {
     margin-right: 14px;

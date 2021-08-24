@@ -4,6 +4,7 @@ const Payment = "Payment",
 const { Router } = require("express");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
+const {register} = require("../controllers/register.js");
 
 //sendemail
 //const { sendMailConfirmation } = require("../controllers/register.js");
@@ -30,6 +31,7 @@ const authRoutes = require("./auth");
 const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
+const contacts= require("./contacts");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

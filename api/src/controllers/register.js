@@ -4,7 +4,8 @@ const {  v4: uuidv4} = require('uuid');
 const bcrypt = require('bcrypt');
 const nodemailer = require("nodemailer");
 const {  MAIL_ACCOUNT,  MAIL_PASSWORD,  FRONT_HOST} = process.env;
-const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken")
+const {card} = require('./walletCard');
 
 async function register(req, res, next) {
   const {
@@ -48,7 +49,8 @@ async function register(req, res, next) {
       mail: mail.toLowerCase(),
       birth_date,
       cvu: generatorCVU(),
-      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+      photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      card:card(fullname),
     })
     //
 

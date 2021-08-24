@@ -1,9 +1,6 @@
 const { Account, Transaction, Card, Contact } = require("../db");
 const { Op } = require("sequelize");
 const { v4: uuidv4 } = require("uuid");
-// const {
-//   default: Transactions,
-// } = require("../../../client/src/Components/Contacts/Transactions");
 
 // const getContactsFromDb = async (req, res, next) => {
 //   if (req.url.includes("?email")) {

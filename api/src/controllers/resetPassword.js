@@ -8,7 +8,6 @@ const { MAIL_ACCOUNT, MAIL_PASSWORD, FRONT_HOST } = process.env;
 
 const passwordReset = async (req, res) => {
     const { mail } = req.body;
-
     try {
         const user = await Account.findOne({ where: { mail: mail } })
         if (!user) return res.status(404).send("The mail is not registered");
