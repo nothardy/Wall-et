@@ -1,10 +1,9 @@
 const Payment = "Payment",
-  Services = "Services",
-  Transfer = "Transfer";
+	Services = "Services",
+	Transfer = "Transfer";
 const { Router } = require("express");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const {register} = require("../controllers/register.js");
 
 //sendemail
 //const { sendMailConfirmation } = require("../controllers/register.js");
@@ -15,7 +14,7 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-const  register  = require("./register");
+const register = require("./register");
 const { Transaction, Account, transaction_acount } = require("../db");
 const transaction = require("./transactions.routes");
 const transfer = require("./transfer.routes");
@@ -31,7 +30,6 @@ const authRoutes = require("./auth");
 const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
-const contacts= require("./contacts");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
