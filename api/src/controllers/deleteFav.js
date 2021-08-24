@@ -1,19 +1,13 @@
 const {Account, Favorite} = require('../db');
 
-const deleteFav = async ( accountId, mail ) => {
+const deleteFav = async ( userId, mail ) => {
 
 // console.log(accountId, mail)
 
-const account = await Account.findByPk( accountId, { include: { model: Favorite }}) 
+const account = await Account.findByPk( userId, { include: { model: Favorite }}) 
      try{
         await account.favorites.map(el => {
-            el.mail === mail && el.Destroy({
-            where : {
-                mail: el.mail
-            }
-        
-        })
-
+            el.mail === mail && el.destroy()
     })
         return {success: 'Contact favorite successfully deleted'}
     }catch(err){

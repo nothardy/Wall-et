@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import style from "./view_contacts.module.css";
 import { eraseFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector} from "react-redux";
-export const View = ({ fullname, date_transaction, mail, toggleTransactions }) => {
+export const View = ({ fullname, date_transaction, mail, toggleTransactions, userId }) => {
   const [renderContactTransactions, setRenderContactTransactions] =
     React.useState(true);
     //const [user, setUser] = useState(false);
@@ -12,11 +12,13 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions }) =
   const favorites = useSelector(state => state.contactsReducer.favorites);
   //
   /* const [fav, setFav] = useState(true) */
-  const [user, setUser] = useState({
-    fullname,
-    mail,
-    date_transaction,
-  })
+  const [user, setUser] = useState(
+   {
+   userId,
+   fullname,
+   mail,
+   date_transaction,}
+   )
   
  /*  useEffect((e) => {
       dispatch(favoriteContact(e.target.value))    
@@ -30,9 +32,8 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions }) =
 
 
     const eraseFavorite = () => {
-        if (user){
-          dispatch(eraseFavoriteContact(mail))};
-        setUser(!user);
+      if(user)dispatch(eraseFavoriteContact(mail));
+      setUser(!user);
     }
 
   return (
@@ -47,7 +48,7 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions }) =
             </div>
             <div>Email: {mail}</div>
           </button>
-          <button onClick={() =>eraseFavorite(user.mail)}>x</button>
+          <button onClick={eraseFavorite}>x</button>
         </div>
       </div>
     </div>

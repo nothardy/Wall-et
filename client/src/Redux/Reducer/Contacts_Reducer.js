@@ -48,6 +48,7 @@ const contactsReducer = (state = initialState, action) => {
         ...state,
         favorites: [...state.favorites, action.payload],
       };
+    
     case GET_FAVORITES:
       return {
         ...state,
@@ -57,7 +58,7 @@ const contactsReducer = (state = initialState, action) => {
       return {
         ...state,
         favorites: state.favorites.filter(
-          (user) => action.payload !== user.mail
+          (id) => id.mail !== action.payload
         ),
       };
     default:

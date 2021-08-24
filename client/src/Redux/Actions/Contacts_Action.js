@@ -111,15 +111,23 @@ export function getFavorites(){
 export function eraseFavoriteContact (mail){
   return async (dispatch) => {
     const token = localStorage.getItem("token");
-    try{
-      const {data} = await axios.delete(`/deleteFav/favorites?mail=${mail}`,{
-        headers: { "Content-Type": "application/json" , "x-access-token": token } 
+    swal({
+      title: 'Are you sure?',
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((favDele) => {
+      if(favDele) {
+        axios
+        .delete(`/deleteFav/favorites?mail=${mail}`,{
+          headers: { "Content-Type": "application/json" , "x-access-token": token }
+        }).then((response) => {
+          dispatch({ type: ERASE_FAVORITE_CONTACT, payload: response.data });
+          swal("Your contact favorite is deleted", { icon: "success" });
+        })
       }
-      )
-        dispatch({ type: ERASE_FAVORITE_CONTACT, payload: data });
-    }catch(err){
-      alert("Error", err);
+    })
     }
   };
-}
+
 
