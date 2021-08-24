@@ -20,4 +20,146 @@
   text-align: center;
 }
 
+.containerTop{
+  background-color: #ffff;
+  height: 12rem;
+  width: 90%;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 6px;
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding: 0;
+}
+.moldAmount{
+  background: none;
+  width: 10rem;
+  height: 3rem;
+  position: relative;
+  font-size: 2rem;
+  border-bottom: 3px solid;
+  margin-top: 1.5rem;
+}
 
+.moldAmount > img{
+  width: 1.8rem;
+  position: absolute;
+  left: -5px;
+  bottom: 0px;
+}
+.title{
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+}
+#inputAmount{  
+  font-size: 1.8rem;
+  width: 8rem;
+  position: absolute;
+  left: 23px;
+  bottom: -5px;
+  outline: none;
+  border: none;
+  background: none;
+  overflow: hidden;
+}
+
+.bottomListPrice{
+  width: 80%;
+  display: flex;
+  /* background: antiquewhite; */
+  justify-content: space-between;
+}
+
+/* FORMULARIOO PA BAJO */
+
+.modalCard__OptionCard{
+  position: absolute;
+    background: antiquewhite;
+    width: 80%;
+    height: 39%;
+    /* overflow-y: scroll; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 1px;
+    border-radius: 6px;
+    /* backdrop-filter: blur(6px); */
+}
+
+
+.FormCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  /* padding: 0; */
+}
+
+.labelFormCard{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 0px;
+}
+
+.inputFormCardLong{
+  font-size: 1rem;
+    width: 14rem;
+    height: 1.6rem;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid #967d7d;
+    background: none;
+    outline: none;
+    text-transform:uppercase
+}
+
+.inputFormCardExpiration{
+  font-size: 1rem;
+  width: 6rem;
+  height: 1.6rem;
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid #967d7d;
+  background: none;
+  outline: none;
+}
+.inputFormCardCvc{
+  font-size: 1rem;
+  width: 4rem;
+  height: 1.6rem;
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid #967d7d;
+  background: none;
+  outline: none;
+}
+
+.btnSubmitFormCard{
+  /* width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer; */
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #837e7e99;
+  box-shadow: 0px 0px 4px 0px #615b5b;
+  border-radius: 6px;
+  border: none;
+  transition: 0.5s;
+}
+.btnSubmitFormCard:hover{
+  background: #756969ce;
+  color: white;
+}

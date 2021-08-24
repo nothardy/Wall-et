@@ -1,0 +1,89 @@
+.formContainer{
+    /* background-color: burlywood;
+    border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 6px;
+}
+.containerTop{
+    background-color: #ffff;
+    height: 12rem;
+    width: 90%;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 6px;
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding: 0;
+}
+.moldAmount{
+    background: none;
+    width: 10rem;
+    height: 3rem;
+    position: relative;
+    font-size: 2rem;
+    border-bottom: 3px solid;
+    margin-top: 1.5rem;
+}
+
+.moldAmount > img{
+    width: 1.8rem;
+    position: absolute;
+    left: -5px;
+    bottom: 0px;
+}
+.title{
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
+}
+#inputAmount{  
+    font-size: 1.8rem;
+    width: 8rem;
+    position: absolute;
+    left: 23px;
+    bottom: -5px;
+    outline: none;
+    border: none;
+    background: none;
+    overflow: hidden;
+}
+
+.bottomListPrice{
+    width: 80%;
+    display: flex;
+    /* background: antiquewhite; */
+    justify-content: space-between;
+}
+
+
+/* data card */
+.containerBottom{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.top{
+    background-color: #ffffff;
+    border-radius: 8px 8px 0px 0px;
+    padding: 8px;
+}
+
+.bottomBtnSubmit{
+    background-color: royalblue;
+    color: white;
+    font-family: 'Source Sans Pro';
+    width: 100%;
+    height: 2.2rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    border-radius: 0px 0px 8px 8px;
+}
