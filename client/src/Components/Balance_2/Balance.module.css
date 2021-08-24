@@ -103,3 +103,10 @@ width: 15rem;
   border-left: none;
   width: 100%;
 }
+
+@media (max-height: 921px) {
+  .graficos {
+  font-size: 18px;
+  margin-top: -10px;
+  }
+}

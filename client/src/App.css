@@ -1,0 +1,29 @@
+  
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+:root {
+  --blue: rgb(26, 57, 87);
+  --white: rgb(236, 236, 236);
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-weight: var(--font-weight);
+    transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+  }
+  
+body.light {
+    --background-color: var(--white);
+    --text-color: var(--blue);
+    --font-weight: 400;
+    --image: url("https://image.flaticon.com/icons/png/512/997/997118.png");
+  }
+  
+  body.dark {
+    --background-color: var(--blue);
+    --text-color: var(--white);
+    --font-weight: 500;
+    --image: url("https://image.flaticon.com/icons/png/512/702/702471.png");
+  }

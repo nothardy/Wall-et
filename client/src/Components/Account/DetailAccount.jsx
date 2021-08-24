@@ -15,6 +15,8 @@ import AddCard from "./AddCard";
 import "react-credit-cards/es/styles-compiled.css";
 import UploadPhoto from "./UploadPhoto";
 
+
+
 function DetailAccount() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -119,6 +121,7 @@ function DetailAccount() {
 
   return (
     <div className={a.containerProfile}>
+      
       {user ? (
         <div className={a.containerDetailsProfile}>
           <div >
@@ -212,6 +215,7 @@ function DetailAccount() {
                             </div>
               </div>
               <div className={a.seccioncardAndButtons}>
+             
                 <div className={a.seccionCard}>
                   <p>Cards: </p>
                   {user.account_data.cards.length > 0

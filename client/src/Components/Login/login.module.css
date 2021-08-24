@@ -138,3 +138,59 @@
 .margeninferior{
     margin-top:90px;
 }
+
+
+/*juli*/
+@media (max-height: 921px) {
+    .descriptionlanding{
+        font-size: 15px;
+        margin-top:-90px;
+    }
+    .wallet{
+        font-size: 130px;
+    }
+    .container{
+        width:10%;
+    }
+    .buttonlogin{
+        font-size: 15px;
+        width: 400px;
+    }
+    .formulariologin{
+        
+        max-width: 300px;
+        margin-top: 0px;
+        margin-left: -1090px;;
+    }
+    .inputs{
+        width: 365px;
+        font-size:15px;
+        margin-bottom: 8px;
+    }
+    .icon{
+        transform: translateX(370px) translateY(-38px);
+    }
+    .eIcon{
+        transform: translateX(370px) translateY(-38px);
+    }
+    .margeninferior{
+        font-size: 14px;
+        margin-top:160px;
+    }
+    .contactus{
+        font-size: 14px;
+        color: #9fadca;
+        margin-top: -150px;
+        margin-left: 1300px;
+    }
+    .linkslogin > a{
+        margin-left:100px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+
+/* Small devices (phones, 576px and up)*/
+@media (max-width: 576px) {
+    
+}
