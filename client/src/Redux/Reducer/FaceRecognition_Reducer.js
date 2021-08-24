@@ -1,10 +1,12 @@
 import {
 	GET_FACE_DESCRIPTOR,
 	UPLOAD_FACE_DETECTIONS,
+	TOKEN_EXPIRED,
 } from "../Actions/FaceRecognition_Action";
 
 const initialState = {
 	faceDescriptor: [],
+	expiredToken:null
 };
 
 const faceReducer = (state = initialState, action) => {
@@ -21,6 +23,11 @@ const faceReducer = (state = initialState, action) => {
 				...state,
 				faceDescriptor: faceArrayFromInsideString,
 			};
+		case TOKEN_EXPIRED:
+			return {
+				...state,
+				expiredToken: action.payload, //BOOLEAN
+			}
 		default:
 			return state;
 	}

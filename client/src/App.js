@@ -14,6 +14,7 @@ import Help from "./Components/Help/Help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
 import FaceView from "./Components/FaceRecognition/FaceView";
+import ExpiredSession from "./Components/FaceRecognition/ExpiredSession/ExpiredSession";
 
 // CSS hecho por:
 // Cami y Celes: /register y /home
@@ -27,6 +28,7 @@ export default function App() {
 			<Route exact path="/register" component={Register} />
 			<Route exact path="/recoverpassword" component={RecoverPassword} />
 			<Route exact path="/faq" component={FrecuentlyQuestions} />
+			<Route exact path="/expiredsession" component={ExpiredSession}/>
 			<Route exact path="/logout" component={Logout} />
 			<PrivateRoute path="/account" component={Account} exact />
 			<Route exact path="/contacts" component={Contacts} />

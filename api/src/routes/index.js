@@ -29,6 +29,7 @@ const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
 const face = require("./face");
+const getTempToken = require("./getTempToken");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -50,5 +51,6 @@ router.use("/adminSearch", adminSearch);
 router.use("/auth", authRoutes);
 router.use("/resetPassword", resetPasswordRoutes);
 router.use("/face", face);
+router.use("/token", getTempToken);
 
 module.exports = router;

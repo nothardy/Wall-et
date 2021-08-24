@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+}
+
+
+.videoandCanvas{
+    display: flex;
+    justify-content: center;
+}
+
+.canvasFace{
+    position: absolute;
+}
