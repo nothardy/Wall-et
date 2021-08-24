@@ -1,4 +1,5 @@
 const { Account } = require('../db');
+const bcrypt = require("bcrypt");
 
 module.exports = {
     verifyKey: async (req, res, next) => {
@@ -6,14 +7,14 @@ module.exports = {
             const { from, key } = req.body
             
             const user = await Account.findByPk(from)
-            const dni = user.dataValues.dni
-            
+            const password = user.dataValues.password
+           
     
-            if(!key || !dni){
+            if(!key || !password){
                 throw new Error('Data not found')
                 res.status(404)
             }
-            if(key !== dni) {
+            if(!bcrypt.compareSync(key, password)) {
                 throw new Error('Key invalid')
                 res.status(404)
             }

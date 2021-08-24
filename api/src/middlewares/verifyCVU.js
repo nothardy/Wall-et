@@ -5,7 +5,7 @@ const verify = async (req, res, next) => {
         const data = req.body.data.replace(' ', '');
         const cvuAccount = req.body.cvuAccount.replace(' ', '');
         const mailAccount = req.body.mailAccount.replace(' ', '');
-        console.log(data, cvuAccount, mailAccount)
+        
         if(data === cvuAccount || data === mailAccount) { 
             res.status(404) 
             throw new Error('Error')

@@ -1,35 +1,60 @@
 const Stripe = require('stripe');
-const { Transaction, Account, transaction_acount } = require('../db');
-const stripe = new Stripe('sk_test_51JQI2JCeyw6LldwNL8hPjWr1Up7mtAc4F0JOqpKrZevSvLfrBEFqlntjlT6eIvzjhX6CbYG4bX64N0m62NMuWT8s00rtNNwgoq');
+const { Charge, Account, account_charge } = require('../db');
+const { nameCard } = require('./cardsName.js')
+const { SECRET_KEY } = process.env;
+
+//const stripe = new Stripe(SECRET_KEY);
 
 module.exports = {
-    checkout: async (id, accountId, amount) => {
+    checkout: async (/* id, */ card_num, account_id, amount, main) => {
         try {
-            const accountTo = await Account.findByPk(accountId)
-            const payment = await stripe.paymentIntents.create({
+            const name = await nameCard(card_num.split(''))
+            const accountTo = await Account.findByPk(account_id)
+            if(main){
+                const transfer = await Charge.create({
+                    from: name,
+                    to: account_id,
+                    card_num,
+                    amount: amount,
+                    type_transaction: 'Transfer',
+                    state: 'in progress',
+                })
+                
+                await transfer.addAccounts(account_id)
+    
+                transfer && await Account.update({ balance: accountTo.balance + amount }, { where: { id: account_id }}) && await Charge.update({ state: 'done' }, { where: { id: transfer.id }})
+                
+                return transfer
+            }
+            
+            /* if(!main){
+                const payment = await stripe.paymentIntents.create({
                 amount, 
                 currency: "USD",
                 payment_method: id,
                 confirm: true,
             });
 
-            const [ transfer, status ] = await Transaction.create({
+            const transfer = await Charge.create({
                 from: 'Card',
-                to: accountId,
+                to: account_id,
                 amount: amount,
                 type_transaction: 'Transfer',
-                state: 'in progress'
+                state: 'in progress',
             })
-            await transfer.addAccounts('Card')
-            status && await Account.update({balance: accountTo.balance + parseInt(amount)}, {where: {id: accountId}}) && await Transaction.update({state: 'done'}, { where: { id: transfer.id } })
+            
+            await transfer.addAccounts(accountId)
 
-            console.log(status)
-            console.log(transfer)
-            return status
+            transfer && await Account.update({balance: accountTo.balance + parseInt(amount)}, {where: {id: accountId}}) && await Charge.update({state: 'done'}, { where: { id: transfer.id } })
+            
+            return transfer
+        } */
+
+            /* await Account.update({balance: accountTo.balance + parseInt(amount)}, {where: {id: accountId}}) */
         }
         catch(err){
+            console.log('acaaaa', err)
             throw new Error(err)
-            return 
         }
     }
 }

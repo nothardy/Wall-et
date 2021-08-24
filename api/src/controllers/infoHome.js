@@ -1,15 +1,15 @@
-const { Account, Card, Transaction, Contact, transaction_acount, account_contact } = require('../db');
+const { Account, Card, Transaction, Contact, Charge, transaction_acount, account_contact } = require('../db');
 
 const infoUser = async (id) => {
 
     try {
-        const user = await Account.findByPk( id , {include: [{model: Transaction}, {model: Card}, {model: Contact}]} )
+        const user = await Account.findByPk( id , {include: [{model: Transaction}, {model: Card}, {model: Contact}, {model: Charge}]} )
         const transactionsTO = await Transaction.findAll({ where: { to: id }})
         const listTransactions = [...await Promise.all(user.dataValues.transactions.map(async el => {
             const nameTo = await Account.findByPk(el.to)
             const transactionRealize = {
                 id: el.id,
-                from: el.from,
+                from:  el.from,
                 amount: el.amount,
                 to: nameTo.dataValues.fullname,
                 type_transaction: el.type_transaction,
@@ -18,11 +18,27 @@ const infoUser = async (id) => {
                 main: true, // Key en true, significa que son transacciones realizadas por la cuenta
             }
             return transactionRealize;
+        
+
         })), ...await Promise.all(transactionsTO.map( async el => {
-            const nameFrom = await Account.findByPk(el.from);
+                const nameFrom = await Account.findByPk(el.from);
+                const transactionReceives = {
+                    id: el.id,
+                    from: nameFrom.dataValues.fullname,
+                    amount: el.amount,
+                    to: el.to,
+                    type_transaction: el.type_transaction,
+                    state: el.state,
+                    transaction_date: el.createdAt,
+                    main: false, // Key en false, significa que son transacciones que recibe la cuenta
+                }
+                return transactionReceives;
+        })), ...await Promise.all(user.dataValues.charges.map( async el => {
+            const remplace = el.card_num.split('').splice(0, el.card_num.split('').length-4).map(el => el.replace(/[0-9]/, '*')).join('')
+        
             const transactionReceives = {
                 id: el.id,
-                from: nameFrom.dataValues.fullname,
+                from: `${el.from}(${el.card_num.split('').splice([-4]).join('')})`,
                 amount: el.amount,
                 to: el.to,
                 type_transaction: el.type_transaction,
@@ -31,7 +47,8 @@ const infoUser = async (id) => {
                 main: false, // Key en false, significa que son transacciones que recibe la cuenta
             }
             return transactionReceives;
-        })), ]
+    }))
+    ]
         
         const data = {
             id: user.dataValues.id,
