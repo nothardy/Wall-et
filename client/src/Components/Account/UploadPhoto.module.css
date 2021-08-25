@@ -27,14 +27,25 @@
 }
 
 .forminput {
-    display: block;
-    margin-bottom: 10px;
-}
-
+    margin-top: 20px;
+    width: 43%;
+    font-size: 1.2rem;
+    font-weight: 60;
+    cursor: pointer;
+    
+    box-shadow: 0px 0px 4px 0px #615b5b;
+    border-radius: 6px;
+    border: none;
+    transition: 0.5s;
+  }
+  .forminput:hover {
+    background: #756969ce;
+    color: white;
+  }
 
 
 .container{
-    width: 50rem ;
+    width: 30rem ;
     height:35rem;
     display: flex;
     flex-direction: column;
@@ -45,11 +56,29 @@
       transform: translate(-50%, -50%);
       /* background-color:#dcdbdb; */
       border-radius: 15px;
-      box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
-      background: radial-gradient(#76b2fe, #b69efe);
+      box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+      background: var(--bluecontainer);
+      backdrop-filter: blur(20px);
     }
     .contenedorFotoSubmit{
         width:250px;
         height:250px;
         border-radius:150px;
     }
+    .btnClose{
+        margin-bottom: 5px;
+        margin-left: 438px;
+        width: 7%;
+        font-size: 1.2rem;
+        font-weight: 60;
+        cursor: pointer;
+        background: #837e7e99;
+        box-shadow: 0px 0px 4px 0px #615b5b;
+        border-radius: 6px;
+        border: none;
+        transition: 0.5s;
+      }
+      .btnClose:hover {
+        background: #756969ce;
+        color: white;
+      }

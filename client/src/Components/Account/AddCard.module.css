@@ -3,16 +3,17 @@
     height:40rem;
     
     position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      /* background-color:#dcdbdb; */
-      align-items: center;
-      display: flex;
-      align-items: center;
-      border-radius: 15px;
-      box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
-      background: radial-gradient(#76b2fe, #b69efe);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    background: radial-gradient(#5b8ac8, #3a3549);
+    box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+    background: var(--bluecontainer);
+    backdrop-filter: blur(20px);
 }
 
 .addCardForm{
@@ -26,4 +27,76 @@
   flex-direction: column;
   align-items: center;
 
+}
+
+.inputFormCardLong {
+	font-size: 1rem;
+	width: 14rem;
+	height: 1.6rem;
+	padding: 3px;
+	border-radius: 10px;
+	border: 1px solid #967d7d ;
+	background: #dbd4d4;
+	outline: none;
+	text-transform: uppercase;
+}
+.containerinputFormCardExpiration{
+  margin-left: -20px;
+}
+.inputFormCardExpiration {
+	font-size: 1rem;
+	width: 6rem;
+	height: 1.6rem;
+	padding: 3px;
+	border-radius: 10px;
+	border: 1px solid #967d7d;
+	background: #dbd4d4;
+	outline: none;
+  }
+  .containerinputFormCardCvc{
+    margin-top: -100px;
+    margin-left: 200px;
+  }
+.inputFormCardCvc {
+	font-size: 1rem;
+	width: 4rem;
+	height: 1.6rem;
+	padding: 3px;
+	border-radius: 10px;
+	border: 1px solid #967d7d;
+	background: #dbd4d4;
+	outline: none;
+}
+.btnSubmitFormCard {
+margin-top: 30px;
+	width: 100%;
+	font-size: 1.2rem;
+	font-weight: 60;
+	cursor: pointer;
+	background: #837e7e99;
+	box-shadow: 0px 0px 4px 0px #615b5b;
+	border-radius: 6px;
+	border: none;
+	transition: 0.5s;
+}
+.btnSubmitFormCard:hover {
+	background: #756969ce;
+	color: white;
+}
+.btnCloseFormCard{
+  margin-bottom: 5px;
+  margin-left: 420px;
+  width: 10%;
+	font-size: 1.2rem;
+	font-weight: 60;
+	cursor: pointer;
+	background: #837e7e99;
+	box-shadow: 0px 0px 4px 0px #615b5b;
+	border-radius: 6px;
+	border: none;
+	transition: 0.5s;
+}
+.btnCloseFormCard:hover {
+	background: #756969ce;
+	color: white;
 }

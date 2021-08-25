@@ -33,6 +33,10 @@
     transition-delay: 2,4s;
     transition-timing-function: ease-in-out;
   }
+  .grafico:hover{
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+  }
   .balance {
    /*   background-color: #ffffff;
     border-radius: 5px;

@@ -1,0 +1,20 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5rem;
+    background: var(--bluecontainer);
+    box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+    border-radius:22px;
+    height: 50rem;
+    backdrop-filter: blur(20px);
+    padding: 20px;
+}
+.conteiner:hover {
+    transform: scale(1.01);
+}
+.inputs{
+    background: transparent;
+    color:rgb(149, 149, 149);
+    border:none;
+}

@@ -32,14 +32,18 @@
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
 .headerTransaction{
     position: relative;
-    height: 28%;
+    height: 18%;
     margin-bottom: 15px;
 }
 #titleTransaction{
-    position: absolute;
+    /* position: absolute; */
     font-size: 1.8rem;
-    top: 5px;
-    left: 12px;
+    /* top: 5px;
+    left: 12px; */
+    /* text-align: center; */
+    margin-top: 42px;
+    margin-left: 14px;
+
 }
 #recentsTransaction{
     position: absolute;
@@ -52,10 +56,13 @@
     right: 12px;  
     cursor: pointer;
 }
+#historyTransaction:hover{
+  border: 1px solid white;
+}
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
 .bodyTransaction{
     font-size: 1.25rem;
-    height: calc(100% - 30%);
+    height: calc(100% - 22%);
     display: flex;
     flex-direction: column;
     overflow-y: auto;

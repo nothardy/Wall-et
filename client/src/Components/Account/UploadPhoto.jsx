@@ -61,6 +61,7 @@ export default function UploadPhoto({ close }) {
 
   return (
     <div className={up.container}>
+      <button onClick={() => close()} className={up.btnClose}>X</button>
       <h1 className={up.title}>Upload an Image</h1>
       {/* <Alert msg={errMsg} type="danger" />
             <Alert msg={successMsg} type="success" /> */}
@@ -82,7 +83,7 @@ export default function UploadPhoto({ close }) {
         <img src={previewSource} alt="chosen" className={up.contenedorFotoSubmit} />
       )}
       </div>
-      <button onClick={() => close()}>X</button>
+      
     </div>
   );
 }

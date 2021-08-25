@@ -19,7 +19,7 @@ const TransactionHistory = () =>{
             </div>
             <div className={t.bodyTransaction}>
                 {
-                    store && store.account_data.transactions.length > 0?(store.account_data.transactions.slice(0, 5).map(el => 
+                    store && store.account_data.transactions.length > 0?(store.account_data.transactions.slice(0, 12).map(el => 
                     <ViewTransaction 
                         key={el.id} 
                         from={el.from}

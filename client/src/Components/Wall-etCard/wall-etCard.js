@@ -5,7 +5,7 @@ import Cards from "react-credit-cards";
 import 'react-credit-cards/es/styles-compiled.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
-
+import style from './wall-etCard.module.css'
 const WalletCard = () => {
   const user = useSelector(state => state.homeReducer.User);
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const WalletCard = () => {
   return (
     <div>
       {card ?
-        <div>
+        <div className={style.conteiner}>
           <Cards
             number={card.number}
             name={card.name}
@@ -69,7 +69,8 @@ const WalletCard = () => {
             <input
               id='cardNumber'
               ref={textAreaRef}
-              value={card.number} />
+              value={card.number} 
+              className={style.inputs}/>
             {
               document.queryCommandSupported('copy') &&
               <div>

@@ -31,11 +31,11 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions, use
   };
 
 
-    const eraseFavorite = (e) => {
+    const eraseFavorite = () => {
       if(user){
         dispatch(eraseFavoriteContact(mail))
       }
-      setUser(e.target.value);
+      setUser(!user);
     }
 
   return (

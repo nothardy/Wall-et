@@ -85,10 +85,14 @@
     .inputCVU{
         border: none;
         outline: none;
+        background: transparent;
+        color:rgb(31, 28, 28);
     }
 
     .inputAndIcon{
-    display: flex;
+     display: flex;
+     justify-content: space-around; 
+     
     }
 
     .buttonsDeleteA{
@@ -160,10 +164,11 @@
     }
 
     .buttonsCenteredAccount{
-        display: flex;
+         display: flex; 
+        /* margin-bottom: -30px; */
     flex-direction: row;
-    align-items: baseline;
-    width: 488px;
+     align-items: baseline; 
+    width: 588px;
     justify-content: space-around;
     }
 
@@ -206,4 +211,13 @@
 .inputCVUCopy{
     display:flex;
 justify-content: flex-end;
+}
+.editProfileA{
+    margin-left: 2rem;
+}
+
+.linkForgot > a{
+    color: var(--text-color);
+    text-decoration: none;
+    
 }
