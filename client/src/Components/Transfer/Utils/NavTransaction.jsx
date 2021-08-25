@@ -31,7 +31,7 @@ const NavTransaction = (props) => {
       <div className={nt.bar}>
         <button id={nt.btnBack} value="0" onClick={(e) => handleChange(e)}>
           {" "}
-          <img src={BackImg} alt="back image" /> Back
+          <img src={BackImg} alt="back image" className={nt.iconoback} /> Back
         </button>
         <button
           className={nt.btnOptions}

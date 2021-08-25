@@ -9,6 +9,7 @@
 }
 
 .containerNavBar > a{
+    color: var(--blue);
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -21,7 +22,8 @@
 
 .containerNavBar a:hover {
     /* border-right: 4px solid black; */
-    color: white;
+    
+    color: var(--text-color);
     background: rgba(0, 0, 0, 0.534);
 }
 

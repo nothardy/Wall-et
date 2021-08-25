@@ -6,14 +6,22 @@
     margin-top: 200px;
     width: 850px;
     height:450px;
-    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
-    background: radial-gradient(#76b2fe, #b69efe);
+    box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+    background: var(--bluecontainer);
     border-radius: 15px;
 }
-
+/* :root{
+    --bluecontainer:radial-gradient(black, #b69efe);
+    --lightcontainer:radial-gradient(#76b2fe, #b69efe);
+}*/
+.container.dark{
+    background:var(--bluecontainer);
+} 
 .paragraph{
     font-size: 28px;
     width: 60%;
     margin: 0;
     text-align: center;
 }
+
+

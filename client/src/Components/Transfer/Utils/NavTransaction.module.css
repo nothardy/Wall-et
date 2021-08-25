@@ -15,6 +15,7 @@
 }
 
 #btnBack {
+  color: var(--text-color);
   position: absolute;
   top: 0px;
   left: -18px;
@@ -40,12 +41,13 @@
 }
 
 .btnOptions {
+  color: var(--text-color);
   /*     margin-bottom: 20px; */
   font-size: 1.8rem;
   width: calc(100% / 3);
   background: none;
   border: none;
-  color: black;
+ 
   cursor: pointer;
   margin: 0;
   border-bottom: 3px solid #9b9696;
@@ -55,7 +57,9 @@
   color: midnightblue;
   border-bottom: 5px solid midnightblue;
 }
-
+.iconoback{
+  color: var(--text-color);
+}
 .body {
   display: flex;
   flex-direction: column;
