@@ -5,11 +5,12 @@
   color: midnightblue;
 }
 
-.button {
+.buton{
   width: 3rem;
   margin: 4px;
   border: 1px solid black;
   border-radius: 10px;
+  background-color: red;
 }
 #id {
   display: flex;
@@ -36,8 +37,8 @@
   flex-direction: column;
   overflow: auto;
   overflow-x: hidden;
-  margin-top: 10rem;
-  height: 45rem;
+  margin-top: 7rem;
+  height: 50rem;
   border: none;
   border-radius: 20px;
   background: radial-gradient(#76b2fe, #b69efe);
@@ -66,14 +67,7 @@
 .tittle {
   align-items: flex-start;
   margin-left: 2.5rem;
-  font-size: 22px;
 }
 .transactions {
   margin-left: -6rem;
 }
-
-@media (max-height: 921px) {
-  .tittle {
-    font-size: 18px;
-  }
-  }

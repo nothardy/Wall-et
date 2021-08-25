@@ -1,22 +1,24 @@
 /* eslint-disable */
 import React, {useEffect, useState} from "react";
 import style from "./view_contacts.module.css";
-import { addFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
+import { eraseFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector} from "react-redux";
-export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
+export const View = ({ fullname, date_transaction, mail, toggleTransactions, userId }) => {
   const [renderContactTransactions, setRenderContactTransactions] =
     React.useState(true);
-  
+    //const [user, setUser] = useState(false);
   const dispatch = useDispatch();
   //
   const favorites = useSelector(state => state.contactsReducer.favorites);
   //
   /* const [fav, setFav] = useState(true) */
-  const [user, setUser] = useState({
-    fullname,
-    mail,
-    date_transaction
-  })
+  const [user, setUser] = useState(
+   {
+   userId,
+   fullname,
+   mail,
+   date_transaction,}
+   )
   
  /*  useEffect((e) => {
       dispatch(favoriteContact(e.target.value))    
@@ -28,11 +30,13 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
     //setRenderContactTransactions(!renderContactTransactions);
   };
 
-  const FavClick = (e) =>{
-    dispatch(favoriteContact(user))
-    dispatch(addFavoriteContact(user))
-    
-  }
+
+    const eraseFavorite = (e) => {
+      if(user){
+        dispatch(eraseFavoriteContact(mail))
+      }
+      setUser(e.target.value);
+    }
 
   return (
     <div>
@@ -46,16 +50,10 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
             </div>
             <div>Email: {mail}</div>
           </button>
-            <button className={style.buttonFav} onClick={(e) => FavClick(e)}>Fav</button>
+          <button className={style.buttonX}onClick={eraseFavorite}>x</button>
         </div>
       </div>
     </div>
   );
 };
 export default View;
-
-/*
-<NavLink to="/transfers" className={style.todo}>
-        
-      </NavLink>
-*/

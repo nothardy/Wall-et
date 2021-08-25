@@ -1,58 +1,58 @@
-.container{
-    /* background-color: var(--color-navTransaction); */
-    background: radial-gradient(#76b2fe, #b69efe);
-    /* border: 1px solid black; */
-    width: 920px;
-    height: 550px;
-    border-radius: 4px;
-    margin-top: 3rem;
-    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+.container {
+	/* background-color: var(--color-navTransaction); */
+	background: radial-gradient(#76b2fe, #b69efe);
+	/* border: 1px solid black; */
+	width: 920px;
+	height: 550px;
+	border-radius: 4px;
+	margin-top: 3rem;
+	box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.2);
 }
 
-.headerContact{
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid midnightblue;
+.headerContact {
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid midnightblue;
 }
 
-#titleContact{
-    padding: 11px 30px;
-    color: midnightblue;
-    margin: 0;
-    border-bottom: 5px solid midnightblue;
+#titleContact {
+	padding: 11px 30px;
+	color: midnightblue;
+	margin: 0;
+	border-bottom: 5px solid midnightblue;
 }
 
-.bodyContact{
-    font-size: 1.25rem;
-    height: calc(100% - 30%);
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    align-items: center;
-    margin-top: 27px;
+.bodyContact {
+	font-size: 1.25rem;
+	height: calc(100% - 30%);
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	align-items: center;
+	margin-top: 27px;
 }
-.bodyContact::-webkit-scrollbar{
-    width: 0.6rem;    
-    height: 0.5rem;   
-  }
+.bodyContact::-webkit-scrollbar {
+	width: 0.6rem;
+	height: 0.5rem;
+}
 .bodyContact::-webkit-scrollbar-thumb {
-    background: midnightblue;
-    border-radius: 25px;
-    width: 0.4rem;
-  }
+	background: midnightblue;
+	border-radius: 25px;
+	width: 0.4rem;
+}
 .bodyContact::-webkit-scrollbar-track {
-    background: #97a5bb70;
-    border-radius: 4px;
-    height: 1rem;
+	background: #97a5bb70;
+	border-radius: 4px;
+	height: 1rem;
 }
 
-.default{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.default {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
 }
-.default > img{
-    width: 15rem;
-    margin-left: 70px;
+.default > img {
+	width: 15rem;
+	margin-left: 70px;
 }

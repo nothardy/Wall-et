@@ -1,31 +1,47 @@
 .todo {
-  display: flex;
-  color: rgb(84, 84, 231);
-  margin: 19px;
-  text-decoration: none;
+	display: flex;
+	color: rgb(84, 84, 231);
+	margin: 19px;
+	text-decoration: none;
 }
 .button:hover {
-  transform: scale(1.04);
-  transition: 0.5s;
-  transition-delay: 2, 4s;
-  transition-timing-function: ease-in-out;
+	transform: scale(1.04);
+	transition: 0.5s;
+	transition-delay: 2, 4s;
+	transition-timing-function: ease-in-out;
 }
 .container {
-  display: flex;
-  flex-direction: column;
-  color: rgb(84, 84, 231);
-  font-size: 20rem;
+	display: flex;
+	flex-direction: column;
+	color: rgb(84, 84, 231);
+	font-size: 20rem;
 }
 .button {
-  display: flex;
-  flex-direction: column;
-  color: midnightblue;
-  background-color: transparent;
-  /* border: 1px solid black; */
-  border:groove 1px;
-  border-radius: 8px;
-  font-size: 18px;
-  width: 22rem;
-  height:70px;
-  margin-left: 1rem;
+	display: flex;
+	flex-direction: column;
+	color: midnightblue;
+	background-color: transparent;
+	/* border: 1px solid black; */
+	border: groove 1px;
+	border-radius: 8px;
+	font-size: 18px;
+	width: 22rem;
+	height: 70px;
+	margin-left: 1rem;
+}
+.buttonFav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: seagreen;
+	width: 3rem;
+	margin-top: -2.5rem;
+}
+.buttonFav:hover {
+	background-color: seashell;
+}
+.buttonX {
+	margin-left: 20rem;
+	background-color: red;
+	width: 3rem;
 }

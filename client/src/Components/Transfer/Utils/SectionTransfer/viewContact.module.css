@@ -1,58 +1,57 @@
-.container{
-    display: flex;
-    align-items: center;
-    background: none;
-    border-bottom: 1px solid;
-    width: 100%;
-    color: midnightblue;
+.container {
+	display: flex;
+	align-items: center;
+	background: none;
+	border-bottom: 1px solid;
+	width: 100%;
+	color: midnightblue;
 }
 
-.left{
-        /* background-color: hotpink; */
-        height: 4.4rem;
-        display: flex;
-        align-items: center;
-    
+.left {
+	/* background-color: hotpink; */
+	height: 4.4rem;
+	display: flex;
+	align-items: center;
 }
-.left > img{
-    width: 3.5rem;
-    /* border: 1px solid black; */
-    margin-left: 10px;
-    border-radius: 60px;  
+.left > img {
+	width: 3.5rem;
+	/* border: 1px solid black; */
+	margin-left: 10px;
+	border-radius: 60px;
 }
 
-.right{
-    /* background-color: lavender; */
-    width: 88%;
-    height: 100%;
-    position: relative;
+.right {
+	/* background-color: lavender; */
+	width: 88%;
+	height: 100%;
+	position: relative;
 }
-#name{
-    margin: 0;
-    position: absolute;
-    top: 5px;
-    left: 15px;
+#name {
+	margin: 0;
+	position: absolute;
+	top: 5px;
+	left: 15px;
 }
-#cvu{
-    font-size: 1.3rem;
-    position: absolute;
-    bottom: 5px;
-    left: 15px;
+#cvu {
+	font-size: 1.3rem;
+	position: absolute;
+	bottom: 5px;
+	left: 15px;
 }
-#btnSubmit{
-    position: absolute;
-    font-size: 1rem;
-    right: 3px;
-    cursor: pointer;
-    bottom: calc(4.4rem / 4);
-    background: none;
-    border: none;
-    padding: 6px 13px;
-    border-radius: 4px;
-    transition: 0.1s;
+#btnSubmit {
+	position: absolute;
+	font-size: 1rem;
+	right: 3px;
+	cursor: pointer;
+	bottom: calc(4.4rem / 4);
+	background: none;
+	border: none;
+	padding: 6px 13px;
+	border-radius: 4px;
+	transition: 0.1s;
 }
-#btnSubmit:hover{
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.747);
+#btnSubmit:hover {
+	color: rgb(255, 255, 255);
+	border: 1px solid rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.747);
 }

@@ -30,6 +30,7 @@ const authRoutes = require("./auth");
 const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
+const deleteFav = require("./deleteFav");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -43,6 +44,7 @@ router.use("/transaction", transaction);
 router.use("/updateUser", updateRoutes);
 router.use("/card", uploadCard);
 router.use("/deleteCard", deleteCard);
+router.use("/deleteFav", deleteFav);
 router.use("/deleteUser", deleteUser);
 router.use("/updatePhoto", updatePhoto);
 router.use("/transaction/transfer", transfer);

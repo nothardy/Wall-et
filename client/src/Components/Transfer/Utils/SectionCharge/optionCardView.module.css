@@ -1,0 +1,15 @@
+.container{
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    text-align: left;
+    opacity: 0.4;
+}
+.container:hover{
+    opacity: 1;
+}
+
+.span{
+    margin-left: 6px;
+}
