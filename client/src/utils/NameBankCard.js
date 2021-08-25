@@ -48,16 +48,5 @@ export const nameCard = (num) => {
 		},
 	};
 
-	if (num[0] === "2" || num[0] === "4") {
-		return card[num[0]];
-	}
-	if (num[0] === "3" || num[0] === "5") {
-		return card[num[0]][num[1]] || "Card";
-	}
-	if ((num[0] === "6" && num[1] === "2") || num[1] === "4") {
-		return card[num[0]][num[1]][num[2]] || "Card";
-	}
-	if (num[0] === "6" && num[1] === "5") {
-		return card[num[0]][num[1]] || "Card";
-	}
+	return num[0] ==='2' || num[0] === '4' ? card[num[0]] : num[0] === '3' || num[0]=== '5' ? card[num[0]][num[1]] || 'Card' : num[0] === '6' && num[1] === '2' || num[1] === '4' ? card[num[0]][num[1]][num[2]] || 'Card' : num[0] === '6' && num[1] === '5' ? card[num[0]][num[1]] || 'Card' : 'Card'
 };
