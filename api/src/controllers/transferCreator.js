@@ -1,5 +1,5 @@
 const { Transaction, Account, transaction_acount } = require('../db');
-
+const { mailTransfer } = require('./mailTransfer')
 
 
 const autentification = async ({ id, from, to, amount }) => {
@@ -13,7 +13,7 @@ const autentification = async ({ id, from, to, amount }) => {
         const balanceFrom = await Account.update({balance: accountFrom.balance - parseInt(amount)}, {where: {id: from}})
         const balanceTo = await Account.update({balance: accountTo.balance + parseInt(amount)}, {where: {id: to}})
         
-        balanceFrom && balanceTo && await Transaction.update({state: 'done'}, { where: { id: id } })
+        balanceFrom && balanceTo && await Transaction.update({state: 'done'}, { where: { id: id } }) && await mailTransfer( from, to )
     }
     catch(err){
         console.log(err)

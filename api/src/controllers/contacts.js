@@ -117,6 +117,7 @@ const getTransactions = async (id) => {
         type_transaction: el.type_transaction,
         state: el.state,
         transaction_date: el.createdAt,
+        cvu: nameTo.dataValues.cvu,
         main: true, // Key en true, significa que son transacciones realizadas por la cuenta
       };
       return transactionRealize;
