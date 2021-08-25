@@ -4,7 +4,8 @@
   --blue: rgb(26, 57, 87);
   --white: rgb(236, 236, 236);
   --gradient:linear-gradient(90deg,var(--white),rgb(67, 137, 207));
-  --gradientdark:radial-gradient(rgb(51, 101, 151), rgb(70, 69, 69));
+  --gradientdark:radial-gradient(rgb(51, 101, 151), rgb(45, 45, 70));
+  /*(70, 69, 69)*/
 }
 
 body {

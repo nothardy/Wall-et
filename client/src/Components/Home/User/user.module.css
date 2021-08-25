@@ -6,7 +6,7 @@
    
 }
 #title{
-    margin-top: 7vh;
+    margin-top: 1vh;
     margin-left: 2rem;
     padding: 3rem;
 
@@ -15,7 +15,7 @@
 .graphic{
     /* font-family: sans-serif;  */
     position:absolute;
-    top:calc(100vh - 42rem);
+    top:calc(100vh - 30rem);
     /* width: 30rem; */
     /* background: #D7DAF4; */
     padding: 25px;

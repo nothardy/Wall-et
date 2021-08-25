@@ -9,8 +9,8 @@
     min-width: 16rem;
     position: absolute;
     
-    width: 32.5rem;
-    height: 24rem;
+    width: 35rem;
+    height: 48rem;
     border: none;
     background: var(--bluecontainer);
       box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
@@ -37,7 +37,7 @@
 }
 #titleTransaction{
     position: absolute;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     top: 5px;
     left: 12px;
 }
