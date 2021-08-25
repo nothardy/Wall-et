@@ -76,7 +76,8 @@ const infoUser = async (id) => {
                 }}),
                 create: user.dataValues.createdAt,
             },
-    
+            
+            card: user.dataValues.card,
         }
         
         return data
