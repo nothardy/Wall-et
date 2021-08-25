@@ -13,6 +13,7 @@
     justify-content: center;
     font-size: 1.5rem;
     position: relative;  /* HIJO DE FHATER */
+   
     
     
 }
@@ -23,7 +24,7 @@
     margin-top: -100px;
     margin-bottom: 0px;
     background: var(--bluecontainer);
-      box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+    box-shadow: 0px 6px 10px ;
     /* background-color: var(--color-navTransaction); */
     display: flex;
     border-radius: 15px;
@@ -40,7 +41,7 @@
 
 .contactContainer{
     width: 100%;
-    background-color: fuchsia;
+    /* background-color: fuchsia; */
     margin-top: 3rem;
    
 }
@@ -64,7 +65,7 @@
     width: 31rem;
     height: 14rem;
     background: var(--bluecontainer);
-    box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+    box-shadow: 0px 6px 10px ;
     padding: 10px;
     border-radius: 30px;
     position: relative;

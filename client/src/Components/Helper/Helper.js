@@ -40,12 +40,11 @@ export default function Helper() {
 	const defaultText = (
 		<p>
 			{" "}
-			I don't understand what you say. Please verify that you have written
-			your question properly. <br />
-			Or fill in the solicited information <a href="/help/form">
+			I don't understand what you have just written. Please check that your spelling is OK. <br />
+			Or fill in the form <a href="/help/form">
 				here
 			</a>{" "}
-			so that <br />a human customer service representative can contact
+			so that <br />a customer service representative can contact
 			you
 		</p>
 	);
@@ -62,11 +61,10 @@ export default function Helper() {
 			  We are very sorry that you no longer want to <br />
 			  be part of the wall-et community. To be able to delete your
 			  account <br />
-			  go to the <a href="/account">ACCOUNT</a> section and click
+			  go to <a href="/account">ACCOUNT</a> section and click
 			  on the <br />
 			  "Edit Profile" button. <br />
-			  Please, write us in this <a href="/help">form</a> how we can
-			  to improve our service.{" "}
+			  Please, tell us in this <a href="/help">form</a> how we can improve our service.{" "}
 			</p>
 		  );
 		  setAnswer(answer);
@@ -74,9 +72,9 @@ export default function Helper() {
 		} else if (help.test(text)) {
 		  setAnswer(<p> 
 			{" "}
-			To receive human help click 
+			To get in touch with a customer service representative click 
 			<a href='/help/form'> here </a> and fill <br />
-			in the form with the requested information {" "}
+			in the form with the information  requested {" "}
 			</p>
 			);
 		  setAvatar(avatarHappy);
@@ -135,7 +133,7 @@ export default function Helper() {
 		  let answer = (
 			<p>
 			  {" "}
-			  If you need to change any of your account information,{" "}
+			  If you need to change anything of your account information,{" "}
 			  <br />
 			  go to the <a href="/account">ACCOUNT</a> section and click
 			  on the <br />
@@ -165,9 +163,9 @@ export default function Helper() {
 	  };
 	return (
 		<div className={s.container}>
-			<h1>HELPER ROBOT</h1>
+			<h1>WALL-ET ASSISTANT</h1>
 			<img src={avatar} alt=''/>
-			<h4>Helper:</h4>
+			<h4>Assistant:</h4>
 			<p>{answer ? answer : null}</p>
 			<form id="areaChat" onChange={handleChange} onSubmit={handleSubmit}>
 				<input
@@ -184,7 +182,7 @@ export default function Helper() {
 			<hr />
 			<p>
 				{" "}
-				To have a human customer service representative contact you,
+				To contact a customer service representative,
 				<a href="/help/form">click here </a>
 			</p>
 		</div>

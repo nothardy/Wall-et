@@ -46,7 +46,21 @@ const WalletCard = () => {
           />
           <div>
             <h4 id="number">Number of credit or debit Card:</h4>
-            <p>{card.number} </p>
+            <p><input
+              id='cardNumber'
+              ref={textAreaRef}
+              value={card.number} 
+              className={style.inputs}/> </p> {
+              document.queryCommandSupported('copy') &&
+              <div>
+                <FontAwesomeIcon
+                className={style.inputCVUCopy}
+                  onClick={copyToClipboard}
+                  icon={faCopy}
+                  id='show_hide' />
+                {copySuccess}
+              </div>
+            }
             <hr />
           </div>
           <div>
@@ -64,8 +78,8 @@ const WalletCard = () => {
             <p>{card.cvc} </p>
             <hr />
           </div>
-          <form>
-            <label htmlFor='cardNumber'> Copy the card number </label>
+          
+            {/* <label htmlFor='cardNumber'> Copy the card number </label>
             <input
               id='cardNumber'
               ref={textAreaRef}
@@ -80,8 +94,8 @@ const WalletCard = () => {
                   id='show_hide' />
                 {copySuccess}
               </div>
-            }
-          </form>
+            } */}
+         
         </div> : 'Loading...'}
     </div>
   );

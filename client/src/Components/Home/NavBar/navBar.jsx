@@ -7,7 +7,7 @@ import Contacts from "./contact.png";
 import Trasnfers from "./transfer1.png";
 import LogOut from "./logout.png";
 import Help from "./support1.png";
-import CreditCard from "./creditcard.png";
+import CreditCard from "./3037247.png";
 import '../../../App.css';
 
 import n from "./navBar.module.css";
@@ -35,7 +35,7 @@ export const NavBar = () => {
         <img src={Help} alt="help" /> Help
       </Link>
       <Link to="/walletcard">
-        <img src={CreditCard} alt="" /> Wallet Card
+        <img className={n.imgen}src={CreditCard }alt="img" /> Wallet Card
       </Link>
       
       <Link to="/logout">

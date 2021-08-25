@@ -30,6 +30,6 @@ body.light {
     --text-color: var(--white);
     --font-weight: 500;
     --image: url("https://image.flaticon.com/icons/png/512/702/702471.png");
-    --bluecontainer:linear-gradient( #76b2fe, black);
+    --bluecontainer:linear-gradient( rgb(138, 188, 252), black);
     --lightcontainer:radial-gradient(#76b2fe, #b69efe);
   }

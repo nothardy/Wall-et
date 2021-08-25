@@ -133,6 +133,7 @@ function Register() {
           "You clicked the button!",
           "error"
         );
+        history.push("/")
       }
       
     

@@ -83,10 +83,10 @@ function Contacts() {
         </div>
         <div className={c.right}>
           <div id={c.tittle}></div>
-          <Filter />
           <div className={c.contactos}>
             {renderButton}
             <h2 className={c.tittle}>Contacts</h2>
+            <Filter />
             <Search funSearch={funSearch} />
             {shownContacts &&
               shownContacts.map((contact, i) => {
@@ -112,7 +112,9 @@ function Contacts() {
               funSearch={funSearch}
             />
           </div>
-          <div></div>
+          <div className={c.transactions}>
+            
+          </div>
         </div>
       </div>
     </div>

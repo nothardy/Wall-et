@@ -4,6 +4,7 @@ import style from './Favorites.module.css';
 import View_favorite from './views/view_favorite';
 import View from './views/view_contacts'
 
+
 export const Favorites = ({toggleTransactions}) => {
     const favorito = useSelector(state => state.contactsReducer.favorites)
     /* const [transactionUser, setTransactionUser] = useState(""); */
@@ -33,7 +34,8 @@ export const Favorites = ({toggleTransactions}) => {
                     mail={contact.mail}
                     date_transaction={contact.date_transaction}
                     accountId={contact.user}
-                    />   
+                    />
+                      
                     ))
                     
                 } 

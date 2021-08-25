@@ -20,14 +20,19 @@ export function LineBalance(props) {
 
   const state = {
     labels: axisState[0],
+    scaleFontColor: 'red',
     datasets: [
       {
         label: "Total Expenses",
         data: axisState[1], //eje y
         backgroundColor: "white",
-        color: "black",
+        fillColor: "white", 
+        highlightFill: "white",
+        highlightStroke: "white",
+        color: "white",
         borderColor: "black",
-        strokeColor: "black",
+        strokeColor: "white",
+        borderWidth: 1,
       },
     ],
   };
@@ -35,7 +40,7 @@ export function LineBalance(props) {
     title: {
       text: "Balance Anual",
       display: true,
-      fonSize: 20,
+      fonSize: 30,
     },
     maintainAspectRatio: false,
   };

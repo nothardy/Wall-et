@@ -14,7 +14,7 @@
 	  font-size: 16px;
 	  line-height: 1.6;
 	  background: var(--bluecontainer);
-	  box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+	  box-shadow: 0px 6px 10px ;
 	  /* box-shadow: 0px 6px 10px rgb(0 0 0 / 25%); */
 	  will-change: transform;
 	  transform: perspective(1000px) rotateX(
@@ -25,11 +25,11 @@
 
 .containerTop {
 	background: transparent;
-	box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+	box-shadow: 0px 6px 10px ;
 	height: 12rem;
 	width: 90%;
 	/* border: 1px solid ;  */
-	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -85,9 +85,10 @@
 /* FORMULARIOO PA BAJO */
 
 .modalCard_OptionCard {
+	backdrop-filter: blur(10px);
 	position: absolute;
-	/* background: blur(10px); */
-	box-shadow: 0px 0px 8px -1px black;
+	background: var(--bluecontainer);
+	box-shadow: 0px 6px 10px ;
 	width: 80%;
 	height: 39%;
 	/* overflow-y: scroll; */
@@ -98,28 +99,33 @@
 	padding: 4px 1px;
 	border-radius: 6px;
 
-	  backdrop-filter: blur(10px);  
+	  
 }
 .modalCard_ContainerOptionCard {
 	overflow-y: auto;
+	backdrop-filter: blur(10px);
 	width: 100%;
 }
 .modalCard_ContainerOptionCard::-webkit-scrollbar {
 	width: 0.8rem;
+	backdrop-filter: blur(10px);
 	height: 0.5rem;
 }
 .modalCard_ContainerOptionCard::-webkit-scrollbar-thumb {
 	background: rgb(98 54 95);
+	backdrop-filter: blur(10px);
 	border-radius: 25px;
 	width: 0.4rem;
 }
 .modalCard_ContainerOptionCard::-webkit-scrollbar-track {
 	background: #97a5bb70;
 	border-radius: 4px;
+	backdrop-filter: blur(10px);
 	height: 1rem;
 }
 
 .FormCard {
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -6,7 +6,7 @@
     margin-top: 200px;
     width: 850px;
     height:450px;
-    box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+    box-shadow: 0px 6px 10px ;
     background: var(--bluecontainer);
     border-radius: 15px;
 }
