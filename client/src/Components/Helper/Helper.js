@@ -18,17 +18,19 @@ export default function Helper() {
 	let greet = RegExp("(HOW ARE YOU|HOW ARE U|HOW R U|HOW R YOU)");
 	let good = RegExp("(GOOD|GUD|HAPPY|HAPY)");
 	let password = RegExp("(PASSWORD|PASWORD|PASSWOR|PASWOR)");
-	let actions = RegExp(
-		"(CHANGE|FORGOT|RESET|RECOVER|RETRIEVE|REGAIN|RECLAIM|RECOUP|RECUPERATE|GETBACK|GET BACK|MAKEUP|MAKE UP|ADD|DELETE)"
-	);
+	let walletCard = RegExp("(WALLET CARD|CARD WALLET|WALLETCARD|CARDWALLET)");
 	let accountData = RegExp(
 		"(NAME|FULL NAME|FULLNAME|IDENTIFICATION|NUMBER|DNI|BIRTH|DATE|ADDRESS|CARD|CVU)"
 	);
 	let deletee = /DELETE/;
+	let help = /HELP/;
 	let account = RegExp("(ACCOUNT|ACOUNT|ACCOUNTT|ACONT|ACUNT)");
 	let transfer = RegExp(
 		"(TRANSFER|TRANFER|TRANSFERS|TRANFERS|SEND TO|SEND MONEY|TRANSFERENCE|TRANFERENCE)"
 	);
+	let balance = RegExp("(BALANCE|AMOUNT|GRAPHIC|GRAP|EXPENSES)");
+	let contacts = RegExp("(CONTACTS|FRIENDS|USERS)");
+  
 
 	function handleChange(e) {
 		e.preventDefault();
@@ -49,87 +51,122 @@ export default function Helper() {
 	);
 
 	function handleSubmit(e) {
-		e.preventDefault();
+		e.preventDefault()
 		if (text.length < 1) {
-			setAnswer("Please write something so that I can help you.");
-			setAvatar(avatarPokerface);
+		  setAnswer("Please write something so that I can help you.");
+		  setAvatar(avatarPokerface);
 		} else if (deletee.test(text) && account.test(text)) {
-			let answer = (
-				<p>
-					{" "}
-					We are very sorry that you no longer want to <br />
-					be part of the wall-et community. To be able to delete your
-					account <br />
-					go to the <a href="/account">ACCOUNT</a> section and click
-					on the <br />
-					"Edit Profile" button. <br />
-					Please, write us in this <a href="/help">form</a> how we can
-					to improve our service.{" "}
-				</p>
+		  let answer = (
+			<p>
+			  {" "}
+			  We are very sorry that you no longer want to <br />
+			  be part of the wall-et community. To be able to delete your
+			  account <br />
+			  go to the <a href="/account">ACCOUNT</a> section and click
+			  on the <br />
+			  "Edit Profile" button. <br />
+			  Please, write us in this <a href="/help">form</a> how we can
+			  to improve our service.{" "}
+			</p>
+		  );
+		  setAnswer(answer);
+		  setAvatar(avatarConfused);
+		} else if (help.test(text)) {
+		  setAnswer(<p> 
+			{" "}
+			To receive human help click 
+			<a href='/help/form'> here </a> and fill <br />
+			in the form with the requested information {" "}
+			</p>
 			);
-			setAnswer(answer);
-			setAvatar(avatarConfused);
+		  setAvatar(avatarHappy);
+		} else if (walletCard.test(text)) {
+		  let answer = <p> 
+			{" "}
+			wallet card is a prepaid card that you can use like a <br />
+			credit card. You just need to go to the <a href='/walletcard'> 
+			WALLET CARD </a> section <br />
+			and use the data that appears on the screen. {" "}
+			</p>
+		  setAnswer(answer);
+		  setAvatar(avatarHappy);
+		} else if (balance.test(text)) {
+		  let answer = <p> 
+			{" "}
+			To see the balance of your account <br />
+			go to the <a href='/balance'> BALANCE </a> section {" "}
+			</p>
+		  setAnswer(answer);
+		  setAvatar(avatarHappy);
+		} else if (contacts.test(text)) {
+		  let answer = <p> 
+			{" "}
+			To see the history of users to whom you have made a <br />
+			transfer go to the <a href='/contacts'> BALANCE </a> section {" "}
+			</p>
+		  setAnswer(answer);
+		  setAvatar(avatarHappy);
 		} else if (transfer.test(text)) {
-			let answer = (
-				<p>
-					{" "}
-					In order to send money to another wall-et user, <br />
-					go to the <a href="/transfers/1"> TRANSFERS </a> section and
-					click on the "transfer" <br />
-					button. There you can send money to another user just having{" "}
-					<br />
-					their email or their CVU{" "}
-				</p>
-			);
-			setAnswer(answer);
-			setAvatar(avatarHappy);
-		} else if (actions.test(text) && password.test(text)) {
-			let answer = (
-				<p>
-					{" "}
-					If you need to reset your password, <br />
-					go to the <a href="/account"> Account </a> section <br />
-					and click on the "Change Password" button.
-				</p>
-			);
-			setAnswer(answer);
-			setAvatar(avatarHappy);
-		} else if (actions.test(text) && accountData.test(text)) {
-			let answer = (
-				<p>
-					{" "}
-					If you need to change any of your account information,{" "}
-					<br />
-					go to the <a href="/account">ACCOUNT</a> section and click
-					on the <br />
-					"Edit Profile" button and you will be able to change your
-					account information. <br />
-					Remember that the CVU and the Wall-et Card data cannot be
-					modified.{" "}
-				</p>
-			);
-			setAnswer(answer);
-			setAvatar(avatarHappy);
+		  let answer = (
+			<p>
+			  {" "}
+			  In order to send money to another wall-et user, <br />
+			  go to the <a href="/transfers/1"> TRANSFERS </a> section and
+			  click on the "transfer" <br />
+			  button. There you can send money to another user just having{" "}
+			  <br />
+			  their email or their CVU{" "}
+			</p>
+		  );
+		  setAnswer(answer);
+		  setAvatar(avatarHappy);
+		} else if (password.test(text)) {
+		  let answer = (
+			<p>
+			  {" "}
+			  If you need to reset your password, <br />
+			  go to the <a href="/account"> Account </a> section <br />
+			  and click on the "Change Password" button.
+			</p>
+		  );
+		  setAnswer(answer);
+		  setAvatar(avatarHappy);
+		} else if ( account.test(text) || accountData.test(text)) {
+		  let answer = (
+			<p>
+			  {" "}
+			  If you need to change any of your account information,{" "}
+			  <br />
+			  go to the <a href="/account">ACCOUNT</a> section and click
+			  on the <br />
+			  "Edit Profile" button and you will be able to change your
+			  account information. <br />
+			  Remember that the CVU and the Wall-et Card data cannot be
+			  modified.{" "}
+			</p>
+		  );
+		  setAnswer(answer);
+		  setAvatar(avatarHappy);
 		} else if (hello.test(text)) {
-			setAnswer(
-				"Hi, how are you? my name is Helper. How can I help you?"
-			);
-			setAvatar(avatarSmiling);
+		  setAnswer(
+			"Hi, how are you? my name is Helper. How can I help you?"
+		  );
+		  setAvatar(avatarSmiling);
 		} else if (greet.test(text)) {
-			setAnswer("I'm good. And you?");
-			setAvatar(avatarSmiling);
+		  setAnswer("I'm good. And you?");
+		  setAvatar(avatarSmiling);
 		} else if (good.test(text)) {
-			setAnswer("I'm happy for you!!!");
-			setAvatar(avatarSmiling);
+		  setAnswer("I'm happy for you!!!");
+		  setAvatar(avatarSmiling);
 		} else {
-			setAnswer(defaultText);
-			setAvatar(avatarConfused);
+		  setAnswer(defaultText);
+		  setAvatar(avatarConfused);
 		}
-	}
+	  };
 	return (
 		<div className={s.container}>
 			<h1>HELPER ROBOT</h1>
-			<img src={avatar} />
+			<img src={avatar} alt=''/>
 			<h4>Helper:</h4>
 			<p>{answer ? answer : null}</p>
 			<form id="areaChat" onChange={handleChange} onSubmit={handleSubmit}>

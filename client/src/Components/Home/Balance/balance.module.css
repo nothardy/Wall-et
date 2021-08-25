@@ -17,7 +17,8 @@
     box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
     padding: 20px;
     transition: all 0.2s;
-    background: radial-gradient(#76b2fe, #b69efe);
+    background: var(--bluecontainer);
+      box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
     
     
     
@@ -39,11 +40,11 @@
     top: 0;
     left: 45px;
     margin-top: 25px;
-    color: midnightblue;
+    
 }
 
 #cashBalance{
-    color:midnightblue;
+    
     font-size: 2.9rem;
 }
 
@@ -60,7 +61,7 @@
 .btnBalance{
     background: none;
     border-radius: 5px;
-    color: midnightblue;
+     color: white;
     border: 1px solid white;
     font-size: 1.3rem;
     cursor: pointer;

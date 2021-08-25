@@ -15,7 +15,7 @@ module.exports = {
                 res.status(404)
             }
             if(!bcrypt.compareSync(key, password)) {
-                throw new Error('Key invalid')
+                throw new Error('Password invalid')
                 res.status(404)
             }
 

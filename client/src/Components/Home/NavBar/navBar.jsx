@@ -7,10 +7,11 @@ import Contacts from "./contact.png";
 import Trasnfers from "./transfer1.png";
 import LogOut from "./logout.png";
 import Help from "./support1.png";
+import CreditCard from "./creditcard.png";
 import '../../../App.css';
 
 import n from "./navBar.module.css";
-import DarkMode from "../../DarkMode/DarkMode";
+
 export const NavBar = () => {
   return (
     <div className={n.containerNavBar}>
@@ -33,11 +34,16 @@ export const NavBar = () => {
       <Link to="/help">
         <img src={Help} alt="help" /> Help
       </Link>
-      <DarkMode />
+      <Link to="/walletcard">
+        <img src={CreditCard} alt="" /> Wallet Card
+      </Link>
+      
       <Link to="/logout">
         <img src={LogOut} alt="log out" /> Log out
       </Link>
+      <div className={n.botonluna}>
       
+      </div>
     </div>
   );
 };

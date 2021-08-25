@@ -1,13 +1,14 @@
 .container {
 	width: 32rem;
-	box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.2);
-	background-color: white;
+	background: var(--bluecontainer);
+      box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
 	position: relative;
 	height: 410px;
+	
 }
 
 .moldAmount {
-	background: white /* antiquewhite */;
+	background:transparent /* antiquewhite */;
 	width: 14rem;
 	height: 3rem;
 	position: relative;

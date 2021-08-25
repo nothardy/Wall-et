@@ -160,7 +160,7 @@ const Card = () => {
 										/>
 									))
 								) : (
-									<span>
+									<span className={cd.linkspan}>
 										To load with a card, it must be <br />
 										registered in the account. You don't own
 										any. <br />

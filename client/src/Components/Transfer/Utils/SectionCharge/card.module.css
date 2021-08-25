@@ -1,29 +1,34 @@
+  
 .container {
+	
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	flex-direction:column;
+	  align-items: center;
+	  justify-content: center;
 	width: 30rem;
-	/* padding: 30px; */
-	/* margin: 10px; */
-	background: radial-gradient(#d688f5, #c2a3e5);
-	border-radius: 15px;
-	color: rgb(98 54 95);
-	font-size: 16px;
-	line-height: 1.6;
-	box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.2);
-	/* box-shadow: 0px 6px 10px rgb(0 0 0 / 25%); */
-	will-change: transform;
-	transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
-	height: 35rem;
+	  /* padding: 30px; */
+	  /* margin: 10px; */
+	  
+	  border-radius: 15px;
+	 
+	  font-size: 16px;
+	  line-height: 1.6;
+	  background: var(--bluecontainer);
+	  box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
+	  /* box-shadow: 0px 6px 10px rgb(0 0 0 / 25%); */
+	  will-change: transform;
+	  transform: perspective(1000px) rotateX(
+  0deg) rotateY(0deg) scale3d(1, 1, 1);
+	height: 35rem; 
 	text-align: center;
-}
+  }
 
 .containerTop {
-	background-color: #ffff;
+	background: transparent;
+	box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
 	height: 12rem;
 	width: 90%;
-	border: 1px solid #d9d9d9;
+	/* border: 1px solid ;  */
 	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
 	display: flex;
 	flex-direction: column;
@@ -81,7 +86,7 @@
 
 .modalCard_OptionCard {
 	position: absolute;
-	background: radial-gradient(#d688f5, #c2a3e5);
+	/* background: blur(10px); */
 	box-shadow: 0px 0px 8px -1px black;
 	width: 80%;
 	height: 39%;
@@ -92,7 +97,8 @@
 	align-items: center;
 	padding: 4px 1px;
 	border-radius: 6px;
-	/* backdrop-filter: blur(6px); */
+
+	  backdrop-filter: blur(10px);  
 }
 .modalCard_ContainerOptionCard {
 	overflow-y: auto;
@@ -178,5 +184,9 @@
 }
 .btnSubmitFormCard:hover {
 	background: #756969ce;
+	color: white;
+}
+
+.linkspan >a{
 	color: white;
 }

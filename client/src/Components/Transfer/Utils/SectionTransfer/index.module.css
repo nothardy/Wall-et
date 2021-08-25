@@ -14,12 +14,16 @@
     font-size: 1.5rem;
     position: relative;  /* HIJO DE FHATER */
     
+    
 }
 
 .header{
+    width: 83%;
+    height: -50%;
     margin-top: -100px;
     margin-bottom: 0px;
-    background: radial-gradient(#76b2fe, #b69efe);
+    background: var(--bluecontainer);
+      box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
     /* background-color: var(--color-navTransaction); */
     display: flex;
     border-radius: 15px;
@@ -44,7 +48,7 @@
 
 /* PARA ABAJO EMPIEZA EL COMPONENTE SOBRE EXPUESTO */
 .overexposedComponent{ 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     /* background-color: var(--color-bg);ESTE BACKGROUNG, HACE QUE NO SE VEA LO DE ABAJO, POR ESO DEBE COINCIDIR CON EL COLOR DE PAGE */
     position: absolute;
     z-index: 10;
@@ -59,11 +63,12 @@
 .containerCVU{
     width: 31rem;
     height: 14rem;
-    background-color: #ffffff;
+    background: var(--bluecontainer);
+    box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
     padding: 10px;
     border-radius: 30px;
     position: relative;
-    box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200);
+    
 }
 
 #input__codeCVU{

@@ -1,6 +1,5 @@
 .todo {
 	display: flex;
-	color: rgb(84, 84, 231);
 	margin: 19px;
 	text-decoration: none;
 }
@@ -13,13 +12,11 @@
 .container {
 	display: flex;
 	flex-direction: column;
-	color: rgb(84, 84, 231);
 	font-size: 20rem;
 }
 .button {
 	display: flex;
 	flex-direction: column;
-	color: midnightblue;
 	background-color: transparent;
 	/* border: 1px solid black; */
 	border: groove 1px;
@@ -33,9 +30,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-left: 10rem;
 	background-color: seagreen;
 	width: 3rem;
-	margin-top: -2.5rem;
+	
 }
 .buttonFav:hover {
 	background-color: seashell;

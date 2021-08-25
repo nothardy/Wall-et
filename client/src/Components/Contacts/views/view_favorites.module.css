@@ -1,7 +1,6 @@
 .button {
     display: flex;
     flex-direction: column;
-    color: midnightblue;
     background-color: transparent;
     /* border: 1px solid black; */
     border:groove 1px;
