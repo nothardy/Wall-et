@@ -1,5 +1,5 @@
 .btnContainer{
-    background-color: #9ba6fec7;
+     background-color: transparent; 
     font-size: 1.4rem;
     padding: 4px 10px;
     text-align: center;
@@ -8,10 +8,11 @@
     border: none;
     outline: none;
     cursor: pointer;
-    color: #756b6ba3;
+    border:1px solid white;
+    color: var(--text-color);
+    /* color: #756b6ba3; */
 }
 
 .btnContainer:hover{
-    color: #756b6b;
-    background: #8795fe;
+    background-color: #6f77bf;
 }

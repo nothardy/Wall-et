@@ -13,6 +13,7 @@
 	display: flex;
 	flex-direction: column;
 	font-size: 20rem;
+	position: relative;
 }
 .button {
 	display: flex;
@@ -28,16 +29,20 @@
 }
 .buttonFav {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-left: 10rem;
-	background-color: seagreen;
-	width: 3rem;
-	
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 10rem; */
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 34px;
+    border: 1px solid black;
+    background: none;
+	position: absolute;
+	right: 2px;
 }
-.buttonFav:hover {
+/* .buttonFav:hover {
 	background-color: seashell;
-}
+} */
 .buttonX {
 	margin-left: 20rem;
 	background-color: red;

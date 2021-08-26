@@ -6,8 +6,8 @@ import th from "./index.module.css";
 const TransactionHistory = () => {
   return (
     <div className={th.container}>
-      <Received widht="30rem" height="35rem" borderRadius="15px" />
-      <Shipping widht="30rem" height="35rem" borderRadius="15px" />
+      <Received widht="33rem" height="45rem" borderRadius="15px" />
+      <Shipping widht="33rem" height="45rem" borderRadius="15px" />
     </div>
   );
 };

@@ -10,7 +10,7 @@
   width: 32.5rem;
   height: 24rem;
   border: none;
-  background: var(--bluecontainer);
+  background: transparent;
       box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
   transition: all 0.2s;
   bottom: 6rem;
@@ -76,7 +76,7 @@
   height: 0.5rem;
 }
 .bodyTransaction::-webkit-scrollbar-thumb {
-  background: rgb(20, 20, 20);
+  background: var(--text-color);
   border-radius: 25px;
   width: 0.4rem;
 }

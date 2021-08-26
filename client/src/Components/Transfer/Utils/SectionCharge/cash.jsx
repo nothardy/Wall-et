@@ -21,8 +21,8 @@ const Cash = () => {
 			</p>
 			<div id={ch.box_code}>
 				{!code.codePagofacil ? (
-					<button onClick={() => codeGenerator()}>
-						it has no code
+					<button id={ch.btnCodeGenerator} onClick={() => codeGenerator()}>
+						Show Code
 					</button>
 				) : (
 					code.codePagofacil

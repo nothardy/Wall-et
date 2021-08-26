@@ -3,6 +3,10 @@ import React, {useEffect, useState} from "react";
 import style from "./view_contacts.module.css";
 import { addFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector} from "react-redux";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar} from "@fortawesome/free-solid-svg-icons";
+
 export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
   const [renderContactTransactions, setRenderContactTransactions] =
     React.useState(true);
@@ -27,7 +31,7 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
     if (renderContactTransactions === true) toggleTransactions(mail);
     //setRenderContactTransactions(!renderContactTransactions);
   };
-
+  //aca franco
   const FavClick = (e) =>{
     dispatch(favoriteContact(user))
     dispatch(addFavoriteContact(user))
@@ -45,8 +49,16 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
               {date_transaction && date_transaction.slice(5, 10)}
             </div>
             <div>Email: {mail}</div>
+            <button className={style.buttonFav} onClick={(e) => FavClick(e)}>{/* No TOQUEN NADA  */}
+            <FontAwesomeIcon
+								/* onClick={toggleShow} */
+								icon={faStar}
+								style={{color:"#62853d", width:"1.6rem", height:"1.6rem"}}
+								id="show_hide" 
+							/>
+            </button>
           </button>
-            <button className={style.buttonFav} onClick={(e) => FavClick(e)}>Fav</button>
+            
         </div>
       </div>
     </div>

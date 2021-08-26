@@ -1,35 +1,36 @@
-  
+
 .container {
-	
+	backdrop-filter: blur(10px);
 	display: flex;
 	flex-direction:column;
 	  align-items: center;
 	  justify-content: center;
-	width: 30rem;
+	width: 33rem;
 	  /* padding: 30px; */
 	  /* margin: 10px; */
-	  
+
 	  border-radius: 15px;
-	 
-	  font-size: 16px;
-	  line-height: 1.6;
-	  background: var(--bluecontainer);
+	 font-weight: 600;
+	  font-size: 20px;
+	  /* line-height: 1.6; */
+	  background: transparent;
 	  box-shadow: 0px 6px 10px ;
 	  /* box-shadow: 0px 6px 10px rgb(0 0 0 / 25%); */
 	  will-change: transform;
 	  transform: perspective(1000px) rotateX(
   0deg) rotateY(0deg) scale3d(1, 1, 1);
-	height: 35rem; 
+	height: 45rem;
 	text-align: center;
   }
 
 .containerTop {
-	background: transparent;
+	
 	box-shadow: 0px 6px 10px ;
-	height: 12rem;
+	height: 16rem;
 	width: 90%;
 	/* border: 1px solid ;  */
-	
+	backdrop-filter: blur(10px);
+	background: transparent;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -57,11 +58,11 @@
 }
 .title {
 	position: absolute;
-	left: 8px;
+	left: 98px;
 	top: 8px;
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: black;
+	font-size: 22px;
+	font-weight: 600;
+
 }
 #inputAmount {
 	font-size: 1.8rem;
@@ -73,6 +74,7 @@
 	border: none;
 	background: none;
 	overflow: hidden;
+	color: var(--text-color);
 }
 
 .bottomListPrice {
@@ -85,12 +87,12 @@
 /* FORMULARIOO PA BAJO */
 
 .modalCard_OptionCard {
-	backdrop-filter: blur(10px);
-	position: absolute;
-	background: var(--bluecontainer);
+	
+	 position: absolute;
+	/* background: var(--background-color); */
 	box-shadow: 0px 6px 10px ;
 	width: 80%;
-	height: 39%;
+	height: 39%; 
 	/* overflow-y: scroll; */
 	display: flex;
 	flex-direction: column;
@@ -98,13 +100,15 @@
 	align-items: center;
 	padding: 4px 1px;
 	border-radius: 6px;
-
-	  
+	backdrop-filter: blur(20px);
+	opacity: 0.95;
 }
 .modalCard_ContainerOptionCard {
-	overflow-y: auto;
+	 overflow-y: auto; 
 	backdrop-filter: blur(10px);
 	width: 100%;
+	font-weight: 600;
+	font-size: 20px;
 }
 .modalCard_ContainerOptionCard::-webkit-scrollbar {
 	width: 0.8rem;
@@ -112,7 +116,7 @@
 	height: 0.5rem;
 }
 .modalCard_ContainerOptionCard::-webkit-scrollbar-thumb {
-	background: rgb(98 54 95);
+	 /* background: black;  */
 	backdrop-filter: blur(10px);
 	border-radius: 25px;
 	width: 0.4rem;
@@ -125,7 +129,7 @@
 }
 
 .FormCard {
-	
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -136,41 +140,41 @@
 .labelFormCard {
 	display: flex;
 	flex-direction: column;
-	text-align: start;
-	padding: 0px;
+	/* text-align: start; */
+	padding: 10px;
+	
 }
 
 .inputFormCardLong {
-	font-size: 1rem;
-	width: 14rem;
-	height: 1.6rem;
-	padding: 3px;
-	border-radius: 10px;
-	border: 1px solid #967d7d;
-	background: none;
 	outline: none;
-	text-transform: uppercase;
+	border:none;
+	border-radius: 20px;
+	margin-bottom: -5px;
+	padding: 8px 15px;
+	width: 190px;
+	font-size:17px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 .inputFormCardExpiration {
-	font-size: 1rem;
-	width: 6rem;
-	height: 1.6rem;
-	padding: 3px;
-	border-radius: 10px;
-	border: 1px solid #967d7d;
-	background: none;
 	outline: none;
+	border:none;
+	border-radius: 20px;
+	margin-bottom: -5px;
+	padding: 8px 15px;
+	width: 80px;
+	font-size:17px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 .inputFormCardCvc {
-	font-size: 1rem;
-	width: 4rem;
-	height: 1.6rem;
-	padding: 3px;
-	border-radius: 10px;
-	border: 1px solid #967d7d;
-	background: none;
 	outline: none;
+	border:none;
+	border-radius: 20px;
+	margin-bottom: -5px;
+	padding: 8px 15px;
+	width: 70px;
+	font-size:17px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 .btnSubmitFormCard {
@@ -178,21 +182,63 @@
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer; */
-	width: 100%;
-	font-size: 1.2rem;
-	font-weight: 600;
-	cursor: pointer;
-	background: #837e7e99;
-	box-shadow: 0px 0px 4px 0px #615b5b;
-	border-radius: 6px;
-	border: none;
-	transition: 0.5s;
+  bottom: 45px;
+  right: 45px;
+  border-radius: 30px;
+  padding: 11px 16px;
+  font-size: 22px;
+  font-weight: 600;
+  background-color: rgb(48 107 164);
+  border: none;
+  color: white;
+  margin-top: 0px;
+  cursor: pointer;
+  width: 140px;
+  height: 45px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .btnSubmitFormCard:hover {
-	background: #756969ce;
+  background-color: #6f77bf;
+}
+.buttonyoursCards{
+	bottom: 45px;
+	right: 45px;
+	border-radius: 30px;
+	padding: 11px 16px;
+	font-size: 22px;
+	font-weight: 600;
+	background-color: rgb(48 107 164);
+	border: none;
+	color: white;
+	margin-top: 0px;
+	cursor: pointer;
+	width: 170px;
+	height: 45px;
+	font-family: "Source Sans Pro", sans-serif;
+}
+.buttonyoursCards:hover {
+	background-color: #6f77bf;
+  }
+.linkspan >a{
 	color: white;
 }
 
-.linkspan >a{
+.buttoncontinue{
+	/* position: absolute; */
+	bottom: 45px;
+	right: 45px;
+	border-radius: 30px;
+	padding: 11px 16px;
+	font-size: 22px;
+	font-weight: 600;
+	background-color: rgb(48 107 164);
+	border: none;
 	color: white;
+	margin-top: 0px;
+	cursor: pointer;
+	width: 120px;
+	font-family: "Source Sans Pro", sans-serif;
+}
+.buttoncontinue:hover {
+	background-color: #6f77bf;
 }

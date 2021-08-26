@@ -69,7 +69,7 @@ function Contacts() {
         type="button"
         className="w3-button w3-red"
       >
-        X
+        x
       </button>
     ) : null;
 
@@ -103,17 +103,16 @@ function Contacts() {
             {/* <div className={c.button}>x</div> */}
           </div>
           <div className={c.transactions}>
-            <Transactions
-              transactionList={transactions}
-              mail={transactionUser}
-            />
             <Favorites
               toggleTransactions={toggleTransactions}
               funSearch={funSearch}
             />
           </div>
           <div className={c.transactions}>
-            
+            <Transactions
+              transactionList={transactions}
+              mail={transactionUser}
+            />
           </div>
         </div>
       </div>

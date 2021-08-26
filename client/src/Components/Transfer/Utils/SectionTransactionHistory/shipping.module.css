@@ -1,5 +1,5 @@
 .container {
-  background: var(--bluecontainer);
+  background: transparent;
   box-shadow: 0px 6px 10px ;
 }
 
@@ -22,7 +22,7 @@
   height: 0.5rem;
 }
 .body::-webkit-scrollbar-thumb {
-   background:black ; 
+  background:var(--text-color); 
   border-radius: 25px;
   width: 0.4rem;
 }

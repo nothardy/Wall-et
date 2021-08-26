@@ -2,7 +2,7 @@ import { Line } from "react-chartjs-2";
 import { setAxis } from "../../utils/Methods";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-
+import style from './Balance.module.css';
 //toLocaleString('default', { month: 'long' })
 
 // ["Enero", "Febrero", "Marzo", "Abril", "Mayo"]
@@ -45,8 +45,8 @@ export function LineBalance(props) {
     maintainAspectRatio: false,
   };
   return (
-    <div>
-      <Line data={state} options={options} height={"200px"} width={"500px"} />
+    <div id={style.linebalance}>
+      <Line data={state} options={options} /* height={"200px"} width={"700px"} */ />
     </div>
   );
 }

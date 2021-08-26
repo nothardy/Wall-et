@@ -13,12 +13,12 @@ const Charge = () => {
   };
   return (
     <div className={c.container}>
-      <div className={c.left}>
+      {/* <div className={c.left}> */}
         <Card />
-      </div>
-      <div className={c.right}>
+     {/*  </div> */}
+{/*       <div className={c.right}> */} 
         <Cash />
-      </div>
+      {/* </div> */}
     </div>
   );
 };

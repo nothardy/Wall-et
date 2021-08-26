@@ -102,7 +102,8 @@ const Card = () => {
 	};
 	return (
 		<div className={cd.container}>
-			<h1>Choose a Card</h1>
+			
+				<h1 >Choose a Card</h1>
 
 			{!modalCard ? (
 				<form
@@ -137,7 +138,7 @@ const Card = () => {
 							/>
 						))}
 					</div>
-					<button type="submit">Continue</button>
+					<button type="submit" className={cd.buttoncontinue}>Continue</button>
 				</form>
 			) : (
 				<div
@@ -172,8 +173,8 @@ const Card = () => {
 							</div>
 						</div>
 					) : (
-						<button onClick={() => toggleCardOption()}>
-							toggle
+						<button className={cd.buttonyoursCards} onClick={() => toggleCardOption()}>
+							Your Cards
 						</button>
 					)}
 					<form
@@ -243,7 +244,7 @@ const Card = () => {
 							</label>
 
 							<label className={cd.labelFormCard}>
-								Cvc
+								CVC
 								<input
 									className={cd.inputFormCardCvc}
 									value={updateinfo.cvc}
@@ -260,7 +261,7 @@ const Card = () => {
 						</div>
 
 						<button type="submit" className={cd.btnSubmitFormCard}>
-							submit
+							Submit
 						</button>
 					</form>
 

@@ -50,6 +50,8 @@
 	padding: 6px 13px;
 	border-radius: 4px;
 	transition: 0.1s;
+	 color:white; 
+	border:1px solid ;
 }
 #btnSubmit:hover {
 	color: rgb(255, 255, 255);

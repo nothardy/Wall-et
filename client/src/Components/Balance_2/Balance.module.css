@@ -13,14 +13,32 @@
   .moneyAndTransactions{
     display:flex;
     flex-direction: row;
-    
+    margin-top: 1rem;
     justify-content: center;
     
   }
   .grafico {
-    height: 22rem; 
-    width: 600px;
-    background: var(--bluecontainer);
+    width: 70rem;
+    height: 22rem;
+    color:var(--text-color);
+    /* background: transparent; */
+    box-shadow: 0px 6px 10px ;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 5rem;
+    margin-top: 2rem;
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: 1s;
+    transition-delay: 2,4s;
+    transition-timing-function: ease-in-out;
+  }
+  .grafico2{
+    color:var(--text-color);
+    width: 44rem;
+    height: 20.4rem;
+    /* background: transparent; */
     box-shadow: 0px 6px 10px ;
     padding: 20px;
     border-radius: 8px;
@@ -35,7 +53,11 @@
   }
   .grafico:hover{
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-    transform: scale(1.01);
+    /* transform: scale(1.01); */
+  }
+  .grafico2:hover{
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    /* transform: scale(1.01); */
   }
   .balance {
    /*   background-color: #ffffff;
@@ -55,7 +77,7 @@
     height: 15rem;
     box-shadow:0 0 0 3px #656673;
     right: 60px; */
-    margin: 5px 10rem ;
+    /* margin: 5px 10rem ; */
      display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -64,8 +86,17 @@
     margin-top:10px;
     border-radius: 5px;
     /* box-shadow:0 0 0 3px #656673;  */
-    width:70rem;
+    /* width:70rem; */
 
+  }
+  .bal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 30rem;
+    right: 60px;
+    margin-top:10px;
+    border-radius: 5px;
   }
   
   .number{
@@ -83,15 +114,30 @@
   display:flex;
   flex-direction: column;
   justify-content: center;
+  width: 70rem;
+  height: 20rem;
+ 
+  
+}
+.titleAndGraph2{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
   height: 30rem; 
   width: 30rem;
   
 }
 .title{
+  /* margin-left: -20rem; */
   margin-top: -4rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.9rem;
 }
 .title2{
-  margin-top: -5.5rem;
+  margin-top: -13rem;
+  margin-left: -7rem;
+  font-family: 'Roboto', sans-serif;
+    font-size: 1.9rem;
 }
 .left{
 border: 2px solid rgb(164 178 179);    
@@ -107,6 +153,15 @@ width: 15rem;
   width: 100%;
 }
 
+
+/* #linebalance{
+  margin-left: -20rem; 
+  width: 70rem;
+  height: 15rem;
+} */
+#doug{
+  margin-top:2rem;
+}
 @media (max-height: 921px) {
   .graficos {
   font-size: 18px;
