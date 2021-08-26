@@ -89,7 +89,7 @@
 .modalCard_OptionCard {
 	
 	 position: absolute;
-	/* background: var(--background-color); */
+	 background: transparent; 
 	box-shadow: 0px 6px 10px ;
 	width: 80%;
 	height: 39%; 
@@ -100,24 +100,24 @@
 	align-items: center;
 	padding: 4px 1px;
 	border-radius: 6px;
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(20000px);
 	opacity: 0.95;
 }
 .modalCard_ContainerOptionCard {
 	 overflow-y: auto; 
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(100px);
 	width: 100%;
 	font-weight: 600;
 	font-size: 20px;
 }
 .modalCard_ContainerOptionCard::-webkit-scrollbar {
 	width: 0.8rem;
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(100px);
 	height: 0.5rem;
 }
 .modalCard_ContainerOptionCard::-webkit-scrollbar-thumb {
 	 /* background: black;  */
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(100px);
 	border-radius: 25px;
 	width: 0.4rem;
 }
@@ -129,7 +129,7 @@
 }
 
 .FormCard {
-
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;

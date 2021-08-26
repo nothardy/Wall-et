@@ -15,15 +15,17 @@ export default function Helper() {
 	const user = useSelector((state) => state.homeReducer.User);
 	const dispatch = useDispatch();
 	let [firstRender, setFirstRender] = useState(true);
+
 	useEffect(() => {
 	  if (firstRender === true) {
 		dispatch(getDateUser());
 		setFirstRender((firstRender =! firstRender));
 	  }
 	}, [firstRender, dispatch]);
+
 	const [text, setText] = useState("");
 	const [chat, setChat] = useState([{ 
-	  text: "Hi, i'm Helper. How can I help you?", 
+	  text: "Hi, I'm your assistant. How can I help you?", 
 	  image: avatarHappy 
 	}])
   
@@ -71,10 +73,10 @@ export default function Helper() {
 	function sender() {
 	  return {
 		text: text,
-		image: user.user_data.photo? user.user_data.photo : ImageDefault,
+		image: user.account_data.photo? user.account_data.photo : ImageDefault,
 	  }
-	}  
-
+	}
+	
 	function handleSubmit(e) {
 		e.preventDefault();
 		if (text.length < 1) {
@@ -270,24 +272,29 @@ export default function Helper() {
 		  <h1>Wall-et Assistant</h1>
 		  {/* <h4>Assistant:</h4> */}
 		  <p>{ chat ? <ChatBot array={chat} /> : null}</p> <br/>
-		  <form id="areaChat" onChange={handleChange} onSubmit={handleSubmit}>
+		  <form className={s.formulario} id="areaChat" onChange={handleChange} onSubmit={handleSubmit}>
+			  <div className={s.formulario} >
 			<input
-			classname={s.textarea}
+			className={s.textarea}
 			  type="text"
 			  name="name"
 			  value={text}
 			  id="txtPregunta"
 			  size="50"
+			  required
 			/>
 			<button className={s.button} type="submit" name="name" value="submit">
 			  Send
 			</button>
+			</div>
 		  </form>
 		  <hr />
 		  <p>
 			{" "}
-			To contact a customer service representative,
-			<a href="/help/form" className={s.linkclick}>click here </a>
+			To contact a customer service representative 
+			<div className={s.linkclick}>
+			<a href="/help/form" >  click here </a>
+			</div>
 		  </p>
 		</div>
 	  );

@@ -166,7 +166,7 @@ const Card = () => {
 										registered in the account. You don't own
 										any. <br />
 										Click on this{" "}
-										<Link to="/account">link</Link> to go to
+										<Link to="/account">link</Link> to
 										register your card.
 									</span>
 								)}

@@ -22,7 +22,7 @@ export const Favorites = ({toggleTransactions}) => {
     //   };
     return(
         <div className={style.containerFavorites}>
-            <h2 className={style.titleFavorites }>Your favorite contacts</h2>   
+            <h2 className={style.titleFavorites }> Your favorite contacts</h2>   
             <div className={style.body}>
             { 
                 favorito && 

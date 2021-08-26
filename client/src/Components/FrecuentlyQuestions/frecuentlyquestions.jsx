@@ -54,7 +54,7 @@ function Frecuentlyquestions() {
         <div className={f.section2}>
           <div className={f.section2grid}>
             <p className={f.section2gridtitle}>
-              Is it secure?
+              Is it safe?
               <button
                 className={f.button}
                 onClick={() => setShow({ ...show, q2: !show.q2 })}

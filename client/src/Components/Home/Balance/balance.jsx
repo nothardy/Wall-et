@@ -22,7 +22,7 @@ export const Balance = () => {
           </div>
         </>
       ) : (
-        <h3>Cargando... Balance</h3>
+        <h3>Loading... Balance</h3>
       )}
     </div>
   );

@@ -17,7 +17,7 @@
 #btnBack {
   color: var(--text-color);
   position: absolute;
-  top: 0px;
+  top: 4px;
   left: -18px;
   display: flex;
   align-items: center;
@@ -29,6 +29,8 @@
   outline: none;
   padding: 3px 10px;
   transition: 0.2s;
+  margin-left:-7.5rem;
+  margin-top: 1.8rem;
 }
 #btnBack > img {
   width: 1.6rem;

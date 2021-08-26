@@ -14,7 +14,7 @@ const Cash = () => {
 	};
 	return (
 		<div className={ch.container}>
-			<h1>With Cash</h1>
+			<h1>Load Money</h1>
 			<p>
 				Use this code whenever you want to fund your account. The
 				minimum amount is $ 50.

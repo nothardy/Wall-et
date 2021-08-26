@@ -36,6 +36,7 @@
 .chatImage {
   margin-right: 1rem;
   width: 5rem;
+  height: 5rem;
   border-radius: 10rem;
 }
 
@@ -48,5 +49,8 @@
   align-items: flex-end;
   border-radius: 1rem;
   background-color: transparent;
+  backdrop-filter: blur(20px);
+  opacity:100%;
   width: 30rem;
+ /*  flex-direction: row-reverse; */
 }

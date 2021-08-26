@@ -29,9 +29,11 @@
 .containerView {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  margin: 2px;
-  width: 25rem;
+  color:var(--text-color);
+   border: 1px solid ; 
+   border-radius: 20px;
+  margin: 8px;
+  width: 23rem;
   align-items: center;
 }
 

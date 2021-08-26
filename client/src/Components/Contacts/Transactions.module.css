@@ -45,6 +45,7 @@
 #titleTransaction {
 	position: absolute;
 	font-size: 1.4rem;
+	margin-left: 20px;
 	top: 5px;
 	left: 12px;
 }
@@ -69,6 +70,8 @@
 	overflow-x: hidden;
 	align-items: center;
 	margin-top: 2px;
+	
+	
 }
 .bodyTransaction::-webkit-scrollbar {
 	width: 0.4rem;

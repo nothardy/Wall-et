@@ -68,7 +68,7 @@ const CardTransfer = () => {
 			);
 			await swal(
 				"Congratulations!",
-				"Your transaction has been sent successfully!",
+				"Your transaction has been completed successfully!",
 				"success"
 			);
 			history.push("/mywallet");

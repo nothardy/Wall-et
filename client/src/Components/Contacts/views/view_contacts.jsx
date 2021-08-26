@@ -43,18 +43,19 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
       <div className={style.todo}>
         <div className={style.container}>
           <button className={style.button} onClick={handleOnClick}>
+            <div className={style.infocontact}>
             <div>Name: {fullname}</div>
             <div>
               Last Transaction:
               {date_transaction && date_transaction.slice(5, 10)}
             </div>
             <div>Email: {mail}</div>
-            <button className={style.buttonFav} onClick={(e) => FavClick(e)}>{/* No TOQUEN NADA  */}
+            </div>
+            <button className={style.buttonFav} onClick={(e) => FavClick(e)}>
             <FontAwesomeIcon
 								/* onClick={toggleShow} */
 								icon={faStar}
-								style={{color:"#62853d", width:"1.6rem", height:"1.6rem"}}
-								id="show_hide" 
+                className={style.iconFav}	
 							/>
             </button>
           </button>
