@@ -73,5 +73,34 @@ module.exports = {
       console.error(err)
       throw new Error(err)
     }
+    },
+
+    mailCashCode: async ( code, to ) => {
+      try {
+        const accountTo = await Account.findByPk(to)
+
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          host: "smtp.gmail.com",
+          auth: {
+            user: MAIL_ACCOUNT,
+            pass: MAIL_PASSWORD,
+          },
+          tls: {rejectUnauthorized: false},
+        })
+
+        const mailOptionsTo = {
+          from: MAIL_ACCOUNT, // sender address
+          to: accountTo.mail, // receiver adress
+          subject: "Code", //Subject mail
+          html: `<p> Hi ${accountTo.fullname}. Your code is ${code} </p>`,
+      }
+
+      return transporter.sendMail(mailOptionsTo)
+    }
+    catch(err){
+      console.error(err)
+      throw new Error(err)
+    }
     }
 }

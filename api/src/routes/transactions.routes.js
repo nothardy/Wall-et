@@ -1,14 +1,16 @@
 const { Router } = require("express");
 const route = Router();
 const { verifyCard } = require("../middlewares/verifyCard.js");
-
-const Hashing = require("../controllers/hashing");
+const { saveCode } = require("../controllers/saveCode");
 const { checkout } = require("../controllers/stripeCard");
+const { mailCashCode } = require('../controllers/mailTransfer')
 
 route.get("/entry", async (req, res) => {
 	try {
 		const { id } = req.query;
-		const code = await Hashing(id);
+		const code = await saveCode(id);
+
+		mailCashCode( code, id )
 		res.status(200).json(code);
 	} catch (err) {
 		res.status(404).json({ err: err });
