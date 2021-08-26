@@ -10,7 +10,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   let expiredToken = useSelector((state) => state.faceReducer.expiredToken);
-
   useEffect(() => {
     dispatch(isTokenExpired(token));
   }, [token, dispatch])

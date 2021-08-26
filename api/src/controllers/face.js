@@ -28,4 +28,18 @@ const postFaceDescriptor = async (req, res, next) => {
 	}
 };
 
-module.exports = { getFaceDescriptor, postFaceDescriptor };
+const getFaceDescriptorByMail = async ( req, res, next ) => {
+	console.log("entro")
+	const {mail} = req.body;
+	console.log(mail)
+	try{
+		const user =  await Account.findOne({where: { mail:mail }})
+		res.status(200).json(true)
+	}
+	catch(err){
+		console.log(err)
+		res.status(404).json({respuesta:"me caigo a pedazos"})
+	}
+}
+
+module.exports = { getFaceDescriptor, postFaceDescriptor, getFaceDescriptorByMail };

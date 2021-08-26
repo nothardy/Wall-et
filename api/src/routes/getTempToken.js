@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const { Account } = require("../db");
+const jwt = require("jsonwebtoken");
 
 
 router.get('/temp', async (req, res) => {
@@ -8,9 +9,8 @@ router.get('/temp', async (req, res) => {
         // get the token
         const token = req.headers['x-access-token'];
         // if the token doesn't exists
-        if (!token) return res.status(401).send({ auth: false, message: "no Token aws Provided" });
         //decoding the token
-        const decoded = await jwt.decode(token, "mysecretkey");
+        const decoded = await jwt.verify(token, "mysecretkey");
         return res.json({ expired: false });
     } catch (err) {
         //if the token is expired, it goes into catch, so in this case it returns true.
