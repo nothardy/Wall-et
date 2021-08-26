@@ -49,20 +49,20 @@ const contactsReducer = (state = initialState, action) => {
 		case FAVORITE_CONTACT:
 			return {
 				...state,
-				favorites: [...state.favorites, action.payload],
+				favorites: [...state.favorites, action.payload].slice(),
 			};
 
 		case GET_FAVORITES:
 			return {
 				...state,
-				favorites: action.payload.favorites,
+				favorites: action.payload.favorites.slice(),
 			};
 		case ERASE_FAVORITE_CONTACT:
 			return {
 				...state,
-				favorites: state.favorites.filter(
-					(user) => user.mail !== action.payload
-				),
+				favorites: state.favorites
+					.filter((user) => user.mail !== action.payload)
+					.slice(),
 			};
 		default:
 			return state;
