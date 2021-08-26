@@ -14,7 +14,8 @@ import Help from "./Components/Help/Help";
 import ResetPassword from "./Components/RecoverPassword/resetPassword";
 import RecoverPassword from "./Components/RecoverPassword/password";
 import FaceView from "./Components/FaceRecognition/FaceView";
-import ExpiredSession from "./Components/FaceRecognition/ExpiredSession/ExpiredSession";
+import LoginFace from "./Components/FaceRecognition/LoginFace/LoginFace";
+import PublicRoute from "./Components/PublicRoute/PublicRoute"
 
 // CSS hecho por:
 // Cami y Celes: /register y /home
@@ -24,16 +25,16 @@ import ExpiredSession from "./Components/FaceRecognition/ExpiredSession/ExpiredS
 export default function App() {
 	return (
 		<div>
-			<Route exact path="/" component={Landingpage} />
-			<Route exact path="/register" component={Register} />
+			<PublicRoute exact path="/" component={Landingpage} />
+			<PublicRoute exact path="/register" component={Register} />
 			<Route exact path="/recoverpassword" component={RecoverPassword} />
 			<Route exact path="/faq" component={FrecuentlyQuestions} />
-			<Route exact path="/expiredsession" component={ExpiredSession}/>
+			<Route exact path="/loginface" component={LoginFace}/>
 			<Route exact path="/logout" component={Logout} />
 			<PrivateRoute path="/account" component={Account} exact />
-			<Route exact path="/contacts" component={Contacts} />
-			<Route path="/transfers/:section" component={Transfer} />
-			<Route exact path="/help" component={Help} />
+			<PrivateRoute exact path="/contacts" component={Contacts} />
+			<PrivateRoute path="/transfers/:section" component={Transfer} />
+			<PrivateRoute exact path="/help" component={Help} />
 			<PrivateRoute path="/mywallet" component={Home} exact />
 			<PrivateRoute path="/balance" component={Balance} exact />
 			<Route

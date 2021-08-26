@@ -36,16 +36,19 @@ export function getFaceDescriptor() {
   };
 }
 
-export function isTokenExpired() {
-  console.log("Estoy aca en istokenexpired")
-  return async (dispatch) => {
-    const token = localStorage.getItem("token");
-    const { data } = await axios.get(`/token/temp`, {
-      headers: { "x-access-token": token },
-    });
-    dispatch({ type: TOKEN_EXPIRED, payload: data.expired });
-  }
-};
+export const isTokenExpired= () => {
+  return async function dispatch(dispatch) {
+    try {
+      const token = localStorage.getItem("token");
+      const { data } = await axios.get(`/token/temp`, {
+        headers: { "x-access-token": token },
+      });
+      return dispatch({ type: TOKEN_EXPIRED, payload: data.expired });
+    } catch (err) {
+      console.log(err)
+    }
+  };
+}
 
 export async function renewToken() {
   try {

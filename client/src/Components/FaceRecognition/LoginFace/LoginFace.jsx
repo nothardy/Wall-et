@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import * as faceapi from "face-api.js";
 //import Webcam from "react-webcam"
-import es from "./ExpiredSession.module.css";
+import es from "./LoginFace.module.css";
 import { getFaceDescriptor, isTokenExpired } from "../../../Redux/Actions/FaceRecognition_Action";
 import { getDateUser } from "../../../Redux/Actions/Home";
 import swal from "sweetalert";
 
-function ExpiredSession() {
-    const dispatch = useDispatch();
+function LoginFace() {
+	const dispatch = useDispatch();
 	const history = useHistory();
 	let userFace = useSelector((store) => store.faceReducer.faceDescriptor);
 	let expiredToken = useSelector((store) => store.faceReducer.expiredToken)
@@ -18,10 +18,24 @@ function ExpiredSession() {
 	const webcamRef = useRef(null);
 	const canvasRef = useRef(null);
 	const [initializing, setInitializing] = useState(false);
+	const [userMailFace, setUserMailFace] = useState("");
 	const [faceDetections, setFaceDetections] = useState([]);
 	const [updateFaceDetection, setUpdateFaceDetection] = useState(false);
 	const [isUser, setIsUser] = useState(false);
 	// const arrayfloated = new Float32Array(userFace);
+	function handleChange(e) {
+		setUserMailFace(e.target.value);
+		//    setErrors(validate({
+		//     ...user,
+		//     [e.target.value]: e.target.value
+		//   }));
+	}
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		console.log(userMailFace)
+	}
+
 	useEffect(() => {
 		if (updateFaceDetection === true) {
 			dispatch(getFaceDescriptor())
@@ -32,7 +46,7 @@ function ExpiredSession() {
 			const MODEL_URL = process.env.PUBLIC_URL + "/models";
 			setInitializing(true);
 			dispatch(getFaceDescriptor());
-            dispatch(isTokenExpired())
+			dispatch(isTokenExpired())
 			Promise.all([
 				faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
 				faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
@@ -91,53 +105,8 @@ function ExpiredSession() {
 		}, 100);
 	};
 
-	const checkFace = async () => {
-		if (Object.entries(userFace).length === 0 || !userFace) return swal(
-			"There is no face data",
-			"You must capture your first face",
-			"error")
-		await faceCapture();
-
-		userFace = userFace.map(
-			(element) => new Float32Array(Object.values(element))
-		);
-
-		console.log("face detectiosn=>", faceDetections);
-		console.log("user face =>", userFace);
-
-		if (faceDetections.length === userFace.length) {
-			let faceCheck = [];
-			let faceCheckAverage = 0;
-			for (let i = 0; i <= 9; i++) {
-				faceCheck.push(
-					faceapi.euclideanDistance(faceDetections[i], userFace[i])
-				);
-				faceCheckAverage = faceCheckAverage + faceCheck[i];
-			}
-			faceCheckAverage = faceCheckAverage / 10;
-
-			if (faceCheckAverage <= 0.45) {
-				setIsUser(true); swal(
-					`You are authenticated`, //No funciona todavia
-					"You clicked the button!",
-					"success"
-				)
-			}
-			else {
-				setFaceDetections([]);
-				swal(
-					"We could not check your face.",
-					"Please try again.",
-					"error")
-			};
-			console.log("facecheck =>", faceCheckAverage);
-		} else {
-			console.log("faceDetections length:", faceDetections.length);
-			console.log("userFace length:", userFace.length);
-		}
-	};
-
 	const faceCapture = async () => {
+		//if(!userfaceDetections.mail) return alert("You need to input your mail")
 		while (faceDetections.length < 10) {
 			try {
 				console.log("entre");
@@ -154,21 +123,37 @@ function ExpiredSession() {
 					.withFaceLandmarks()
 					.withFaceDescriptor();
 				faceDetections.push(detections.descriptor);
+				//setFaceDetections(prevState => [...prevState, detections.descriptor])
 			} catch (error) {
 				//swal("Face not captured", "Try again!", "error");
 				console.log("salto error");
 			}
 			console.log(faceDetections.length);
+			console.log(faceDetections, "se hizooooo")
 		}
+		console.log(faceDetections)
+		webcamRef.current.srcObject.getTracks().forEach(track => track.stop())
 	};
 
 
-    return (
-        <div>
-            {console.log(faceDetections,"ayudaaaaaaa")}
-            {console.log(expiredToken)}
-            Your session has expired, please login again.
-            <span>{initializing ? "Initializing" : "Ready"}</span>
+	return (
+		<div>
+			{/* {console.log(faceDetections, "ayudaaaaaaa")} */}
+			{console.log(expiredToken)}
+			<form onSubmit={(e) => handleSubmit(e)}>
+				<input
+					autoComplete="off"
+					id="mail"
+					type="text"
+					required="required"
+					name="userMailFace"
+					value={userMailFace}
+					placeholder="example@mail.com"
+					onChange={handleChange}
+				/>
+				<button type="submit">Login Mail</button>
+			</form>
+			<span>{initializing ? "Initializing" : "Ready"}</span>
 			<div className={es.videoandCanvas}>
 				<video
 					ref={webcamRef}
@@ -180,10 +165,10 @@ function ExpiredSession() {
 				/>
 				<canvas ref={canvasRef} className={es.canvasFace} />
 			</div>
-			{!initializing && <button onClick={checkFace}>Check Face</button>}
-			{isUser === true ? "AUTHENTICATED!" : "NOT AUTHENTICATED"}
-        </div>
-    )
+			{!initializing && <button onClick={faceCapture}>Check Face</button>}
+			{/* {isUser === true ? "AUTHENTICATED!" : "NOT AUTHENTICATED"} */}
+		</div>
+	)
 }
 
-export default ExpiredSession
+export default LoginFace

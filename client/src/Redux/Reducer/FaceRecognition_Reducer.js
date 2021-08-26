@@ -6,7 +6,7 @@ import {
 
 const initialState = {
 	faceDescriptor: [],
-	expiredToken:null
+	expiredToken: false
 };
 
 const faceReducer = (state = initialState, action) => {

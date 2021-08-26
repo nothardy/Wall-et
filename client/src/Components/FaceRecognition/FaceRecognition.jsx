@@ -11,11 +11,11 @@ import {
 import { getDateUser } from "../../Redux/Actions/Home";
 import swal from "sweetalert";
 
-function FaceRecognition() {
+function FaceRecognition({ close }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	let userFace = useSelector((store) => store.faceReducer.faceDescriptor);
-	let userName = useSelector((store) => store.homeReducer)
+	//let userName = useSelector((store) => store.homeReducer)
 	const videoHeight = 480;
 	const videoWidth = 640;
 	const webcamRef = useRef(null);
@@ -44,6 +44,9 @@ function FaceRecognition() {
 		};
 		loadModels();
 	}, [updateFaceDetection]);
+
+	useEffect(() => { })
+
 
 	const startVideo = () => {
 		navigator.getUserMedia(
@@ -119,7 +122,6 @@ function FaceRecognition() {
 				setFaceDetections([]);
 				setIsUser(false);
 				swal("Your face was deleted", { icon: "success" });
-				//history.push("/mywallet")
 			} else {
 				swal("Your face scan is safe!");
 			}
@@ -156,6 +158,9 @@ function FaceRecognition() {
 					"You clicked the button!",
 					"success"
 				)
+				// dispatch(getFaceDescriptor())
+				// dispatch(getDateUser());
+				// history.push("/mywallet")
 			}
 			else {
 				setFaceDetections([]);
@@ -169,6 +174,7 @@ function FaceRecognition() {
 			console.log("faceDetections length:", faceDetections.length);
 			console.log("userFace length:", userFace.length);
 		}
+
 	};
 
 	const faceCapture = async () => {
@@ -222,6 +228,8 @@ function FaceRecognition() {
 
 		if (faceDetections.length === 10) {
 			handle10Captures();
+			// console.log("la apague?");
+			// webcamRef.current.srcObject.getTracks().forEach(track => track.stop())
 			return;
 		}
 		return;
