@@ -13,31 +13,20 @@
 }
 
 .graphic{
-    /* font-family: sans-serif;  */
+    font-size: 22px;
     position:absolute;
     top:calc(100vh - 30rem);
-    /* width: 30rem; */
-    /* background: #D7DAF4; */
     padding: 25px;
     border-radius: 8px;
     margin-left: 2.5rem;
-    /* margin-top: calc(100vh - 12rem) ; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     border-radius: 10px;
-   
+    font-weight: 600;
     transition: all 0.2s;
-    background: var(--bluecontainer);
+    background: transparent;
     box-shadow: 0px 6px 10px ;
-    
-    font-family: 'Roboto', sans-serif;
-    /* min-width: 16rem; */
-    /* width: 24vw; */
     width: 44rem;
     height: 22rem;
-    /* color: midnightblue; */
+    
 }
 
 /* .graphic > h2{

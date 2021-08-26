@@ -14,7 +14,7 @@
     margin: 20px auto;
     padding: 30px;
     border-radius: 15px;
-    background: var(--bluecontainer);
+    background: transparent;
     box-shadow: 0px 6px 10px ;
 }
 
@@ -32,7 +32,7 @@
 .field{
     font-size: 20px;
     font-weight: bold;
-    color: midnightblue;
+   
 }
 .input{
     width: 450px;
@@ -45,7 +45,7 @@
     border: gray solid 1px;
     height: 30px;
     /* background: none; */
-    opacity: 0.7;
+    /* opacity: 0.7; */
     outline: none;
     color: #080825;
 }
@@ -59,7 +59,7 @@
     margin-top: 18px;
     border: none;
     height: 100px;
-    opacity: 0.7;
+    /* opacity: 0.7; */
     outline: none;
     border: gray solid 1px;
     color: #080825;
@@ -70,11 +70,11 @@
     margin: 0px 0 30px 0;
      width: 468px; 
     padding: 10px 10px;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 600;
     font-family: 'Source Sans Pro', sans-serif;
     border: none;
-    background-color: #5791ff;
+    background-color: rgb(48 107 164);
     color: white;
     cursor: pointer;
     border-radius: 30px;

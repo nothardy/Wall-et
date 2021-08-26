@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 80%;
     font-size: 1.3rem;
+    font-weight:600;
     
 }
 .containerNavBar a > img{
@@ -35,5 +36,40 @@
     background: rgba(0, 0, 0, 0.534);  
 }
 .botonluna{
-    margin-top:1000px;
+
+    font-weight:600;
+    margin-top:300px;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    font-size: 1.3rem;
+}
+.botonluna a > img{
+    max-width: 1.5rem;
+    margin-right: 15px;
+}
+
+.botonluna > a{
+    
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    /* color: rgb(0, 0, 0); */
+    /* color:black; */
+    padding: 1.9rem;
+    padding-left: 1.4rem;
+    transition: 0.3s;
+}
+
+.botonluna a:hover {
+    /* border-right: 4px solid black; */
+    
+    color: var(--text-color);
+    background: rgba(0, 0, 0, 0.534);
+}
+
+.botonluna a.active{
+     color: white; 
+    background: rgba(0, 0, 0, 0.534);  
 }

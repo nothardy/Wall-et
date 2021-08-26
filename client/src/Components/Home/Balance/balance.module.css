@@ -1,11 +1,11 @@
 .containerBalance{
     
     /* min-width: 16rem; */
-    width: 30rem;/* Si se ve muy grande, SACARLO */
-    height: 20rem;
+    width: 44.8rem;/* Si se ve muy grande, SACARLO */
+    height: 21rem;
     position: absolute;
     top: 9rem;
-    right: 60rem;
+    right: 52.8rem;
     box-shadow: 0px 6px 10px ;
     display: flex;
     flex-direction: column;
@@ -13,11 +13,11 @@
     align-items: center;
     border-radius: 10px;
     padding: 7px;
-    background-color: #D7DAF4;
-    /* box-shadow: 6px 8px 10px rgba(0, 0, 0, 0.200); */
+    font-size: 22px;
+    font-weight: 600;
     padding: 20px;
     transition: all 0.2s;
-    background: var(--bluecontainer);
+    background: transparent;
       /* box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2); */
     
     

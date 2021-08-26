@@ -1,6 +1,6 @@
 .container {
 	/* background-color: var(--color-navTransaction); */
-	background: var(--bluecontainer);
+	background: transparent;
     box-shadow: 0px 6px 10px ;
 	/* border: 1px solid black; */
 	width: 920px;

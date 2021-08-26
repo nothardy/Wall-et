@@ -1,23 +1,14 @@
 .containerTransaction{
-    
-    /* min-width: 16rem;
-    width: 24vw;
-    height: 22rem;
-    border-radius: 8px;
-    padding: 7px; */
-    
     min-width: 16rem;
     position: absolute;
-    
-    width: 35rem;
-    height: 48rem;
+    width: 40rem;
+    height: 50.99rem;
     border: none;
-    background: var(--bluecontainer);
+    background: transparent;
     box-shadow: 0px 6px 10px ;
-
     transition: all 0.2s;
-    bottom: 5rem;
-    right: 3.5rem;
+    bottom: 2.38rem;
+    right: 5.3rem;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -37,7 +28,8 @@
 }
 #titleTransaction{
     /* position: absolute; */
-    font-size: 1.8rem;
+    font-size: 30px;
+    font-weight: 600;
     /* top: 5px;
     left: 12px; */
     /* text-align: center; */
@@ -55,9 +47,11 @@
     bottom: 0;
     right: 12px;  
     cursor: pointer;
+    text-decoration: none;
+    color:var(--text-color);
 }
 #historyTransaction:hover{
-  border: 1px solid white;
+  border: white;
 }
 /* <<<<<<<<<<<<<<<<<Header>>>>>>>>>>>>>*/
 .bodyTransaction{

@@ -7,16 +7,10 @@
     width: 850px;
     height:450px;
     box-shadow: 0px 6px 10px ;
-    background: var(--bluecontainer);
+    background: transparent;
     border-radius: 15px;
 }
-/* :root{
-    --bluecontainer:radial-gradient(black, #b69efe);
-    --lightcontainer:radial-gradient(#76b2fe, #b69efe);
-}*/
-.container.dark{
-    background:var(--bluecontainer);
-} 
+
 .paragraph{
     font-size: 28px;
     width: 60%;

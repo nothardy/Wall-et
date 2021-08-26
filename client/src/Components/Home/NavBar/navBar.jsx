@@ -38,11 +38,11 @@ export const NavBar = () => {
         <img className={n.imgen}src={CreditCard }alt="img" /> Wallet Card
       </Link>
       
+      
+      <div className={n.botonluna}>
       <Link to="/logout">
         <img src={LogOut} alt="log out" /> Log out
       </Link>
-      <div className={n.botonluna}>
-      
       </div>
     </div>
   );
