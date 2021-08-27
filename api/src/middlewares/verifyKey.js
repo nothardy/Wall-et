@@ -11,12 +11,15 @@ module.exports = {
            
     
             if(!key || !password){
-                throw new Error('Data not found')
                 res.status(404)
+                throw new Error('Data not found')
             }
             if(!bcrypt.compareSync(key, password)) {
+
                 throw new Error('Password invalid')
+
                 res.status(404)
+                throw new Error('Key invalid')
             }
 
             next()

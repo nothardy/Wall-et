@@ -1,6 +1,7 @@
 /* eslint-disable */
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import style from "./view_contacts.module.css";
+
 import { addFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
 import { useDispatch, useSelector} from "react-redux";
 
@@ -23,8 +24,12 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
   })
   
  /*  useEffect((e) => {
+
+
       dispatch(favoriteContact(e.target.value))    
   },[dispatch]) */
+
+	
 
 
   const handleOnClick = () => {
@@ -33,10 +38,15 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
   };
   //aca franco
   const FavClick = (e) =>{
-    dispatch(favoriteContact(user))
-    dispatch(addFavoriteContact(user))
-    
-  }
+		if (favorites.find((el) => el.mail === user.mail))
+			swal("Your contact is already part of your favorite's list", {
+				icon: "warning",
+			});
+		else {
+			dispatch(favoriteContact(user));
+			dispatch(addFavoriteContact(user));
+		}
+	};
 
   return (
     <div>
@@ -64,6 +74,7 @@ export const View = ({fullname,date_transaction,mail,toggleTransactions,}) => {
       </div>
     </div>
   );
+
 };
 export default View;
 

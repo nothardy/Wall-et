@@ -14,6 +14,7 @@ export const filterContacts = (transactions) => {
 					: transaction.to,
 			date_transaction: transaction.transaction_date,
 			cvu: transaction.cvu,
+			photo: transaction.photo,
 		};
 	});
 	contacts = [...new Set(contacts)];

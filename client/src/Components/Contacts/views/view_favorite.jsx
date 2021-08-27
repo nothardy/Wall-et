@@ -1,4 +1,5 @@
 /* eslint-disable */
+
 import React, {useEffect, useState} from "react";
 import style from "./view_favorites.module.css";
 import { eraseFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
@@ -24,8 +25,10 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions, use
    )
   
  /*  useEffect((e) => {
+
       dispatch(favoriteContact(e.target.value))    
   },[dispatch]) */
+
 
 
   const handleOnClick = () => {
@@ -34,12 +37,14 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions, use
   };
 
 
-    const eraseFavorite = () => {
-      if(user){
-        dispatch(eraseFavoriteContact(mail))
-      }
-      setUser(!user);
-    }
+    const eraseFavorite = (e) => {
+		if (user) {
+			dispatch(eraseFavoriteContact(mail));
+			dispatch(getFavorites());
+			updateFavorites();
+		}
+		setUser(e.target.value);
+	};
 
   return (
     <div>
@@ -66,5 +71,7 @@ export const View = ({ fullname, date_transaction, mail, toggleTransactions, use
       </div>
     </div>
   );
+
+	
 };
 export default View;
