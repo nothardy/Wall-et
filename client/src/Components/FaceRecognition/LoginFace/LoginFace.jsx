@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import * as faceapi from "face-api.js";
 //import Webcam from "react-webcam"
 import es from "./LoginFace.module.css";
+import { Link } from "react-router-dom";
 import {
 	getFaceDescriptor,
 	isTokenExpired,
@@ -164,8 +165,13 @@ function LoginFace() {
 			{console.log(expiredToken)}
 			{!mailExists ? (
 				<div>
-					<h1 className={es.centerNameFaceLogin}>Login with Face Recognition</h1>
-					<form onSubmit={(e) => handleSubmit(e)} className={es.formFace}>
+					<h1 className={es.centerNameFaceLogin}>
+						Login with Face Recognition
+					</h1>
+					<form
+						onSubmit={(e) => handleSubmit(e)}
+						className={es.formFace}
+					>
 						<input
 							autoComplete="off"
 							id="mail"
@@ -177,7 +183,14 @@ function LoginFace() {
 							onChange={handleChange}
 							className={es.inputLoginFace}
 						/>
-						<button type="submit" className={es.submitMailFace}>Submit Mail</button>
+						<button type="submit" className={es.submitMailFace}>
+							Submit Mail
+						</button>
+						<Link to="/">
+							<button type="submit" className={es.submitMailFace}>
+								Back
+							</button>
+						</Link>
 					</form>
 				</div>
 			) : (
@@ -185,8 +198,16 @@ function LoginFace() {
 			)}
 			{mailExists ? (
 				<div className={es.centeringCameraLogin}>
-					<h1 className={es.titleFaceR}>Login with Face Recognition</h1>
-					<span className={es.titleFaceR}>{initializing ? <h3>Initializing Webcam</h3> : <h3>Ready</h3>}</span>
+					<h1 className={es.titleFaceR}>
+						Login with Face Recognition
+					</h1>
+					<span className={es.titleFaceR}>
+						{initializing ? (
+							<h3>Initializing Webcam</h3>
+						) : (
+							<h3>Ready</h3>
+						)}
+					</span>
 					<div className={es.videoandCanvas}>
 						<video
 							ref={webcamRef}
@@ -199,8 +220,12 @@ function LoginFace() {
 						<canvas ref={canvasRef} className={es.canvasFace} />
 					</div>
 					{!initializing && (
-						<button onClick={faceCapture}
-							className={es.checkFaceLogin}>Check Face</button>
+						<button
+							onClick={faceCapture}
+							className={es.checkFaceLogin}
+						>
+							Check Face
+						</button>
 					)}
 				</div>
 			) : (

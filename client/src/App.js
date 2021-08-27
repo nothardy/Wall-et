@@ -33,6 +33,8 @@ export default function App() {
 			<PublicRoute exact path="/" component={Landingpage} />
 			<PublicRoute exact path="/register" component={Register} />
 			<Route exact path="/recoverpassword" component={RecoverPassword} />
+			<Route exact path="/confirmMail/:token" component={Verify} />
+			<Route exact path="/verifyMail" component={checkMail} />
 			<Route exact path="/faq" component={FrecuentlyQuestions} />
 			<Route exact path="/loginface" component={LoginFace}/>
 			<Route exact path="/logout" component={Logout} />

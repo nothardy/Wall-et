@@ -73,8 +73,8 @@ const CardTransfer = () => {
 			);
 			history.push("/mywallet");
 		} catch (err) {
-			/* console.log(err) */
-			if (err.response.data !== "Key invalid") {
+			/* console.log(err.response); */
+			if (err.response.data !== "Password invalid") {
 				await swal("We are sorry!", `${err.response.data}!`, "error");
 				setDataTransaction({ ...dataTransaction, key: "" });
 				return setSecurityLayer({
@@ -83,10 +83,9 @@ const CardTransfer = () => {
 					show: false,
 				});
 			}
-			console.log(err)
-			console.log(err.response.data)
+			/* console.log(err);
+			console.log(err.response.data); */
 			await swal("We are sorry!", `${err.response.data}!`, "error");
-			
 		}
 	};
 
@@ -129,7 +128,8 @@ const CardTransfer = () => {
 					onSubmit={(e) => handleSubmitData(e)}
 				>
 					<h3 className={cf.textSecurity}>
-					Enter your account password to <br /> continue with the transaction.{" "}
+						Enter your account password to <br /> continue with the
+						transaction.{" "}
 					</h3>
 
 					<div className={cf.containerInputAndIcon}>

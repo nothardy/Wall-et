@@ -124,12 +124,16 @@ export function eraseFavoriteContact(mail) {
 		}).then((favDele) => {
 			if (favDele) {
 				axios
-					.delete(`/deleteFav/favorites?${mail}`, {
-						headers: {
-							"Content-Type": "application/json",
-							"x-access-token": token,
-						},
-					})
+					.post(
+						`/deleteFav/favorites`,
+						{ data: mail },
+						{
+							headers: {
+								"Content-Type": "application/json",
+								"x-access-token": token,
+							},
+						}
+					)
 					.then((response) => {
 						dispatch({
 							type: ERASE_FAVORITE_CONTACT,

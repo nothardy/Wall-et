@@ -251,8 +251,14 @@ function FaceRecognition({ close }) {
 
 	return (
 		<div className={fr.container}>
-			<h1>Face Detection and Recognition</h1>
-			<span>{initializing ? <h3>Initializing Webcam</h3> : <h3>Ready</h3>}</span>
+			<h1 className={fr.titlesFR}>Face Detection and Recognition</h1>
+			<span>
+				{initializing ? (
+					<h3 className={fr.titlesFR}>Initializing Webcam</h3>
+				) : (
+					<h3 className={fr.titlesFR}>Ready</h3>
+				)}
+			</span>
 			<div className={fr.videoandCanvas}>
 				<video
 					ref={webcamRef}
@@ -265,15 +271,29 @@ function FaceRecognition({ close }) {
 				<canvas ref={canvasRef} className={fr.canvasFace} />
 			</div>
 			<div>
-				{!initializing && <button onClick={handleCapture} className={fr.buttons}>Capture</button>}
-				{!initializing && <button onClick={checkFace} className={fr.buttons}>Check Face</button>}
+				{!initializing && (
+					<button onClick={handleCapture} className={fr.buttons}>
+						Capture
+					</button>
+				)}
+				{!initializing && (
+					<button onClick={checkFace} className={fr.buttons}>
+						Check Face
+					</button>
+				)}
 				{Object.entries(userFace).length === 0 || !userFace ? (
 					""
 				) : (
-					<button onClick={deleteFace} className={fr.buttons}>Delete</button>
+					<button onClick={deleteFace} className={fr.buttons}>
+						Delete
+					</button>
 				)}
 			</div>
-			{isUser === true ? <h3>AUTHENTICATED!</h3> : <h3>NOT AUTHENTICATED</h3>}
+			{isUser === true ? (
+				<h3>AUTHENTICATED!</h3>
+			) : (
+				<h3>NOT AUTHENTICATED</h3>
+			)}
 		</div>
 	);
 }

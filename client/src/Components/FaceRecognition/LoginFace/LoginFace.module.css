@@ -1,84 +1,87 @@
-.container{
-    text-align: center;
+.container {
+	text-align: center;
 }
 
-
-.videoandCanvas{
-    display: flex;
-    justify-content: center;
+.videoandCanvas {
+	display: flex;
+	justify-content: center;
 }
 
-.canvasFace{
-    position: absolute;
+.canvasFace {
+	position: absolute;
 }
 
-.body{
-    background: url("https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80") no-repeat center fixed;
-    height: 100vh;
-    align-items: center;
-    background-position: center center;
-    display: flex;
+.body {
+	background: url("https://images.unsplash.com/photo-1483389127117-b6a2102724ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80")
+		no-repeat center fixed;
+	height: 100vh;
+	align-items: center;
+	background-position: center center;
+	display: flex;
 }
 
-.inputLoginFace{
-    outline: none;
-    border:none;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    padding: 10px 20px;
-    width: 360px;
-    font-size:17px;
-    font-family: 'Source Sans Pro', sans-serif;
+.inputLoginFace {
+	outline: none;
+	border: none;
+	border-radius: 20px;
+	margin-bottom: 15px;
+	padding: 10px 20px;
+	width: 360px;
+	font-size: 17px;
+	font-family: "Source Sans Pro", sans-serif;
 }
 
-.submitMailFace{
-        border-radius: 30px;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-weight: bold;
-        background-color: rgb(48 107 164);
-        border: none;
-        color: white;
-        margin-top: 20px;
-        cursor:pointer;
-        width: 400px;
-        font-family: 'Source Sans Pro', sans-serif;
-         }
-         .submitMailFace:hover{
-            background-color: #6F77BF;
-         }
-
-.checkFaceLogin{
-    border-radius: 30px;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-weight: bold;
-        background-color: rgb(48 107 164);
-        border: none;
-        color: white;
-        margin-top: 20px;
-        cursor:pointer;
-        width: 400px;
-        font-family: 'Source Sans Pro', sans-serif;
+.submitMailFace {
+	border-radius: 30px;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: rgb(48 107 164);
+	border: none;
+	color: white;
+	margin-top: 20px;
+	cursor: pointer;
+	width: 400px;
+	font-family: "Source Sans Pro", sans-serif;
 }
-.checkFaceLogin:hover{
-    background-color: #6F77BF;
- }
-
- .titleFaceR{
-     text-align: center;
- }
-
- .centeringCameraLogin{display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 100px;}
-
-.centerNameFaceLogin{
-    text-align: center;
-    padding-left: 12rem;
+.submitMailFace:hover {
+	background-color: #6f77bf;
 }
 
-.formFace{
-    padding-left: 15rem;
+.checkFaceLogin {
+	border-radius: 30px;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: rgb(48 107 164);
+	border: none;
+	color: white;
+	margin-top: 20px;
+	cursor: pointer;
+	width: 400px;
+	font-family: "Source Sans Pro", sans-serif;
+}
+.checkFaceLogin:hover {
+	background-color: #6f77bf;
+}
+
+.titleFaceR {
+	text-align: center;
+}
+
+.centeringCameraLogin {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-left: 100px;
+}
+
+.centerNameFaceLogin {
+	text-align: center;
+	padding-left: 12rem;
+	color: white;
+}
+
+.formFace {
+	padding-left: 15rem;
 }
