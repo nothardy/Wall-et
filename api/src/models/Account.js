@@ -1,71 +1,69 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-    sequelize.define('account', {
-        
-        id: {
-            type: DataTypes.UUID,
-            primaryKey: true,
-            defaultValue: DataTypes.UUIDV4,
-            unique: true,
-          },
-          
-          mail: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
+	sequelize.define("account", {
+		id: {
+			type: DataTypes.UUID,
+			primaryKey: true,
+			defaultValue: DataTypes.UUIDV4,
+			unique: true,
+		},
 
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+		mail: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			unique: true,
+		},
 
-        fullname: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-      
-        dni: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-      
-        ubication: {
-            type: DataTypes.STRING,
-        },
-      
-        birth_date: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        
-        
-        balance: {
-            type: DataTypes.FLOAT,
-            defaultValue: 0,
-        },
+		password: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        cvu: {
-            type: DataTypes.STRING,
-        },
+		fullname: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        photo: {
-            type: DataTypes.TEXT,
-        },
+		dni: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        admin: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-        },
+		ubication: {
+			type: DataTypes.STRING,
+		},
 
-        card: {
-            type: DataTypes.JSON,
-        },
+		birth_date: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 
-        activated: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: true,
-        },
-    })
-}
+		balance: {
+			type: DataTypes.FLOAT,
+			defaultValue: 0,
+		},
+
+		cvu: {
+			type: DataTypes.STRING,
+		},
+
+		photo: {
+			type: DataTypes.TEXT,
+		},
+
+		admin: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
+
+		card: {
+			type: DataTypes.JSON,
+		},
+
+		activated: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
+	});
+};
