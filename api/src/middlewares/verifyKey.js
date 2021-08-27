@@ -1,33 +1,27 @@
-const { Account } = require('../db');
+const { Account } = require("../db");
 const bcrypt = require("bcrypt");
 
 module.exports = {
-    verifyKey: async (req, res, next) => {
-        try {
-            const { from, key } = req.body
-            
-            const user = await Account.findByPk(from)
-            const password = user.dataValues.password
-           
-    
-            if(!key || !password){
-                res.status(404)
-                throw new Error('Data not found')
-            }
-            if(!bcrypt.compareSync(key, password)) {
+	verifyKey: async (req, res, next) => {
+		try {
+			const { from, key } = req.body;
 
-                throw new Error('Password invalid')
+			const user = await Account.findByPk(from);
+			const password = user.dataValues.password;
 
-                res.status(404)
-                throw new Error('Key invalid')
-            }
+			if (!key || !password) {
+				res.status(404);
+				throw new Error("Data not found");
+			}
+			if (!bcrypt.compareSync(key, password)) {
+				res.status(404);
+				throw new Error("Password invalid");
+			}
 
-            next()
-        }
-        catch(err){
-            console.error(err)
-            next(err)
-        }
-
-    } 
-}
+			next();
+		} catch (err) {
+			console.error(err);
+			next(err);
+		}
+	},
+};

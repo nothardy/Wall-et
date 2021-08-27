@@ -3,10 +3,10 @@ const route = Router();
 const { deleteFav } = require("../controllers/deleteFav");
 const { verifyToken } = require("../middlewares/verifyToken");
 
-route.delete("/favorites", verifyToken, async (req, res) => {
+route.post("/favorites", verifyToken, async (req, res) => {
 	try {
-		const { mail } = req.query;
-		const { userId } = req;
+		const mail = req.body.data;
+		const userId = req.userId;
 
 		res.status(200).json(await deleteFav(userId, mail));
 	} catch (err) {

@@ -6,15 +6,19 @@ const updateProfile = async (req, res, next) => {
 	try {
 		let userDb = await Account.findByPk(id);
 		if (user.password) {
-			user.password = await bcrypt.hash(user.password, 12);
+			userDb.password = await bcrypt.hash(user.password, 12);
+			userDb.save();
+			return res.json({ message: true }).status(200);
 		}
-
-		userDb.fullname = user.fullname;
-		userDb.mail = user.mail;
-		userDb.dni = user.dni;
-		userDb.birth_date = user.birth_date;
-		userDb.ubication = user.ubication;
-		userDb.save();
+		if (!user.password) {
+			userDb.fullname = user.fullname;
+			userDb.mail = user.mail;
+			userDb.dni = user.dni;
+			userDb.birth_date = user.birth_date;
+			userDb.ubication = user.ubication;
+			userDb.save();
+			return res.json({ message: true }).status(200);
+		}
 
 		//await Account.update({...user},
 		//  {where:

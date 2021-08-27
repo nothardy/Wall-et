@@ -34,17 +34,18 @@ const autentification = async ({ id, from, to, amount }) => {
 
 		//const balanceFrom = await Account.update({balance: accountFrom.balance - parseInt(amount)}, {where: {id: from}})
 		accountFrom.balance = accountFrom.balance - parseInt(amount);
-		await accountFrom.save();
+		accountTo.balance = accountTo.balance + parseInt(amount);
+		transaction.state = "done";
 
+		await accountFrom.save();
+		await accountTo.save();
+		await transaction.save();
 		//const balanceTo = await Account.update({ balance: accountTo.balance + parseInt(amount) }, { where: {id: to} })
 
-		accountTo.balance = accoutTo.balance + parseInt(amount);
-		await accountTo.save();
-
+		console.log("estoy aca 1");
 		//balanceFrom && balanceTo && await Transaction.update({state: 'done'}, { where: { id: id } }) && await mailTransfer( from, to )
 
-		transaction.state = "done";
-		await transaction.save();
+		console.log("estoy aca 2");
 
 		await mailTransfer(from, to);
 	} catch (err) {
