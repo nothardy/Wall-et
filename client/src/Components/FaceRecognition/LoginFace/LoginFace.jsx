@@ -4,7 +4,11 @@ import { useHistory } from "react-router";
 import * as faceapi from "face-api.js";
 //import Webcam from "react-webcam"
 import es from "./LoginFace.module.css";
-import { getFaceDescriptor, isTokenExpired } from "../../../Redux/Actions/FaceRecognition_Action";
+import {
+	getFaceDescriptor,
+	isTokenExpired,
+	getFaceDescriptorByMail,
+} from "../../../Redux/Actions/FaceRecognition_Action";
 import { getDateUser } from "../../../Redux/Actions/Home";
 import swal from "sweetalert";
 
@@ -12,7 +16,7 @@ function LoginFace() {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	let userFace = useSelector((store) => store.faceReducer.faceDescriptor);
-	let expiredToken = useSelector((store) => store.faceReducer.expiredToken)
+	let expiredToken = useSelector((store) => store.faceReducer.expiredToken);
 	const videoHeight = 480;
 	const videoWidth = 640;
 	const webcamRef = useRef(null);
@@ -22,6 +26,8 @@ function LoginFace() {
 	const [faceDetections, setFaceDetections] = useState([]);
 	const [updateFaceDetection, setUpdateFaceDetection] = useState(false);
 	const [isUser, setIsUser] = useState(false);
+	const [mailSubmitted, setMailSubmitted] = useState(false);
+	const mailExists = useSelector((store) => store.faceReducer.loginFace);
 	// const arrayfloated = new Float32Array(userFace);
 	function handleChange(e) {
 		setUserMailFace(e.target.value);
@@ -33,20 +39,22 @@ function LoginFace() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		console.log(userMailFace)
+		dispatch(getFaceDescriptorByMail(userMailFace));
 	}
 
 	useEffect(() => {
 		if (updateFaceDetection === true) {
-			dispatch(getFaceDescriptor())
-			dispatch(getDateUser());
+			//dispatch(getFaceDescriptor());
+			//dispatch(getDateUser());
+			dispatch(isTokenExpired());
 			setUpdateFaceDetection(false);
+			dispatch(isTokenExpired());
 		}
 		const loadModels = async () => {
 			const MODEL_URL = process.env.PUBLIC_URL + "/models";
 			setInitializing(true);
 			dispatch(getFaceDescriptor());
-			dispatch(isTokenExpired())
+			//dispatch(isTokenExpired())
 			Promise.all([
 				faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
 				faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
@@ -54,8 +62,15 @@ function LoginFace() {
 				faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL),
 			]).then(startVideo);
 		};
-		loadModels();
-	}, [updateFaceDetection]);
+		if (mailSubmitted && mailExists.exists && mailExists.exists === true) {
+			if (mailExists.exists && mailExists.exists === true) {
+				setMailSubmitted(true);
+				return loadModels();
+			} else {
+				alert("No hay mail");
+			}
+		}
+	}, [updateFaceDetection, mailSubmitted, mailExists]);
 
 	const startVideo = () => {
 		navigator.getUserMedia(
@@ -129,46 +144,59 @@ function LoginFace() {
 				console.log("salto error");
 			}
 			console.log(faceDetections.length);
-			console.log(faceDetections, "se hizooooo")
+			console.log(faceDetections, "se hizooooo");
 		}
-		console.log(faceDetections)
-		webcamRef.current.srcObject.getTracks().forEach(track => track.stop())
+		console.log(faceDetections);
+		webcamRef.current.srcObject
+			.getTracks()
+			.forEach((track) => track.stop());
 	};
-
 
 	return (
 		<div>
 			{/* {console.log(faceDetections, "ayudaaaaaaa")} */}
 			{console.log(expiredToken)}
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<input
-					autoComplete="off"
-					id="mail"
-					type="text"
-					required="required"
-					name="userMailFace"
-					value={userMailFace}
-					placeholder="example@mail.com"
-					onChange={handleChange}
-				/>
-				<button type="submit">Login Mail</button>
-			</form>
-			<span>{initializing ? "Initializing" : "Ready"}</span>
-			<div className={es.videoandCanvas}>
-				<video
-					ref={webcamRef}
-					autoPlay
-					muted
-					height={videoHeight}
-					width={videoWidth}
-					onPlay={handleVideoOnPlay}
-				/>
-				<canvas ref={canvasRef} className={es.canvasFace} />
-			</div>
-			{!initializing && <button onClick={faceCapture}>Check Face</button>}
+			{!mailSubmitted ? (
+				<form onSubmit={(e) => handleSubmit(e)}>
+					<input
+						autoComplete="off"
+						id="mail"
+						type="text"
+						required="required"
+						name="userMailFace"
+						value={userMailFace}
+						placeholder="example@mail.com"
+						onChange={handleChange}
+					/>
+					<button type="submit">Login Mail</button>
+				</form>
+			) : (
+				""
+			)}
+			{mailSubmitted ? (
+				<div>
+					<span>{initializing ? "Initializing" : "Ready"}</span>
+					<div className={es.videoandCanvas}>
+						<video
+							ref={webcamRef}
+							autoPlay
+							muted
+							height={videoHeight}
+							width={videoWidth}
+							onPlay={handleVideoOnPlay}
+						/>
+						<canvas ref={canvasRef} className={es.canvasFace} />
+					</div>
+					{!initializing && (
+						<button onClick={faceCapture}>Check Face</button>
+					)}
+				</div>
+			) : (
+				""
+			)}
 			{/* {isUser === true ? "AUTHENTICATED!" : "NOT AUTHENTICATED"} */}
 		</div>
-	)
+	);
 }
 
-export default LoginFace
+export default LoginFace;

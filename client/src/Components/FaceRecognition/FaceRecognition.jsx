@@ -11,6 +11,8 @@ import {
 import { getDateUser } from "../../Redux/Actions/Home";
 import swal from "sweetalert";
 
+import { localstream, vid, vidOff } from "../../utils/camera";
+
 function FaceRecognition({ close }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -24,29 +26,33 @@ function FaceRecognition({ close }) {
 	const [faceDetections, setFaceDetections] = useState([]);
 	const [updateFaceDetection, setUpdateFaceDetection] = useState(false);
 	const [isUser, setIsUser] = useState(false);
+	const [camera, setCamera] = useState(true);
 	// const arrayfloated = new Float32Array(userFace);
 	useEffect(() => {
 		if (updateFaceDetection === true) {
-			dispatch(getFaceDescriptor())
+			dispatch(getFaceDescriptor());
 			dispatch(getDateUser());
 			setUpdateFaceDetection(false);
 		}
-		const loadModels = async () => {
-			const MODEL_URL = process.env.PUBLIC_URL + "/models";
-			setInitializing(true);
-			await dispatch(getFaceDescriptor());
-			Promise.all([
-				faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
-				faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
-				faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
-				faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL),
-			]).then(startVideo);
-		};
-		loadModels();
-	}, [updateFaceDetection]);
-
-	useEffect(() => { })
-
+		if (camera === false) {
+			dispatch(getFaceDescriptor());
+		}
+		if (camera === true) {
+			const loadModels = async () => {
+				const MODEL_URL = process.env.PUBLIC_URL + "/models";
+				setInitializing(true);
+				await dispatch(getFaceDescriptor());
+				Promise.all([
+					faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+					faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
+					faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
+					faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL),
+				]).then(startVideo);
+			};
+			loadModels();
+			setCamera(false);
+		}
+	}, [updateFaceDetection, camera]);
 
 	const startVideo = () => {
 		navigator.getUserMedia(
@@ -101,12 +107,18 @@ function FaceRecognition({ close }) {
 		dispatch(uploadFaceDescriptors(faceDetections));
 		setUpdateFaceDetection(true);
 		setFaceDetections([]);
-		dispatch(getFaceDescriptor())
+		setCamera(false);
+		dispatch(getFaceDescriptor());
 		swal(
 			"Face detection done succesfully!",
 			"You clicked the button!",
 			"success"
 		);
+
+		webcamRef.current.srcObject
+			.getTracks()
+			.forEach((track) => track.stop());
+		history.push("/account");
 	}
 	function deleteFace() {
 		swal({
@@ -128,10 +140,12 @@ function FaceRecognition({ close }) {
 		});
 	}
 	const checkFace = async () => {
-		if (Object.entries(userFace).length === 0 || !userFace) return swal(
-			"There is no face data",
-			"You must capture your first face",
-			"error")
+		if (Object.entries(userFace).length === 0 || !userFace)
+			return swal(
+				"There is no face data",
+				"You must capture your first face",
+				"error"
+			);
 		await faceCapture();
 
 		userFace = userFace.map(
@@ -153,28 +167,28 @@ function FaceRecognition({ close }) {
 			faceCheckAverage = faceCheckAverage / 10;
 
 			if (faceCheckAverage <= 0.45) {
-				setIsUser(true); swal(
+				setIsUser(true);
+				swal(
 					`You are authenticated`, //No funciona todavia
 					"You clicked the button!",
 					"success"
-				)
+				);
 				// dispatch(getFaceDescriptor())
 				// dispatch(getDateUser());
 				// history.push("/mywallet")
-			}
-			else {
+			} else {
 				setFaceDetections([]);
 				swal(
 					"We could not check your face.",
 					"Please try again.",
-					"error")
-			};
+					"error"
+				);
+			}
 			console.log("facecheck =>", faceCheckAverage);
 		} else {
 			console.log("faceDetections length:", faceDetections.length);
 			console.log("userFace length:", userFace.length);
 		}
-
 	};
 
 	const faceCapture = async () => {
@@ -251,7 +265,11 @@ function FaceRecognition({ close }) {
 			</div>
 			{!initializing && <button onClick={handleCapture}>Capture</button>}
 			{!initializing && <button onClick={checkFace}>Check Face</button>}
-			{Object.entries(userFace).length === 0 || !userFace ? "" : <button onClick={deleteFace}>Delete</button>}
+			{Object.entries(userFace).length === 0 || !userFace ? (
+				""
+			) : (
+				<button onClick={deleteFace}>Delete</button>
+			)}
 			{isUser === true ? "AUTHENTICATED!" : "NOT AUTHENTICATED"}
 		</div>
 	);
