@@ -2,12 +2,13 @@
     min-width: 16rem;
     position: absolute;
     width: 40rem;
-    height: 50.99rem;
+    height: 48.4rem;
     border: none;
     background: transparent;
     box-shadow: 0px 6px 10px ;
     transition: all 0.2s;
-    bottom: 2.38rem;
+    top: 6rem;
+    bottom: 1.5rem;
     right: 5.3rem;
     display: flex;
     flex-direction: column;
@@ -34,7 +35,7 @@
     left: 12px; */
     /* text-align: center; */
     margin-top: 42px;
-    margin-left: 14px;
+    margin-left: 18px;
 
 }
 #recentsTransaction{

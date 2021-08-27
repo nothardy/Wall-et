@@ -16,6 +16,8 @@ import AddCard from "./AddCard";
 import "react-credit-cards/es/styles-compiled.css";
 import UploadPhoto from "./UploadPhoto";
 
+
+
 function DetailAccount() {
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -114,7 +116,7 @@ function DetailAccount() {
 			.then(async () => {
 				await dispatch(getDateUser());
 			})
-			.then((logout) => {})
+			.then((logout) => { })
 			.catch((error) => console.log(error));
 		swal("The Card was deleted", { icon: "success" });
 	}
@@ -122,30 +124,47 @@ function DetailAccount() {
 
 	return (
 		<div className={a.containerProfile}>
+
 			{user ? (
 				<div className={a.containerDetailsProfile}>
-					<div>
+					<div >
 						<div className={a.seccionphoto}>
-							<img
-								className={a.image}
-								src={`${user.account_data.photo}`}
-								alt=""
-							/>
-							<button
-								className={a.buttonChangePhoto}
-								onClick={() => toggleChangePhoto()}
-							>
+							<img className={a.image} src={`${user.account_data.photo}`} alt="" />
+							{/* //acc */}
+							<div style={{display:"flex", width:"19rem", justifyContent:"space-between"}}>
+								<button className={a.buttonChangePhoto} onClick={() => toggleChangePhoto()} >
+									Change Photo{" "}
+								</button>
+								{changePhoto ? (
+									<div>
+										{" "}
+										<UploadPhoto close={toggleChangePhoto} />{" "}
+									</div>
+								) : null}
+								<Link to="/face" className={a.buttonChangeFace}>
+										{Object.entries(userFace).length === 0 || !userFace ? "Add Face" : "Update Face"}
+								</Link>	
+							</div>
+							{/* //hasta aca */}
+							
+							{/* <button className={a.buttonChangePhoto} onClick={() => toggleChangePhoto()} >
 								Change Photo{" "}
 							</button>
 							{changePhoto ? (
 								<div>
 									{" "}
-									<UploadPhoto
-										close={toggleChangePhoto}
-									/>{" "}
+									<UploadPhoto close={toggleChangePhoto} />{" "}
 								</div>
 							) : null}
+						 <div className={a.buttonFaceOrder}> 
+							<Link to="/face">
+								<button className={a.buttonAddFace}>
+									{Object.entries(userFace).length === 0 || !userFace ? "Add Face" : "Update Face"}
+								</button>
+							</Link>
+							</div>  */}
 						</div>
+						{/*  */}
 						<div className={a.datosAndCards}>
 							<div className={a.secciondatos}>
 								<div className={a.datospersonales}>
@@ -161,34 +180,22 @@ function DetailAccount() {
 									<p>{user.user_data.dni}</p>
 								</div>
 								<div className={a.datospersonales}>
-									<p>Birth Date:</p>
+									<p >Birth Date:</p>
 									<p>{user.user_data.birth}</p>
 								</div>
-								<div className={a.datospersonales}>
+								<div className={a.datospersonales} >
 									<p>Address:</p>
-									<p>
-										{user.user_data.ubicacion
-											? user.user_data.ubicacion
-											: "Not Available"}
-									</p>
+									<p>{user.user_data.ubicacion ? user.user_data.ubicacion : "Not Available"}</p>
 								</div>
 								<div className={a.seccionCVU}>
 									<p>CVU:</p>
 									<form className={a.inputCVUCopy}>
 										<div className={a.inputAndIcon}>
-											<input
-												ref={textAreaRef}
-												value={user.account_data.cvu}
-												className={a.inputCVU}
-											/>
-											{document.queryCommandSupported(
-												"copy"
-											) && (
+											<input ref={textAreaRef} value={user.account_data.cvu} className={a.inputCVU} />
+											{document.queryCommandSupported("copy") && (
 												<div>
 													<FontAwesomeIcon
-														onClick={
-															copyToClipboard
-														}
+														onClick={copyToClipboard}
 														icon={faCopy}
 														// className={a.icon}
 														id="show_hide"
@@ -201,143 +208,101 @@ function DetailAccount() {
 								</div>
 								<div className={a.buttonsCenteredAccount}>
 									<div>
-										<button
-											className={a.buttoneditProfile}
-											onClick={() => toggleEditProfile()}
-										>
+										<button className={a.buttoneditProfile} onClick={() => toggleEditProfile()}>
 											{" "}
-											Edit Profile
+											{" "} Edit Profile
 										</button>
 										{editProfile ? (
-											<div>
+											<div className={a.editProfileA}>
 												{" "}
-												<UpdateDetailAccount
-													close={toggleEditProfile}
-												/>{" "}
+												<UpdateDetailAccount close={toggleEditProfile} />{" "}
 											</div>
 										) : null}
 									</div>
-									<button
-										className={a.buttoneditPassword}
-										onClick={() => toggleEditPassword()}
-									>
+									<button className={a.buttoneditPassword} onClick={() => toggleEditPassword()}>
 										{" "}
 										Change Password{" "}
 									</button>
 									{editPassword ? (
 										<div>
 											{" "}
-											<UpdatePassword
-												close={toggleEditPassword}
-											/>{" "}
+											<UpdatePassword close={toggleEditPassword} />{" "}
 										</div>
 									) : null}
 									<div>
 										{/* <Link to='/logout'> */}
-										<button
-											value={user.id}
-											onClick={() => deleteUser(user.id)}
-											className={a.buttonsDeleteA}
-										>
+										<button value={user.id} onClick={() => deleteUser(user.id)} className={a.buttonsDeleteA}>
 											Delete Account
 										</button>
 										{/* </Link> */}
-										<Link to="/recoverpassword">
-											<p className={a.forgotPasswordA}>
-												Forgot Password?
-											</p>
-										</Link>
+										<div className={a.linkForgot}>
+											<Link to="/recoverpassword">
+												<p className={a.forgotPasswordA}>Forgot Password?</p>
+											</Link>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div className={a.seccioncardAndButtons}>
+
 								<div className={a.seccionCard}>
 									<p>Cards: </p>
 									{user.account_data.cards.length > 0
-										? user.account_data.cards.map(
-												(card) => (
-													<div
-														key={card.id}
-														className={
-															a.singlecardContainer
-														}
-													>
-														{/* <Cards
+										? user.account_data.cards.map((card) => (
+											<div key={card.id} className={a.singlecardContainer}>
+												{/* <Cards
                                     name={card.card_name}
                                     number={card.card_num.substring(0, card.card_num.length-4).replace(/[0-9]/g, "") + card.card_num.substring(card.card_num.length - 4, card.card_num.length)}
                                   /> */}
-														<ul>
-															<li>
-																Card ending in{" "}
-																{card.card_num.substring(
-																	card
-																		.card_num
-																		.length -
-																		4,
-																	card
-																		.card_num
-																		.length
-																) +
-																	" " +
-																	card.card_name}
-															</li>
-														</ul>
-														<button
-															value={card.id}
-															onClick={() =>
-																deleteCard(
-																	card.id
-																)
-															}
-															className={
-																a.buttonsDeleteA
-															}
-														>
-															Delete Card
-														</button>
-													</div>
-												)
-										  )
+												<ul>
+													<li>
+														Card ending in{" "}
+														{card.card_num.substring(
+															card.card_num.length - 4,
+															card.card_num.length
+														) +
+															" " +
+															card.card_name}
+													</li>
+												</ul>
+												<button
+													value={card.id}
+													onClick={() => deleteCard(card.id)}
+													className={a.buttonsDeleteA}
+												>
+													Delete Card
+												</button>
+											</div>
+										))
 										: "No cards available"}
-
-									<button
-										className={a.buttonAddCard}
-										onClick={() => toggleAddCard()}
-									>
-										Add Card
-									</button>
+									<div className={a.addCard}>
+										<button className={a.buttonAddCard} onClick={() => toggleAddCard()}>
+											Add Card
+										</button>
+									</div>
 									{addCard ? (
 										<div>
 											{" "}
-											<AddCard
-												close={toggleAddCard}
-											/>{" "}
+											<AddCard close={toggleAddCard} />{" "}
 										</div>
 									) : null}
 								</div>
-								<Link to="/face">
-									<button className={a.buttonAddFace}>
-										{Object.entries(userFace).length ===
-											0 || !userFace
-											? "Add Face"
-											: "Update Face"}
-									</button>
-								</Link>
 							</div>
 						</div>
 					</div>
 				</div>
 			) : (
-				<div>
+				<div className={a.loading}>
 					{" "}
-					<h1>Loading</h1>
+					{/* <h1>Loading</h1> */}
 					<img
-						src="https://media.giphy.com/media/cjnnH0h3cfBTORaUnp/giphy.gif"
+						src="https://mesadepartes.munilosolivos.gob.pe/img/loading.gif"
 						alt="LoadingGif"
-						className="loadingGif"
+						className={a.loadingGifDA}
 					/>
 				</div>
 			)}
+
 		</div>
 	);
 }

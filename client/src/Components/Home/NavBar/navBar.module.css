@@ -38,17 +38,17 @@
 .botonluna{
 
     font-weight:600;
-    margin-top:300px;
+    margin-top:210px;
     display: flex;
     flex-direction: column;
     height: 80%;
     font-size: 1.3rem;
 }
-.botonluna a > img{
+/* .botonluna a > img{
     max-width: 1.5rem;
     margin-right: 15px;
 }
-
+ */
 .botonluna > a{
     
     color: var(--text-color);
@@ -72,4 +72,8 @@
 .botonluna a.active{
      color: white; 
     background: rgba(0, 0, 0, 0.534);  
+}
+
+.iconNav{
+    margin-right: 1rem;
 }

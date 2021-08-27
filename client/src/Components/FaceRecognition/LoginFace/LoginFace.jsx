@@ -159,29 +159,34 @@ function LoginFace() {
 	};
 
 	return (
-		<div>
+		<div className={es.body}>
 			{/* {console.log(faceDetections, "ayudaaaaaaa")} */}
 			{console.log(expiredToken)}
 			{!mailExists ? (
-				<form onSubmit={(e) => handleSubmit(e)}>
-					<input
-						autoComplete="off"
-						id="mail"
-						type="text"
-						required="required"
-						name="userMailFace"
-						value={userMailFace}
-						placeholder="example@mail.com"
-						onChange={handleChange}
-					/>
-					<button type="submit">Login Mail</button>
-				</form>
+				<div>
+					<h1 className={es.centerNameFaceLogin}>Login with Face Recognition</h1>
+					<form onSubmit={(e) => handleSubmit(e)} className={es.formFace}>
+						<input
+							autoComplete="off"
+							id="mail"
+							type="text"
+							required="required"
+							name="userMailFace"
+							value={userMailFace}
+							placeholder="example@mail.com"
+							onChange={handleChange}
+							className={es.inputLoginFace}
+						/>
+						<button type="submit" className={es.submitMailFace}>Submit Mail</button>
+					</form>
+				</div>
 			) : (
 				""
 			)}
 			{mailExists ? (
-				<div>
-					<span>{initializing ? "Initializing" : "Ready"}</span>
+				<div className={es.centeringCameraLogin}>
+					<h1 className={es.titleFaceR}>Login with Face Recognition</h1>
+					<span className={es.titleFaceR}>{initializing ? <h3>Initializing Webcam</h3> : <h3>Ready</h3>}</span>
 					<div className={es.videoandCanvas}>
 						<video
 							ref={webcamRef}
@@ -194,7 +199,8 @@ function LoginFace() {
 						<canvas ref={canvasRef} className={es.canvasFace} />
 					</div>
 					{!initializing && (
-						<button onClick={faceCapture}>Check Face</button>
+						<button onClick={faceCapture}
+							className={es.checkFaceLogin}>Check Face</button>
 					)}
 				</div>
 			) : (
