@@ -1,7 +1,7 @@
 const Stripe = require("stripe");
 const { Charge, Account, account_charge } = require("../db");
 const { nameCard } = require("./cardsName.js");
-const { mailCardTransfer } = require('./mailTransfer')
+const { mailCardTransfer } = require("./mailTransfer");
 const { SECRET_KEY } = process.env;
 
 //const stripe = new Stripe(SECRET_KEY);
@@ -22,8 +22,15 @@ module.exports = {
 				});
 
 				await transfer.addAccounts(account_id);
+				accountTo.balance = accountTo.balance + amount;
+				await accountTo.save();
 
-				transfer &&
+				transfer.state = "done";
+				await transfer.save();
+
+				mailCardTransfer(name, account_id, card_num);
+
+				/* transfer &&
 					(await Account.update(
 						{ balance: accountTo.balance + amount },
 						{ where: { id: account_id } }
@@ -31,7 +38,9 @@ module.exports = {
 					(await Charge.update(
 						{ state: "done" },
 						{ where: { id: transfer.id } }
-					)) && mailCardTransfer( name, account_id, card_num );
+					)) && 
+					mailCardTransfer(name, account_id, card_num);
+					*/
 
 				return transfer;
 			}

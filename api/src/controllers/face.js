@@ -8,9 +8,10 @@ const getFaceDescriptor = async (req, res, next) => {
 	const id = req.userId;
 	try {
 		const user = await Account.findByPk(id);
-		console.log * user;
+		//console.log * user;
 		if (!user) return res.sendStatus(400);
-		res.json(user.dataValues.faceDescriptor.valueOf());
+		if (user.dataValues.faceDescriptor)
+			res.json(user.dataValues.faceDescriptor.valueOf());
 	} catch (error) {
 		console.log(error);
 		next(error);
