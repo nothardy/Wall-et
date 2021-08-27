@@ -51,3 +51,10 @@
 .copiedSucessCard{
     font-weight: 700;
 }
+.loadingGifDA{
+    display: flex;
+    align-items: center;
+    width:15rem;
+    height: 15rem;
+    margin-top:300px;
+}

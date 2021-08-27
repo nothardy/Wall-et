@@ -29,7 +29,7 @@ const TransactionHistory = () =>{
                         transactionDate={el.transaction_date}
                         main={el.main} 
                     />))
-                    : <h3> --- </h3>
+                    : <div>Loading</div>
                 }  
             </div>
         </div>

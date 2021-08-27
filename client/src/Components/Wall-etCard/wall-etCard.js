@@ -101,7 +101,11 @@ const WalletCard = () => {
               </div>
             } */}
          
-        </div> : 'Loading...'}
+        </div> : <img
+            src="https://mesadepartes.munilosolivos.gob.pe/img/loading.gif"
+            alt="LoadingGif"
+            className={style.loadingGifDA}
+          />}
     </div>
   );
 }

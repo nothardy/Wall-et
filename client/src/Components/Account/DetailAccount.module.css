@@ -217,3 +217,18 @@ justify-content: flex-end;
     text-decoration: none;
     
 }
+.loadingGifDA{
+    /* display: flex;
+    align-items: center; */
+    /* margin-left:20rem; */
+    width:15rem;
+    height: 15rem;
+    left:20rem; 
+}
+.loading{
+   /*  position: absolute; */
+    margin-top: 0; 
+    margin-left:350px;
+  
+    
+}

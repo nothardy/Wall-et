@@ -265,13 +265,13 @@ function DetailAccount() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className={a.loading}>
           {" "}
-          <h1>Loading</h1>
+          {/* <h1>Loading</h1> */}
           <img
-            src="https://media.giphy.com/media/cjnnH0h3cfBTORaUnp/giphy.gif"
+            src="https://mesadepartes.munilosolivos.gob.pe/img/loading.gif"
             alt="LoadingGif"
-            className="loadingGif"
+            className={a.loadingGifDA}
           />
         </div>
       )}

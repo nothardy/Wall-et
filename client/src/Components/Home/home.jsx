@@ -47,7 +47,11 @@ const Home = () => {
               <User />
             )
           ) : (
-            <h3>Loading home...</h3>
+            <img
+            src="https://mesadepartes.munilosolivos.gob.pe/img/loading.gif"
+            alt="LoadingGif"
+            className={h.loadingGifDA}
+          />
           )}
         </div>
       </div>

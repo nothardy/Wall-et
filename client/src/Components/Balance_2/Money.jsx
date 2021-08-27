@@ -25,7 +25,7 @@ export const Money = () => {
             </div>
           </>
         ) : (
-          <h3>Cargando... Balance</h3>
+          <div>Loading</div>
         )}
       </div>
     </>
