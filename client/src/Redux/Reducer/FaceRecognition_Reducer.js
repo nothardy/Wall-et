@@ -9,7 +9,8 @@ import {
 const initialState = {
 	faceDescriptor: [],
 	expiredToken: false,
-	loginFace: {},
+	loginFace: [],
+	exists: false,
 	check: false,
 };
 
@@ -31,21 +32,18 @@ const faceReducer = (state = initialState, action) => {
 			if (action.payload.exists) {
 				return {
 					...state,
-					loginFace: action.payload,
+					loginFace: action.payload.userFace.slice(),
+					exists: action.payload.exists,
 				};
 			} else {
 				return {
 					...state,
-					loginFace: {
-						...state.loginFace,
-						exists: false,
-					},
 				};
 			}
 		case CHECK_FACE:
 			return {
 				...state,
-				check: action.payload,
+				check: action.payload.check,
 			};
 
 		case TOKEN_EXPIRED:

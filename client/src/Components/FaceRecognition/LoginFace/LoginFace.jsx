@@ -8,6 +8,7 @@ import {
 	getFaceDescriptor,
 	isTokenExpired,
 	getFaceDescriptorByMail,
+	checkFace,
 } from "../../../Redux/Actions/FaceRecognition_Action";
 import { getDateUser } from "../../../Redux/Actions/Home";
 import swal from "sweetalert";
@@ -27,7 +28,8 @@ function LoginFace() {
 	const [updateFaceDetection, setUpdateFaceDetection] = useState(false);
 	const [isUser, setIsUser] = useState(false);
 	const [mailSubmitted, setMailSubmitted] = useState(false);
-	const mailExists = useSelector((store) => store.faceReducer.loginFace);
+	const mailExists = useSelector((store) => store.faceReducer.exists);
+	// const userLoged = useSelector((store) => store.faceReducer.check);
 	// const arrayfloated = new Float32Array(userFace);
 	function handleChange(e) {
 		setUserMailFace(e.target.value);
@@ -39,6 +41,7 @@ function LoginFace() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
+		setMailSubmitted(true);
 		dispatch(getFaceDescriptorByMail(userMailFace));
 	}
 
@@ -53,7 +56,7 @@ function LoginFace() {
 		const loadModels = async () => {
 			const MODEL_URL = process.env.PUBLIC_URL + "/models";
 			setInitializing(true);
-			dispatch(getFaceDescriptor());
+			//dispatch(getFaceDescriptor());
 			//dispatch(isTokenExpired())
 			Promise.all([
 				faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
@@ -62,8 +65,10 @@ function LoginFace() {
 				faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL),
 			]).then(startVideo);
 		};
-		if (mailSubmitted && mailExists.exists && mailExists.exists === true) {
-			if (mailExists.exists && mailExists.exists === true) {
+
+		if (mailSubmitted && mailExists && mailExists === true) {
+			if (mailExists && mailExists === true) {
+				console.log("existe e mail");
 				setMailSubmitted(true);
 				return loadModels();
 			} else {
@@ -144,9 +149,10 @@ function LoginFace() {
 				console.log("salto error");
 			}
 			console.log(faceDetections.length);
-			console.log(faceDetections, "se hizooooo");
+			// console.log(faceDetections, "se hizooooo");
 		}
-		console.log(faceDetections);
+		//console.log(faceDetections);
+		dispatch(checkFace(userMailFace, faceDetections));
 		webcamRef.current.srcObject
 			.getTracks()
 			.forEach((track) => track.stop());
@@ -156,7 +162,7 @@ function LoginFace() {
 		<div>
 			{/* {console.log(faceDetections, "ayudaaaaaaa")} */}
 			{console.log(expiredToken)}
-			{!mailSubmitted ? (
+			{!mailExists ? (
 				<form onSubmit={(e) => handleSubmit(e)}>
 					<input
 						autoComplete="off"
@@ -173,7 +179,7 @@ function LoginFace() {
 			) : (
 				""
 			)}
-			{mailSubmitted ? (
+			{mailExists ? (
 				<div>
 					<span>{initializing ? "Initializing" : "Ready"}</span>
 					<div className={es.videoandCanvas}>

@@ -73,7 +73,7 @@ export function getFaceDescriptorByMail(mail) {
 	return (dispatch) => {
 		axios
 			.post(
-				"/face/mail",
+				"/loginface/mail",
 				{ mail: mail },
 				{
 					headers: { "Content-Type": "application/json" },
@@ -91,8 +91,8 @@ export function getFaceDescriptorByMail(mail) {
 export function checkFace(mail, detections) {
 	return (dispatch) => {
 		axios
-			.get(
-				"/face/check",
+			.post(
+				"/loginface/check",
 				{ mail: mail, detections: detections },
 				{
 					headers: { "Content-Type": "application/json" },
@@ -103,6 +103,13 @@ export function checkFace(mail, detections) {
 					type: CHECK_FACE,
 					payload: response.data,
 				});
+
+				localStorage.setItem("token", response.data.token);
+				if (response.data.token) window.location.href = "/mywallet";
+			})
+			.catch(() => {
+				swal("User was not recognized", { icon: "error" });
+				window.location.href = "/";
 			});
 	};
 }

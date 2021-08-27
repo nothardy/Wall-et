@@ -9,9 +9,7 @@ const route = Router();
 const { verifyToken } = require("../middlewares/verifyToken");
 
 //route.use("/", verifyToken);
-route.get("/", verifyToken, getFaceDescriptor);
-route.post("/mail", getFaceDescriptorByMail); /* aca  */
 route.post("/", verifyToken, postFaceDescriptor);
-route.get("/check", faceChecker);
+route.get("/", verifyToken, getFaceDescriptor);
 
 module.exports = route;

@@ -1,6 +1,6 @@
 const Payment = "Payment",
-  Services = "Services",
-  Transfer = "Transfer";
+	Services = "Services",
+	Transfer = "Transfer";
 const { Router } = require("express");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -30,6 +30,7 @@ const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
 const face = require("./face");
 const getTempToken = require("./getTempToken");
+const loginface = require("./loginface");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -51,6 +52,7 @@ router.use("/adminSearch", adminSearch);
 router.use("/auth", authRoutes);
 router.use("/resetPassword", resetPasswordRoutes);
 router.use("/face", face);
+router.use("/loginface", loginface);
 router.use("/token", getTempToken);
 
 module.exports = router;

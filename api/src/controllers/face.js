@@ -1,5 +1,6 @@
 const { Account, Transaction, Card, Contact } = require("../db");
 const { v4: uuidv4 } = require("uuid");
+const jwt = require("jsonwebtoken");
 
 const faceApi = require("face-api.js");
 
@@ -53,33 +54,47 @@ const getFaceDescriptorByMail = async (req, res, next) => {
 };
 
 const faceChecker = async (req, res, next) => {
-	let check = false;
-	const detections = req.body.detections;
-	const mail = req.body.mail;
-	const user = await Account.findOne({ where: { mail: mail } });
-	let userFace = user.dataValues.faceDescriptor.valueOf();
-	userFace = userFace.replace(/'/g, '"');
-	userFace = JSON.parse(userFace);
-	userFace = userFace.map(
-		(element) => new Float32Array(Object.values(element))
-	);
+	try {
+		let token;
+		let check = false;
+		let detections = req.body.detections;
+		const mail = req.body.mail;
+		const user = await Account.findOne({ where: { mail: mail } });
+		let userFace = user.dataValues.faceDescriptor.valueOf();
+		userFace = userFace.replace(/'/g, '"');
+		userFace = JSON.parse(userFace);
+		userFace = userFace.map(
+			(element) => new Float32Array(Object.values(element))
+		);
+		detections = detections.map(
+			(element) => new Float32Array(Object.values(element))
+		);
 
-	if (detections.length === userFace.length) {
-		let faceCheck = [];
-		let faceCheckAverage = 0;
-		for (let i = 0; i <= 9; i++) {
-			faceCheck.push(
-				faceApi.euclideanDistance(detections[i], userFace[i])
-			);
-			faceCheckAverage = faceCheckAverage + faceCheck[i];
-		}
-		faceCheckAverage = faceCheckAverage / 10;
+		if (detections.length === userFace.length) {
+			let faceCheck = [];
+			let faceCheckAverage = 0;
 
-		if (faceCheckAverage <= 0.45) {
-			check = true;
+			for (let i = 0; i <= 9; i++) {
+				faceCheck.push(
+					faceApi.euclideanDistance(detections[i], userFace[i])
+				);
+				faceCheckAverage = faceCheckAverage + faceCheck[i];
+			}
+			faceCheckAverage = faceCheckAverage / 10;
+
+			if (faceCheckAverage <= 0.45) {
+				check = true;
+				token = jwt.sign({ id: user.id }, "mysecretkey", {
+					expiresIn: 60 * 30,
+				});
+				return res.json({ check: check, token: token });
+			}
 		}
+		throw new Error("Las caras no coinciden");
+	} catch (error) {
+		console.log(error);
+		next(error);
 	}
-	return res.json({ check: check });
 };
 
 module.exports = {
