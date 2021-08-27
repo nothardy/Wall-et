@@ -18,6 +18,9 @@ import checkMail from "./Components/Register/checkMail";
 import Card from "./Components/Wall-etCard/Card";
 import HelperBot from "./Components/Helper/HelperBot";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
+import FaceView from "./Components/FaceRecognition/FaceView";
+import LoginFace from "./Components/FaceRecognition/LoginFace/LoginFace";
+
 
 // CSS hecho por:
 // Cami y Celes: /register y /home
@@ -26,28 +29,30 @@ import PublicRoute from "./Components/PublicRoute/PublicRoute";
 
 export default function App() {
 	return (
-		<div className="App">
+		<div>
 			<PublicRoute exact path="/" component={Landingpage} />
-			<Route exact path="/confirmMail/:token" component={Verify} />
-			<Route exact path="/verifyMail" component={checkMail} />
 			<PublicRoute exact path="/register" component={Register} />
 			<Route exact path="/recoverpassword" component={RecoverPassword} />
 			<Route exact path="/faq" component={FrecuentlyQuestions} />
+			<Route exact path="/loginface" component={LoginFace}/>
 			<Route exact path="/logout" component={Logout} />
+			<PrivateRoute path="/face" component={FaceView} exact />
+			<PrivateRoute path="/account" component={Account} exact />
 			<PrivateRoute exact path="/contacts" component={Contacts} />
 			<PrivateRoute path="/transfers/:section" component={Transfer} />
 			<PrivateRoute exact path="/help/form" component={Help} />
 			<PrivateRoute path="/mywallet" component={Home} exact />
 			<PrivateRoute path="/balance" component={Balance} exact />
+			<PrivateRoute exact path="/walletCard" component={Card} />
+			<PrivateRoute exact path="/help" component={HelperBot} />
 			<Route
 				exact
 				path="/resetPassword/:userid"
 				component={ResetPassword}
 			/>
-			{/* <DarkMode /> */}
-			<PrivateRoute path="/account" component={Account} exact />
-			<PrivateRoute exact path="/help" component={HelperBot} />
-			<PrivateRoute exact path="/walletCard" component={Card} />
+
+			
+
 		</div>
 	);
 }

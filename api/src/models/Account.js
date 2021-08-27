@@ -65,5 +65,18 @@ module.exports = (sequelize) => {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
 		},
+		faceDescriptor: {
+			// una manera que encontre en stackoverflow de declarar array de objetos
+			type: DataTypes.STRING(35000),
+			get: function () {
+				return JSON.parse(this.getDataValue("faceDescriptor"));
+			},
+			set: function (value) {
+				return this.setDataValue(
+					"faceDescriptor",
+					JSON.stringify(value)
+				);
+			},
+		},
 	});
 };

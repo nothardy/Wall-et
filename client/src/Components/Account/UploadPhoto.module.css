@@ -1,84 +1,81 @@
-
-
 .title {
-    text-align: center;
-    margin-bottom: 4rem;
+	text-align: center;
+	margin-bottom: 4rem;
 }
 
 .btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--accent-color);
-    background-color: var(--accent-color);
-    color: var(--btn-text-color);
-    border-radius: 5px;
-    transition: 250ms;
-    cursor: pointer;
-    font-size: 16px;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--accent-color);
+	background-color: var(--accent-color);
+	color: var(--btn-text-color);
+	border-radius: 5px;
+	transition: 250ms;
+	cursor: pointer;
+	font-size: 16px;
 }
 
 .btn:hover {
-    border: 1px solid var(--accent-color);
-    background-color: var(--btn-text-color);
-    color: var(--acent-color);
+	border: 1px solid var(--accent-color);
+	background-color: var(--btn-text-color);
+	color: var(--acent-color);
 }
 
 .form {
-    margin-bottom: 2rem;
+	margin-bottom: 2rem;
 }
 
 .forminput {
-    margin-top: 20px;
-    width: 43%;
-    font-size: 1.2rem;
-    font-weight: 60;
-    cursor: pointer;
-    
-    box-shadow: 0px 0px 4px 0px #615b5b;
-    border-radius: 6px;
-    border: none;
-    transition: 0.5s;
-  }
-  .forminput:hover {
-    background: #756969ce;
-    color: white;
-  }
+	margin-top: 20px;
+	width: 43%;
+	font-size: 1.2rem;
+	font-weight: 60;
+	cursor: pointer;
 
+	box-shadow: 0px 0px 4px 0px #615b5b;
+	border-radius: 6px;
+	border: none;
+	transition: 0.5s;
+}
+.forminput:hover {
+	background: #756969ce;
+	color: white;
+}
 
-.container{
-    width: 30rem ;
-    height:35rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      /* background-color:#dcdbdb; */
-      border-radius: 15px;
-      box-shadow: 0px 6px 10px ;
-      background: transparent;
-      backdrop-filter: blur(20px);
-    }
-    .contenedorFotoSubmit{
-        width:250px;
-        height:250px;
-        border-radius:150px;
-    }
-    .btnClose{
-        margin-bottom: 5px;
-        margin-left: 442px;
-        width: 7%;
-        font-size: 1.2rem;
-        font-weight: 60;
-        cursor: pointer;
-        background: #837e7e99;
-        box-shadow: 0px 0px 4px 0px #615b5b;
-        border-radius: 6px;
-        border: none;
-        transition: 0.5s;
-      }
-      .btnClose:hover {
-        background: #756969ce;
-        color: white;
-      }
+.container {
+	width: 30rem;
+	height: 35rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* background-color:#dcdbdb; */
+	border-radius: 15px;
+	box-shadow: 0px 6px 10px;
+	background: transparent;
+	backdrop-filter: blur(20px);
+}
+.contenedorFotoSubmit {
+	width: 250px;
+	height: 250px;
+	border-radius: 150px;
+}
+.btnClose {
+	margin-bottom: 5px;
+	margin-left: 442px;
+	width: 7%;
+	font-size: 1.2rem;
+	font-weight: 60;
+	cursor: pointer;
+	background: #837e7e99;
+	box-shadow: 0px 0px 4px 0px #615b5b;
+	border-radius: 6px;
+	border: none;
+	transition: 0.5s;
+}
+.btnClose:hover {
+	background: #756969ce;
+	color: white;
+}

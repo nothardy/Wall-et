@@ -1,13 +1,12 @@
 .container {
 	/* background-color: var(--color-navTransaction); */
 	background: transparent;
-    box-shadow: 0px 6px 10px ;
+	box-shadow: 0px 6px 10px;
 	/* border: 1px solid black; */
 	width: 920px;
 	height: 550px;
 	border-radius: 4px;
 	margin-top: 3rem;
-	
 }
 
 .headerContact {
@@ -20,7 +19,7 @@
 	padding: 11px 30px;
 	/* color: midnightblue; */
 	margin: 0;
-	border-bottom: 5px solid ;
+	border-bottom: 5px solid;
 }
 
 .bodyContact {

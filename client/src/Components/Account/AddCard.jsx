@@ -120,6 +120,7 @@ function AddCard({ close }) {
                 pattern="[\d| ]{15,22}"
                 minLength="15"
                 maxlength="22"
+               
                 required
               />
             </div>

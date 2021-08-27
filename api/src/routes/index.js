@@ -31,7 +31,10 @@ const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
 const deleteFav = require("./deleteFav");
-const { cardExist } = require('../middlewares/verifyCard')
+const { cardExist } = require("../middlewares/verifyCard");
+const face = require("./face");
+const getTempToken = require("./getTempToken");
+const loginface = require("./loginface");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -43,7 +46,7 @@ router.use("/register", register);
 //router.use("/register", sendMailConfirmation);
 router.use("/transaction", transaction);
 router.use("/updateUser", updateRoutes);
-router.use("/card", cardExist,uploadCard);
+router.use("/card", cardExist, uploadCard);
 router.use("/deleteCard", deleteCard);
 router.use("/deleteFav", deleteFav);
 router.use("/deleteUser", deleteUser);
@@ -54,5 +57,8 @@ router.use("/home", home);
 router.use("/adminSearch", adminSearch);
 router.use("/auth", authRoutes);
 router.use("/resetPassword", resetPasswordRoutes);
+router.use("/face", face);
+router.use("/loginface", loginface);
+router.use("/token", getTempToken);
 
 module.exports = router;

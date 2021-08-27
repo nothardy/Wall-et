@@ -27,7 +27,7 @@ const passwordReset = async (req, res) => {
         // send mail with defined transport object
 
         const token = await jwt.sign({ id: user.id }, "mysecretkey", {
-            expiresIn: 60 * 60 * 24, // 10min
+            expiresIn: 60 * 60 * 24, // 24h
         });
 
         await transporter.sendMail({
@@ -35,7 +35,7 @@ const passwordReset = async (req, res) => {
             to: mail, // receiver adress
             subject: "Password Reset Request for Wall-et", //Subject mail
             html: `<p> Hi ${user.fullname}. In order to reset your password, please </p>
-            <a href="${FRONT_HOST}resetPassword/${token}"> Click here </a>. 
+            <a href="${FRONT_HOST}/resetPassword/${token}"> Click here </a>. 
             <p>If you did not request a new password, please ignore this mail. </p>`,
         });
 
@@ -48,7 +48,7 @@ const passwordReset = async (req, res) => {
 
 const resetVerificaction = async (req, res) => {
     const { userid } = req.params;
-    const {password} = req.body;
+    const { password } = req.body;
     if (!userid) return res.status(404).json({ message: "Invalid link" })
     try {
         const decoded = await jwt.verify(userid, "mysecretkey");
