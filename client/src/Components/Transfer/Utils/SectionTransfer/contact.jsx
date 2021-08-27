@@ -21,6 +21,7 @@ const Contact = ({ toggleTransaction }) => {
 							CVU={el.cvu}
 							fullname={el.fullname}
 							mail={el.mail}
+							photo={el.photo}
 							toggleTransaction={toggleTransaction}
 						/>
 					))

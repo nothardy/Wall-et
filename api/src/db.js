@@ -66,7 +66,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Account, Transaction, Card, Contact, Charge, Favorite } =
+const { Account, Transaction, Card, Contact, Charge, Favorite, CashCode } =
 	sequelize.models;
 
 // Aca vendrian las relaciones
@@ -85,6 +85,9 @@ Card.belongsTo(Account);
 
 Account.hasMany(Favorite);
 Favorite.belongsTo(Account);
+
+Account.hasMany(CashCode);
+CashCode.belongsTo(Account)
 
 /* Account.belongsToMany(Account, {through: 'user_contact'}) */
 

@@ -5,6 +5,7 @@ const { Account } = require('../db')
 const transferCreator = require('../controllers/transferCreator')
 const { verify } = require('../middlewares/verifyCVU')
 const { verifyBalans } = require('../middlewares/balansCheck')
+const { verifyKey } = require('../middlewares/verifyKey')
 
 route.post('/verifyCVU', verify, async (req, res) => {
     try {
@@ -29,7 +30,7 @@ route.post('/verifyCVU', verify, async (req, res) => {
 })
 
 
-route.post('/', verifyBalans, async (req, res) => {
+route.post('/', verifyKey, verifyBalans, async (req, res) => {
     const { from, to } = req.body;
     const amount = parseInt(req.body.amount)
 
@@ -44,7 +45,7 @@ route.post('/', verifyBalans, async (req, res) => {
 
     catch(err) {
         console.log(err)
-        res.status(404).json(err)
+        return res.status(404).json(err)
     }
 })
 

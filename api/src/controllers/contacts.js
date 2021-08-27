@@ -98,6 +98,7 @@ const addContactToDb = async (req, res, next) => {
 };
 
 const getTransactions = async (id) => {
+    try {
 	const user = await Account.findByPk(id, {
 		include: [{ model: Transaction }],
 	});
@@ -120,6 +121,8 @@ const getTransactions = async (id) => {
 				type_transaction: el.type_transaction,
 				state: el.state,
 				transaction_date: el.createdAt,
+        cvu: nameTo.dataValues.cvu,
+          photo: nameTo.dataValues.photo,
 				main: true,
 				// Key en true, significa que son transacciones realizadas por la cuenta
 			};
@@ -127,6 +130,10 @@ const getTransactions = async (id) => {
 		})
 	);
 	return listTransactions;
+    }catch(error){
+      console.error(error)
+    return error
+    }
 };
 
 const postFavorite = async (req, res, next) => {
@@ -186,4 +193,5 @@ module.exports = {
 	addContactToDb,
 	postFavorite,
 	getFavorites,
+
 };

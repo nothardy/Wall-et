@@ -59,4 +59,31 @@ module.exports = {
 			next(err);
 		}
 	},
+
+	cardExist: async ( req, res, next ) => {
+		const { id, card_num } = req.body;
+
+		try {
+			if( !id || !card_num ) {
+				throw new Error('Data is not found')
+			}
+
+			const { cards } = await Account.findByPk(id, {
+				include: { model: Card },
+			});
+
+			const card = cards.filter(el => el.card_num === card_num);
+			if (card.length >= 1){
+				throw new Error(' Card exist in account ');
+			}
+
+			next()
+
+
+		}
+		catch(err){
+			console.error(err)
+			next(err)
+		}
+	}
 };

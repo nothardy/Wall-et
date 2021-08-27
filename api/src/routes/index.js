@@ -31,6 +31,7 @@ const home = require("./home.routes");
 const adminSearch = require("./searchUser.routes");
 const resetPasswordRoutes = require("./resetPassword");
 const deleteFav = require("./deleteFav");
+const { cardExist } = require('../middlewares/verifyCard')
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -42,7 +43,7 @@ router.use("/register", register);
 //router.use("/register", sendMailConfirmation);
 router.use("/transaction", transaction);
 router.use("/updateUser", updateRoutes);
-router.use("/card", uploadCard);
+router.use("/card", cardExist,uploadCard);
 router.use("/deleteCard", deleteCard);
 router.use("/deleteFav", deleteFav);
 router.use("/deleteUser", deleteUser);
