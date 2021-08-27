@@ -133,6 +133,7 @@ function Register() {
           "You clicked the button!",
           "error"
         );
+        history.push("/")
       }
       
     
@@ -185,7 +186,7 @@ function Register() {
                     onChange={handleChange}
                     className={r.inputregister}
                   />
-                  {errors.mail && <p className="">{errors.mail}</p>}
+                  {errors.mail && <p className={r.errorsRegister}>{errors.mail}</p>}
                 </div>
 
                 <div>
@@ -221,7 +222,7 @@ function Register() {
                     The password must contain eight characters, an uppercase
                     letter, and a number
                   </p>
-                  {errors.password && <p className="">{errors.password}</p>}
+                  {errors.password && <p className={r.errorsRegister}>{errors.password}</p>}
                 </div>
                 <div>
                 
@@ -252,7 +253,7 @@ function Register() {
                       id="show_hide2"
                     />
                   )}
-                  {errors.password && <p className="">{errors.password}</p>}
+                  {errors.password && <p className={r.errorsRegister}>{errors.password}</p>}
                 </div>
 
               

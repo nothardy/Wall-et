@@ -93,6 +93,9 @@ function AddCard({ close }) {
   return (
     <div className={c.container}>
       <div>
+      <button className={c.btnCloseFormCard} onClick={() => close()}>
+              X
+            </button>
         <div>
           <Cards
             cvc={updateinfo.cvc}
@@ -108,6 +111,7 @@ function AddCard({ close }) {
                 <p htmlFor="number">Number of credit or debit Card:</p>
               </div>
               <input
+              className={c.inputFormCardLong}
                 type="tel"
                 onFocus={handleFocus}
                 onChange={handleInputChange}
@@ -116,7 +120,6 @@ function AddCard({ close }) {
                 pattern="[\d| ]{15,22}"
                 minLength="15"
                 maxlength="22"
-               
                 required
               />
             </div>
@@ -125,6 +128,7 @@ function AddCard({ close }) {
                 <p htmlFor="Name">Name in the Card:</p>
               </div>
               <input
+              className={c.inputFormCardLong}
                 type="text"
                 onChange={handleInputChange}
                 onFocus={handleFocus}
@@ -134,11 +138,12 @@ function AddCard({ close }) {
               />
             </div>
             <div>
-              <div>
+              <div className={c.containerinputFormCardExpiration}>
                 <div>
                   <p htmlFor="expiry">Expiration date:</p>
                 </div>
                 <input
+                className={c.inputFormCardExpiration}
                   type="tel"
                   data-date-split-input="true"
                   min="2021-08"
@@ -152,11 +157,12 @@ function AddCard({ close }) {
                   required
                 />
               </div>
-              <div>
+              <div className={c.containerinputFormCardCvc}>
                 <div>
                   <p htmlFor="cvc">Security code:</p>
                 </div>
                 <input
+                className={c.inputFormCardCvc}
                   type="tel"
                   placeholder="CVC"
                   name="cvc"
@@ -168,13 +174,11 @@ function AddCard({ close }) {
                 />
               </div>
             </div>
-            <button type="submit" value="" name="">
+            <button type="submit" value="" name="" className={c.btnSubmitFormCard}>
               {" "}
               Add New Card{" "}
             </button>
-            <button className="" onClick={() => close()}>
-              X
-            </button>
+            
           </form>
         </div>
       </div>

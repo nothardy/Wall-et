@@ -10,8 +10,8 @@
   width: 32.5rem;
   height: 24rem;
   border: none;
-  background: radial-gradient(#76b2fe, #b69efe);
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  background: transparent;
+      box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
   transition: all 0.2s;
   bottom: 6rem;
   right: 3.5rem;
@@ -19,7 +19,6 @@
   flex-direction: column;
   border-radius: 10px;
   font-family: "Roboto", sans-serif;
-  color: midnightblue;
 }
 
 .containerTransaction:hover {
@@ -30,9 +29,11 @@
 .containerView {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  margin: 2px;
-  width: 25rem;
+  color:var(--text-color);
+   border: 1px solid ; 
+   border-radius: 20px;
+  margin: 8px;
+  width: 23rem;
   align-items: center;
 }
 
@@ -77,7 +78,7 @@
   height: 0.5rem;
 }
 .bodyTransaction::-webkit-scrollbar-thumb {
-  background: rgb(20, 20, 20);
+  background: var(--text-color);
   border-radius: 25px;
   width: 0.4rem;
 }

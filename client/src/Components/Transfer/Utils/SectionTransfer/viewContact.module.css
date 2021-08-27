@@ -4,7 +4,8 @@
 	background: none;
 	border-bottom: 1px solid;
 	width: 100%;
-	color: midnightblue;
+	/* background: var(--bluecontainer); */
+      box-shadow: 15px 8px 30px rgba(240, 235, 235, 0.2);
 }
 
 .left {
@@ -49,6 +50,8 @@
 	padding: 6px 13px;
 	border-radius: 4px;
 	transition: 0.1s;
+	 color:white; 
+	border:1px solid ;
 }
 #btnSubmit:hover {
 	color: rgb(255, 255, 255);

@@ -109,7 +109,9 @@ function UpdatePassword({ close }) {
     <div className={p.container}>
       {user ? (
         <div>
+          <button onClick={() => close()} className={p.btnClose}>X</button>
           <div>
+          
             <form onSubmit={(e) => handleSubmit(e)}>
               <div>
                 <p> New Password:</p>
@@ -179,19 +181,17 @@ function UpdatePassword({ close }) {
                 {errors.password && <p className="">{errors.password}</p>}
               </div>
 
-              <button className="" type="submit" value="" name="">
+              <button className={p.btnChangePassword} type="submit" value="" name="">
                 {" "}
                 Change Password{" "}
               </button>
             </form>
-            <button onClick={() => close()}>X</button>
+            
           </div>
         </div>
       ) : (
         <div>
-          {" "}
-          <h1>Loading</h1>
-          <img src="" alt="LoadingGif" className="loadingGif" />
+          
         </div>
       )}
     </div>

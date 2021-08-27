@@ -28,11 +28,11 @@ const NavTransaction = (props) => {
 
   return (
     <div className={nt.container}>
-      <div className={nt.bar}>
         <button id={nt.btnBack} value="0" onClick={(e) => handleChange(e)}>
           {" "}
           <img src={BackImg} alt="back image" /> Back
         </button>
+      <div className={nt.bar}>
         <button
           className={nt.btnOptions}
           onClick={(e) => handleChange(e)}

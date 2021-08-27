@@ -68,22 +68,25 @@ const CardTransfer = () => {
 			);
 			await swal(
 				"Congratulations!",
-				"Your transaction has been sent successfully!",
+				"Your transaction has been completed successfully!",
 				"success"
 			);
 			history.push("/mywallet");
 		} catch (err) {
+			/* console.log(err) */
 			if (err.response.data !== "Key invalid") {
 				await swal("We are sorry!", `${err.response.data}!`, "error");
 				setDataTransaction({ ...dataTransaction, key: "" });
-				return await setSecurityLayer({
+				return setSecurityLayer({
 					...securityLayer,
 					toglePassSecurity: !securityLayer.toglePassSecurity,
 					show: false,
 				});
 			}
-
+			console.log(err)
+			console.log(err.response.data)
 			await swal("We are sorry!", `${err.response.data}!`, "error");
+			
 		}
 	};
 
@@ -126,8 +129,7 @@ const CardTransfer = () => {
 					onSubmit={(e) => handleSubmitData(e)}
 				>
 					<h3 className={cf.textSecurity}>
-						Coloca el DNI de tu cuenta para <br /> seguir con la
-						transaccion.{" "}
+					Enter your account password to <br /> continue with the transaction.{" "}
 					</h3>
 
 					<div className={cf.containerInputAndIcon}>
@@ -137,7 +139,7 @@ const CardTransfer = () => {
 							name="key"
 							value={dataTransaction.key}
 							onChange={(e) => handleChange(e)}
-							placeholder="Coloca key"
+							placeholder="Password"
 						/>
 						{securityLayer.show ? (
 							<FontAwesomeIcon

@@ -5,15 +5,15 @@
   border-radius: 8px;
   padding: 7px; */
 	top: 4rem;
-	margin-left: 22.5rem;
+	margin-left: 15rem; 
 	/* min-width: 16rem; */
 	position: relative;
-	height: 25rem;
+	height: 50rem;
 	width: 400px;
 	margin-top: 3rem;
 	border: none;
-	background: radial-gradient(#76b2fe, #b69efe);
-	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+	background: transparent;
+    box-shadow: 0px 6px 10px ;
 	transition: all 0.2s;
 	bottom: 6rem;
 	right: 3.5rem;
@@ -21,7 +21,6 @@
 	flex-direction: column;
 	border-radius: 10px;
 	font-family: "Roboto", sans-serif;
-	color: midnightblue;
 	/*  display: flex;
     justify-content: center;
     height: 20rem;
@@ -46,6 +45,7 @@
 #titleTransaction {
 	position: absolute;
 	font-size: 1.4rem;
+	margin-left: 20px;
 	top: 5px;
 	left: 12px;
 }
@@ -70,13 +70,15 @@
 	overflow-x: hidden;
 	align-items: center;
 	margin-top: 2px;
+	
+	
 }
 .bodyTransaction::-webkit-scrollbar {
 	width: 0.4rem;
 	height: 0.5rem;
 }
 .bodyTransaction::-webkit-scrollbar-thumb {
-	background: rgb(20, 20, 20);
+	background: var(--text-color);
 	border-radius: 25px;
 	width: 0.4rem;
 }

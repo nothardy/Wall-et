@@ -1,5 +1,5 @@
 .containerBar{
-    background-color: #50548A;
+    background-color: rgb(48 107 164);
     height: 2.5rem;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@
     
 }
 
-.containerBar h3{/* PROVISORIO, PONERLE UN CLASSNAME o ID */
+.containerBar h2{/* PROVISORIO, PONERLE UN CLASSNAME o ID */
     margin: 0;
     margin-left: 20px;
 }
@@ -16,6 +16,15 @@
     text-decoration: none;
      color: white; 
 }
+.containerBar a > img{
+  max-width: 1.5rem;
+  margin-right: 15px;
+}
+
+/* .imagen{
+  margin-top:-3rem;
+  margin-left: 5.5rem;
+} */
 /* 
 .sunicon{
     width: 90%;

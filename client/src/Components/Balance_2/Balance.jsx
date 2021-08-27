@@ -35,6 +35,14 @@ function Balance() {
           <div className={style.boxes}>
             <div className={style.moneyAndTransactions}>
               <Money />
+            <div className={style.bal}>
+            <div className={style.grafico2}>
+              <div className={style.titleAndGraph2}>
+                <h2 className={style.title2}>Your transactions</h2>
+                <DoughnutBalance userInfo={userInfo} />
+              </div>
+            </div>
+            </div>
             </div>
             <div className={style.graficos}>
               <div className={style.right}>
@@ -43,12 +51,6 @@ function Balance() {
                     <div className={style.titleAndGraph}>
                       <h2 className={style.title}>Your last activity</h2>
                       <LineBalance userInfo={userInfo} />
-                    </div>
-                  </div>
-                  <div className={style.grafico}>
-                    <div className={style.titleAndGraph}>
-                      <h2 className={style.title2}>Your transactions</h2>
-                      <DoughnutBalance userInfo={userInfo} />
                     </div>
                   </div>
                 </div>

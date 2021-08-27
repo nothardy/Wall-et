@@ -14,15 +14,15 @@ const Cash = () => {
 	};
 	return (
 		<div className={ch.container}>
-			<h1>With Cash</h1>
+			<h1>Load Money</h1>
 			<p>
 				Use this code whenever you want to fund your account. The
 				minimum amount is $ 50.
 			</p>
 			<div id={ch.box_code}>
 				{!code.codePagofacil ? (
-					<button onClick={() => codeGenerator()}>
-						it has no code
+					<button id={ch.btnCodeGenerator} onClick={() => codeGenerator()}>
+						Show Code
 					</button>
 				) : (
 					code.codePagofacil

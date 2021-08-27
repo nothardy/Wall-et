@@ -186,7 +186,7 @@ function DetailAccount() {
                                  {" "} Edit Profile 
                                 </button>
                                 {editProfile ? (
-                                  <div>
+                                  <div className={a.editProfileA}>
                                     {" "}
                                     <UpdateDetailAccount close={toggleEditProfile} />{" "}
                                   </div>
@@ -208,9 +208,11 @@ function DetailAccount() {
                                   Delete Account
                                 </button>
                                 {/* </Link> */}
+                                <div className={a.linkForgot}>
                                 <Link to="/recoverpassword">
                                   <p className={a.forgotPasswordA}>Forgot Password?</p>
                                 </Link>
+                                </div>
                               </div>
                             </div>
               </div>
@@ -246,10 +248,11 @@ function DetailAccount() {
                       </div>
                     ))
                     : "No cards available"}
-
+                  <div className={a.addCard}>
                   <button className={a.buttonAddCard} onClick={() => toggleAddCard()}> 
                    Add Card
                   </button>
+                  </div>
                   {addCard ? (
                     <div>
                       {" "}
@@ -262,13 +265,13 @@ function DetailAccount() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className={a.loading}>
           {" "}
-          <h1>Loading</h1>
+          {/* <h1>Loading</h1> */}
           <img
-            src="https://media.giphy.com/media/cjnnH0h3cfBTORaUnp/giphy.gif"
+            src="https://mesadepartes.munilosolivos.gob.pe/img/loading.gif"
             alt="LoadingGif"
-            className="loadingGif"
+            className={a.loadingGifDA}
           />
         </div>
       )}

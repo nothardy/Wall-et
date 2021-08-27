@@ -1,0 +1,60 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+    background: transparent;
+    box-shadow: 0px 6px 10px ;
+    border-radius:22px;
+    width: 120%;
+    height: 50rem;
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    padding-top:10px;
+    font-size: 20px;
+}
+/* .conteiner:hover {
+    transform: scale(1.01);
+} */
+.inputs{
+    background: transparent;
+    /* color:rgb(179, 174, 174); */
+    border:none;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around; 
+    font-weight: 700;
+    font-size: 18px;
+    outline: none;
+    
+} 
+.inputCVUCopy{
+    display: flex;
+    justify-content: space-around;
+    border:none;
+    text-decoration: none;
+}
+
+.centeringCopy{
+    display: flex; 
+    position: relative;
+    width: 55%;
+}
+
+.copiedSuccessCard{
+    display:flex;
+    flex-direction: row;
+    position:absolute;
+    right:0;
+}
+
+.copiedSucessCard{
+    font-weight: 700;
+}
+.loadingGifDA{
+    display: flex;
+    align-items: center;
+    width:15rem;
+    height: 15rem;
+    margin-top:300px;
+}

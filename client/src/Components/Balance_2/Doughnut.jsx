@@ -1,6 +1,6 @@
 import { Doughnut } from "react-chartjs-2";
 import { getTransactionTypesPercentage } from "../../utils/Methods";
-
+import style from './Balance.module.css';
 import { useState, useEffect } from "react";
 
 export function DoughnutBalance(props) {
@@ -36,7 +36,7 @@ export function DoughnutBalance(props) {
   };
 
   return (
-    <div>
+    <div id={style.doug}>
       <Doughnut
         type="doughnut"
         data={state}

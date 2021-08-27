@@ -5,6 +5,7 @@ import View_favorite from "./views/view_favorite";
 import View from "./views/view_contacts";
 import { getFavorites } from "../../Redux/Actions/Contacts_Action";
 
+
 export const Favorites = ({ toggleTransactions }) => {
 	const favorito = useSelector((state) => state.contactsReducer.favorites);
 	const [updateFavorites, setUpdateFavorites] = useState(true);
@@ -28,6 +29,7 @@ export const Favorites = ({ toggleTransactions }) => {
 	//     if (renderContactTransactions === true) toggleTransactions(mail);
 	//     //setRenderContactTransactions(!renderContactTransactions);
 	//   };
+
 
 	const handleUpdateFavorites = () => {
 		setUpdateFavorites(true);

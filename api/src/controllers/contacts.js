@@ -1,5 +1,7 @@
+
 const { Account, Transaction, Card, Contact, Favorite } = require("../db");
 const { Op, UUID } = require("sequelize");
+
 const { v4: uuidv4 } = require("uuid");
 // const {
 //   default: Transactions,
@@ -98,6 +100,7 @@ const addContactToDb = async (req, res, next) => {
 };
 
 const getTransactions = async (id) => {
+
     try {
 	const user = await Account.findByPk(id, {
 		include: [{ model: Transaction }],
@@ -195,3 +198,4 @@ module.exports = {
 	getFavorites,
 
 };
+

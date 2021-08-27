@@ -62,10 +62,10 @@ const infoUser = async (id) => {
 
 					const transactionReceives = {
 						id: el.id,
-						from: `${el.from}(${el.card_num
+						from: `${el.from} ending in ${el.card_num
 							.split("")
 							.splice([-4])
-							.join("")})`,
+							.join("")}`,
 						amount: el.amount,
 						to: el.to,
 						type_transaction: el.type_transaction,

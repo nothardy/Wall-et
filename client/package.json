@@ -30,6 +30,7 @@
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.3",
 		"react-vanilla-tilt": "^1.0.0",
+		"react-whatsapp-widget": "^1.3.0",
 		"redux": "^4.1.0",
 		"redux-devtools-extension": "^2.13.9",
 		"redux-thunk": "^2.3.0",

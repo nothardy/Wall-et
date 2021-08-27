@@ -15,8 +15,9 @@
 }
 
 #btnBack {
+  color: var(--text-color);
   position: absolute;
-  top: 0px;
+  top: 4px;
   left: -18px;
   display: flex;
   align-items: center;
@@ -28,6 +29,8 @@
   outline: none;
   padding: 3px 10px;
   transition: 0.2s;
+  margin-left:-7.5rem;
+  margin-top: 1.8rem;
 }
 #btnBack > img {
   width: 1.6rem;
@@ -40,12 +43,13 @@
 }
 
 .btnOptions {
+  color: var(--text-color);
   /*     margin-bottom: 20px; */
   font-size: 1.8rem;
   width: calc(100% / 3);
   background: none;
   border: none;
-  color: black;
+ 
   cursor: pointer;
   margin: 0;
   border-bottom: 3px solid #9b9696;
@@ -55,7 +59,9 @@
   color: midnightblue;
   border-bottom: 5px solid midnightblue;
 }
-
+.iconoback{
+  color: var(--text-color);
+}
 .body {
   display: flex;
   flex-direction: column;

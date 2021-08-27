@@ -69,7 +69,7 @@ function Contacts() {
         type="button"
         className="w3-button w3-red"
       >
-        X
+        x
       </button>
     ) : null;
 
@@ -83,10 +83,10 @@ function Contacts() {
         </div>
         <div className={c.right}>
           <div id={c.tittle}></div>
-          <Filter />
           <div className={c.contactos}>
             {renderButton}
             <h2 className={c.tittle}>Contacts</h2>
+            <Filter />
             <Search funSearch={funSearch} />
             {shownContacts &&
               shownContacts.map((contact, i) => {
@@ -103,16 +103,17 @@ function Contacts() {
             {/* <div className={c.button}>x</div> */}
           </div>
           <div className={c.transactions}>
-            <Transactions
-              transactionList={transactions}
-              mail={transactionUser}
-            />
             <Favorites
               toggleTransactions={toggleTransactions}
               funSearch={funSearch}
             />
           </div>
-          <div></div>
+          <div className={c.transactions}>
+            <Transactions
+              transactionList={transactions}
+              mail={transactionUser}
+            />
+          </div>
         </div>
       </div>
     </div>

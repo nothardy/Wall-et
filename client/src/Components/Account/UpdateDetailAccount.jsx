@@ -114,15 +114,16 @@ function UpdateDetailAccount({ close }) {
   return (
     <div className={u.container}>
       {user ? (
-        <div>
-          <div>
+        <div className={u.nuevo}>
+          <div className={u.nuevo}>
+          <button onClick={() => close()} className={u.btnCloseFormUpdateProfile}>X</button>
             {/* <img className="image" src={user.account_data.photo} width="350" height="150" alt="" /> */}
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form className={u.formulario}onSubmit={(e) => handleSubmit(e)}>
               <div>
                 <p>Full Name:</p>
               </div>
               <input
-                className=""
+                className={u.inputForm}
                 type="text"
                 onChange={handleInputChange}
                 placeholder={user.user_data.fullname}
@@ -134,7 +135,7 @@ function UpdateDetailAccount({ close }) {
                 <p>E-mail:</p>
               </div>
               <input
-                className=""
+                className={u.inputForm}
                 type="text"
                 onChange={handleInputChange}
                 placeholder={user.account_data.mail}
@@ -146,7 +147,7 @@ function UpdateDetailAccount({ close }) {
                 <p>Identification Number:</p>
               </div>
               <input
-                className=""
+                className={u.inputForm}
                 type="text"
                 onChange={handleInputChange}
                 placeholder={user.user_data.dni}
@@ -159,7 +160,7 @@ function UpdateDetailAccount({ close }) {
               </div>
               <input
                 htmlFor="birthdate"
-                className=""
+                className={u.inputForm}
                 type="date"
                 placeholder={user.user_data.birth}
                 data-date-split-input="true"
@@ -173,7 +174,7 @@ function UpdateDetailAccount({ close }) {
                 <p>Address:</p>
               </div>
               <input
-                className=""
+                className={u.inputForm}
                 type="text"
                 onChange={handleInputChange}
                 placeholder={user.user_data.ubicacion}
@@ -181,19 +182,17 @@ function UpdateDetailAccount({ close }) {
                 name="ubication"
               />
 
-              <button className={u.buttoneditprofile} type="submit" value="" name="">
+              <button className={u.btnSubmitUpdateProfile} type="submit" value="" name="">
                 {" "}
                 Update Profile{" "}
               </button>
             </form>
-            <button onClick={() => close()}>X</button>
+            
           </div>
         </div>
       ) : (
         <div>
-          {" "}
-          <h1>Loading</h1>
-          <img src="" alt="LoadingGif" className="loadingGif" />
+         
         </div>
       )}
     </div>

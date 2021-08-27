@@ -12,7 +12,7 @@ export const User = () => {
 
     return (
         <div className={u.containerUser}>
-            {store ? <h1 id={u.title}>Welcome {store.user_data.fullname} !</h1> : <h3>Cargando...Name</h3>}
+            {store ? <h1 id={u.title}>Welcome {store.user_data.fullname}!</h1> : <h3>Loading...Name</h3>}
             <div className={u.graphic}>
                 <h2>Your last activity</h2>
                 <LineBalance userInfo={store} />

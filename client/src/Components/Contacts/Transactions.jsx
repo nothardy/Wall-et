@@ -36,7 +36,7 @@ export const Transactions = (props) => {
 						/>
 					))
 				) : (
-					<h3> --- </h3>
+					<div>Loading</div>
 				)}
 			</div>
 		</div>
