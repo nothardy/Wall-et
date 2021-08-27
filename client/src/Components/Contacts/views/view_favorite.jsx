@@ -1,59 +1,71 @@
 /* eslint-disable */
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import style from "./view_contacts.module.css";
-import { eraseFavoriteContact, favoriteContact } from "../../../Redux/Actions/Contacts_Action";
-import { useDispatch, useSelector} from "react-redux";
-export const View = ({ fullname, date_transaction, mail, toggleTransactions, userId }) => {
-  const [renderContactTransactions, setRenderContactTransactions] =
-    React.useState(true);
-    //const [user, setUser] = useState(false);
-  const dispatch = useDispatch();
-  //
-  const favorites = useSelector(state => state.contactsReducer.favorites);
-  //
-  /* const [fav, setFav] = useState(true) */
-  const [user, setUser] = useState(
-   {
-   userId,
-   fullname,
-   mail,
-   date_transaction,}
-   )
-  
- /*  useEffect((e) => {
+import {
+	eraseFavoriteContact,
+	favoriteContact,
+	getFavorites,
+} from "../../../Redux/Actions/Contacts_Action";
+import { useDispatch, useSelector } from "react-redux";
+export const View = ({
+	fullname,
+	date_transaction,
+	mail,
+	toggleTransactions,
+	userId,
+	updateFavorites,
+}) => {
+	const [renderContactTransactions, setRenderContactTransactions] =
+		React.useState(true);
+	//const [user, setUser] = useState(false);
+	const dispatch = useDispatch();
+	//
+	const favorites = useSelector((state) => state.contactsReducer.favorites);
+	//
+	/* const [fav, setFav] = useState(true) */
+	const [user, setUser] = useState({
+		userId,
+		fullname,
+		mail,
+		date_transaction,
+	});
+
+	/*  useEffect((e) => {
       dispatch(favoriteContact(e.target.value))    
   },[dispatch]) */
 
+	const handleOnClick = () => {
+		if (renderContactTransactions === true) toggleTransactions(mail);
+		//setRenderContactTransactions(!renderContactTransactions);
+	};
 
-  const handleOnClick = () => {
-    if (renderContactTransactions === true) toggleTransactions(mail);
-    //setRenderContactTransactions(!renderContactTransactions);
-  };
+	const eraseFavorite = (e) => {
+		if (user) {
+			dispatch(eraseFavoriteContact(mail));
+			dispatch(getFavorites());
+			updateFavorites();
+		}
+		setUser(e.target.value);
+	};
 
-
-    const eraseFavorite = (e) => {
-      if(user){
-        dispatch(eraseFavoriteContact(mail))
-      }
-      setUser(e.target.value);
-    }
-
-  return (
-    <div>
-      <div className={style.todo}>
-        <div className={style.container}>
-          <button className={style.button} onClick={handleOnClick}>
-            <div>Name: {fullname}</div>
-            <div>
-              Last Transaction:
-              {date_transaction && date_transaction.slice(5, 10)}
-            </div>
-            <div>Email: {mail}</div>
-          </button>
-          <button className={style.buttonX}onClick={eraseFavorite}>x</button>
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div>
+			<div className={style.todo}>
+				<div className={style.container}>
+					<button className={style.button} onClick={handleOnClick}>
+						<div>Name: {fullname}</div>
+						<div>
+							Last Transaction:
+							{date_transaction && date_transaction.slice(5, 10)}
+						</div>
+						<div>Email: {mail}</div>
+					</button>
+					<button className={style.buttonX} onClick={eraseFavorite}>
+						x
+					</button>
+				</div>
+			</div>
+		</div>
+	);
 };
 export default View;
