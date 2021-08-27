@@ -26,7 +26,7 @@
     padding: 20px;
     border-radius: 8px;
     margin-left: 5rem;
-    margin-top: 2rem;
+    margin-top: 3.5rem;
      display: flex;
     flex-direction: row;
     justify-content: center;
@@ -43,7 +43,7 @@
     padding: 20px;
     border-radius: 8px;
     margin-left: 5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
      display: flex;
     flex-direction: row;
     justify-content: center;
@@ -90,13 +90,13 @@
 
   }
   .bal{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    height: 30rem;
-    right: 60px;
+    justify-content: space-evenly; */
+    /* height: -2rem; */
+    /* right: 60px;
     margin-top:10px;
-    border-radius: 5px;
+    border-radius: 5px; */
   }
   
   .number{

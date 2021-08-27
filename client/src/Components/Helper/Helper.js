@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getDateUser } from "../../Redux/Actions/Home";
+import { Link } from "react-router-dom";
 
 export default function Helper() {
 	//Declaración de variables
@@ -293,7 +294,10 @@ export default function Helper() {
 			{" "}
 			To contact a customer service representative 
 			<div className={s.linkclick}>
-			<a href="/help/form" >  click here </a>
+			<Link to="/help/form">
+			<p className={s.linkclick}> Click here</p>
+			</Link>
+			
 			</div>
 		  </p>
 		</div>

@@ -58,9 +58,11 @@
 }
 .linkclick > a{
     color: var(--text-color);
-    text-decoration: none;
+   /* text-decoration: none; */
     
-}
+    
+    }
+
 .formulario{
 display: flex;
 flex-direction: column;

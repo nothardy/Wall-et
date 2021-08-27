@@ -11,3 +11,21 @@
 .canvasFace{
     position: absolute;
 }
+
+.buttons{
+font-size: 22px;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: none;
+    background-color: rgb(48 107 164);
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 10rem;
+    height: 2.5rem;
+    margin:10px;
+}
+.buttons:hover{
+    background-color: #6F77BF;
+}
+
