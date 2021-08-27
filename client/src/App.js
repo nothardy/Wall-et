@@ -21,7 +21,6 @@ import PublicRoute from "./Components/PublicRoute/PublicRoute";
 import FaceView from "./Components/FaceRecognition/FaceView";
 import LoginFace from "./Components/FaceRecognition/LoginFace/LoginFace";
 
-
 // CSS hecho por:
 // Cami y Celes: /register y /home
 // Gonza: NavBar
@@ -34,7 +33,7 @@ export default function App() {
 			<PublicRoute exact path="/register" component={Register} />
 			<Route exact path="/recoverpassword" component={RecoverPassword} />
 			<Route exact path="/faq" component={FrecuentlyQuestions} />
-			<Route exact path="/loginface" component={LoginFace}/>
+			<Route exact path="/loginface" component={LoginFace} />
 			<Route exact path="/logout" component={Logout} />
 			<PrivateRoute path="/face" component={FaceView} exact />
 			<PrivateRoute path="/account" component={Account} exact />
@@ -45,14 +44,13 @@ export default function App() {
 			<PrivateRoute path="/balance" component={Balance} exact />
 			<PrivateRoute exact path="/walletCard" component={Card} />
 			<PrivateRoute exact path="/help" component={HelperBot} />
+			<Route exact path="/verifyMail" component={checkMail} />
+			<Route exact path="/confirmMail/:token" component={Verify} />
 			<Route
 				exact
 				path="/resetPassword/:userid"
 				component={ResetPassword}
 			/>
-
-			
-
 		</div>
 	);
 }
