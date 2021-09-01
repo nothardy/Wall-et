@@ -34,3 +34,14 @@ Click Transfer at the Transfer section
 
 ![fotoefectos com_ (2)](https://user-images.githubusercontent.com/80794759/131606122-90083954-00b1-4f86-86ac-3c0ad2ec618d.jpg)
 
+In wall-et, you can keep a balance of the amounts and types of expenses you have.
+You can also monitor how much money you have available in your account and you can view a history of all the movements made.
+
+![fotoefectos com_ (1)](https://user-images.githubusercontent.com/80794759/131607110-201352e0-bc1f-4c9f-96db-42b777f3ce9a.jpg)
+
+![fotoefectos com_ (3)](https://user-images.githubusercontent.com/80794759/131607135-5870e03a-3c79-4dea-9bb8-f7c54a09d285.jpg)
+
+
+Wall-et optionally provides facial recognition as a second authentication method. By detecting key points on his face, the user will be able to access his profile safely.
+
+*Pending image
