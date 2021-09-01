@@ -10,7 +10,7 @@ It works like a credit card, but in order to use it you need to have your Wall-e
 ![fotoefectos com_](https://user-images.githubusercontent.com/80794759/131603832-3283f871-8b44-40f6-add9-e6a24023fcb1.jpg)
 
 You can load money easily to your Wall-et account at select retailers.
- All you need to do is generate a code in your Wall-et app, and show it in the retail store along with your cash. You can usually add any amount per code.
+ All you need to do is generate a code in your Wall-et app, and show it in the retail store along with your cash. You can add any amount from $50 per barcode.
  The money will be added to your account immediately.
 
 
