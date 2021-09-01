@@ -15,3 +15,22 @@ You can load money easily to your Wall-et account at select retailers.
 
 
 ![Sin título2](https://user-images.githubusercontent.com/80794759/131604619-f9778e2d-771d-4fcd-8ec0-8dcba14af631.png)
+
+
+You can send money or make a payment to anyone with an email address or CVU/CBU.
+
+From your computer, here’s how to send money:
+
+Click Transfer at the Transfer section
+
+1- Enter the email address or CVU/CBU and click Send. Or you can choose a person in the contacts section.
+2- Enter the amount, and click Send.
+3- Review the security information and click Send.
+
+
+![fotoefectos com_ (1)](https://user-images.githubusercontent.com/80794759/131606092-f2aa172d-9ce5-49f9-b541-0a919abe8e62.jpg)
+
+![Sin título4](https://user-images.githubusercontent.com/80794759/131606111-c4e03e3c-8529-414f-8773-d7a7802baaa3.png)
+
+![fotoefectos com_ (2)](https://user-images.githubusercontent.com/80794759/131606122-90083954-00b1-4f86-86ac-3c0ad2ec618d.jpg)
+
